@@ -14,6 +14,8 @@ Status: `PARTIAL`
 - `npm run build` under Node 11 failed because the dependency range resolved a newer Hardhat using unsupported JavaScript syntax.
 - A feasibility compile under Node 16 with local-only dummy URLs/accounts succeeded: 98 Solidity files compiled.
 - A second Node 16 compile returned `Nothing to compile`.
+- Exact direct toolchain pins were then installed: Hardhat `2.8.3`, `@nomiclabs/hardhat-ethers` `2.0.6`, `@nomiclabs/hardhat-etherscan` `2.1.5`, `@nomiclabs/hardhat-waffle` `2.0.1`, TypeScript `4.0.3`, ts-node `9.0.0`, and `@types/node` `14.11.10`.
+- After deleting the private artifacts/cache, a clean Node 11.15.0 build compiled 98 files successfully using Solidity 0.5.17, 0.6.12 and 0.7.3.
 
 ## Feasibility hashes
 
@@ -25,8 +27,8 @@ These hashes describe the current private probe, not an evaluation lock:
 | `hardhat.config.ts` | `9972001657021ac74dfc6925c83d50bd3aba61bf65b3567cfb06a87f6018e8c2` |
 | Generated `package-lock.json` | `c146e6c816551528c6fa37c2535aed3fe2c1c59ff6359a85f21f52b02629809e` |
 | `package.json` | `ea3b6cfc0eddd7dd766bdba86bba9940ea54ccc558a9e523e5edcd02991cab89` |
-| Artifact manifest (237 files) | `cad8c2d88683b2c7ea94c2761482601e0b0c97d59fe079ef976d8f31dc445045` |
+| Artifact manifest (237 files, clean Node 11 build) | `73e33ae3b3859d508dd5c334e236b5fad87f567acae5f5a798ff12ce34338432` |
 
 ## Consequence
 
-M02.03 is not complete. The Node 16 result is a feasibility compile only. The generated lockfile is not an upstream dependency lock, the declared Node 11 environment cannot run the resolved Hardhat dependency tree, and bytecode/proxy/initialization evidence is not yet packaged. A reproducible-build claim must wait for a pinned compatible dependency graph and complete artifact manifest.
+M02.03 remains partial. Hop now has a clean Node 11 compatibility path when the direct toolchain versions above are exact-pinned. The lockfile is still generated during this probe rather than supplied upstream, and bytecode/proxy/initialization evidence for all development hosts is not yet packaged. The full milestone must wait for the remaining hosts and complete artifact provenance.

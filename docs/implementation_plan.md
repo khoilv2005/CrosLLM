@@ -139,7 +139,7 @@ Owner: B + R. Phụ thuộc: M00, M01. EG §4–6, §13, §20.
 
 - [ ] **M02.01** Lấy source đúng locked commit của Hop, LayerZero, Celer, ChainBridge; kiểm tra cache/receipt và license theo component.
 - [ ] **M02.02** Thẩm định code ancestry trước tuning; giữ split 4/12 nếu hợp lệ, ghi deviation nếu phải đổi; không coi 16 tên là bằng chứng 16 independent implementations.
-- [ ] **M02.03** Build reproducible; hash source, compiler/settings, ABI, bytecode, layouts, dependencies, libraries, proxy implementation/config và initialization.
+- [ ] **M02.03** Build reproducible; hash source, compiler/settings, ABI, bytecode, layouts, dependencies, libraries, proxy implementation/config và initialization. Hop clean-build path now passes on Node 11.15.0 with exact toolchain pins; remaining hosts and full artifact provenance are pending.
 - [ ] **M02.04** Builder lấy reachable handlers/documents bằng deterministic selection; stable symbol IDs, source/destination domains, pack manifest và hash.
 - [ ] **M02.05** Sanitization có mapping và trace correspondence; selector/signature/domain thay đổi phải được cập nhật nhất quán và kiểm tra.
 - [ ] **M02.06** Paired harness mỗi development host: state initialization, normal workflow, allowed actions, clocks/finality, attestation, callbacks và reset isolation.
