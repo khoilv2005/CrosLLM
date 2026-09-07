@@ -122,7 +122,7 @@ Nghiệm thu: ADR chứng minh feasibility ít nhất một luồng symbolic →
 
 Owner: R. Phụ thuộc: M00. EG §5, §10, §17, §20.
 
-- [ ] **M01.01** Tạo package/CLI skeleton và CI; giữ các command utility cũ hoạt động trong quá trình migration.
+- [x] **M01.01** Tạo package/CLI skeleton và CI; giữ các command utility cũ hoạt động trong quá trình migration.
 - [ ] **M01.02** Schema cho artifact pack, symbols, XLIR proposal/abstain, direct claim, query, witness, adjudication, model lock, protocol lock, campaign plan, resource vector.
 - [ ] **M01.03** Tách `campaign_status`, `search_status`, `replay_status`, `adjudication_status`; mapping với schema hiện tại được version hóa, không làm mất TIMEOUT/UNKNOWN/UNSUPPORTED.
 - [ ] **M01.04** Thiết kế campaign UUID, slot ID, attempt ID, finding/root-cause ID, lineage/instance linkage; foreign-key validation xuyên JSONL.

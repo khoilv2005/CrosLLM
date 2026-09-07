@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile Python sources
+        run: python -m compileall -q src tests tools dataset/tools
+      - name: Run implementation tests
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Run utility tests
+        run: python -m unittest discover -s tools -p 'test_*.py' -v
+      - name: Validate starter dataset
+        run: python dataset/tools/validate_dataset.py dataset
