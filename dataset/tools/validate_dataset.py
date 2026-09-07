@@ -78,6 +78,7 @@ def main(root: Path) -> int:
 
     host_path = root / "cases" / "sealed_hosts.jsonl"
     host_ids: set[str] = set()
+    hosts_by_id: dict[str, dict] = {}
     for line_number, host in read_jsonl(host_path):
         prefix = f"{host_path.name}:{line_number}"
         for field in ("host_id", "protocol", "lineage_id", "source_id", "split", "admission_status"):
@@ -90,6 +91,7 @@ def main(root: Path) -> int:
             errors.append(f"{prefix}: unknown source_id {host.get('source_id')}")
         if host.get("admission_status") not in {"sealed_pending", "sealed_ready", "rejected"}:
             errors.append(f"{prefix}: invalid host admission_status")
+        hosts_by_id[host.get("host_id")] = host
 
     lock_path = root / "sources" / "source_lock.json"
     lock = json.loads(lock_path.read_text(encoding="utf-8"))
@@ -116,6 +118,13 @@ def main(root: Path) -> int:
         commit = item.get("commit", "")
         if len(commit) != 40 or any(char not in "0123456789abcdef" for char in commit):
             errors.append(f"{prefix}: commit is not a lowercase full SHA-1")
+        host = hosts_by_id.get(item.get("host_id"))
+        if host is not None:
+            for field in ("lineage_id", "split", "source_id"):
+                if item.get(field) != host.get(field):
+                    errors.append(
+                        f"{prefix}: {field} does not match sealed host registry"
+                    )
 
     if locked_host_ids != host_ids:
         errors.append("source lock and sealed host registry have different host identifiers")
