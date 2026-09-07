@@ -1,0 +1,16 @@
+{
+  "case_id": "negative_example_replace_before_use",
+  "case_kind": "benign_negative",
+  "admission_status": "sealed_pending",
+  "lineage_id": "replace",
+  "split": "evaluation",
+  "control_pair_id": "sealed_case_id_or_historical_case_id",
+  "control_type": "matched_clean_mutant_or_patched_version",
+  "source_commit": "replace_with_immutable_commit",
+  "source_hash": "replace",
+  "bytecode_hashes": {"source": "replace", "destination": "replace"},
+  "harness_hash": "replace",
+  "no_trigger_validation": "replace_with_independent_validation_reference",
+  "property_status": "property_holds_under_stated_bound",
+  "release_status": "embargoed_or_public_as_appropriate"
+}

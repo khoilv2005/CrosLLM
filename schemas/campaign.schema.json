@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "title": "CrossLLM campaign record (basic structural schema)",
+  "required": [
+    "schema_version",
+    "campaign_id",
+    "instance_id",
+    "lineage_id",
+    "method",
+    "status",
+    "horizon_seconds",
+    "discovery_confirmed",
+    "native_witness_seconds",
+    "resources"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "campaign_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "instance_id": {
+      "type": "string"
+    },
+    "lineage_id": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "backbone": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_tag": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "completed",
+        "timeout",
+        "unsupported",
+        "provider_failure",
+        "tool_failure",
+        "no_valid_proposal"
+      ]
+    },
+    "horizon_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "discovery_confirmed": {
+      "type": "boolean"
+    },
+    "native_witness_seconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "missing_field_reasons": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "registry_version": "crossllm",
+  "sources": [
+    {
+      "source_id": "sok_interop",
+      "title": "SoK Security and Privacy of Blockchain Interoperability",
+      "url": "https://github.com/RafaelAPB/SoKSPBlockchainInterop",
+      "role": "historical_inventory",
+      "license": "MIT",
+      "use_restriction": "Candidate harvesting only; verify each incident independently."
+    },
+    {
+      "source_id": "defihacklabs",
+      "title": "DeFiHackLabs",
+      "url": "https://github.com/SunWeb3Sec/DeFiHackLabs",
+      "role": "historical_replay_reference",
+      "license": "Apache-2.0",
+      "use_restriction": "Use only in an isolated replay harness; do not copy exploit payloads into public releases."
+    },
+    {
+      "source_id": "immunefi_nomad",
+      "title": "Immunefi Nomad August 2022 analysis PoC",
+      "url": "https://github.com/immunefi-team/hack-analysis-pocs/tree/main/src/nomad-august-2022",
+      "role": "independent_replay_reference",
+      "license": "verify_before_use",
+      "use_restriction": "Supporting evidence only; not the sole ground-truth adjudicator."
+    },
+    {
+      "source_id": "xscope_results",
+      "title": "XScope results",
+      "url": "https://github.com/xscope-tool/results",
+      "role": "cross_chain_transaction_metadata",
+      "license": "MIT",
+      "use_restriction": "Transaction/trace leads only; not a paired-artifact benchmark."
+    },
+    {
+      "source_id": "red_bridge",
+      "title": "RED-BRIDGE",
+      "url": "https://zenodo.org/records/21211498",
+      "role": "traffic_auxiliary",
+      "license": "CC-BY-4.0",
+      "use_restriction": "Use for normal message/channel profile calibration only, not vulnerability recall."
+    },
+    {
+      "source_id": "hop_contracts",
+      "title": "Hop Protocol contracts",
+      "url": "https://github.com/hop-protocol/contracts",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Pin a commit, deployments and paired harness before admission."
+    },
+    {
+      "source_id": "layerzero_v2",
+      "title": "LayerZero V2",
+      "url": "https://github.com/LayerZero-Labs/LayerZero-v2",
+      "role": "sealed_host_lineage",
+      "license": "repository_license_split",
+      "use_restriction": "Use supported Solidity/EVM paths only; record exact component license."
+    },
+    {
+      "source_id": "across_contracts",
+      "title": "Across contracts",
+      "url": "https://github.com/across-protocol/contracts",
+      "role": "sealed_host_lineage",
+      "license": "BUSL-1.1",
+      "use_restriction": "Review redistribution terms before releasing derived source."
+    },
+    {
+      "source_id": "celer_cbridge",
+      "title": "Celer cBridge contracts",
+      "url": "https://github.com/celer-network/cBridge-contracts",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Confirm executable paired-chain coverage before admission."
+    },
+    {
+      "source_id": "synapse_contracts",
+      "title": "Synapse contracts",
+      "url": "https://github.com/synapsecns/synapse-contracts",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Pin source, deployment mapping and paired EVM harness before admission."
+    },
+    {
+      "source_id": "axelar_gmp_solidity",
+      "title": "Axelar GMP Solidity SDK",
+      "url": "https://github.com/axelarnetwork/axelar-gmp-sdk-solidity",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "SDK alone is insufficient; require executable paired application harness."
+    },
+    {
+      "source_id": "hyperlane_monorepo",
+      "title": "Hyperlane monorepo",
+      "url": "https://github.com/hyperlane-xyz/hyperlane-monorepo",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Narrow to a stable EVM-to-EVM message path before admission."
+    },
+    {
+      "source_id": "chainbridge_solidity",
+      "title": "ChainSafe ChainBridge Solidity",
+      "url": "https://github.com/ChainSafe/chainbridge-solidity",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Pin a commit and construct a supported paired EVM harness before admission."
+    },
+    {
+      "source_id": "wormhole_solidity_sdk",
+      "title": "Wormhole Solidity SDK",
+      "url": "https://github.com/wormhole-foundation/wormhole-solidity-sdk",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "SDK material requires an executable paired EVM application harness; do not label a Solana incident as native EVM rediscovery."
+    },
+    {
+      "source_id": "stargate_contracts",
+      "title": "Stargate contracts",
+      "url": "https://github.com/stargate-protocol/stargate",
+      "role": "sealed_host_lineage",
+      "license": "BUSL-1.1",
+      "use_restriction": "Review redistribution conditions before releasing derived artifacts."
+    },
+    {
+      "source_id": "arbitrum_token_bridge",
+      "title": "OffchainLabs token bridge contracts",
+      "url": "https://github.com/OffchainLabs/token-bridge-contracts",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Select a reproducible L1/L2 bridge path and pin all deployment/proxy configuration."
+    },
+    {
+      "source_id": "optimism",
+      "title": "Optimism monorepo",
+      "url": "https://github.com/ethereum-optimism/optimism",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Narrow the monorepo to a supported L1/L2 bridge path and record component license."
+    },
+    {
+      "source_id": "zksync_era_contracts",
+      "title": "zkSync Era contracts",
+      "url": "https://github.com/matter-labs/era-contracts",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Admit only a buildable paired EVM bridge path with all required system configuration."
+    },
+    {
+      "source_id": "polygon_zkevm_contracts",
+      "title": "Polygon zkEVM contracts",
+      "url": "https://github.com/0xPolygonHermez/zkevm-contracts",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Pin bridge deployment, proof/finality profile and paired harness before admission."
+    },
+    {
+      "source_id": "scroll_contracts",
+      "title": "Scroll contracts",
+      "url": "https://github.com/scroll-tech/scroll-contracts",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Pin an executable L1/L2 bridge path and supported proof/finality abstraction."
+    },
+    {
+      "source_id": "linea_contracts",
+      "title": "Linea contracts",
+      "url": "https://github.com/Consensys/linea-contracts",
+      "role": "sealed_host_lineage",
+      "license": "verify_before_use",
+      "use_restriction": "Pin a buildable L1/L2 path and record all proxy/configuration artifacts."
+    }
+  ]
+}

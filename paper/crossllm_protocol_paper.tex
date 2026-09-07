@@ -1,0 +1,628 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{verbatim}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue}
+\setlength{\emergencystretch}{3em}
+
+\title{CrossLLM: A Prospective Protocol for Cross-Chain Security Specification and Verification}
+\author{Research protocol package}
+\date{7 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper presents the consolidated CrossLLM research protocol supplied with this repository. The protocol studies whether stochastic language-model proposal of cross-chain security specifications becomes more useful when combined with a typed intermediate representation, an explicit two-chain transition model, bounded symbolic search, and independently checked replay. It separates automatic auditing from specification-conditioned verification, requires lineage-aware benchmark construction and matched negative controls, and predeclares clustered estimation, resource accounting, contamination controls, and release policy. The package is prospective: no redesigned-protocol experiment, validated sealed benchmark, or empirical CrossLLM result is included. All numerical targets and resource caps are planning choices until generated from admissible raw data.
+\end{abstract}
+
+\textbf{Keywords:} cross-chain security; smart contracts; large language models; formal verification; symbolic execution; reproducible evaluation
+
+\section{Scope and status}
+
+This repository is organized as a research protocol package rather than a completed evaluation. The supplied material contains planning configuration, model metadata, source registries, dataset templates, schemas, and offline utilities. It does not contain a CrossLLM engine, hevm-X implementation, XLIR compiler, paired EVM harnesses, completed gold annotations, raw model outputs, or an admitted final benchmark.
+
+The paper source is intentionally self-contained. The complete experiment guide and primary-source register are reproduced in Appendices~\ref{app:guide} and~\ref{app:sources}; the machine-readable counterparts remain in \path{protocol/} and \path{dataset/}. No result is inferred from a placeholder, an archive assertion, or a planning calculation.
+
+\section{Scientific design}
+
+The central question is whether a typed, executable verification workflow can convert language-model-generated security specifications into independently supported findings. The design has two non-pooled tracks:
+
+\begin{itemize}
+  \item \textbf{Automatic auditing:} the method receives program artifacts, protocol documentation, and a common threat profile, but no target-specific gold property or trigger.
+  \item \textbf{Specification-conditioned verification:} applicable backends receive independently authored properties and a common harness. Results from this track are reported separately and are not evidence for an automatic-auditing claim.
+\end{itemize}
+
+The primary estimand is lineage-balanced paired absolute recall on the declared benchmark distribution. Independent code lineages receive equal weight, and eligible instances are weighted within lineage. Historical rediscovery, sealed transfer, negative-control precision, backbone comparisons, ablations, and resource sensitivity are separate estimands. A discovery is not a vulnerability merely because an arbitrary LLM predicate can be replayed: the finding must match an independently warranted property and the declared threat capabilities.
+
+\section{Research questions}
+
+The protocol defines six research questions:
+
+\begin{enumerate}
+  \item \textbf{Effectiveness:} does the combined workflow improve independently confirmed discovery recall and native-witness yield?
+  \item \textbf{Contamination-resistant transfer:} does performance transfer to sealed, matched mutants on evaluation-only lineages under independent transformations?
+  \item \textbf{Precision and unsupported proposals:} where do malformed, ungrounded, vacuous, infeasible, or non-security-relevant proposals fail?
+  \item \textbf{Component contribution:} what changes when proposal source, typed interfaces, grounding, replay, dual-state modeling, or scheduling are ablated?
+  \item \textbf{Backbone and proposal efficiency:} how do four model families and proposal prefixes affect verified recall, diversity, marginal findings, and tokens?
+  \item \textbf{Cost and failure modes:} how do transaction/channel bounds, solver limits, wall time, and threat assumptions affect coverage?
+\end{enumerate}
+
+The confirmatory contrasts are the four same-backbone CrossLLM versus pure-LLM comparisons and an equally weighted four-backbone CrossLLM mean versus the deterministic T0 control. The protocol uses a paired lineage bootstrap and a prespecified exact sign test for directional consistency, with Holm correction across the five primary contrasts. It does not treat the sign test as a test of equality of pooled means.
+
+\section{Benchmark and dataset construction}
+
+The benchmark unit is a versioned bridge or validated mutant nested in a protocol lineage, not an arbitrary contract dependency. The planning target is 120 independently validated sealed positives and 120 distinct matched negatives across at least 12 evaluation lineages, with four additional development lineages. Historical cases are reported separately and must pass explicit admission gates.
+
+The starter dataset currently records 16 locked host lineages, split into four development and twelve evaluation lineages. Three lineages have source-pinned retrieval receipts; no paired EVM harnesses, sealed validated positives, or matched negative controls have been completed. The six historical records remain candidate inventory only. The dataset excludes exploit payloads, private keys, RPC credentials, and copied third-party contract code.
+
+Each admitted positive requires pinned source and compiler configuration, relevant code/bytecode hashes, an isolated paired-EVM harness, an independently validated security property, an independently validated trigger, a matched control where available, and an adjudicated threat profile. Sealed source and triggers remain outside the public package until evaluation is frozen. Public manifests contain opaque hashes and identifiers rather than private gold contents.
+
+\section{Model and execution policy}
+
+The four planned families are GLM, DeepSeek, Qwen, and gpt-oss. The requested catalogue tags are \path{glm-5.3:cloud}, \path{deepseek-v4-pro:cloud}, \path{qwen3.5:397b-cloud}, and \path{gpt-oss:120b-cloud}; the version-qualified DeepSeek preference is \path{deepseek-v4-pro:0813-cloud}. Public-weight repositories and licenses are recorded in \path{protocol/models.json}. The package does not equate an upstream weight revision, catalogue tag, or manifest prefix with an authenticated immutable served-weight identity.
+
+Before calibration and evaluation, the runner must archive the effective API settings, model response identifier, available catalogue/show metadata, provider digests with their actual meaning, license evidence, and missing-field reasons. Requested settings are kept separate from effective settings. Cloud structured-output limitations require local parsing and semantic validation rather than a claim of provider-enforced JSON schema.
+
+The primary planning profile uses at most eight proposal slots per campaign, fresh conversations, no browsing or retrieval, a 32,768 native-input-token cap, an 8,192 generated-token cap, bounded EVM/channel search, a 30-second SMT query cap, and a 3,600-second campaign horizon. These values are not observed runtime measurements. Transport retries are logged and do not create extra proposal slots; the main experiment permits no semantic repair.
+
+\section{Adjudication, statistics, and reproducibility}
+
+Every emitted proposal is retained in raw slot denominators. Findings are deduplicated by root cause and instance. The adjudication record distinguishes schema failure, unresolved references, type/domain incompatibility, invalid or vacuous properties, infeasible searches, timeouts, replay failures, non-security-relevant behavior, and true vulnerabilities. Human reviewers are blinded to method and backbone where feasible, and no LLM judges correctness.
+
+The principal interval resamples independent lineages while preserving their matched instances, methods, prompts, and campaigns. The protocol also reports the actual denominator, missingness, unsupported coverage, false-security claims, native-witness time, correct-claim time, CPU, memory, solver time, wall time, token counts, and provider cost when available. Unknown values remain null with a reason; they are never converted to zero.
+
+The supplied utilities are intentionally limited. They perform offline planning arithmetic, structural manifest validation, source-lock validation, and unit tests. They do not authenticate primary sources, prove semantics, execute models or EVMs, or establish model identity. Publication tables must be generated from normalized JSONL and versioned analysis code, never entered by hand.
+
+\section{Repository map and archive reconciliation}
+
+The single paper source is \path{paper/crossllm_protocol_paper.tex}. Operational protocol configuration is in \path{protocol/}; the starter dataset is in \path{dataset/}; public schemas are in \path{schemas/}; and offline utilities are in \path{tools/}. The input archive contained no separate manuscript source, methodology fragment, table template, or audit report despite references to those paths in its README. This repository therefore consolidates the materials that were actually supplied and records the missing implementation/evidence boundary instead of fabricating those files or results.
+
+\appendix
+
+\section{Complete supplied Experiment Guide}
+\label{app:guide}
+
+The following block reproduces the supplied guide in full, including its planning caveats and execution boundary.
+
+\begin{verbatim}
+# CrossLLM Experiment Guide
+
+**Protocol date:** 2026-09-07. **Status:** prospective protocol; no redesigned-protocol experiment has been executed. Numerical sample sizes and resource caps below are planning choices, not findings. Every outcome is `[TO BE MEASURED IN THE NEW EXPERIMENT]` until generated from the new raw data.
+
+## 1. Scientific objective and decision rules
+
+Test whether stochastic proposal of cross-chain specifications increases useful specification-search coverage, while a typed compiler, an explicit two-chain transition model, symbolic search, and independently checked replay provide executable evidence. A replay of an arbitrary violated LLM predicate is not, by itself, a vulnerability. Security relevance is adjudicated against an independently defined property and the declared adversary capabilities.
+
+The study has two tracks. **Automatic auditing** supplies program artifacts, public protocol documentation and a common threat profile, but no target-specific gold property or trigger. **Specification-conditioned verification** supplies independently authored properties and a common harness to all applicable backends. These tracks have separate tables and cannot be pooled into an automation claim.
+
+P0 denotes work required before a serious submission; P1 denotes substantial additional evidence; P2 denotes optional scope expansion. Passing a protocol gate is not evidence of a positive research result. Negative and mixed findings must be retained.
+
+## 2. Research questions and estimands
+
+| RQ | Dataset and experimental unit | Manipulation | Outcomes | Analysis, effect and interpretation |
+|---|---|---|---|---|
+| RQ1 Effectiveness | Historical native-EVM incidents and sealed positives, reported separately; instance nested in code lineage | Method, with paired information and resource conditions | Independently confirmed discovery recall; native witness yield; false-alert rate | Lineage-balanced paired risk difference and protocol-cluster bootstrap CI; predeclared lineage sign tests assess directional consistency, not equality of means. A 10 percentage-point gain is the prospective practical-improvement reference. |
+| RQ2 Contamination-resistant transfer | Sealed positives and matched negatives on evaluation-only lineages | Original versus transformed representation; independent mutation implementations; no public incident cues | Recall, transformation discordance, matched-negative alarms | Paired lineage effects with cluster CIs; successful sealed transfer is not called contamination-free or post-training-cutoff without a model-snapshot provenance chain. |
+| RQ3 Precision and unsupported proposals | All raw proposal slots, all emitted findings, matched negatives | Validation stage; held candidate pool | Syntax validity, reference precision, semantic validity, vacuity, infeasibility, replay failure, false discoveries | Stage-conditional and unconditional denominators; clustered CIs, adjudication agreement and zero-event bounds. Measure false security claims that replay, not only failed replays. |
+| RQ4 Component contribution | Prespecified balanced 48-instance subset, plus semantic unit tests | Proposal source, IR interface, checking stage, dual-state implementation and scheduling | Recall differences, useful specifications, rejected claims, solver work and latency | Paired contrasts and targeted interactions on common candidates or common semantics; no interpretation of an unreachable ablation as a pure implementation effect. |
+| RQ5 Backbone and proposal efficiency | Full core across GLM, DeepSeek, Qwen and gpt-oss; prompt subset | Backbone; prefix N=1,2,4,8; dev-selected reasoning; prompt paraphrase | Gold-property proposal recall, recall@N, verified recall, diversity, marginal findings/tokens | Per-backbone estimates first; equal-weight four-backbone average is descriptive and not an ensemble. Interaction plots and cluster CIs; no independence formula for proposal batches. |
+| RQ6 Cost, bounds and failure modes | Full core for primary resource profile; 24-instance balanced sensitivity subset | Transaction/channel bounds, buffer, solver and wall time; relevant threat assumptions | Restricted time without a witness, cost vector, path/schedule counts, SMT load, timeout, stage of miss | Paired restricted-mean differences with lineage CIs; scaling curves and coverage-status labels. Timeouts are misses at the detection horizon and censored time-to-event observations. |
+
+The primary target is the declared benchmark distribution, weighting independent code lineages equally and eligible instances equally within lineage. This is not a probability sample of all deployed bridges. Family-specific estimates use their own explicit denominators. Infrastructure contracts are never independent detection observations.
+
+## 3. Roles and information separation (P0)
+
+Assign a benchmark team, a tool team and an adjudication team. The benchmark team develops gold properties, mutations and concrete triggers without seeing final test outputs. The tool team sees only development data and the public-information packs allowed to every automatic method. Two security/formal-methods annotators label findings independently; a third resolves disagreements. Annotators disclose relevant implementation involvement. Where personnel overlap is unavoidable, log that limitation and have an independent collaborator audit a stratified sample.
+
+The tool process must not have filesystem, retrieval, network or environment-variable access to the gold-property store, mutation diff, patch explanation, trigger or method-blinded adjudication labels. Do not use any LLM to judge correctness. Do not use closed-model-generated specifications, dictionaries, cached reports or embeddings in the redesigned protocol. Deterministic lexical retrieval is permitted. A new LLM-assisted baseline must route every generative role to an eligible listed open-weight backbone.
+
+## 4. Benchmark layers and admission
+
+### A. Historical rediscovery (P0)
+
+Retain real historical cases only after identifying the actual vulnerable implementation, source revision, patch, trigger, architecture and threat assumptions. A case is a CVE only when an actual assigned identifier is documented; otherwise give an incident identifier. The original twelve names are a candidate inventory, not twelve established independent CVEs.
+
+The Wormhole 2022 Solana-side failure is not native EVM-to-EVM rediscovery. An EVM translation belongs to an explicitly labeled protocol-inspired cohort. A sanitized structural skeleton is not an exact incident reproduction. Key-compromise, governance and threshold-collusion cases cannot establish implementation defects under an honest-threshold threat model. Custom precompiles, non-EVM source consensus and proof systems require an explicit support decision. Duplicate descriptions of one root cause count once; distinct vulnerabilities in one lineage remain clustered.
+
+Collect vulnerable and patched revisions wherever available. Do not assert that a historical patch makes the entire protocol vulnerability-free. It establishes a negative control for the named property under the tested model, supplemented by independently reviewed benign behaviors.
+
+### B. Sealed contamination-resistant evaluation (P0)
+
+Planning target: 120 independently validated vulnerable mutants across at least 12 independent evaluation code lineages, with 20 mutants in each of six property families and at least four host lineages per family. Spread instances to avoid a single host dominating. Different variants of one host remain dependent observations. If this number of genuinely independent, supported hosts cannot be assembled, reduce the scope of the cross-protocol claim rather than rename forks as independent protocols.
+
+Use four additional development lineages, disjoint from all evaluation lineages and substantial forks. This is a target of at least 16 total independent lineages, not a claim that the supplied fourteen protocol names satisfy it. Shared implementation ancestry is established from repository history and normalized-code similarity, with manual resolution of uncertain clusters.
+
+The benchmark team constructs unpublished variants after development configuration selection and records a timestamped cryptographic commitment to the exact programs, gold properties, mutation operators, and triggers before the first test request. Timestamping proves the commitment existed by a time, not that a cloud model could not have seen the material. Record who had access and whether any material was previously sent to an LLM. No test generation, validation or repair may use a tested backbone.
+
+Counter contamination by combining cold code-lineage separation, independent mutation implementations, lexical sanitization, balanced benign transformations, and sealed gold labels. Renaming alone is not strong evidence against semantic memorization. Include at least one evaluation-only implementation of each mutation family that was not used to tune prompts or the primitive library. Mutation-family names are allowed generic research knowledge; exact gold bindings and triggers are not.
+
+### C. Negative controls (P0)
+
+Planning target: 120 distinct matched negative instances across the same evaluation lineages. Match documentation, complexity and transformation distributions to positives. Use genuine patches and benign/sham transformations. Do not count the same unchanged patch 10 times because it is paired with 10 mutants. Record parent implementation and deduplicate exact artifacts. Where there are fewer distinct negative instances, report that actual denominator.
+
+Validate the target property with independently specified reference checks, bounded exhaustive checking when possible, and positive demonstrations that normal workflows remain reachable. State the scope of this assurance. An apparent novel vulnerability in a negative instance is independently investigated under a predeclared relabeling rule before method identities are revealed; retain both original-label and adjudicated-label analyses.
+
+### D. Prospective temporal holdout (P1)
+
+Add this cohort only if an authenticated, fixed served-model revision can be linked to a date and the exact benchmark subsequently created or made available. A release date, a deployment year and the absence of a public post-mortem are insufficient. Public upstream weight commits do not automatically identify the weights served by an Ollama Cloud alias. Without this link, use the label "sealed prospective collection" and do not call the cohort post-training-cutoff.
+
+## 5. Required benchmark manifest
+
+One JSONL row represents one versioned evaluated instance, not a contract dependency. Required fields:
+
+```json
+{
+  "instance_id": "ASSIGN_STABLE_ID",
+  "lineage_id": "ADJUDICATED_CODE_LINEAGE",
+  "protocol_name": "ACTUAL_PROTOCOL",
+  "version_id": "EXACT_VERSION",
+  "parent_instance_id": null,
+  "paired_instance_id": null,
+  "split": "development|evaluation",
+  "cohort": "historical|sealed|negative|prospective|adaptation",
+  "status": "vulnerable|patched|benign",
+  "source_repository": "PRIMARY_REPOSITORY",
+  "source_commit": "FULL_COMMIT_HASH",
+  "source_sha256": "ACTUAL_HASH",
+  "bytecode_sha256": "ACTUAL_HASH_OR_NULL_WITH_REASON",
+  "deployment_block_hash": null,
+  "proxy_implementation": null,
+  "compiler_settings_hash": "ACTUAL_HASH",
+  "chain_pair": ["SOURCE_CHAIN", "DESTINATION_CHAIN"],
+  "architecture": "ACTUAL_ARCHITECTURE",
+  "threat_profile_id": "VERSIONED_PROFILE",
+  "attestation_profile_id": "VERSIONED_PROFILE",
+  "property_family": "input_validation|logic|quorum|replay|finality|message_handling",
+  "gold_property_id": "OPAQUE_ID_NOT_PROPERTY_CONTENT",
+  "ground_truth_evidence_hash": "PRIVATE_EVIDENCE_HASH",
+  "mutation_operator_id": null,
+  "mutation_implementation_id": null,
+  "trigger_validation_status": "pass",
+  "negative_validation_scope": null,
+  "first_public_availability": null,
+  "availability_evidence": "CITABLE_SOURCE_OR_UNPUBLISHED_RECORD",
+  "seal_timestamp": null,
+  "sanitization_manifest_hash": "ACTUAL_HASH",
+  "artifact_pack_sha256": "ACTUAL_HASH",
+  "infrastructure_contract_count": 0,
+  "native_evm_scope": true,
+  "minimum_known_trigger_bound": null,
+  "eligibility_notes": "EXACT_SUPPORT_AND_EXCLUSIONS"
+}
+```
+
+The public runtime manifest omits private gold contents. Keep the enriched adjudication manifest in a separate access domain. Hash all compiler outputs, storage layouts, ABIs, linked libraries, dependency versions, initialization transactions, relevant proof keys, finality parameters and proxy implementation/storage configurations.
+
+## 6. Mutant construction and independent validation (P0)
+
+Define an operator as a partial transformation `mu(P, location, theta) -> P'` with explicit syntactic preconditions, intended semantic change and a mapped independent security property Q. Reject a mutation when its precondition does not hold. Examples of operator specifications, not exploit payloads:
+
+| Family | Transformation class | Required independent validation |
+|---|---|---|
+| Input validation | Weaken binding of message origin, destination, payload or proof public input | Accepted message violates Q's exact binding; valid message still accepted |
+| Logic/accounting | Alter a required amount, fee, asset-conversion or refund check | A reachable value-flow trace violates independent conservation accounting |
+| Quorum | Replace distinct authorized signer count by an incorrect count or threshold | Trigger uses capabilities below the legitimate threshold; no assumed honest key forgery |
+| Replay | Remove or mis-scope consumption state/domain binding | Two distinct destination effects consume one logically unique authorization |
+| Finality/window | Weaken the committed-source or challenge-time guard | Concrete calls violate the specified timing/canonicality condition under allowed clocks |
+| Message handling | Move bookkeeping across a callback or omit a handler/message binding | Reachable callback/order trace changes a protected state without a valid authorization |
+
+For every retained mutant: compile; run benign workflows; validate the gold property independently of XLIR; reproduce a violation on an independent concrete EVM; show the paired patch blocks that trigger; confirm the threat model permits every action; document the changed security semantics; and have a second expert approve the result. A trigger blocked by the primary k is not an equivalent mutant. Keep it in the all-in-scope denominator and separately report the within-bound slice. Non-triggerable, equivalent and out-of-scope constructions are excluded before any test output is observed and appear in a construction flow diagram with reasons.
+
+Transformations may rename identifiers, remove incident comments, replace addresses with consistently mapped local identities, reorder independent declarations, and restructure equivalent control flow. Validate observational correspondence using the transformation map. Renaming ABI identifiers or domains can change selectors or signatures; update all linked callers and signed-message encodings consistently and verify them. No transformation is declared semantics-preserving merely because it compiles.
+
+## 7. Model eligibility and version policy (P0)
+
+Use all four requested families. Primary-source observations on 2026-09-07 support the exact GLM-5.3 Cloud tag and publicly published GLM-5.3 weights/license, as well as the other three families. Some catalogue responses were stale; retain those responses as provenance rather than interpreting an old catalogue omission as model absence. No authenticated inference was performed during this audit.
+
+| Family | Requested catalogue tag | Execution preference | Public-weight source and license | Metadata caveats |
+|---|---|---|---|---|
+| GLM | `glm-5.3:cloud` | Same exact tag | `zai-org/GLM-5.3`; custom GLM-5.3 License, NOT MIT | Ollama displays 753B and 1M context. Active count and exact first-public-weight timestamp require archival confirmation; do not inherit GLM-5 values. No authoritative cutoff established. |
+| DeepSeek | `deepseek-v4-pro:cloud` | Prefer `deepseek-v4-pro:0813-cloud` after preflight, recording it as a version-qualified V4-Pro tag | `deepseek-ai/DeepSeek-V4-Pro-0813`; MIT | Ollama describes 1.6T total/49B active and 1M context; the weight page displays a 1.7T package count. Preserve both labeled counts. GA release is documented as 2026-08-13 (preview 2026-04-24). A dated tag is not proof of immutability. No cutoff established. |
+| Qwen | `qwen3.5:397b-cloud` | Same exact tag, not an arbitrary user namespace | `Qwen/Qwen3.5-397B-A17B`; Apache-2.0 | 397B total/17B active; Cloud 256K, native card 262144. Public first-model release 2026-02-16. No cutoff established. |
+| gpt-oss | `gpt-oss:120b-cloud` | Same exact tag | `openai/gpt-oss-120b`; Apache-2.0 | Model card 116.8B total/5.1B active; Cloud 128K, card 131072; released 2025-08-05; documented knowledge cutoff June 2024. This is not a proof of absence of later post-training contamination. |
+
+Source register: `primary_sources.md`; machine-readable fields: `models_registry.json`.
+
+Before calibration and again before evaluation, save catalogue/tag pages, the exact model/license card, all available API metadata and the response model identifier. Where `/api/tags` or `/api/show` is supported, retain the complete response. Label each returned digest as manifest, configuration, tokenizer or served-weight identity according to what the provider actually guarantees. Leave `served_weight_digest` null when unavailable. Do not equate an upstream Hugging Face commit to the served checkpoint without provider evidence.
+
+The GLM license grants weight access but includes additional conditions for qualifying large-revenue Model-as-a-Service operators. Archive the actual license and obtain the institution's own applicability assessment; this protocol is not legal clearance. A custom open-weight license is not synonymous with OSI-approved open source.
+
+A missing tag may be replaced only before test evaluation by another open-weight, publicly licensed model in the current Ollama Cloud catalogue. Prefer the same family, retain four distinct families, record the reason and rerun development calibration for that backbone. No closed model is an emergency fallback. An endpoint change during evaluation creates a separate version block; do not silently combine it with earlier runs. A fixed canary panel can detect some drift but cannot prove weight identity.
+
+## 8. Calibration and fixed evaluation settings (P0)
+
+Use development lineages only. Evaluate a compact menu, not a full product of hyperparameters. Compare two reasoning levels supported by each backend, two temperatures surrounding a documented or explicitly research-chosen setting, and N prefixes. Select the least costly setting within a prespecified development recall tolerance, for example 5 percentage points of the best development estimate. Record the selection rule before inspecting development outcomes. Final test settings must be identical across CrossLLM and its same-backbone pure-LLM comparator, except for the method-specific task prompt.
+
+Starting configurations, subject to development-only selection and provider capability checks:
+
+| Backbone | Temperature | top-p | Reasoning request | Note |
+|---|---:|---:|---|---|
+| GLM-5.3 | 1.0 | 0.95 | high; compare low in development | Research starting point. Provider must confirm mapping to native `reasoning_effort`; clear prior thinking for chat. |
+| DeepSeek V4-Pro | 1.0 | 1.0 | high; compare low if supported | Public 0813 card recommends T=1 and p=1 outside agentic scenarios. Do not treat high as equal compute to other models. |
+| Qwen3.5 | 0.6 | 0.95 | thinking enabled | Card-recommended thinking sampler; top-k=20 only if the Cloud path actually supports it. |
+| gpt-oss-120B | 0.7 | 0.95 | medium; compare low in development | Research starting point, not a claimed vendor recommendation. Boolean false is not an equivalent no-thinking configuration. |
+
+Choose an identical UTF-8 information pack for every backbone and method. Perform deterministic AST/reachability and document selection without gold labels. Target no more than 32768 input tokens under each pinned native tokenizer/encoding, including the prompt. This is a common-content constraint, not a claim that different tokenizers measure equal information. Validate the actual server-reported input counts. Allocate sufficient provider context for the complete input, reasoning and answer, within each model's supported window. Native context extensions are not Cloud capabilities unless documented for the endpoint.
+
+Initial planning request cap: 8192 generated native tokens, 180 seconds per request, one invariant or direct claim per slot. This cap is deliberately budget-constrained, not vendor-maximum reasoning. Development must check answer truncation; if over 5% of otherwise valid development calls are truncated, compare 16384 tokens and/or lower reasoning, then select and document the final common within-backbone condition. Do not truncate reasoning after evaluation to rescue a model. Set a bounded final AST size (256 nodes) and maximum rationale length; record how the cap is enforced. Distinguish provider-generated-token counts from locally counted visible answer tokens, and record unavailable reasoning counts as null, never zero.
+
+Ollama's structured-output documentation currently states that Cloud does not support enforced structured outputs. Therefore, ask for JSON in text and apply local parsing/schema/semantic checks. Do not describe this as guaranteed provider-side JSON-schema decoding. Requested and effective parameters are separate fields; unsupported/ignored controls are recorded, not quietly assumed.
+
+## 9. Proposal sampling, prompt and repair policy (P0)
+
+An evaluation campaign has N=8 proposal slots, issued in a fixed predeclared order with fresh conversations. Each call produces at most one candidate. Malformed, duplicate, truncated and refused outputs consume their slot. Do not keep drawing until eight valid candidates appear. Deduplicate for solver scheduling, but retain every raw slot in the proposal denominators. No browsing, retrieval of post-mortems, tool access, memory or conversation history is available to the proposer.
+
+For each instance/backbone, start development with ten stochastic campaigns. Select a common evaluation R from 5, 10 or 20 using development-only Monte Carlo precision simulations across all four families; target a Monte Carlo standard error at most 0.025 for lineage-balanced recall and at most 0.03 for primary differences. These are planning tolerances, not guarantees. A choice of five is permitted only if the development analysis supports it. Record UUIDs and scheduling blocks; an API seed is recorded only as a requested parameter unless deterministic guarantees are established. Fresh conversations are stochastic replicates, not proof of independent model samples.
+
+The main experiment permits no semantic repair. A transport failure permits at most two retries after 2 and 10 seconds; retries remain within the campaign horizon, are logged, and are not extra successful proposal slots. Retain error and partial-response costs where observable. Schema-repair is a separately labeled P1 variant: at most one additional call per invalid slot, with only the local diagnostic, no ground truth, solver result or exploit hint. Report both equal-total-call-budget and unconstrained-repair-cost versions. Main and repair-enabled results cannot share the same N label without an additional total-call field.
+
+### Proposer system prompt
+
+```text
+You propose candidate security invariants; you do not determine that a vulnerability exists.
+Use only the supplied artifact pack, symbol table, threat profile and XLIR language definition.
+Return exactly one JSON object matching the supplied schema, or {"abstain": true, "reason": "..."}.
+Reference only listed artifact and symbol IDs. Distinguish source and destination domains.
+State pre-state and post-state observations explicitly. Do not invent variables, proof objects,
+keys, handlers, domains, finality facts or attacker capabilities. A security property must remain
+compatible with the documented legitimate workflow. Do not assume the program already enforces it.
+Do not refer to incident names, vulnerability databases, external sources or known exploit payloads.
+Do not claim soundness, completeness, exploitability or a discovered vulnerability.
+```
+
+### Proposer user prompt
+
+```text
+ARTIFACT_PACK_HASH: {{pack_hash}}
+PROGRAM_ARTIFACTS: {{identical_source_abi_storage_layout_and_document_pack}}
+SYMBOL_TABLE: {{deterministic_symbol_table}}
+THREAT_PROFILE: {{profile}}
+XLIR_GRAMMAR_AND_SEMANTICS: {{versioned_grammar}}
+OUTPUT_SCHEMA: {{schema}}
+SLOT: {{slot_number}} of {{N}}
+Propose one grounded bounded security invariant useful for this program.
+Return the JSON object only. A slot may abstain rather than invent an unsupported reference.
+```
+
+### Pure-LLM comparator prompt
+
+```text
+Use only the same artifact pack, symbol table and threat profile. Identify at most one concrete
+security defect. Return a structured claim containing artifact/symbol IDs, the violated security
+requirement, the necessary preconditions and allowed attacker capabilities, the causal defect,
+and a bounded trigger plan. Return abstain when there is insufficient evidence. Do not invent
+program objects or attacker capabilities. Do not use external incident knowledge or tools.
+```
+
+The pure baseline is a direct-audit task, not the same prompt as invariant synthesis. Thus its comparison measures end-to-end workflow value. To isolate validation causally, use the identical stored proposal/trace pool in the filtering ablations. Do not attribute all differences between these prompts exclusively to symbolic execution.
+
+## 10. Formal model and implementation admission (P0)
+
+State is `(E_S, E_D, Q, H_S, H_D, A, clocks, observer_state)`. H records canonical block information and rollback state; A contains explicit attestation configuration and attacker-controlled keys. Observer state is ghost state, not a means of altering the contract. The message identity includes source/destination domains, emitter, recipient, nonce/intent and payload commitment.
+
+Primary planning bounds: `k_tx=6` total externally initiated EVM transactions across both chains, `k_ch=12` channel/environment transitions, `B=2` pending envelopes, a declared transaction gas/loop bound, 30 seconds per SMT query, and 3600 seconds end-to-end per campaign. The development phase can revise these once under the prespecified selection rule; the final values enter the protocol lock before any evaluation request. A delivery invoking a handler counts one destination transaction and one delivery action, never two transactions. Internal EVM calls do not increment k_tx. No infinite sequence of zero-cost channel steps is permitted.
+
+A source reorganization is an environment/consensus capability, not automatically a relayer power. Reorganization after assumed finality, threshold compromise and challenge-window violations are separate fault profiles. A premature finalization is an attempted contract call; the harness cannot set a state variable to bypass the code's check. Attestation abstractions constrain attacker knowledge and available proof/signature operations, while actual acceptance checks remain in the bytecode under test. Do not inject the desired invariant into the path constraints.
+
+Require a supported-opcode/precompile matrix, compiler rule tests, storage/proxy binding tests, differential concrete execution against an independent EVM implementation, and a witness checker that reevaluates the source-level property independently of its SMT lowering. A sanitized implementation requires a trace correspondence record; it is not silently substituted for pinned deployed bytecode.
+
+Status vocabulary: `WITNESS`, `BOUNDED_UNSAT`, `TIMEOUT`, `SOLVER_UNKNOWN`, `UNSUPPORTED`, `CRASH`, `INFRASTRUCTURE_ERROR`, `NO_VALID_PROPOSAL`. BOUNDED_UNSAT is permitted only for a completely encoded, exhausted bounded search for the particular property. An UNSAT path query does not establish global bounded absence. A proof certificate requires an actual independently checkable proof artifact; otherwise call it an UNSAT result. No timeout produces a certificate.
+
+## 11. Baseline portfolio and fairness
+
+| ID | Method | Track / minimum status | Information and adaptation rule |
+|---|---|---|---|
+| X-G, X-D, X-Q, X-O | CrossLLM with each backbone | Automatic / P0 full core | Same content pack; N=8; fixed CrossLLM engine |
+| P-G, P-D, P-Q, P-O | Pure-LLM direct auditor with each same backbone | Automatic / P0 full core | Matched input, sampling, total request caps and permitted documentation |
+| T0 | Fixed deterministic invariant templates + identical CrossLLM backend | Automatic / P0 full core | Templates developed before test; no gold binding; same slot/solver budget |
+| S0 | Slither native detectors | Automatic / P0 compatible full core | No invented manual-spec interface; no CrossLLM dictionaries |
+| I0 | ItyFuzz native documented bug oracles | Automatic / P0 supported subset | Pin author implementation and document actual bytecode/chain support |
+| G-G, G-D, G-Q, G-O | GPTScan-Ollama adaptation | Automatic / P0 common-supported 48-instance subset; P1 full compatible core | Replace provider transport only where possible; preserve method logic; no claim of native cross-chain reasoning or reproduction of original closed-model scores |
+| H0 | hevm with independent manual properties/product harness | Specification-conditioned / P0 subset | Same gold-property information and semantic harness as other conditioned methods |
+| H1 | Halmos with independent manual properties/product harness | Specification-conditioned / P0 subset | Same properties, initial states and supported semantics |
+| F0 | Echidna with independent manual properties/product harness | Specification-conditioned / P0 subset | Same property semantics; replay all failures; hand-specification effort recorded |
+| O0 | CrossLLM backend with independently supplied gold properties | Specification-conditioned / P0 subset | Oracle ceiling for proposer failure diagnosis, not an automatic baseline |
+
+Use a 48-instance subset selected before outcomes, balanced across 12 lineages, six families and vulnerable/negative status. Publish the selection seed for dataset scheduling, which is not an LLM determinism claim. Where GPTScan does not support a class, mark it unsupported and present both the common-supported comparison and operational coverage; never fill an unsupported cell as successful analysis. If the adapter cannot faithfully preserve its documented algorithm, label it a reimplementation and move it out of confirmatory baseline claims.
+
+SmartInv, PropertyGPT and SymGPT are relevant related systems, but original fine-tuned checkpoints, ERC-specific properties, unavailable orchestration, cached closed-model outputs or proof-language requirements can prevent compliant reproduction. Document eligibility checks. Do not silently replace essential fine-tuning with prompt-only calls and retain the original method name. AuditGPT targets ERC compliance; it is not automatically a bridge-security baseline. Certora is optional P1 in the conditioned track only, subject to access, license and reproducible configuration. ConsolFuzz and the draft's exact ConFuzz/IcyChecker citations must not be used until identity, publication and code are reconciled.
+
+For each method save upstream commit, adapter diff, license, command line, configuration and smoke-test report. Baselines get independent dictionaries derived only from their documented public workflow. `Baseline + CrossLLM dictionary` is a separate P1 experiment, never the native baseline.
+
+## 12. Outcome adjudication and false-positive definitions (P0)
+
+A method-independent correct discovery must identify an actual affected program location or binding, a specific violated security requirement, allowed preconditions and a causal defect that matches an independently validated violation. Generic claims such as "there may be a replay bug" do not count. Deduplicate by root cause and instance; repeated prompts do not multiply true positives.
+
+Maintain two endpoints. **Discovery recall** uses the same blinded security adjudication for every method, including textual methods; independent replay can validate a sufficiently specific claim, but cannot rescue a vague prediction by supplying its missing mechanism. **Native witness yield/time** measures traces generated by the method itself. Pure-LLM native TTFW is N/A when it produces no machine-executable witness. Also report time to a correct claim, separately from evaluator reproduction time. This prevents either penalizing a text-only baseline for an output it does not promise or crediting evaluator labor as the baseline's own witness generation.
+
+For CrossLLM final findings require grounded compilation, a feasible model trace, successful independent concrete replay, violation of an independently warranted security property, and allowed channel/attestation behavior. Unknown property legitimacy or threat feasibility yields an unresolved claim, not a confirmed vulnerability.
+
+Use first-failure stage plus additional independent flags:
+
+1. malformed serialization/schema;
+2. unresolved artifact reference;
+3. type/mode/domain incompatibility;
+4. security-invalid or assumption-invalid property;
+5. vacuous/irrelevant property (including unreachable antecedent);
+6. duplicate useful or duplicate useless property;
+7. solver-infeasible candidate;
+8. timeout/unknown/unsupported execution;
+9. projection or replay failure;
+10. replayed but non-security-relevant behavior;
+11. true vulnerability.
+
+A grounded/type-accepted object with an unresolved reference is a checker defect, not an allowed hallucination category. Syntactic schema acceptance and semantic grounding acceptance must be different fields. Feasible legitimate behavior violates an overrestrictive LLM property without being a security vulnerability.
+
+Report (a) reference precision over named references; (b) proposal validity over all slots; (c) useful gold-property proposal recall over target properties; (d) unique findings; (e) false-discovery proportion among emitted security claims; and (f) probability of any false security alert on a negative instance/campaign. Undefined precision with no reports is N/A, not 100%.
+
+A proposal covers a gold requirement only when its grounded observations, domains and temporal condition match that independently defined requirement, or a checked bounded implication establishes the stated relation. A matching family name or similar rationale is insufficient. Annotators make this mapping blind to downstream success. Report both property recall (gold requirements covered) and instance recall (at least one relevant gold requirement covered); an incomplete gold catalogue is disclosed rather than interpreted as exhaustive proposal correctness.
+
+Canonical AST hashes measure syntactic diversity after normalization; they do not prove semantic inequivalence. Report semantic diversity only for independently adjudicated or equivalence-checked groups. A bounded vacuity check asks whether the property antecedent is reachable under the declared initialization and threat profile; only a completed UNSAT check supports unreachable-antecedent vacuity. A timeout is unknown, and a satisfiable antecedent does not establish that the proposed requirement is warranted.
+
+Annotators are blinded to method and backbone where feasible; normalize report presentation and remove stylistic identifiers without altering content. Report pre-reconciliation agreement, confusion matrix, Cohen's kappa with a lineage-cluster CI for two raters (or Krippendorff's alpha for an appropriate multi-rater/missing-label design), prevalence and raw agreement. Do not interpret a kappa threshold as automatic validity. Audit all final findings and a stratified probability sample of rejected proposals; use sampling weights for corpus-level rejection-label estimates. Inspect all unresolved-reference anomalies and a random sample of accepted grounded references.
+
+## 13. Abstraction-faithfulness study (P0)
+
+For every evaluated bridge/version, construct an action-to-evidence table: action precondition; state transition; allowed adversary; key/proof assumptions; source contract/configuration/documentation evidence; concrete realization; and unresolved questions. Validate complete action sequences, not only isolated steps. Two independent reviewers adjudicate the table and each emitted security-relevant witness; report agreement and unresolved cases separately.
+
+Differential replay compares the encoded transition effects against an independent EVM on the pinned state. Extract configuration from contracts where possible. Documentation is evidence of intended assumptions, not a mathematical transition semantics. Model-relative counterexample soundness is stated separately from empirical support for deployment relevance. A manual 14/14 pass rate is not a proof, and three sampled counterexamples per bridge do not establish all possible model actions.
+
+## 14. Ablation matrix
+
+| Priority | Experiment | Fixed elements | Contrast and interpretation |
+|---|---|---|---|
+| P0 | Learned proposer vs T0 | Compiler, model, backend, final validator and budgets | Useful specification discovery, not oracle-specification quality |
+| P0 | Primitive interface vs generic typed core | Same expressible property set and backend | Ergonomic/template contribution; do not compare a restricted five-family language with a seven-family language as a pure checker effect |
+| P0 | Grounding early vs deferred | Identical stored proposals; unsupported references never get invented meanings | Rejection accuracy and avoidable solver/engineering cost; no fake semantics for unresolved variables |
+| P0 | Replay on/off filtering audit | Identical SAT witnesses and external gold adjudication | Incremental elimination of unsupported witnesses; no replacement search after rejection in this audit |
+| P0 | Adversarial channel vs FIFO profile | Programs, properties, bounds, attestation assumptions | Contribution of additional modeled schedules, reported as threat-model coverage |
+| P0 | Gold-property diagnostic | Same failed instances and backend, after primary output lock | Distinguish proposer misses from backend/semantics/bound failures; not retroactive primary tuning |
+| P1 | LLM x primitive-interface 2x2 | Same generic expressive core; common backend | Interaction in grounded, useful proposal coverage |
+| P1 | Dual-VM implementation vs tagged-product single-VM implementation x channel mode | Demonstrably equivalent transition semantics and matched transition budgets | Execution-engine/scheduler efficiency; native per-chain analysis remains an external baseline |
+| P1 | XLIR representation x joint-state backend | Equivalent macro/core representations of the same stored properties; dual-VM versus a semantically equivalent product engine | Lowering/engine interaction in solver work and latency; requires equivalent semantics before this is an admissible causal test |
+| P1 | Symbolic feasibility filter x replay filter 2x2 | Independently constructed common candidate-trace pool | Filter discrimination only, not end-to-end generation capability |
+| P1 | Repair off/on | Same starting invalid slots; bounded repair, separate matched-call analysis | Repair benefit relative to extra tokens and attempts |
+| P2 | Specific primitive removal | Fixed supported-case subset | Family-specific dependence, not broad causal evidence of type-system superiority |
+
+Safety guards are tested with isolated integration tests, not removal from accuracy experiments. Do not disable network isolation to measure detection speed.
+
+## 15. Sensitivity and scalability matrix
+
+The P0 subset has 24 instances from at least eight lineages, including positive and negative cases, selected before outcomes for architectures rather than observed difficulty. Use a preregistered reference backbone (Qwen) and a contrasting backbone (gpt-oss) on this subset. The full four-backbone core supplies N-prefix results. P1 expands to all four.
+
+| Parameter | P0/P1 levels | Interpretation constraint |
+|---|---|---|
+| Proposal count | P0: 1,2,4,8 prefixes; P1:16 | Prefix proposal recall is computed from the same ordered batch; budget-constrained end-to-end recall requires a separately executed N schedule on the subset |
+| k_tx | P0:2,4,6,8 | Transactions across both chains, not opcodes |
+| k_ch / buffer B | P0:(6,1),(12,2),(24,4); P1 factor these separately | Joint levels are a scaling profile, not separate causal estimates; a small orthogonal sweep isolates each factor |
+| SMT query timeout | P0:10,30,120 seconds on subset | All under the same end-to-end horizon unless explicitly changed |
+| Campaign horizon | P0:15 and 60 minutes; P1:24 hours on a balanced hard-case stratum selected without test success labels | Unsuccessful runs remain in restricted-time estimates |
+| Delivery/reordering | P0:FIFO vs permitted reordering/duplication | A changed threat profile changes the claim's domain |
+| Source reorganization | P0:no reorg vs bounded pre-finality reorg; P1 depth 1,2,4 | Finality failure is a separate stress scenario |
+| Challenge timing | P0:before, at, after boundary under independent clocks | No magical bypass action |
+| Attestation | P0:honest threshold, relevant verifier abstraction; P1:compromised threshold/invalid-proof integration | Expected compromise is not an implementation vulnerability |
+| Reasoning | P1:low vs selected standard setting | Token and latency effects measured, not assumed equal across families |
+| Prompt | P1:three paraphrases on a fixed subset | Nested within instances; not three independent benchmarks |
+| Program size | P0:strata by reachable handlers, branches, storage objects and message schedules | Report empirical resource limits; do not use raw LOC alone |
+
+Log explored EVM paths, channel schedules, pending messages, visited joint states, dedup/cache hits, SMT queries, SAT/UNSAT/UNKNOWN, cumulative solver time, peak RSS, CPU seconds, wall time and timeout rate. Plot where success saturates and memory/time limits terminate exploration. Larger bounds do not guarantee monotonically higher observed recall under a fixed wall budget.
+
+## 16. Resource definition and scheduling (P0)
+
+Planning worker: 4 pinned CPU cores, 16 GiB RAM, no local GPU requirement, one solver process unless the method's documented parallel variant is separately labeled. A development-supported exception for a method requires disclosure and a resource-vector comparison. The 3600-second campaign horizon includes prompt generation, retries, compilation, search and native replay. Offline common artifact preparation is timed separately for every method, as is manual property/harness effort. Evaluation adjudication time is separate from method runtime.
+
+Parallelism is across campaigns, not an invisible increase in a method's worker allocation. Randomize method/backbone order within instance and time blocks. Record API queue delay, throttling, cache status when available, provider region when known, and local concurrency. Re-run deterministic methods only for systems-timing checks; repeating their identical outputs does not increase the effective detection n. Repeat stochastic fuzzers and LLM methods under the prespecified R.
+
+Resource vector: CPU core-seconds, solver seconds, memory high-water mark, end-to-end wall seconds, provider-reported input/generated tokens, locally estimated visible answer/thinking tokens with tokenizer identity, cloud invoice cost where obtainable, and unobserved provider GPU usage explicitly marked unavailable. Native tokens are not normalized FLOPs. An account subscription is not a fabricated per-request price; separate marginal invoice and allocated subscription cost.
+
+At 240 sealed/negative instances and R=10, the eight core LLM workflows require 19200 campaigns and 153600 proposal/direct-audit calls before retries. CrossLLM contributes 9600 backend campaigns, at most 9600 worker-hours (38400 core-hours at four cores) at a one-hour cap. Historical cases, baselines and the 48/24-instance substudies are additional. This is an upper-bound planning calculation, not measured runtime or a guarantee that the user's account quota permits it. The default avoids a full 24-hour Cartesian product. The provided planner accepts alternative R and corpus sizes.
+
+When resources are insufficient, first avoid redundant deterministic repeats, reuse stored proposal streams for filter audits, restrict high-order interactions to the prespecified subset, and postpone P1/P2 studies. Do not silently reduce the number of independent lineages or hide failed campaigns to maintain a headline recall. Reassess precision prospectively before reducing R or mutant counts.
+
+## 17. Raw data and logged fields (P0)
+
+Use immutable append-only JSONL with file hashes and a documented schema version.
+
+- `models.lock.json`: exact catalogue/execution/response tags; upstream weight revision; license hash; provider digest type and value; requested/effective context and sampling controls; metadata capture time; primary-source evidence; missing-field reasons.
+- `benchmark.public.jsonl`: public manifest described above; no gold content.
+- `benchmark.private.jsonl`: independent Q, mutation validation, trigger and patch correspondence, annotation and disclosure records.
+- `campaigns.jsonl`: campaign UUID, instance/lineage, method/backbone, prompt/version/hash, stochastic replicate ID, time block, k_tx/k_ch/B, threat profile, query/campaign budgets, status, discovered root causes, native witness time, correct-claim time, terminal error, native tokens, CPU/memory/time/cost and environment hash.
+- `proposals.jsonl`: campaign/slot, request/response SHA-256, full raw messages in controlled storage, requested/effective settings, HTTP/transport metadata, server model, actual counts, finish reason, parse/schema/grounding/type/vacuity results, named references, canonical invariant hash, repair parent and dedup relation.
+- `queries.jsonl`: candidate ID, formula/solver/version hashes, result, elapsed time, visited paths and unknown reason.
+- `witnesses.jsonl`: witness ID, candidate, initial-state hash, action sequence, proof/signature objects under the local safety policy, trace hash, native replay and independent replay results, monitor outcome, model-validity flags.
+- `adjudication.jsonl`: blinded finding ID, rater, property relevance, root cause, allowed capabilities, severity, confidence, first-failure class, pre-consensus label, final label and resolution reason.
+
+Record missing measurements as null plus a reason. Never turn unknown provider hardware, reasoning tokens, absent snapshots or missing ground truth into zero. The bundled checker validates basic manifests and leakage boundaries; it is not a theorem prover or a substitute for the implementation admission tests.
+
+## 18. Statistical analysis plan (P0)
+
+### 18.1 Hierarchy and effect estimation
+
+Index lineage l, instance i, backbone m, prompt p and campaign r. For detection-by-horizon Y in {0,1}, compute the campaign mean per instance, then an instance mean per lineage, then equal-weight the lineage means. For paired methods compute differences within each instance before aggregation. Report micro-average performance only as a secondary descriptive statistic. A union of detections across repetitions is a distinct "at least one of R campaigns" endpoint and must not be called single-run recall.
+
+The principal interval resamples independent lineages with replacement, preserving all their matched instances, methods, backbones, prompts and campaigns. Use 10000 bootstrap draws and the same draw indices for paired contrasts. This quantifies between-lineage variability for the sampled implementation domain; with few lineages, report leave-one-lineage-out sensitivity and the full lineage effect plot. A separate conditional Monte Carlo analysis resamples stochastic campaigns within fixed instances. Do not automatically nest resampling at every level and describe it as universally correct: the resampling design must match whether instances/replicates are fixed or sampled. A prespecified hierarchical bootstrap is an additional sensitivity analysis for an explicitly sampled multistage target.
+
+Below ten independent lineages, do not present generic asymptotic cluster inference as strong cross-protocol evidence. Below twelve, record deviation from the target and emphasize finite-corpus estimates. More stochastic runs cannot manufacture new protocol lineages.
+
+### 18.2 Primary hypotheses and multiplicity
+
+Five confirmatory contrasts on the sealed positive cohort:
+
+1. X-G versus P-G.
+2. X-D versus P-D.
+3. X-Q versus P-Q.
+4. X-O versus P-O.
+5. The equally weighted four-backbone CrossLLM mean versus T0.
+
+Primary effect: lineage-balanced absolute recall difference. Primary uncertainty: paired lineage-bootstrap 95% interval, labeled pointwise rather than simultaneous. A separate exact two-sided sign test on nonzero lineage effects evaluates directional consistency across lineages; its null is a 0.5 chance of a positive nonzero lineage effect, not equality of pooled means. Apply Holm correction to these five p-values, report ties and the effective lineage count. Raw p, adjusted p, effect and interval all appear together. This simple test is deliberately conservative with small cluster counts. Do not claim significance of a mean difference merely because the sign test is significant.
+
+Secondary automatic comparisons are the four-backbone mean versus Slither and ItyFuzz on eligible instances, plus four matched GPTScan-Ollama comparisons on their common-supported subset: a separate family of six tests. Mark these secondary. Conditioned-backend comparisons and ablation/sensitivity results are effect/CI-first exploratory analyses unless separately registered with their own finite hypothesis family. Do not use all-pairs correction across every method, parameter and table cell. Optional P1 hierarchical logistic models include lineage and instance random intercepts and prespecified method/backbone/family interactions; check separation, prior/fit sensitivity and the adequacy of cluster counts.
+
+### 18.3 Time outcomes
+
+For methods that generate native witnesses, T is time to the first independently valid native witness and tau is the common campaign horizon. Plot Kaplan-Meier curves descriptively; clustered pairing is handled by the inference procedure, not by calling the estimator "paired Kaplan-Meier." The restricted mean time without a witness is integral_0^tau S(t) dt, equivalently E[min(T,tau)] under the specified event/censoring design. Lower is better. Report its paired difference and ratio where stable, with lineage-bootstrap intervals. A median is reported only if the survival curve reaches 0.5.
+
+Timeouts are Y=0 at tau and right-censored for time-to-event. Method crashes and unsupported analyses are failures in the intention-to-run discovery analysis, not innocuous censoring at the time of crash. For the operational restricted-time score assign no-event campaigns tau; separately report time-to-failure and analyze terminal failures as competing events in a sensitivity analysis. Genuine provider outages follow the fixed retry policy and appear in both intention-to-run and availability-conditioned summaries. Do not delete them because they make an LLM method look weak.
+
+A stratified Cox model with explicit lineage clustering may be secondary if there are sufficient events and proportional-hazards diagnostics are satisfactory. Hazard ratios are not speedup factors. Never compute a runtime geometric mean only on the mutually successful subset and use it as an all-instance efficiency claim.
+
+### 18.4 Zero events and small samples
+
+For n independent negative trials with zero false alerts, the one-sided 95% binomial upper bound is `1 - 0.05^(1/n)`. This calculation is not valid when n is an arbitrary count of correlated prompts or variants. With all-zero cluster data, a nonparametric cluster bootstrap degenerates and does not establish zero risk. Report the observed count, and separately bound the lineage-level event "at least one false alert during the fixed evaluation schedule." With 12 independent lineages and no such event its one-sided upper bound is approximately 22.1%; this is a lineage-level probability, not the instance false-positive rate. Model-based beta-binomial sensitivity may inform instance-level uncertainty, but its assumptions must be stated.
+
+The supplied six-bug FN result has an exact independent-binomial 95% interval of approximately [0.0042,0.6412] for one miss in six. Even that interval assumes an appropriate independent sampling model; six purposively selected families are not an automatically random population sample. Do not retain the old [0.04,0.36] interval without a defensible derivation.
+
+### 18.5 Prospective power and precision
+
+Use development estimates only for within-instance stochastic variance, paired discordance, lineage heterogeneity, false-alert prevalence and truncation. Simulate the actual hierarchical design, planned estimand and hypothesis procedure across plausible effect/ICC ranges; archive code, parameters and simulated operating characteristics before testing.
+
+Illustrative planning, not empirical evidence: at recall 0.8, n=120 independent cases gives an approximate 95% half-width 0.072. Ten cases per lineage with ICC=0.10 gives design effect 1.9, effective n approximately 63 and half-width approximately 0.099. The same n does not guarantee precise family-level rates.
+
+For an independent paired-binary comparison with anticipated difference 0.15 and discordance 0.30, a normal planning calculation gives about 97 pairs at alpha=.05 and 80% power, or about 144 at alpha=.01; an illustrative 1.9 design effect increases the latter to roughly 274. This is not the power of the chosen lineage sign test. The bundled script separately computes exact sign-test power by the number of independent lineages and anticipated positive-lineage probability. Use simulation for the actual protocol. The minimum plan is precision-oriented and must not promise 80% power for every family or contrast.
+
+## 19. Publication tables and figure generation (P0)
+
+Generate every numerical table from the normalized JSONL and versioned analysis code; no hand-entered result cells. Display `[TO BE MEASURED IN THE NEW EXPERIMENT]` in the manuscript before the relevant experiment. Generate counts from the manifest, never from the "51 contracts" narrative.
+
+Required tables: (1) benchmark composition with lineage/version/positive/negative/dependency counts; (2) model tags, license, metadata and effective settings; (3) automatic end-to-end detection by cohort; (4) sealed transfer by family and lineage; (5) negative-control and stage-filter precision; (6) backbone robustness; (7) controlled ablations; (8) time and resource vectors; (9) bound/threat sensitivity; (10) false-negative/failure taxonomy. Add a separate specification-conditioned table so oracle information is not hidden in the main table.
+
+Figures: per-lineage paired effects; recall@N and marginal useful proposals; verified findings versus native tokens and wall time; cumulative incidence/restricted time without a witness; schedule/path/SMT scaling; failure-stage flow. Use matched model panels rather than pooling an ensemble that was never run. Paper table templates are supplied in `../manuscript/tables.tex`.
+
+## 20. Reproducibility and release (P0)
+
+Archive repository commit, every compiler and solc version/settings, hevm/hevm-X commit, Z3/cvc5 version, independent replay EVM, container image digest, OS/kernel, CPU model/core allocation/RAM, GPU information when actually known, Ollama client version, API path, model catalogue/execution/response tags, all available digests, timestamps, prompts/hashes, sampling settings, benchmark/sanitization manifests, scheduling seeds and stochastic IDs, timeouts, and analysis-script commit. Distinguish requested from effective cloud settings.
+
+Release a public benign/mutation core that reproduces the main methodological claims without privileged access to active vulnerabilities. Seal the test corpus during evaluation, then release it after appropriate safety and licensing review. Restrict only necessary live-vulnerability payloads; reviewers and independent evaluators need sufficient controlled evidence to verify any novel-discovery claim. A gate over all meaningful experiments would substantially weaken reproducibility.
+
+Store full responses for response-replay reproducibility. Where Cloud weight identity is unavailable, explicitly state that fresh generation may differ, while compilation/search/replay on archived proposals can be rerun exactly within the recorded environment. A model-family name is not a snapshot guarantee.
+
+Run only isolated local/fork environments with no broadcast capability; materialize read-only chain data separately under approved access. Network-deny policies and key separation supplement application-level flags. Never claim recompilation cannot bypass a testnet guard. Institutional ethics, legal and maintainer acknowledgments are cited only when actual records exist; this guide does not attest to the old manuscript's asserted approvals.
+
+## 21. Execution sequence and integration boundary
+
+The supplied Python utilities execute offline planning, manifest validation and source arithmetic checks. They do not implement hevm-X, the XLIR compiler, baseline adapters, human adjudication or the experimental runner. Those are explicit P0 integration tasks because the uploaded files do not contain their implementation.
+
+```bash
+# Existing, supplied utility commands; run from the `crossllm` package root.
+python tools/protocol_tool.py plan --config protocol/protocol.json
+python tools/power_precision.py --out protocol/planning/calculations.json
+python tools/protocol_tool.py validate --manifest benchmark.public.jsonl
+python tools/protocol_tool.py inventory --manifest benchmark.public.jsonl --out benchmark_counts.json
+```
+
+The placeholder manifest is intentionally not supplied as real data. Construct `benchmark.public.jsonl` from actual artifacts first. Validation must fail on placeholder hashes, duplicate instances, split leakage, inconsistent positive/negative status or missing validation evidence. Capability/provenance checks then produce a signed evaluation configuration replacing the planning lock's pending fields.
+
+Required runner interface to implement and test (an integration contract, not a claim that these commands currently exist):
+
+```text
+runner preflight  --protocol protocol.lock.json --models models.lock.json
+runner calibrate --split development --protocol protocol/protocol.json
+runner run       --plan campaigns.plan.jsonl --gold-access disabled
+runner replay    --witnesses witnesses.jsonl --independent-evm REFERENCE
+runner export    --schema-version 2 --out raw/
+analysis build   --raw raw/ --protocol protocol.lock.json --out results/
+```
+
+Order: implementation admission tests -> source/model/license preflight -> lineage split and development study -> prospective power/precision decision -> independent sealed benchmark validation -> protocol lock and test commitment -> randomized campaign execution -> method-blinded adjudication -> diagnostic oracle-property runs -> prespecified analysis -> tables -> controlled release. Do not tune on the diagnostic reruns and relabel them primary results.
+
+## 22. Minimum strong plan
+
+P0: repair semantics/checker contradictions and demonstrate differential consistency; identify the valid historical cohort; four dev and at least twelve independent evaluation lineages; target 120 sealed positives plus 120 distinct negatives; all four CrossLLM/pure-LLM matched pairs; T0 and native static/dynamic controls; the 48-instance independent-specification and GPTScan adapter comparison; N-prefix evaluation; the 24-instance primary bound/channel sensitivity; independently adjudicated reports; cluster-aware statistics and prospective precision decision; public replayable core and all raw metadata. Sample targets remain contingent on the development power/precision and account-resource analysis.
+
+The design supports a substantial submission only if implemented evidence supports substantive gains or a scientifically informative tradeoff. A protocol alone is not a positive finding.
+
+## 23. Maximal evidence plan
+
+P1: expand independent lineages before multiplying variants, aiming at 20-30+ evaluation lineages where feasible; 240-360 validated positives and matched negatives; two independently authored mutation implementations per family; all four backbones on expanded sensitivity; N=16 cost frontier; equivalent product-engine comparison; targeted factorial interactions; original supported LLM-assisted workflows after faithful open-weight adaptation; longer-horizon stress tests; and a prospective snapshot-linked cohort when possible. Mechanize the finite XLIR core or validate every translation with a small independent checker. Add cross-lab reproduction using archived proposals and fresh Cloud calls in separate analyses.
+
+P2: additional bridge architectures, proof-system integrations or heterogeneous VMs, each with its own semantics and eligibility cohort; additional model families only if they also satisfy public weights/license plus current Ollama Cloud availability. Do not expand the claimed scope merely by adding architecture names.
+
+## 24. Completion and deviation record
+
+A result is publishable only with its actual denominator, semantic support status, threat profile, model/version evidence and independent adjudication. Record every deviation from this guide, its date, the information available when decided, and its expected analysis impact. Deviations made after test outcomes are observed are exploratory. Leave all novel-vulnerability, legal-approval and effectiveness claims as unmeasured/unverified until their evidence is actually supplied.
+\end{verbatim}
+
+\section{Complete supplied primary-source register}
+\label{app:sources}
+
+The following block reproduces the supplied source register in full. It is a provenance register, not an archive of the underlying web pages and not evidence that authenticated inference or immutable served weights were achieved.
+
+\begin{verbatim}
+# CrossLLM primary-source register
+
+Audit date: 2026-09-07. This is a reference register, not an archive of the underlying web pages. Search-index versions and direct page fetches sometimes differed in freshness. Current existence/metadata observations do not attest to successful authenticated inference or immutable served weights. Archive original responses at experimental preflight. No model release date below is automatically a training cutoff.
+
+## Input documents
+
+P: `../manuscript/paper.tex`, 512 physical lines, SHA256 `e42ed54283d86df54543108ff0946c752de1520b48c3bdd5718b61484ac577fb`.
+
+G: `../source/experiment_guide_original.md`, 105 physical lines, SHA256 `a5772a8ee512b9731b726ff4d92fd90062fb9b8e8a64307a17d993c9c4ac1252`.
+
+Both inputs were read in full. Statements of measured performance, code size, CVE assignment, maintainer acknowledgment and legal/ethics approval are assertions in these documents, not independently authenticated evidence. No implementation, benchmark archive, raw outputs, annotation sheets or disclosure records were supplied.
+
+## Model and Cloud sources
+
+| ID | Primary source | What it supports / remaining limitation |
+|---|---|---|
+| W01 | https://ollama.com/search?c=cloud | Required catalogue; captured/indexed versions can be stale. Recheck alongside exact model pages at execution. |
+| W02 | https://ollama.com/library/glm-5.3:cloud | Exact requested tag; displayed 753B, 1M context and reasoning options. Fresh primary indexed result observed; direct fetch intermittently unavailable. Active parameter count not independently established. |
+| W03 | https://huggingface.co/zai-org/GLM-5.3 | Public upstream model/weight repository. Do not identify it with served Cloud weights without evidence. Exact first weight-release timestamp remains unconfirmed from accessible primary chronology. |
+| W04 | https://huggingface.co/zai-org/GLM-5.3/blob/main/LICENSE | Custom GLM-5.3 License; publicly accessible weights with additional conditions, not MIT. Institutional applicability assessment remains necessary. |
+| W05 | https://ollama.com/library/deepseek-v4-pro | Cloud and version-qualified 0813-cloud tags; displayed 1.6T/49B and 1M context. A date-qualified alias is not an immutability guarantee. |
+| W06 | https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813 | Public MIT weight repository and sampling recommendations. Repository package count and advertised architecture count are recorded separately when they differ. |
+| W07 | https://api-docs.deepseek.com/updates/ | Fresh primary indexed chronology records GA V4-Pro on 2026-08-13 and preview 2026-04-24. Some direct fetches returned an older July version. GA date does not prove the first publication timestamp of every weight file. |
+| W08 | https://ollama.com/library/qwen3.5/tags | Exact qwen3.5:397b-cloud, Cloud 256K. Observed manifest prefix a7bf6f7891c3 is not a served-weight attestation. |
+| W09 | https://huggingface.co/Qwen/Qwen3.5-397B-A17B | Public Apache-2.0 weights, 397B total/17B active, native 262144 context; optional native extensions are not presumed Cloud capabilities. |
+| W10 | https://github.com/QwenLM/Qwen3.5 | Official model-family chronology records 397B-A17B release 2026-02-16. Repository redirects/updates must be archived by commit. |
+| W11 | https://ollama.com/library/gpt-oss:120b-cloud | Exact requested tag, Cloud 128K and supported reasoning configuration. |
+| W12 | https://huggingface.co/openai/gpt-oss-120b | Public Apache-2.0 weights and inference/model-card information. |
+| W13 | https://deploymentsafety.openai.com/gpt-oss/tacit-knowledge-and-troubleshooting | Official model-card page: release 2025-08-05; 116.8B total/5.1B active; context 131072; knowledge cutoff June 2024. A reported knowledge cutoff is not a cryptographic exclusion guarantee for all post-training material. |
+| W14 | https://docs.ollama.com/capabilities/structured-outputs | States that Ollama Cloud currently does not support structured outputs; use local schema validation rather than claiming server-enforced JSON schema. |
+| W15 | https://docs.ollama.com/capabilities/thinking | Reasoning controls vary by family; gpt-oss uses low/medium/high, not an assumed universal Boolean off switch. |
+| W16 | https://docs.ollama.com/api/chat | Request/response structure and usage fields. Actual field availability and enforcement require endpoint preflight. |
+| W17 | https://docs.ollama.com/api/tags | Model-list metadata and digests; determine what each digest identifies. |
+| W18 | https://docs.ollama.com/faq | Provider states Cloud prompts are processed but not stored/logged or used for training. Treat this as provider policy, not an independently proved secrecy guarantee. |
+
+No authoritative training cutoff was established for GLM-5.3, DeepSeek-V4-Pro or Qwen3.5. No immutable authenticated served-weight identity was established for any of the four. Vendor-native reasoning recommendations are not proof that Ollama exposes or honors the same request fields.
+
+## Baselines and related work
+
+| ID | Primary source | Verified role / admission rule |
+|---|---|---|
+| W19 | https://github.com/crytic/slither | Native static analysis; manually added bridge specifications are a separate variant. |
+| W20 | https://github.com/argotorg/hevm | EVM symbolic execution; pin supported operations and harness assumptions. |
+| W21 | https://github.com/a16z/halmos | Symbolic bounded checking; manual/gold properties are labeled specification-conditioned. |
+| W22 | https://github.com/crytic/echidna | Property-based smart-contract fuzzing; bridge-aware harnesses are explicit research adaptations. |
+| W23 | https://github.com/fuzzland/ityfuzz | Snapshot/concolic-style fuzzing; use actual supported configurations, not invented native dual-chain support. |
+| W24 | https://github.com/GPTScan/GPTScan | ICSE 2024, 'GPTScan: Detecting Logic Vulnerabilities in Smart Contracts by Combining GPT with Program Analysis', DOI 10.1145/3597503.3639117. Original workflow uses a different provider; label an Ollama adaptation and retain algorithmic components. |
+| W25 | https://github.com/Columbia/SmartInv | Original invariant-generation/verification workflow includes learned components. Replacing an essential trained model with an ordinary prompt is not faithful reproduction. Check catalogue eligibility of every newly executed learned component. |
+| W26 | https://github.com/Pr0pertyGPT/PropertyGPT | Related property-generation/verification artifact; inspect actual executable coverage before declaring baseline reproducibility. Title: 'PropertyGPT: LLM-driven Formal Verification of Smart Contracts through Retrieval-Augmented Property Generation', NDSS 2025; DOI 10.14722/ndss.2025.241357. |
+| W27 | https://arxiv.org/abs/2404.04306 | AuditGPT, by Shihao Xia, Shuai Shao, Mengting He, Tingting Yu, Linhai Song and Yiying Zhang; ERC compliance scope. Do not preserve the draft's W. Ma attribution or an unverified venue/DOI. |
+| W28 | https://arxiv.org/abs/2502.07644 | SymGPT: LLM plus symbolic checking of standard-derived properties; not a blanket native cross-chain auditor. |
+| W29 | https://github.com/symbolic-gpt/symgpt | Author artifact; all new generative calls and any reused closed-model outputs need eligibility review. Archive exact release/license and adaptation. |
+| W30 | https://github.com/MingxiYe/IcyChecker-Artifact | IcyChecker artifact. Verify the ISSTA 2023 transaction-replay/fuzzing work rather than the draft's differing 2024 title. |
+| W31 | https://arxiv.org/abs/2410.14493 | 'Safeguarding Blockchain Ecosystem: Understanding and Detecting Attack Transactions on Cross-chain Bridges'; transaction-graph detection is not the static router analysis attributed to BridgeGuard in the draft. |
+| W32 | https://arxiv.org/abs/2604.12172 | Dominik Blain, 'COBALT-TLA: A Neuro-Symbolic Verification Loop for Cross-Chain Bridge Vulnerability Discovery', April 2026 preprint. Relevant direct conceptual competitor; distinguish abstract TLA+ checking from bytecode-grounded analysis. Executable artifact compatibility not established. |
+| W33 | https://docs.certora.com/ | Optional specification-conditioned prover; include only with access, version, property translation and budget recorded. |
+
+ConsolFuzz, the draft's ConFuzz metadata, XScope metadata and several bridge-specific DOI records were not established sufficiently to admit them as principal reproducible baselines. This is an evidence gap, not a declaration that a named work does not exist. Replace or verify each exact author/title/venue/DOI and artifact before use.
+
+## Scope and statistical sources
+
+| ID | Primary source | Use |
+|---|---|---|
+| W34 | https://github.com/wormhole-foundation/wormhole/blob/main/whitepapers/0007_governor.md | Primary protocol material identifies the 2022 Solana-side incident. An EVM translation is an adaptation, not native EVM-to-EVM rediscovery. |
+| W35 | https://www.bnbchain.org/en/blog/a-decentralized-response | BNB incident response and protocol context; actual custom consensus/proof semantics must be admitted explicitly. |
+| W36 | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binomtest.html | Exact binomial inference API used for illustrative source-arithmetic checks; does not justify independent sampling of purposively chosen bugs. |
+| W37 | https://cran.r-project.org/web/packages/survival/vignettes/survival.pdf | Primary survival-package discussion of clustered/robust analyses. Kaplan-Meier itself is descriptive, not a paired inferential procedure. Relevant pages were visually inspected during research. |
+
+All new sample-size, resource-cap and statistical-procedure selections in the redesigned protocol are prospective methodological proposals. They are not facts derived from a model vendor or measured CrossLLM results.
+\end{verbatim}
+
+\end{document}
+

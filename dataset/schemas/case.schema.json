@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CrossLLM case manifest",
+  "type": "object",
+  "required": ["case_id", "case_kind", "admission_status", "lineage_id", "split"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 3},
+    "case_kind": {"enum": ["historical_positive", "sealed_positive", "patched_negative", "benign_negative", "traffic_auxiliary"]},
+    "admission_status": {"enum": ["candidate", "admitted", "rejected", "sealed_pending", "sealed_ready"]},
+    "lineage_id": {"type": "string", "minLength": 2},
+    "split": {"enum": ["development", "evaluation", "unassigned"]},
+    "source_ids": {"type": "array", "items": {"type": "string"}},
+    "control_pair_id": {"type": "string"},
+    "ground_truth_status": {"type": "string"},
+    "ground_truth_evidence": {"type": "string"},
+    "trigger_validation": {"type": "string"},
+    "replay_status": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"admission_status": {"const": "admitted"}}},
+      "then": {"required": ["ground_truth_evidence", "trigger_validation", "control_pair_id"]}
+    },
+    {
+      "if": {"properties": {"case_kind": {"const": "sealed_positive"}}},
+      "then": {"required": ["control_pair_id", "ground_truth_evidence", "trigger_validation"]}
+    }
+  ]
+}

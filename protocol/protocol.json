@@ -1,0 +1,80 @@
+{
+  "schema_version": 2,
+  "status": "PROSPECTIVE_PLANNING_NOT_AN_EXECUTION_LOCK",
+  "protocol_date": "2026-09-07",
+  "model_families": [
+    "GLM",
+    "DeepSeek",
+    "Qwen",
+    "gpt-oss"
+  ],
+  "benchmark_targets": {
+    "development_lineages": 4,
+    "evaluation_lineages": 12,
+    "sealed_positive": 120,
+    "distinct_negative": 120,
+    "historical_planning_count": 0,
+    "positive_per_family": 20
+  },
+  "proposal_slots": 8,
+  "proposal_prefixes": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "planning_replicates": 10,
+  "evaluation_replicates": null,
+  "evaluation_replicates_reason": "Choose from 5,10,20 using development-only precision analysis",
+  "repair_calls_per_slot_main": 0,
+  "transport_retries": 2,
+  "transport_backoff_seconds": [
+    2,
+    10
+  ],
+  "budgets": {
+    "worker_cpu_cores": 4,
+    "worker_memory_gib": 16,
+    "campaign_wall_seconds": 3600,
+    "request_wall_seconds": 180,
+    "smt_query_seconds": 30,
+    "input_native_token_cap": 32768,
+    "generated_native_token_cap": 8192,
+    "maximum_final_ast_nodes": 256,
+    "k_tx": 6,
+    "k_ch": 12,
+    "B": 2
+  },
+  "subsets": {
+    "baseline_and_ablation_instances": 48,
+    "sensitivity_instances": 24
+  },
+  "primary_contrasts": [
+    "X-G vs P-G",
+    "X-D vs P-D",
+    "X-Q vs P-Q",
+    "X-O vs P-O",
+    "mean(X-G,X-D,X-Q,X-O) vs T0"
+  ],
+  "primary_effect": "lineage-balanced paired absolute recall difference",
+  "primary_p_value_target": "directional consistency: exact two-sided sign test on nonzero lineage effects",
+  "multiplicity": {
+    "primary_family_size": 5,
+    "method": "Holm",
+    "secondary_family_size": 6
+  },
+  "bootstrap": {
+    "draws": 10000,
+    "unit": "independent code lineage with all matched observations preserved"
+  },
+  "missing_execution_fields": [
+    "test manifest hash",
+    "development selection record",
+    "validated API controls",
+    "served metadata",
+    "tool commits",
+    "container digests",
+    "independent EVM support tests",
+    "actual stochastic R"
+  ]
+}

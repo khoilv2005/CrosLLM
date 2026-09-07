@@ -1,0 +1,13 @@
+{
+  "status": "PLANNING_ARITHMETIC_NOT_EXPERIMENTAL_RESULTS",
+  "instances_in_this_plan": 240,
+  "crossllm_campaigns": 9600,
+  "pure_llm_campaigns": 9600,
+  "base_llm_calls_before_retry": 153600,
+  "crossllm_backend_worker_hours_upper_bound": 9600.0,
+  "crossllm_backend_core_hours_upper_bound": 38400.0,
+  "input_tokens_upper_bound_requested": 5033164800,
+  "generated_tokens_upper_bound_requested": 1258291200,
+  "excludes": "historical cases unless entered; non-LLM baselines; GPTScan subset; ablations; sensitivities; calibration; preflight; adjudication",
+  "warning": "Cloud quota, actual parameter enforcement and observed latency are not established."
+}

@@ -1,0 +1,23 @@
+{
+  "lock_status": "pre_evaluation_lineage_lock",
+  "retrieval_date": "2026-09-07",
+  "policy": "A locked source commit is necessary but insufficient for evaluation admission. Source hash, compiler settings, bytecode, paired harness, property, trigger validation and matched control remain required.",
+  "lineages": [
+    {"host_id":"host_hop","lineage_id":"hop","source_id":"hop_contracts","repository":"https://github.com/hop-protocol/contracts.git","commit":"0726ffa0e14745134116e552178fd7e0edcfa8e6","split":"development","artifact_status":"source_pinned"},
+    {"host_id":"host_layerzero","lineage_id":"layerzero_v2","source_id":"layerzero_v2","repository":"https://github.com/LayerZero-Labs/LayerZero-v2.git","commit":"9c741e7f9790639537b1710a203bcdfd73b0b9ac","split":"development","artifact_status":"locked_commit_only"},
+    {"host_id":"host_celer","lineage_id":"celer_cbridge","source_id":"celer_cbridge","repository":"https://github.com/celer-network/cBridge-contracts.git","commit":"d1a097be65b3c9f0f89fabacc988de68770caa18","split":"development","artifact_status":"source_pinned"},
+    {"host_id":"host_chainbridge","lineage_id":"chainbridge","source_id":"chainbridge_solidity","repository":"https://github.com/ChainSafe/chainbridge-solidity.git","commit":"b929c980afcdffae10d61c7065a5655479638519","split":"development","artifact_status":"source_pinned"},
+    {"host_id":"host_hyperlane","lineage_id":"hyperlane","source_id":"hyperlane_monorepo","repository":"https://github.com/hyperlane-xyz/hyperlane-monorepo.git","commit":"8ae786a778857216ad31325f741e9f9cb01b3088","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_axelar","lineage_id":"axelar_gmp","source_id":"axelar_gmp_solidity","repository":"https://github.com/axelarnetwork/axelar-gmp-sdk-solidity.git","commit":"30196ca7cb9479fd5f79f0668523bd2a488093ed","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_synapse","lineage_id":"synapse","source_id":"synapse_contracts","repository":"https://github.com/synapsecns/synapse-contracts.git","commit":"60f1c25cf2f115911e11255f515e1450fe96100c","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_wormhole_sdk","lineage_id":"wormhole_evm_sdk","source_id":"wormhole_solidity_sdk","repository":"https://github.com/wormhole-foundation/wormhole-solidity-sdk.git","commit":"2cb855ea9d0a6c28470620a6d37c04d0496ea919","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_across","lineage_id":"across","source_id":"across_contracts","repository":"https://github.com/across-protocol/contracts.git","commit":"19e346a5415e2ebb18fafe590f76dc90f413d1b5","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_stargate","lineage_id":"stargate","source_id":"stargate_contracts","repository":"https://github.com/stargate-protocol/stargate.git","commit":"c4212c2ee76997b1099ee9b34da0f1ed32dcf9c4","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_arbitrum","lineage_id":"arbitrum_token_bridge","source_id":"arbitrum_token_bridge","repository":"https://github.com/OffchainLabs/token-bridge-contracts.git","commit":"7ef9d4ed4257ec035aeaa1fd7457c537b8f7c7c5","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_optimism","lineage_id":"optimism","source_id":"optimism","repository":"https://github.com/ethereum-optimism/optimism.git","commit":"392b395e8c7618a939e34174b6c9cea7eee5df0e","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_zksync","lineage_id":"zksync_era","source_id":"zksync_era_contracts","repository":"https://github.com/matter-labs/era-contracts.git","commit":"ad5a4783a3f05b18049af62a2f31885ce4c70c3c","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_polygon_zkevm","lineage_id":"polygon_zkevm","source_id":"polygon_zkevm_contracts","repository":"https://github.com/0xPolygonHermez/zkevm-contracts.git","commit":"110bda5a03e70ee7331bc06407a8e79226d3e520","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_scroll","lineage_id":"scroll","source_id":"scroll_contracts","repository":"https://github.com/scroll-tech/scroll-contracts.git","commit":"dfbd661520ac30505a773881728cc5cfb005978b","split":"evaluation","artifact_status":"locked_commit_only"},
+    {"host_id":"host_linea","lineage_id":"linea","source_id":"linea_contracts","repository":"https://github.com/Consensys/linea-contracts.git","commit":"b64fe259195f00e840d1e2a3f08b8e95e7c90918","split":"evaluation","artifact_status":"locked_commit_only"}
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "status": "RESEARCH_METADATA_NOT_RUNTIME_ATTESTATION",
+  "models": [
+    {
+      "family": "GLM",
+      "model": "GLM-5.3",
+      "requested_tag": "glm-5.3:cloud",
+      "preferred_execution_tag": "glm-5.3:cloud",
+      "catalogue_parameters_label": "753B",
+      "active_parameters": null,
+      "active_parameters_note": "Not independently established for this exact release from accessible primary card",
+      "cloud_context_label": "1M",
+      "native_context_tokens": null,
+      "upstream_weights": "zai-org/GLM-5.3",
+      "license": "GLM-5.3 License (custom, not MIT)",
+      "license_source": "https://huggingface.co/zai-org/GLM-5.3/blob/main/LICENSE",
+      "first_public_weights_date": null,
+      "first_public_weights_date_note": "Primary weight files and license observed; initial public-visibility timestamp not independently established",
+      "announcement_date": null,
+      "knowledge_cutoff": null,
+      "reasoning_levels_documented": [
+        "low",
+        "high",
+        "max"
+      ],
+      "native_reasoning_default": "max",
+      "starting_research_settings": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "reasoning_effort": "high",
+        "clear_thinking": true
+      },
+      "version_qualified_cloud_tag_observed": null,
+      "sources": [
+        "https://ollama.com/library/glm-5.3:cloud",
+        "https://huggingface.co/zai-org/GLM-5.3/tree/main"
+      ],
+      "metadata_retrieval_date": "2026-09-07",
+      "authenticated_cloud_inference_tested": false,
+      "upstream_revision_pinned_for_execution": null,
+      "served_weight_digest": null,
+      "immutable_served_weights_guaranteed": false,
+      "effective_api_settings": null,
+      "run_date": null,
+      "actual_input_tokens": null,
+      "actual_generated_tokens": null,
+      "cloud_availability_evidence": "Official Ollama catalogue/tag result; execution-time preflight required",
+      "public_weight_and_license_evidence": "Official upstream repository/card/license observed",
+      "training_cutoff_inferred_from_release_date": false
+    },
+    {
+      "family": "DeepSeek",
+      "model": "DeepSeek-V4-Pro",
+      "requested_tag": "deepseek-v4-pro:cloud",
+      "preferred_execution_tag": "deepseek-v4-pro:0813-cloud",
+      "version_qualified_cloud_tag_observed": "deepseek-v4-pro:0813-cloud",
+      "catalogue_parameters_label": "1.6T total, 49B active",
+      "upstream_package_parameter_display": "1.7T",
+      "active_parameters": 49000000000,
+      "cloud_context_label": "1M",
+      "native_context_tokens": null,
+      "upstream_weights": "deepseek-ai/DeepSeek-V4-Pro-0813",
+      "license": "MIT",
+      "license_source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
+      "preview_release_date": "2026-04-24",
+      "ga_release_date": "2026-08-13",
+      "first_public_weights_date": null,
+      "knowledge_cutoff": null,
+      "reasoning_levels_documented": [
+        "low",
+        "high",
+        "max"
+      ],
+      "starting_research_settings": {
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "reasoning_effort": "high"
+      },
+      "sources": [
+        "https://ollama.com/library/deepseek-v4-pro",
+        "https://api-docs.deepseek.com/updates/"
+      ],
+      "metadata_retrieval_date": "2026-09-07",
+      "authenticated_cloud_inference_tested": false,
+      "upstream_revision_pinned_for_execution": null,
+      "served_weight_digest": null,
+      "immutable_served_weights_guaranteed": false,
+      "effective_api_settings": null,
+      "run_date": null,
+      "actual_input_tokens": null,
+      "actual_generated_tokens": null,
+      "cloud_availability_evidence": "Official Ollama catalogue/tag result; execution-time preflight required",
+      "public_weight_and_license_evidence": "Official upstream repository/card/license observed",
+      "training_cutoff_inferred_from_release_date": false
+    },
+    {
+      "family": "Qwen",
+      "model": "Qwen3.5-397B-A17B",
+      "requested_tag": "qwen3.5:397b-cloud",
+      "preferred_execution_tag": "qwen3.5:397b-cloud",
+      "version_qualified_cloud_tag_observed": null,
+      "catalogue_parameters_label": "397B",
+      "active_parameters": 17000000000,
+      "cloud_context_label": "256K",
+      "native_context_tokens": 262144,
+      "upstream_weights": "Qwen/Qwen3.5-397B-A17B",
+      "license": "Apache-2.0",
+      "license_source": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B",
+      "public_release_date": "2026-02-16",
+      "knowledge_cutoff": null,
+      "reasoning_levels_documented": [
+        "thinking",
+        "non-thinking"
+      ],
+      "starting_research_settings": {
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "think": true,
+        "top_k_if_supported": 20
+      },
+      "observed_catalogue_manifest_prefix": "a7bf6f7891c3",
+      "manifest_prefix_is_served_weight_attestation": false,
+      "sources": [
+        "https://ollama.com/library/qwen3.5/tags",
+        "https://github.com/QwenLM/Qwen3.5"
+      ],
+      "metadata_retrieval_date": "2026-09-07",
+      "authenticated_cloud_inference_tested": false,
+      "upstream_revision_pinned_for_execution": null,
+      "served_weight_digest": null,
+      "immutable_served_weights_guaranteed": false,
+      "effective_api_settings": null,
+      "run_date": null,
+      "actual_input_tokens": null,
+      "actual_generated_tokens": null,
+      "cloud_availability_evidence": "Official Ollama catalogue/tag result; execution-time preflight required",
+      "public_weight_and_license_evidence": "Official upstream repository/card/license observed",
+      "training_cutoff_inferred_from_release_date": false
+    },
+    {
+      "family": "gpt-oss",
+      "model": "gpt-oss-120B",
+      "requested_tag": "gpt-oss:120b-cloud",
+      "preferred_execution_tag": "gpt-oss:120b-cloud",
+      "version_qualified_cloud_tag_observed": null,
+      "catalogue_parameters_label": "120B",
+      "model_card_total_parameters": 116800000000,
+      "active_parameters": 5100000000,
+      "cloud_context_label": "128K",
+      "native_context_tokens": 131072,
+      "upstream_weights": "openai/gpt-oss-120b",
+      "license": "Apache-2.0",
+      "license_source": "https://huggingface.co/openai/gpt-oss-120b",
+      "public_release_date": "2025-08-05",
+      "knowledge_cutoff": "2024-06",
+      "cutoff_scope": "Developer model card describes a knowledge cutoff in its pretraining section; not an exhaustive contamination exclusion certificate",
+      "reasoning_levels_documented": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "starting_research_settings": {
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "think": "medium"
+      },
+      "sources": [
+        "https://ollama.com/library/gpt-oss:120b-cloud",
+        "https://deploymentsafety.openai.com/gpt-oss/tacit-knowledge-and-troubleshooting"
+      ],
+      "metadata_retrieval_date": "2026-09-07",
+      "authenticated_cloud_inference_tested": false,
+      "upstream_revision_pinned_for_execution": null,
+      "served_weight_digest": null,
+      "immutable_served_weights_guaranteed": false,
+      "effective_api_settings": null,
+      "run_date": null,
+      "actual_input_tokens": null,
+      "actual_generated_tokens": null,
+      "cloud_availability_evidence": "Official Ollama catalogue/tag result; execution-time preflight required",
+      "public_weight_and_license_evidence": "Official upstream repository/card/license observed",
+      "training_cutoff_inferred_from_release_date": false
+    }
+  ]
+}

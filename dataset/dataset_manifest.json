@@ -1,0 +1,24 @@
+{
+  "dataset_name": "CrossLLM Dataset",
+  "package_status": "starter",
+  "scope": "EVM-to-EVM cross-chain security evaluation",
+  "public_release_policy": "metadata_and_templates_only_until_sealed_evaluation_is_frozen",
+  "primary_units": ["protocol_lineage", "bridge_version", "validated_mutant_or_vulnerability_instance"],
+  "counts": {
+    "historical_candidates": 6,
+    "admitted_historical_cases": 0,
+    "sealed_host_lineages": 16,
+    "source_pinned_lineages": 3,
+    "sealed_ready_cases": 0,
+    "negative_controls": 0,
+    "registered_sources": 21
+  },
+  "required_separation": {
+    "development_and_evaluation": "disjoint_protocol_lineages",
+    "historical_and_sealed": "reported_separately",
+    "positive_and_negative": "matched_controls_required"
+  },
+  "validation_command": "python3 tools/validate_dataset.py .",
+  "schemas": ["schemas/case.schema.json"],
+  "documentation": ["README.md", "docs/admission_protocol.md"]
+}

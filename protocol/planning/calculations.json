@@ -1,0 +1,174 @@
+{
+  "status": "PLANNING_CALCULATIONS_AND_SOURCE_ARITHMETIC_ONLY",
+  "old_one_miss_in_six_independent_binomial_CI": [
+    0.004210744514489595,
+    0.6412345789974864
+  ],
+  "old_twelve_pair_exact_wilcoxon_minimum_two_sided_p": 0.00048828125,
+  "minimum_after_bonferroni_15_under_that_interpretation": 0.00732421875,
+  "zero_event_upper_one_sided_95": [
+    {
+      "independent_trials": 12,
+      "bound": 0.22092219194555585
+    },
+    {
+      "independent_trials": 20,
+      "bound": 0.13910834066826516
+    },
+    {
+      "independent_trials": 60,
+      "bound": 0.04870291331009746
+    },
+    {
+      "independent_trials": 120,
+      "bound": 0.024655401055656334
+    }
+  ],
+  "illustrative_precision": [
+    {
+      "illustrative_n": 120,
+      "cases_per_lineage": 10,
+      "ICC": 0,
+      "design_effect": 1,
+      "effective_n": 120.0,
+      "normal_half_width_at_p_0_8": 0.0715677657486863
+    },
+    {
+      "illustrative_n": 120,
+      "cases_per_lineage": 10,
+      "ICC": 0.05,
+      "design_effect": 1.45,
+      "effective_n": 82.75862068965517,
+      "normal_half_width_at_p_0_8": 0.08617900200556577
+    },
+    {
+      "illustrative_n": 120,
+      "cases_per_lineage": 10,
+      "ICC": 0.1,
+      "design_effect": 1.9,
+      "effective_n": 63.15789473684211,
+      "normal_half_width_at_p_0_8": 0.09864935721580645
+    },
+    {
+      "illustrative_n": 120,
+      "cases_per_lineage": 10,
+      "ICC": 0.2,
+      "design_effect": 2.8,
+      "effective_n": 42.85714285714286,
+      "normal_half_width_at_p_0_8": 0.11975577758056075
+    }
+  ],
+  "illustrative_paired_binary_planning": [
+    {
+      "alpha": 0.05,
+      "power_target": 0.8,
+      "difference": 0.15,
+      "discordance": 0.3,
+      "normal_independent_pairs": 96.80285005697208,
+      "illustrative_design_effect_1_9_pairs": 183.92541510824694,
+      "note": "Not exact power and not the lineage sign-test calculation"
+    },
+    {
+      "alpha": 0.01,
+      "power_target": 0.8,
+      "difference": 0.15,
+      "discordance": 0.3,
+      "normal_independent_pairs": 144.04060747531486,
+      "illustrative_design_effect_1_9_pairs": 273.6771542030982,
+      "note": "Not exact power and not the lineage sign-test calculation"
+    }
+  ],
+  "lineage_sign_test_power_no_ties": [
+    {
+      "lineages": 12,
+      "positive_lineage_probability": 0.7,
+      "per_test_alpha": 0.01,
+      "power": 0.08504046173799998
+    },
+    {
+      "lineages": 12,
+      "positive_lineage_probability": 0.8,
+      "per_test_alpha": 0.01,
+      "power": 0.2748781076480002
+    },
+    {
+      "lineages": 12,
+      "positive_lineage_probability": 0.9,
+      "per_test_alpha": 0.01,
+      "power": 0.6590022518980002
+    },
+    {
+      "lineages": 20,
+      "positive_lineage_probability": 0.7,
+      "per_test_alpha": 0.01,
+      "power": 0.10708734719847751
+    },
+    {
+      "lineages": 20,
+      "positive_lineage_probability": 0.8,
+      "per_test_alpha": 0.01,
+      "power": 0.41144886275433573
+    },
+    {
+      "lineages": 20,
+      "positive_lineage_probability": 0.9,
+      "per_test_alpha": 0.01,
+      "power": 0.8670466765656732
+    },
+    {
+      "lineages": 24,
+      "positive_lineage_probability": 0.7,
+      "per_test_alpha": 0.01,
+      "power": 0.2288093199534091
+    },
+    {
+      "lineages": 24,
+      "positive_lineage_probability": 0.8,
+      "per_test_alpha": 0.01,
+      "power": 0.6558924330629176
+    },
+    {
+      "lineages": 24,
+      "positive_lineage_probability": 0.9,
+      "per_test_alpha": 0.01,
+      "power": 0.9723417155293045
+    },
+    {
+      "lineages": 30,
+      "positive_lineage_probability": 0.7,
+      "per_test_alpha": 0.01,
+      "power": 0.2813768879618053
+    },
+    {
+      "lineages": 30,
+      "positive_lineage_probability": 0.8,
+      "per_test_alpha": 0.01,
+      "power": 0.7607906187375472
+    },
+    {
+      "lineages": 30,
+      "positive_lineage_probability": 0.9,
+      "per_test_alpha": 0.01,
+      "power": 0.9922163807620787
+    },
+    {
+      "lineages": 40,
+      "positive_lineage_probability": 0.7,
+      "per_test_alpha": 0.01,
+      "power": 0.4406071409780801
+    },
+    {
+      "lineages": 40,
+      "positive_lineage_probability": 0.8,
+      "per_test_alpha": 0.01,
+      "power": 0.9124947640791664
+    },
+    {
+      "lineages": 40,
+      "positive_lineage_probability": 0.9,
+      "per_test_alpha": 0.01,
+      "power": 0.9996191657332637
+    }
+  ],
+  "assumptions": "Independent lineages; no ties in sign-test simulation; development estimates needed for the actual design; no inference on real runs."
+}
