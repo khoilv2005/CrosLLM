@@ -30,7 +30,19 @@
         "artifact_manifest_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
       }
     },
-    "selected_contract_set": {"type": "null"},
+    "selected_contract_set": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {"enum": ["proposed_for_freeze", "frozen"]},
+        "source_paths": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "destination_paths": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "shared_paths": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "dependency_paths": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "rationale": {"type": "string", "minLength": 1}
+      },
+      "required": ["status", "source_paths", "destination_paths", "shared_paths", "dependency_paths", "rationale"]
+    },
     "paired_evm_harness": {"const": "not_yet_pinned"},
     "artifact_status": {"enum": ["source_pinned_only", "build_probe_only"]},
     "missing_gates": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
