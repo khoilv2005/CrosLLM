@@ -154,6 +154,33 @@ def main(root: Path) -> int:
     if receipt_lineages != pinned_in_lock:
         errors.append("source receipts and source_pinned lock entries differ")
 
+    review_path = root / "artifacts" / "lineage_reviews.jsonl"
+    review_lineages: set[str] = set()
+    for line_number, review in read_jsonl(review_path):
+        prefix = f"{review_path.name}:{line_number}"
+        lineage = review.get("lineage_id")
+        if lineage not in lock_by_lineage:
+            errors.append(f"{prefix}: unknown lineage_id {lineage}")
+            continue
+        if lineage in review_lineages:
+            errors.append(f"{prefix}: duplicate lineage review")
+        review_lineages.add(lineage)
+        for field in ("host_id", "source_id", "split", "ancestry_status"):
+            if not review.get(field):
+                errors.append(f"{prefix}: missing {field}")
+        if review.get("ancestry_status") not in {"pending_review", "reviewed", "rejected"}:
+            errors.append(f"{prefix}: invalid ancestry_status")
+        if not isinstance(review.get("evidence_refs"), list) or not review["evidence_refs"]:
+            errors.append(f"{prefix}: ancestry evidence_refs must be non-empty")
+        if not isinstance(review.get("deviation_ids"), list):
+            errors.append(f"{prefix}: deviation_ids must be an array")
+        locked = lock_by_lineage[lineage]
+        for field in ("host_id", "source_id", "split"):
+            if review.get(field) != locked.get(field):
+                errors.append(f"{prefix}: {field} does not match source lock")
+    if review_lineages != set(lock_by_lineage):
+        errors.append("lineage reviews and source lock have different lineage identifiers")
+
     if errors:
         print("FAILED")
         print("\n".join(errors))

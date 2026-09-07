@@ -129,7 +129,7 @@ Owner: R. Phụ thuộc: M00. EG §5, §10, §17, §20.
 - [x] **M01.05** Canonical serialization, hash-addressed blobs, append-only events, timestamp/monotonic durations, terminal records và missing-field reasons.
 - [x] **M01.06** Nâng validator: đúng types/enums/cohort; matched-pair consistency; reject placeholders; admission evidence; nested public allowlist; duplicate content; source/receipt verification. Phân biệt starter-validation và evaluation-admission.
 - [x] **M01.07** Đồng bộ schema với validator: hiện utility không thực thi đầy đủ JSON Schema; dataset validator chủ yếu đọc candidate/host registries, chưa duyệt một corpus evaluated hoàn chỉnh. Thêm mode validate toàn bộ final manifest.
-- [ ] **M01.08** Registry và lock phải thống nhất host → lineage → split, không chỉ cùng tập host ID; ancestry evidence và deviations phải được liên kết.
+- [x] **M01.08** Registry và lock phải thống nhất host → lineage → split, không chỉ cùng tập host ID; ancestry evidence và deviations phải được liên kết. Lineage review records hiện liên kết đầy đủ nhưng vẫn `pending_review`; chưa phải ancestry admission.
 
 Nghiệm thu: lỗi types, orphan IDs, tampered hashes, duplicate terminal event, nested gold leakage, split mismatch và template giả làm admitted đều bị reject; migration không xóa dữ liệu cũ.
 
