@@ -63,6 +63,15 @@ class ManifestChecks(unittest.TestCase):
     def test_placeholder_value_rejected(self):
         row=fixture();row['architecture']='replace'
         self.assertTrue(any('placeholder value' in e for e in tool.validate([row])[0]))
+
+    def test_nested_secret_field_rejected(self):
+        row=fixture();row['metadata']={'private': {'exploit_payload': 'hidden'}}
+        self.assertTrue(any('metadata.private.exploit_payload' in e for e in tool.validate([row])[0]))
+
+    def test_schema_validation_rejects_invalid_native_scope(self):
+        row=fixture();row['native_evm_scope']='true'
+        schema_path = tool.Path(__file__).resolve().parents[1] / 'schemas' / 'benchmark_manifest.schema.json'
+        self.assertTrue(any('native_evm_scope' in e for e in tool.schema_errors([row], schema_path)))
     def test_inventory_does_not_call_dependencies_unique(self):
         row=fixture();row['infrastructure_contract_count']=4
         counts=tool.inventory([row])

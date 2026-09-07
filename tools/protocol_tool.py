@@ -9,6 +9,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from jsonschema import Draft202012Validator
+
 HEX64 = re.compile(r'^[0-9a-fA-F]{64}$')
 COMMIT = re.compile(r'^[0-9a-fA-F]{40,64}$')
 REQUIRED = ('instance_id','lineage_id','protocol_name','version_id','split','cohort',
@@ -40,6 +42,35 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
     if not rows:
         raise ValueError('manifest is empty')
     return rows
+
+
+def schema_errors(rows: list[dict[str, Any]], schema_path: Path) -> list[str]:
+    schema = json.loads(schema_path.read_text(encoding='utf-8'))
+    validator = Draft202012Validator(schema)
+    errors: list[str] = []
+    for number, row in enumerate(rows, 1):
+        for error in validator.iter_errors(row):
+            location = '.'.join(str(part) for part in error.path) or '<row>'
+            errors.append(f'row-{number} {location}: {error.message}')
+    return errors
+
+
+def forbidden_nested_paths(value: Any, path: str = '') -> list[str]:
+    forbidden = {'gold_property', 'trigger_calldata', 'exploit_payload', 'mutation_diff'}
+    if isinstance(value, dict):
+        paths: list[str] = []
+        for key, child in value.items():
+            child_path = f'{path}.{key}' if path else key
+            if key in forbidden:
+                paths.append(child_path)
+            paths.extend(forbidden_nested_paths(child, child_path))
+        return paths
+    if isinstance(value, list):
+        paths = []
+        for index, child in enumerate(value):
+            paths.extend(forbidden_nested_paths(child, f'{path}[{index}]'))
+        return paths
+    return []
 
 def validate(rows: list[dict[str, Any]], mode: str = 'starter') -> tuple[list[str], list[str]]:
     if mode not in {'starter', 'evaluation'}:
@@ -104,9 +135,8 @@ def validate(rows: list[dict[str, Any]], mode: str = 'starter') -> tuple[list[st
         elif paired and by_id[paired].get('paired_instance_id') != ident:
             errors.append(f'{ident}: matched pair linkage is not reciprocal')
         # Gold identifiers and hashes are allowed; secret property/trigger contents are not.
-        for key in ('gold_property','trigger_calldata','exploit_payload','mutation_diff'):
-            if key in row:
-                errors.append(f'{ident}: secret field {key} is forbidden in the public manifest')
+        for secret_path in forbidden_nested_paths(row):
+            errors.append(f'{ident}: secret field {secret_path} is forbidden in the public manifest')
         for key, value in row.items():
             if isinstance(value, str) and value in PLACEHOLDER_VALUES:
                 errors.append(f'{ident}: placeholder value in {key}')
@@ -175,6 +205,8 @@ def main() -> int:
         p.add_argument('--out',type=Path)
         if name == 'validate':
             p.add_argument('--mode', choices=('starter', 'evaluation'), default='starter')
+            p.add_argument('--schema', type=Path,
+                           default=Path(__file__).resolve().parents[1] / 'schemas' / 'benchmark_manifest.schema.json')
     args = ap.parse_args()
     try:
         if args.command == 'plan':
@@ -182,6 +214,8 @@ def main() -> int:
             print(json.dumps(result,indent=2));return 0
         rows = load_jsonl(args.manifest)
         errors,warnings = validate(rows, getattr(args, 'mode', 'starter'))
+        if args.command == 'validate':
+            errors.extend(schema_errors(rows, args.schema))
         for item in warnings:print('WARNING: '+item,file=sys.stderr)
         for item in errors:print('ERROR: '+item,file=sys.stderr)
         if errors:return 2
