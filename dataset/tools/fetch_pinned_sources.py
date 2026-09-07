@@ -23,7 +23,13 @@ def main(destination: Path, requested_lineages: set[str] | None = None) -> int:
     root = Path(__file__).resolve().parents[1]
     lock = json.loads((root / "sources" / "source_lock.json").read_text(encoding="utf-8"))
     destination.mkdir(parents=True, exist_ok=True)
-    receipts = []
+    receipt_path = destination / "retrieval_receipt.json"
+    receipts_by_lineage = {}
+    if receipt_path.exists():
+        existing = json.loads(receipt_path.read_text(encoding="utf-8"))
+        receipts_by_lineage = {
+            item["lineage_id"]: item for item in existing.get("lineages", [])
+        }
     selected = [
         item for item in lock["lineages"]
         if requested_lineages is None or item["lineage_id"] in requested_lineages
@@ -34,17 +40,23 @@ def main(destination: Path, requested_lineages: set[str] | None = None) -> int:
     for item in selected:
         target = destination / item["lineage_id"]
         if target.exists() and any(target.iterdir()):
-            raise SystemExit(f"Refusing to overwrite non-empty {target}")
-        target.mkdir(exist_ok=True)
-        run("git", "init", "-q", cwd=target)
-        run("git", "remote", "add", "origin", item["repository"], cwd=target)
-        run("git", "fetch", "--depth", "1", "origin", item["commit"], cwd=target)
-        run("git", "checkout", "-q", "--detach", "FETCH_HEAD", cwd=target)
+            actual = run("git", "rev-parse", "HEAD", cwd=target)
+            if actual != item["commit"]:
+                raise SystemExit(f"Refusing to overwrite non-empty {target}")
+        else:
+            target.mkdir(exist_ok=True)
+            run("git", "init", "-q", cwd=target)
+            run("git", "remote", "add", "origin", item["repository"], cwd=target)
+            run("git", "fetch", "--depth", "1", "origin", item["commit"], cwd=target)
+            run("git", "checkout", "-q", "--detach", "FETCH_HEAD", cwd=target)
         actual = run("git", "rev-parse", "HEAD", cwd=target)
         if actual != item["commit"]:
             raise SystemExit(f"Commit mismatch for {item['lineage_id']}: {actual}")
-        receipts.append({"lineage_id": item["lineage_id"], "repository": item["repository"], "commit": actual})
-    (destination / "retrieval_receipt.json").write_text(
+        receipts_by_lineage[item["lineage_id"]] = {
+            "lineage_id": item["lineage_id"], "repository": item["repository"], "commit": actual
+        }
+    receipts = [receipts_by_lineage[key] for key in sorted(receipts_by_lineage)]
+    receipt_path.write_text(
         json.dumps({"lock_status": lock["lock_status"], "lineages": receipts}, indent=2) + "\n",
         encoding="utf-8",
     )
