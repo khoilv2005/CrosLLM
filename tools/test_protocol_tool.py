@@ -49,6 +49,20 @@ class ManifestChecks(unittest.TestCase):
     def test_missing_pair(self):
         row=fixture();row['paired_instance_id']='absent'
         self.assertTrue(any('absent' in e for e in tool.validate([row])[0]))
+
+    def test_pair_linkage_must_be_reciprocal(self):
+        a,b=fixture(1),fixture(2);a['paired_instance_id']=b['instance_id']
+        b['lineage_id']=a['lineage_id']
+        self.assertTrue(any('reciprocal' in e for e in tool.validate([a,b])[0]))
+
+    def test_evaluation_mode_rejects_duplicate_artifact_content(self):
+        a,b=fixture(1),fixture(2);a['paired_instance_id']=b['instance_id'];b['paired_instance_id']=a['instance_id']
+        b['artifact_pack_sha256']=a['artifact_pack_sha256']
+        self.assertTrue(any('duplicate artifact content' in e for e in tool.validate([a,b], 'evaluation')[0]))
+
+    def test_placeholder_value_rejected(self):
+        row=fixture();row['architecture']='replace'
+        self.assertTrue(any('placeholder value' in e for e in tool.validate([row])[0]))
     def test_inventory_does_not_call_dependencies_unique(self):
         row=fixture();row['infrastructure_contract_count']=4
         counts=tool.inventory([row])

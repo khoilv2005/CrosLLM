@@ -127,8 +127,8 @@ Owner: R. Phụ thuộc: M00. EG §5, §10, §17, §20.
 - [x] **M01.03** Tách `campaign_status`, `search_status`, `replay_status`, `adjudication_status`; mapping với schema hiện tại được version hóa, không làm mất TIMEOUT/UNKNOWN/UNSUPPORTED.
 - [x] **M01.04** Thiết kế campaign UUID, slot ID, attempt ID, finding/root-cause ID, lineage/instance linkage; foreign-key validation xuyên JSONL.
 - [x] **M01.05** Canonical serialization, hash-addressed blobs, append-only events, timestamp/monotonic durations, terminal records và missing-field reasons.
-- [ ] **M01.06** Nâng validator: đúng types/enums/cohort; matched-pair consistency; reject placeholders; admission evidence; nested public allowlist; duplicate content; source/receipt verification. Phân biệt starter-validation và evaluation-admission.
-- [ ] **M01.07** Đồng bộ schema với validator: hiện utility không thực thi đầy đủ JSON Schema; dataset validator chủ yếu đọc candidate/host registries, chưa duyệt một corpus evaluated hoàn chỉnh. Thêm mode validate toàn bộ final manifest.
+- [ ] **M01.06** Nâng validator: đúng types/enums/cohort; matched-pair consistency; reject placeholders; admission evidence; nested public allowlist; duplicate content; source/receipt verification. Phân biệt starter-validation và evaluation-admission. Structural/evaluation mode đã có; source/receipt và nested allowlist còn thiếu.
+- [ ] **M01.07** Đồng bộ schema với validator: hiện utility không thực thi đầy đủ JSON Schema; dataset validator chủ yếu đọc candidate/host registries, chưa duyệt một corpus evaluated hoàn chỉnh. Thêm mode validate toàn bộ final manifest. CLI mode đã có; full JSON Schema execution còn thiếu.
 - [ ] **M01.08** Registry và lock phải thống nhất host → lineage → split, không chỉ cùng tập host ID; ancestry evidence và deviations phải được liên kết.
 
 Nghiệm thu: lỗi types, orphan IDs, tampered hashes, duplicate terminal event, nested gold leakage, split mismatch và template giả làm admitted đều bị reject; migration không xóa dữ liệu cũ.
