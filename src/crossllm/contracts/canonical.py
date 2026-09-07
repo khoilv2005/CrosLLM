@@ -21,3 +21,8 @@ def canonical_json(value: Any) -> bytes:
 def sha256_hex(value: Any) -> str:
     """Hash the canonical JSON representation of a value."""
     return hashlib.sha256(canonical_json(value)).hexdigest()
+
+
+def sha256_bytes(value: bytes) -> str:
+    """Hash raw bytes without applying JSON serialization."""
+    return hashlib.sha256(value).hexdigest()
