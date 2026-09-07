@@ -17,7 +17,8 @@ Status: `PARTIAL`
 - Exact direct toolchain pins were then installed: Hardhat `2.8.3`, `@nomiclabs/hardhat-ethers` `2.0.6`, `@nomiclabs/hardhat-etherscan` `2.1.5`, `@nomiclabs/hardhat-waffle` `2.0.1`, TypeScript `4.0.3`, ts-node `9.0.0`, and `@types/node` `14.11.10`.
 - After deleting the private artifacts/cache, a clean Node 11.15.0 build compiled 98 files successfully using Solidity 0.5.17, 0.6.12 and 0.7.3.
 - Celer cBridge compiled successfully in Node 16 with Solidity 0.8.4 and generated 9 artifacts plus 7 typechain typings.
-- ChainBridge dependency installation succeeded in Node 16, but Truffle could not fetch Solidity 0.8.11 from solc-bin in the isolated container. A local compiler override remains to be implemented.
+- ChainBridge compiled successfully twice in Node 16 using a local `solc@0.8.11` compiler override; the second run reported everything up to date.
+- LayerZero EVM protocol compiled with Foundry in the official Foundry container after initializing the locked `forge-std` submodule. The build produced 92 artifacts; output contained lint warnings but no compiler errors.
 
 ## Feasibility hashes
 
@@ -33,7 +34,13 @@ These hashes describe the current private probe, not an evaluation lock:
 | Celer artifact manifest (9 files) | `65e556ec4a1bff1e357a92497bb503f61b1524e88c21f0df4e09289f9408ff14` |
 | Celer `hardhat.config.ts` | `0afd9a61654f649d7f49e7ff1c496ac9988fcf652195e1d65844b4f18890c83c` |
 | Celer generated `package-lock.json` | `745d9f911cc98c20dd0167b4fb1a782fec6f8f9aa760384aeeca00040a62818f` |
+| ChainBridge artifact manifest (66 files) | `908fac5b18bfdaedd4e0b81eba94d0534c3d3a0167a756d38db0c17cb2204339` |
+| ChainBridge `truffle-config.js` | `cb5fdf55ea3488f76dcb75d32363eb94333345701ade2455c9bb084d1c505180` |
+| ChainBridge `package-lock.json` | `2431b6d762c614ac6bf1208db574699bd7ff205e0fa485bd2623a653f093a315` |
+| LayerZero artifact manifest (92 files) | `42f90db54a3364f6c6cfd8369b199726acecddf85851c60a326460d0254d3a0d` |
+| LayerZero `foundry.toml` | `0fe8766f41303bfbb6c923aa741338af143ed5c8003e2903e69a8afc98d472b4` |
+| LayerZero `forge-std` submodule | `2f112697506eab12d433a65fdc31a639548fe365` |
 
 ## Consequence
 
-M02.03 remains partial. Hop and Celer now have compile evidence. The lockfile is generated during probes for these trees rather than uniformly supplied upstream; ChainBridge still needs a local 0.8.11 compiler path, LayerZero needs its Foundry/Yarn environment, and bytecode/proxy/initialization evidence for all development hosts is not yet packaged.
+M02.03 remains partial. Hop, Celer, ChainBridge and the LayerZero EVM protocol component now have compile evidence. Full bytecode/proxy/initialization/dependency provenance and selected supported contract sets are still not packaged for all development hosts.
