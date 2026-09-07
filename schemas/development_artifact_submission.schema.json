@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/development-artifact-submission-v1.json",
+  "title": "CrossLLM development artifact submission draft",
+  "description": "Build and provenance evidence only; never an admitted benchmark case.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "submission_status", "lineage_id", "host_id", "split", "source_commit", "artifact_status", "missing_gates"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "submission_status": {"const": "development_draft"},
+    "lineage_id": {"type": "string", "minLength": 1},
+    "host_id": {"type": "string", "minLength": 1},
+    "protocol": {"type": "string", "minLength": 1},
+    "split": {"const": "development"},
+    "source_id": {"type": "string", "minLength": 1},
+    "source_repository": {"type": "string", "format": "uri"},
+    "source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "source_archive_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "compiler_config_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "build_probe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "environment", "compiler_or_toolchain"],
+      "properties": {
+        "status": {"enum": ["not_run", "blocked", "pass"]},
+        "environment": {"type": "string", "minLength": 1},
+        "compiler_or_toolchain": {"type": "string", "minLength": 1},
+        "artifact_count": {"type": ["integer", "null"], "minimum": 0},
+        "artifact_manifest_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "selected_contract_set": {"type": "null"},
+    "paired_evm_harness": {"const": "not_yet_pinned"},
+    "artifact_status": {"enum": ["source_pinned_only", "build_probe_only"]},
+    "missing_gates": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "notes": {"type": "string"}
+  }
+}
