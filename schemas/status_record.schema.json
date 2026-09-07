@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/status-record-v1.json",
+  "title": "CrossLLM independent runtime statuses",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status_mapping_version", "campaign_status"],
+  "properties": {
+    "status_mapping_version": {"const": 1},
+    "campaign_status": {"enum": ["planned", "running", "completed", "timeout", "unsupported", "provider_failure", "tool_failure", "no_valid_proposal"]},
+    "search_status": {"type": ["string", "null"], "enum": ["sat", "bounded_unsat", "unknown", "timeout", "unsupported", "crash", null]},
+    "replay_status": {"type": ["string", "null"], "enum": ["pass", "fail", "unknown", "unsupported", null]},
+    "adjudication_status": {"type": ["string", "null"], "enum": ["pending", "confirmed", "rejected", "unresolved", null]}
+  }
+}

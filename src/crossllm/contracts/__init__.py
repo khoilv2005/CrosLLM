@@ -9,6 +9,7 @@ from .records import (
     validate_event_log,
 )
 from .ids import new_id, require_id
+from .status_mapping import serialize_statuses, validate_statuses
 
 __all__ = [
     "AdjudicationStatus",
@@ -19,4 +20,6 @@ __all__ = [
     "validate_event_log",
     "new_id",
     "require_id",
+    "serialize_statuses",
+    "validate_statuses",
 ]

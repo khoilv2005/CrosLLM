@@ -6,7 +6,7 @@ campaign, search, replay and adjudication writers from the beginning.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import StrEnum
 from typing import Any, Iterable
 
@@ -57,6 +57,9 @@ class EventLog:
     payload: dict[str, Any]
     schema_version: int = 1
     terminal: bool = False
+    monotonic_seconds: float | None = None
+    duration_seconds: float | None = None
+    missing_field_reasons: dict[str, str] = field(default_factory=dict)
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -68,6 +71,9 @@ class EventLog:
             "timestamp": self.timestamp,
             "payload": self.payload,
             "terminal": self.terminal,
+            "monotonic_seconds": self.monotonic_seconds,
+            "duration_seconds": self.duration_seconds,
+            "missing_field_reasons": self.missing_field_reasons,
         }
 
 
@@ -80,6 +86,7 @@ def validate_event_log(events: Iterable[EventLog]) -> list[str]:
     errors: list[str] = []
     seen_events: set[str] = set()
     terminal_attempts: set[str] = set()
+    last_monotonic: dict[str, float] = {}
     for index, event in enumerate(events, 1):
         prefix = f"event {index}"
         if event.schema_version != 1:
@@ -97,8 +104,50 @@ def validate_event_log(events: Iterable[EventLog]) -> list[str]:
             errors.append(f"{prefix}: missing timestamp")
         if not isinstance(event.payload, dict):
             errors.append(f"{prefix}: payload must be an object")
+        if event.monotonic_seconds is not None:
+            previous = last_monotonic.get(event.attempt_id)
+            if previous is not None and event.monotonic_seconds < previous:
+                errors.append(f"{prefix}: monotonic_seconds moved backwards")
+            last_monotonic[event.attempt_id] = event.monotonic_seconds
+        if event.duration_seconds is not None and event.duration_seconds < 0:
+            errors.append(f"{prefix}: duration_seconds must be non-negative")
+        if not isinstance(event.missing_field_reasons, dict):
+            errors.append(f"{prefix}: missing_field_reasons must be an object")
         if event.terminal:
             if event.attempt_id in terminal_attempts:
                 errors.append(f"{prefix}: duplicate terminal event")
             terminal_attempts.add(event.attempt_id)
+    return errors
+
+
+def validate_foreign_keys(records: Iterable[dict[str, Any]]) -> list[str]:
+    """Validate known record-to-record references in a JSONL batch."""
+    rows = list(records)
+    identifiers: dict[str, set[str]] = {}
+    id_fields = {
+        "campaign": "campaign_id", "attempt": "attempt_id", "slot": "slot_id",
+        "proposal": "proposal_id", "query": "query_id", "witness": "witness_id",
+        "finding": "finding_id", "lineage": "lineage_id", "instance": "instance_id",
+    }
+    for row in rows:
+        record_type = row.get("record_type")
+        id_field = id_fields.get(record_type)
+        if id_field and row.get(id_field):
+            identifiers.setdefault(record_type, set()).add(row[id_field])
+
+    references = {
+        "campaign": (("instance_id", "instance"), ("lineage_id", "lineage")),
+        "attempt": (("campaign_id", "campaign"),),
+        "slot": (("campaign_id", "campaign"), ("attempt_id", "attempt")),
+        "proposal": (("campaign_id", "campaign"), ("attempt_id", "attempt"), ("slot_id", "slot")),
+        "query": (("proposal_id", "proposal"),),
+        "witness": (("query_id", "query"),),
+        "adjudication": (("finding_id", "finding"),),
+    }
+    errors: list[str] = []
+    for index, row in enumerate(rows, 1):
+        for field_name, target_type in references.get(row.get("record_type"), ()):
+            value = row.get(field_name)
+            if value is not None and value not in identifiers.get(target_type, set()):
+                errors.append(f"record {index}: orphan {field_name} {value!r}")
     return errors

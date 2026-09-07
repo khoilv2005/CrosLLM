@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/runtime-records-v1.json",
+  "title": "CrossLLM runtime record contracts",
+  "description": "Versioned structural contracts for the runtime and controlled records.",
+  "type": "object",
+  "required": ["schema_version", "record_type", "record"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"type": "string", "enum": [
+      "campaign", "attempt", "slot", "artifact_pack", "symbol", "xlir_proposal", "direct_claim", "query",
+      "witness", "adjudication", "model_lock", "protocol_lock",
+      "campaign_plan", "resource_vector", "event"
+    ]},
+    "record": {"type": "object"}
+  },
+  "$defs": {
+    "id": {"type": "string", "format": "uuid"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "campaign": {
+      "type": "object", "required": ["schema_version", "campaign_id", "instance_id", "lineage_id"],
+      "properties": {
+        "schema_version": {"const": 1}, "campaign_id": {"$ref": "#/$defs/id"},
+        "instance_id": {"type": "string", "minLength": 1}, "lineage_id": {"type": "string", "minLength": 1}
+      }, "additionalProperties": false
+    },
+    "attempt": {
+      "type": "object", "required": ["schema_version", "attempt_id", "campaign_id"],
+      "properties": {
+        "schema_version": {"const": 1}, "attempt_id": {"$ref": "#/$defs/id"},
+        "campaign_id": {"$ref": "#/$defs/id"}
+      }, "additionalProperties": false
+    },
+    "slot": {
+      "type": "object", "required": ["schema_version", "slot_id", "campaign_id", "attempt_id"],
+      "properties": {
+        "schema_version": {"const": 1}, "slot_id": {"$ref": "#/$defs/id"},
+        "campaign_id": {"$ref": "#/$defs/id"}, "attempt_id": {"$ref": "#/$defs/id"}
+      }, "additionalProperties": false
+    },
+    "artifact_pack": {
+      "type": "object",
+      "required": ["schema_version", "pack_id", "manifest_hash", "source_hash", "symbols_hash"],
+      "properties": {
+        "schema_version": {"const": 1}, "pack_id": {"$ref": "#/$defs/id"},
+        "manifest_hash": {"$ref": "#/$defs/sha256"}, "source_hash": {"$ref": "#/$defs/sha256"},
+        "symbols_hash": {"$ref": "#/$defs/sha256"}, "sanitization_manifest_hash": {"$ref": "#/$defs/sha256"},
+        "gold_access": {"const": "disabled"}
+      },
+      "additionalProperties": false
+    },
+    "symbol": {
+      "type": "object", "required": ["schema_version", "symbol_id", "domain", "kind", "type"],
+      "properties": {
+        "schema_version": {"const": 1}, "symbol_id": {"type": "string", "minLength": 1},
+        "domain": {"enum": ["source", "destination", "shared"]},
+        "kind": {"type": "string", "minLength": 1}, "type": {"type": "string", "minLength": 1},
+        "artifact_hash": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    },
+    "xlir_proposal": {
+      "type": "object", "required": ["schema_version", "proposal_id", "campaign_id", "slot_id", "candidate"],
+      "properties": {
+        "schema_version": {"const": 1}, "proposal_id": {"$ref": "#/$defs/id"},
+        "campaign_id": {"$ref": "#/$defs/id"}, "slot_id": {"$ref": "#/$defs/id"},
+        "candidate": {"type": ["object", "null"]}, "abstain": {"type": "boolean"},
+        "raw_response_hash": {"$ref": "#/$defs/sha256"}, "canonical_ast_hash": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    },
+    "direct_claim": {
+      "type": "object", "required": ["schema_version", "claim_id", "campaign_id", "claim"],
+      "properties": {
+        "schema_version": {"const": 1}, "claim_id": {"$ref": "#/$defs/id"},
+        "campaign_id": {"$ref": "#/$defs/id"}, "claim": {"type": "object"},
+        "raw_response_hash": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    },
+    "query": {
+      "type": "object", "required": ["schema_version", "query_id", "proposal_id", "status"],
+      "properties": {
+        "schema_version": {"const": 1}, "query_id": {"$ref": "#/$defs/id"},
+        "proposal_id": {"$ref": "#/$defs/id"}, "status": {"enum": ["sat", "bounded_unsat", "unknown", "timeout", "unsupported", "crash"]},
+        "elapsed_seconds": {"type": "number", "minimum": 0}, "unknown_reason": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "witness": {
+      "type": "object", "required": ["schema_version", "witness_id", "query_id", "initial_state_hash", "trace_hash"],
+      "properties": {
+        "schema_version": {"const": 1}, "witness_id": {"$ref": "#/$defs/id"},
+        "query_id": {"$ref": "#/$defs/id"}, "initial_state_hash": {"$ref": "#/$defs/sha256"},
+        "trace_hash": {"$ref": "#/$defs/sha256"}, "actions": {"type": "array"},
+        "native_replay_status": {"enum": ["pass", "fail", "unknown", "unsupported"]},
+        "independent_replay_status": {"enum": ["pass", "fail", "unknown", "unsupported"]}
+      },
+      "additionalProperties": false
+    },
+    "adjudication": {
+      "type": "object", "required": ["schema_version", "finding_id", "status", "first_failure"],
+      "properties": {
+        "schema_version": {"const": 1}, "finding_id": {"$ref": "#/$defs/id"},
+        "status": {"enum": ["pending", "confirmed", "rejected", "unresolved"]},
+        "first_failure": {"type": "string", "minLength": 1}, "rater_id": {"type": "string"},
+        "label_version": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "model_lock": {
+      "type": "object", "required": ["schema_version", "lock_id", "family", "requested_tag", "captured_at"],
+      "properties": {
+        "schema_version": {"const": 1}, "lock_id": {"$ref": "#/$defs/id"},
+        "family": {"type": "string", "minLength": 1}, "requested_tag": {"type": "string", "minLength": 1},
+        "response_model": {"type": ["string", "null"]}, "served_weight_digest": {"type": ["string", "null"]},
+        "captured_at": {"$ref": "#/$defs/timestamp"}, "missing_field_reasons": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "protocol_lock": {
+      "type": "object", "required": ["schema_version", "lock_id", "protocol_hash", "created_at"],
+      "properties": {
+        "schema_version": {"const": 1}, "lock_id": {"$ref": "#/$defs/id"},
+        "protocol_hash": {"$ref": "#/$defs/sha256"}, "created_at": {"$ref": "#/$defs/timestamp"},
+        "model_lock_hash": {"$ref": "#/$defs/sha256"}, "benchmark_manifest_hash": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    },
+    "campaign_plan": {
+      "type": "object", "required": ["schema_version", "plan_id", "campaigns_hash", "created_at"],
+      "properties": {
+        "schema_version": {"const": 1}, "plan_id": {"$ref": "#/$defs/id"},
+        "campaigns_hash": {"$ref": "#/$defs/sha256"}, "created_at": {"$ref": "#/$defs/timestamp"},
+        "campaign_count": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "resource_vector": {
+      "type": "object", "required": ["schema_version", "cpu_core_seconds", "wall_seconds"],
+      "properties": {
+        "schema_version": {"const": 1}, "cpu_core_seconds": {"type": "number", "minimum": 0},
+        "solver_seconds": {"type": "number", "minimum": 0}, "memory_high_water_bytes": {"type": "integer", "minimum": 0},
+        "wall_seconds": {"type": "number", "minimum": 0}, "input_tokens": {"type": ["integer", "null"], "minimum": 0},
+        "generated_tokens": {"type": ["integer", "null"], "minimum": 0}, "missing_field_reasons": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object", "required": ["schema_version", "event_id", "event_type", "campaign_id", "attempt_id", "timestamp", "payload", "terminal", "missing_field_reasons"],
+      "properties": {
+        "schema_version": {"const": 1}, "event_id": {"$ref": "#/$defs/id"},
+        "event_type": {"type": "string", "minLength": 1}, "campaign_id": {"$ref": "#/$defs/id"},
+        "attempt_id": {"$ref": "#/$defs/id"}, "timestamp": {"$ref": "#/$defs/timestamp"},
+        "payload": {"type": "object"}, "terminal": {"type": "boolean"},
+        "monotonic_seconds": {"type": ["number", "null"], "minimum": 0},
+        "duration_seconds": {"type": ["number", "null"], "minimum": 0},
+        "missing_field_reasons": {"type": "object", "additionalProperties": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}
