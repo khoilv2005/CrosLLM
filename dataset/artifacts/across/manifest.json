@@ -1,0 +1,21 @@
+{
+  "artifact_count": 13,
+  "files": {
+    "abi/Ethereum_SpokePool.json": "f136d5f12f8321d3a259c21adf7bc65bf9dbbcbe03378a10ada786b5650dc7e7",
+    "build_info.json": "31c34fce2512ee7c1e54f9ba3bd5188b5c48a34c0754a0b97d2b0a308fe5d15b",
+    "bytecode/Ethereum_SpokePool.creation.hex": "b7c4189349d85bf000539e8e3890dc7794cacdd4767e0c8223b34df2b4acf0b2",
+    "bytecode/Ethereum_SpokePool.deployed.hex": "1e3a1c7ce905d26cfec0c6ad4fdf885bc66b008836407971cfa39f2ec6a8a1d2",
+    "channel_profile.json": "cc07a630dd274e68f13821af60ce19f006dd1b220a5f0a8c5895d37b04bc55b8",
+    "deployment.json": "a7b82773ee9866dc6030d6a9c4cca43d3d333fe799bab611a35b7cb802704c10",
+    "license.json": "6f0433b3d49e15c85c6576fbd1c1afa224ff07965d6e7206953d6a1e599fcbdb",
+    "normal_workflow.json": "0aff91914968b1866f8767ced216f17bddf4e91b461dbfc436c18e952a310c08",
+    "scope.json": "9af7c50802c6981850077e4177fd405ff0847cf151da85c434dca4080a1e3018",
+    "selection.json": "e68f8a1f41c093b25311b50ba1c8eedb801705d53466f2590ecbd62f45b2b4ab",
+    "source_receipt.json": "f3eed7eb55dd84c108bb9aa4fd3296c5e23b34a1d05218610120ab9a06a56614",
+    "storage_layout/Ethereum_SpokePool.json": "9394203cc427a4ee24584abfe7a7a23ac2e245500ac292ddb59cb18caa8f5479",
+    "symbols.json": "d1427d1f97208c569d1e36cb20fbf7a83169e4eac4a0eb5ce43dd19a3dd140c4"
+  },
+  "lineage_id": "across",
+  "protocol": "Across Protocol",
+  "split": "evaluation"
+}

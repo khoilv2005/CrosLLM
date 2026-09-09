@@ -1,0 +1,432 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{cite}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,shapes.geometric,calc,backgrounds}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+
+\newcommand{\xlir}{\ensuremath{\mathsf{XLIR}}}
+\newcommand{\ltlb}{\ensuremath{\mathsf{LTL}^{\sqcup}}}
+\newcommand{\hevmx}{\texttt{hevm-X}}
+\newcommand{\CrossTBD}{\textnormal{[TO BE MEASURED IN THE NEW EXPERIMENT]}}
+\newcommand{\ModelTBD}{\textnormal{[TO BE RECORDED FROM THE EVALUATED ENDPOINT]}}
+\newcommand{\ResultTBD}{\textnormal{[TO BE MEASURED]}}
+
+\title{CrossLLM: Typed LLM-Guided Specification Search and Dual-VM Verification for Cross-Chain Smart Contracts}
+
+% Author information intentionally left in the same anonymous-ready state as the supplied draft.
+% \author{...}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Cross-chain bridge security depends on relations between executions that occur on distinct ledgers and are connected through asynchronous message delivery, finality assumptions, and attestation mechanisms. This setting creates a specification bottleneck: security properties must relate source-side authorization, communication state, and destination-side effects, while conventional single-contract assertions do not directly capture the resulting temporal structure. We present CrossLLM, a specification-guided cross-program verification architecture in which a large language model is used only as a stochastic proposer of candidate cross-chain security properties. Candidate properties are grounded against versioned program artifacts, checked and represented in a typed cross-program intermediate representation, \xlir, lowered to finite-trace constraints, and evaluated over an explicit dual-EVM transition system with adversarial communication and attestation profiles. A satisfiable symbolic query produces only a candidate witness. CrossLLM reports a security finding only after independent witness checking, concrete replay, validation of the relevant security requirement, and confirmation that the required environment actions are permitted by the evaluated threat model. The methodology therefore separates specification search from executable evidence and does not treat an LLM vulnerability judgment as a correctness oracle. The redesigned evaluation uses four independent open-weight proposer families available through Ollama Cloud, historical rediscovery only as a realism test, a sealed contamination-resistant benchmark with independently validated vulnerable variants, matched negative controls, lineage-aware inference, causal component studies, and explicit cost and search-bound analyses. All V2 empirical outcomes are reported only after execution of this prospective protocol; numerical result fields in this manuscript remain \CrossTBD.
+\end{abstract}
+
+\begin{IEEEkeywords}
+LLM-assisted verification, smart-contract security, cross-chain bridges, specification synthesis, symbolic execution, temporal properties, reproducible empirical software engineering.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Cross-chain bridges connect ledgers whose execution, finality, and message ordering are not atomic. A destination-side state transition may be safe only when it is causally justified by a source-side action, a valid attestation or proof, a compatible domain binding, and a message or intent that has not already been consumed. These obligations span multiple executions and an asynchronous communication layer rather than a single transaction. Consequently, bridge auditing requires both a cross-program specification and an execution model that can represent the environment in which the two programs interact.
+
+Smart-contract analysis has progressed from symbolic vulnerability discovery to semantics-aware verification, stateful fuzzing, and trace analysis~\cite{luu2016making,tsankov2018securify,permenev2020verx,frank2020ethbmc,choi2021smartian,shou2023ityfuzz}. These techniques provide complementary mechanisms for detecting violations, proving supplied properties, or constructing concrete transactions. Cross-chain security introduces an additional specification problem: the relevant requirement may depend on source-chain canonicality, an asynchronous message schedule, a destination handler, a replay cache, an attestation threshold, or a challenge window. Such relationships can be encoded manually, but authoring protocol-specific cross-program temporal properties becomes a bottleneck.
+
+Large language models can help search this specification space because protocol documentation, ABIs, events, and source code expose semantic cues such as guardian quorum, finality, intent consumption, domain separation, or callback ordering. However, a language model can also invent program objects, overconstrain legitimate behavior, or produce an attack narrative that is not executable. CrossLLM therefore does not ask the model to certify vulnerabilities. Instead, it uses the model as an untrusted proposal mechanism and moves every correctness-relevant decision into typed grounding, explicit semantics, symbolic feasibility, and independently checked replay.
+
+This separation changes the scientific question from whether an LLM can directly recognize bridge vulnerabilities to whether learned proposal increases useful specification-search coverage when the final evidence is determined by an executable verification architecture. The evaluation consequently compares CrossLLM with same-backbone direct-auditing models, a deterministic template proposer using the same backend, native static and dynamic analyzers, and specification-conditioned verification systems. Historical incidents measure realistic rediscovery but are not used as contamination-free evidence. Generalization is instead evaluated on sealed, independently constructed variants and matched negative controls whose exact artifacts and gold requirements are withheld from the analysis process.
+
+\subsection{Contributions}
+This paper makes the following contributions.
+\begin{enumerate}
+  \item \textbf{Specification-guided neuro-symbolic architecture.} CrossLLM uses an LLM only to propose candidate cross-chain properties. The proposal interface is typed, grounded, replaceable, and experimentally separated from the deterministic validation pipeline.
+  \item \textbf{Typed cross-program temporal representation.} We introduce a finite-trace \xlir core with grounded observations and bridge-oriented checked macros for justified destination effects, replay exclusion, quorum authorization, proof/public-input binding, callback noninterference, challenge-window enforcement, and on-chain intent consumption.
+  \item \textbf{Explicit dual-domain execution semantics.} The analysis models source and destination EVM states together with message provenance, canonical-chain state, clocks, attestation configuration, adversarial knowledge, and bounded communication actions, allowing the security property and the transition relation to remain separate.
+  \item \textbf{Evidence-oriented witness validation.} Symbolic satisfiability is not itself a vulnerability finding. Candidate witnesses are independently checked, concretely replayed, and evaluated against an independently warranted security requirement and the declared threat profile.
+  \item \textbf{Model-relative formal guarantees.} The methodology isolates proof obligations for grounding/type preservation, correctness of finite-trace lowering, and model-relative witness consistency, while treating deployment correspondence as a separate validation obligation rather than incorporating manual audit into a mathematical proof.
+  \item \textbf{Contamination-resistant and causally structured evaluation.} The prospective evaluation uses four open-weight model families, development/evaluation lineage separation, sealed positive variants, matched negatives, same-backbone direct-LLM controls, fixed-template controls, controlled ablations, search-bound sensitivity, and lineage-aware statistical inference.
+\end{enumerate}
+
+\section{Background and Scope}
+\label{sec:background}
+
+\subsection{Bridge Security as a Cross-Program Property}
+Lock--mint, burn--mint, liquidity, quorum-attested, proof-verified, optimistic, and intent-based bridges realize different trust assumptions, but many on-chain failures share a common structural form: a destination effect is accepted even though the source authorization, message identity, proof binding, finality condition, or consumption state needed to justify it is absent or invalid. CrossLLM targets EVM-to-EVM instances in which these conditions can be related to program artifacts and bounded environment behavior.
+
+The present scope excludes heterogeneous non-EVM execution, governance takeover, private-key theft, social engineering, insider abuse, and purely off-chain market or solver behavior. A compromised threshold can be studied as a separate stress profile, but behavior that is expected once the declared trust assumption is broken is not pooled with implementation vulnerabilities under the honest-threshold profile.
+
+\subsection{Why Historical Incidents Are Not a Generalization Test}
+Historical bridge failures remain valuable because they expose realistic implementation structures and failure modes within a broader interoperability landscape~\cite{belchior2021survey,zamyatin2021sok}. They are not, however, evidence that a contemporary model has generalized beyond its training data: source repositories, incident descriptions, post-mortems, patches, and derivative discussions may have been publicly available before or during model development. The V2 methodology therefore uses historical cases only for rediscovery and realism. Contamination-resistant transfer is evaluated on sealed artifacts created on evaluation-only code lineages with independently validated ground truth.
+
+\subsection{Research Questions}
+The redesigned evaluation addresses six questions: (RQ1) end-to-end effectiveness on historical and sealed positives; (RQ2) contamination-resistant transfer; (RQ3) precision and suppression of unsupported proposals; (RQ4) causal component contribution; (RQ5) robustness and proposal efficiency across independent proposer families; and (RQ6) efficiency, search-bound sensitivity, and failure modes. Each research question has an explicit experimental unit, manipulation, endpoint, and inferential procedure in Section~\ref{sec:experimental-protocol}.
+
+\section{Threat Model}
+\label{sec:threat}
+
+A CrossLLM analysis is parameterized by a versioned threat profile rather than a single universal adversary. The user adversary may submit crafted public transactions and reorder its own actions subject to EVM and protocol constraints. The communication environment may delay, omit, duplicate, or reorder messages only when allowed by the selected channel profile. Source-chain reorganization is a consensus/environment capability with an explicit depth and finality relation, not an unconditional relayer privilege. An attestation adversary controls only the keys, proofs, or observations granted by the chosen profile; it does not receive arbitrary honest signatures or a successful proof oracle unless the experiment explicitly studies a broken trust assumption.
+
+The implementation under test decides whether attempted destination calls, premature finalizations, repeated messages, malformed proofs, and insufficient attestations are accepted. The harness is not permitted to mutate contract storage or bypass the target guard in order to manufacture the condition being tested. Security findings are interpreted only under the profile used for the corresponding execution.
+
+\section{System Design}
+\label{sec:design-v2}
+
+CrossLLM searches for cross-chain security violations by separating specification proposal from executable evidence. Its input consists of source and destination program artifacts, protocol documentation, deployment configuration, and an explicit adversary profile. A language model proposes candidate properties over these artifacts. A deterministic front end resolves program references and translates supported properties into a typed cross-program intermediate representation, $\xlir$. The analysis backend searches the joint state space of the two contracts and an asynchronous communication model. Candidate traces are subsequently checked by an independent concrete executor and a property monitor.
+
+The system distinguishes a replay-confirmed violation of a candidate property from a confirmed security finding. Replay establishes that an execution occurs under a specified environment; it does not establish that an arbitrary property proposed by a language model is a legitimate security requirement. A security finding additionally requires a warranted property, an allowed adversary, and a correspondence between the analyzed configuration and the claimed deployment. This distinction allows proposal diversity to improve search without treating the model's security judgment as evidence.
+
+The analysis exposes three kinds of outcome. A counterexample is a finite, concretely checked trace violating the particular candidate property. A bounded-unsatisfiable result establishes the absence of a counterexample only in a completely encoded and exhausted bounded instance of the model. An inconclusive result records timeout, unsupported semantics, solver uncertainty, incomplete exploration, or the absence of a usable proposal. Neither a timeout nor an unsatisfiable individual path query is converted into a certificate of program safety.
+
+\subsection{Program Artifacts and Grounded Observations}
+
+The front end builds an environment $\Gamma$ from compiler outputs, ABIs, storage layouts, event declarations, bytecode and configuration. A reference identifies its chain, deployed component or implementation, artifact revision, symbol, type and observation point. Events are distinguished from persistent storage, and pre-state observations are distinguished from post-state observations. Proxy implementations, library links and initialization state are resolved against the evaluated version. A source-level name that cannot be connected to the analyzed bytecode or an explicit observer is rejected rather than represented by a fresh unconstrained variable.
+
+The artifact pack supplied to the proposer is selected deterministically and is identical across compared backbones. Selection uses reachable code, protocol structure and document relevance, not the evaluation label or a known exploit. The artifact pack hash and the coverage of omitted code are reported. Dependency contracts are part of the analyzed environment but are not counted as independent vulnerability observations.
+
+\section{The LLM Proposer}
+\label{sec:proposer-v2}
+
+The language model is a stochastic specification-search component. It receives the common artifact pack, symbol environment, property language and adversary profile, and returns a single candidate or an abstention. A candidate identifies program observations, temporal relationships, required assumptions and a rationale. Model output cannot enlarge the adversary's capabilities, replace an unavailable verifier by an ideal oracle, or reduce the experiment's search bound. Such choices belong to the analysis configuration rather than the proposal.
+
+We evaluate GLM-5.3, DeepSeek-V4-Pro, Qwen3.5-397B-A17B and gpt-oss-120B using their documented Ollama Cloud model tags. All generative components in the study use publicly accessible weights with a recorded license. The exact served tags, available revision metadata, requested and effective sampling settings, and dates of use accompany the results. A version-qualified tag is preferred when available; neither a model-family name nor a dated alias is assumed to identify immutable served weights.
+
+Each campaign contains a fixed number $N$ of proposal slots. Calls use fresh conversations and do not receive vulnerability labels, post-mortems, solver outcomes or earlier campaign findings. Invalid, duplicate, truncated and abstaining outputs consume their slots. Duplicate properties may share backend work, but their generation costs and raw proposal counts remain observable. The primary evaluation uses the development-selected configuration and evaluates proposal prefixes at $N\in\{1,2,4,8\}$. The empirical recall of a batch is measured directly; it is not inferred from an independent-sampling formula.
+
+The Cloud interface's actual capabilities determine the output protocol. Where enforced structured decoding is unavailable, the prompt requests JSON and local validation supplies the schema guarantee. Serialization validity, reference resolution and semantic typing are separate checks. The primary comparison does not repair failed proposals. A separate repair condition supplies at most one local validation diagnostic and charges the extra call against its reported resource budget. Transport retries are bounded, logged and included in end-to-end latency.
+
+Sampling and reasoning settings are chosen using development lineages only. Identical input text is used across models, while token counts are recorded under each model's tokenizer and from provider usage fields when available. Equal token caps do not imply equal information or inference compute across families. Numerical seeds, where accepted, are recorded as requested controls rather than evidence of deterministic Cloud inference.
+
+\section{A Typed Cross-Program Property Language}
+\label{sec:xlir-v2}
+
+$\xlir$ separates a small typed temporal core from bridge-oriented macros. Core value sorts include Boolean values, fixed-width words, chain-indexed addresses, message identifiers and event identifiers. Values refer to grounded program observations or declared constants. Boolean atoms compare values of compatible sorts; Boolean connectives combine predicates; bounded temporal operators refer to explicitly indexed observations of a finite trace. Arithmetic follows the declared bit-vector or mathematical-integer interpretation, with conversion operations made explicit.
+
+The primitive library packages recurring requirements concerning justified asset effects, quorum authorization, replay exclusion, proof/public-input binding, callback noninterference, challenge-window enforcement and on-chain intent consumption. These primitives are checked macros over the same temporal core rather than independent oracle assumptions. The library offers encodings of the evaluated property patterns. A taxonomy-to-primitive mapping characterizes those encodings; it does not establish that every vulnerability in a broad category such as logic or input validation is expressible.
+
+For illustration, let $\mathsf{Effect}_D(e)$ identify a destination asset effect and let $\mathsf{Auth}_S(a)$ identify a source authorization. A justified-effect requirement has the form
+\begin{equation}
+\label{eq:justified-effect}
+\forall e\in\mathsf{Effects}_D(\tau),\quad
+\exists a\in\mathsf{Auths}_S(\tau):
+\mathsf{PriorFinal}(a,e)\wedge\mathsf{Match}(a,e)
+\wedge\mathsf{Permitted}(a,e).
+\end{equation}
+The matching relation includes source and destination domains, emitter, recipient, payload commitment, asset and value conversion, and nonce or intent identifier. An additional injectivity or bounded-consumption condition prevents one authorization from justifying incompatible repeated effects. The interpretation of fees, partial fills, pending messages, refunds and decimals is supplied by the protocol-specific property, not an implicit equality between raw token amounts. Finality and attestation are checked at their relevant observation points.
+
+Equation~\eqref{eq:justified-effect} is a safety implication, not eventual delivery. It does not require every valid lock to be followed by a mint under an adversary allowed to delay or censor messages. The original name \texttt{mint-iff-lock} is therefore replaced by a justified-effect macro with explicit consumption constraints. Similarly, on-chain intent validity is distinguished from off-chain market or solver fairness.
+
+\subsection{Finite-Trace Semantics and Lowering}
+
+Let $\tau=s_0a_0s_1\cdots a_{L-1}s_L$ be a finite trace with grounded observation function $\mathcal O_\Gamma$. Core formula evaluation at index $j$ is written $\llbracket\varphi\rrbracket_{\tau,j}$. Atomic predicates are evaluated on $\mathcal O_\Gamma(s_j)$ and explicitly designated pre/post observations. Boolean cases have their usual meanings. A bounded past operator and global safety operator have the definitions
+\begin{align}
+\llbracket\mathbf O_{\le h}\varphi\rrbracket_{\tau,j}
+ &=\bigvee_{q=\max(0,j-h)}^j\llbracket\varphi\rrbracket_{\tau,q},\\
+\llbracket\mathbf G\varphi\rrbracket_{\tau,0}
+ &=\bigwedge_{q=0}^{L}\llbracket\varphi\rrbracket_{\tau,q}.
+\end{align}
+The index is an observation index, not a transaction count. Transaction and channel bounds constrain which traces are admitted. Any additional future operator requires a separately stated finite-trace boundary convention; unobserved future behavior is not silently treated as a completed obligation.
+
+Lowering replaces grounded observations with corresponding solver terms, Boolean connectives with their solver counterparts, and temporal operators with finite indexed conjunctions or disjunctions. Macro expansion precedes lowering and retains a source map from each generated term to its original property and program reference. Path feasibility and property satisfaction are separate formula components. In particular, the desired authorization or finality property is not inserted into the transition relation as an assumption that eliminates its own counterexamples.
+
+\section{Dual-VM Execution Semantics}
+\label{sec:dual-vm-v2}
+
+The modeled state is
+\[
+s=(E_S,E_D,Q,H_S,H_D,A,C,O),
+\]
+where $E_S$ and $E_D$ are EVM states, $Q$ is a bounded collection of message envelopes, $H_S$ and $H_D$ record relevant canonical-chain state, $A$ records attestation configuration and adversarial knowledge, $C$ contains chain-specific clocks, and $O$ contains ghost observations. Message envelopes include their origin, destination, emitter, recipient, nonce or intent, payload commitment and authentication material. Identical nonce values in different domains are not automatically the same authorization.
+
+Local execution follows the supported EVM semantics, including call frames, reverts and observation of callbacks. The scheduler interleaves committed local transactions and communication/environment actions. Logs from a reverted or uncommitted source transaction cannot become delivered messages. Internal EVM steps remain available to observers for callback properties, but cross-chain delivery is not permitted to observe a partially committed transaction unless such an interface is explicitly present in the concrete system.
+
+The channel can delay, select, duplicate or drop envelopes only under the evaluated communication profile. Reordering changes schedule choices rather than message authenticity. A source reorganization updates the source canonical state and rollback effects; a destination effect already committed is not automatically rolled back with it. The model retains enough provenance to determine whether the source action that justified that effect remains canonical. Reorganization after the assumed finality guarantee is a distinct consensus-failure profile, not an ordinary relayer operation.
+
+Attestation semantics distinguish what an adversary can construct from what the audited contract checks. Under a threshold profile, the adversary controls a declared set of keys and may submit malformed or insufficiently authenticated input; it does not receive arbitrary honest signatures. Actual signature, signer-set, domain and threshold checks remain in the analyzed bytecode wherever supported. Proof abstractions state their knowledge and verification assumptions and cannot assume the very public-input binding being tested. Compromised-threshold experiments characterize behavior under a broken trust assumption and are not pooled with implementation vulnerabilities under the honest-threshold profile.
+
+An optimistic-window attack is represented as an attempted premature call evaluated by the contract. It is not a channel operation that forcibly bypasses a guard. Chain clocks, delay constraints and challenge boundaries are explicit. This makes each witness's environmental requirements inspectable and separates implementation defects from stronger fault assumptions.
+
+The exploration budget is a vector
+\[
+\beta=(k_{\mathrm{tx}},k_{\mathrm{ch}},B,g,\ell,t_{\mathrm{SMT}},t_{\mathrm{wall}}),
+\]
+where the first two components bound externally initiated transactions and channel/environment steps, $B$ bounds pending envelopes, $g$ and $\ell$ bound relevant execution resources, and the remaining components bound solving and end-to-end analysis. A destination handler invocation caused by delivery counts as one destination transaction. Internal calls do not consume additional transaction-depth units. The complete budget and transition-counting convention accompany every result.
+
+\section{Counterexample Validation}
+\label{sec:validation-v2}
+
+A satisfiable symbolic query produces a candidate witness containing the initial-state identity, transaction inputs, environment choices, message provenance and intermediate observations needed to validate the property. An independent witness checker verifies the sequence against the configured transition model and reevaluates the candidate property through a direct monitor rather than by rerunning its compiled solver formula. Concrete execution uses a reference EVM implementation independent of the symbolic engine. Disagreement produces a validation failure and a minimized diagnostic case, not a security finding.
+
+Replay is performed against pinned code, configuration and initialization state. A local fork supports a deployment-specific claim only to the extent that the relevant environment and implementation match the claimed deployment. A sanitized or translated implementation is separately labeled and requires a documented observation/trace correspondence. Trace minimization is accepted only when the minimized trace preserves the independently monitored violation and the allowed threat profile.
+
+The final adjudication examines security relevance, the legitimacy of the property, and the feasibility of the complete channel/attestation sequence. Its evidence includes program semantics, extracted configuration, protocol documentation and independent reproduction. Manual review provides empirical support for abstraction validity; it is not included as a step in a mathematical proof of EVM or deployment semantics. The amount of adjudication and configuration effort is reported so that a hybrid automated analysis is not described as requiring no human interpretation.
+
+\section{Formal Guarantees and Assurance Obligations}
+\label{sec:guarantees-v2}
+
+The following results concern the explicitly defined finite core and transition model. They do not claim unbounded completeness or a proof of fidelity to all deployed bridge environments. The implementation must satisfy the stated correspondence obligations before the paper attributes these results to the implementation.
+
+\paragraph{Typing and grounding preservation.}
+For every environment $\Gamma$ whose bindings denote supported observations and every derivation $\Gamma\vdash\varphi:\mathsf{Bool}$, macro expansion and lowering produce a Boolean solver term whose free observations have bindings of the corresponding sorts. This follows by induction on the typing derivation: observation rules use $\Gamma$; value constructors and comparisons preserve their stated sorts; Boolean and finite temporal constructors preserve Boolean result type; and each accepted macro expansion has a checked core derivation. The result prevents unresolved references and sort mismatches from entering the solver through accepted core terms. It does not imply that the property is a correct security requirement.
+
+\paragraph{Lowering correctness for the defined core.}
+For every admitted finite trace $\tau$, well-typed core formula $\varphi$, and solver valuation $v_\tau$ agreeing with $\mathcal O_\Gamma$ on every referenced observation,
+\[
+\llbracket\varphi\rrbracket_{\tau,0}
+=\mathsf{eval}_{v_\tau}(\mathsf{lower}_\Gamma(\varphi,\tau)).
+\]
+The proof is structural induction. The atomic case is the observation-valuation agreement together with the specified arithmetic semantics. Boolean cases follow from the inductive hypotheses. Past and global cases follow from equality of each indexed subformula and the finite disjunction/conjunction definitions. A macro inherits the result only after its expansion is shown to implement its stated meaning. This argument proves the mathematical translation described here; implementation conformance is a separate compiler-assurance obligation.
+
+\paragraph{Model-relative witness consistency.}
+Let $M=(S,I,\longrightarrow)$ be the declared bounded transition model. Suppose an independent checker accepts a witness only after checking $s_0\in I$, each labeled transition $s_j\mathrel{\mathop{\longrightarrow}\limits^{a_j}}s_{j+1}$, the budget $\beta$, and $\llbracket\varphi\rrbracket_{\tau,0}=\mathsf{false}$. Every accepted witness is then a trace of $M$ within $\beta$ that violates $\varphi$. Membership follows by induction over checked transitions; the violation follows from the independent final monitor. This result is conditional on the transition checker implementing the defined rules and does not require an assumption about the LLM's reliability.
+
+\paragraph{Deployment relevance.}
+Lifting this result to a concrete deployment requires a relation between initial states and observations and a witness-lifting argument for the entire sequence. A conservative over-approximation is insufficient: it may admit infeasible attacks. Similarly, a forward simulation from concrete execution into an abstract model generally supports safety reasoning in the opposite direction from concretizing an abstract counterexample. We therefore state only model-relative consistency unless a suitable refinement or concrete witness validation establishes the relevant deployment correspondence. Independent differential replay and per-witness action validation supply measured evidence for that correspondence, not an unqualified deployment-level theorem.
+
+\paragraph{Machine validation.}
+The assurance suite includes positive and negative typing tests, property-based generation of finite traces and well-typed formulas, comparison of direct interpretation with lowered evaluation, and differential execution of supported EVM operations against a reference implementation. Counterexamples to the compiler or execution relation become regression tests. Mechanizing the finite core is an additional strengthening, not a completed result. The extent of compiler testing, opcode/precompile coverage and semantic disagreement is \CrossTBD.
+
+\section{Evaluation Methodology}
+\label{sec:evaluation-v2}
+
+The evaluation separates automatic discovery from specification-conditioned backend verification. Automatic methods receive the same program/documentation pack and threat profile, without gold properties or triggers. The specification-conditioned track supplies independently authored properties and a common semantic harness to each supported backend. The latter estimates analysis capability given a specification; it does not measure fully automatic specification discovery.
+
+CrossLLM is paired with direct-auditing baselines using each of the four backbones. A fixed-template proposer using the same checking backend isolates the benefit of learned proposal search. Native static and dynamic analyzers supply methodological diversity, while independently specified hevm, Halmos and Echidna comparisons characterize backend limits. Reproducible LLM-assisted competitors are included only on supported inputs and after their adaptations are documented. A provider substitution that removes an essential fine-tuning or retrieval component is not presented as faithful reproduction of the original method.
+
+All comparisons use a prespecified wall-clock horizon and report a resource vector comprising local CPU, solver time, memory, Cloud tokens and observable service costs. Provider GPU allocation is reported as unavailable when not disclosed. Manual specification, harness preparation and evaluator reproduction effort are separate from method runtime. No competing method receives a dictionary derived from CrossLLM unless the augmentation is explicitly named as a separate variant.
+
+\subsection{Benchmark Construction and Contamination Controls}
+
+The benchmark comprises historical rediscovery, sealed ground-truth variants and negative controls. Historical cases establish realism but do not establish resistance to pretraining contamination. Admission requires a versioned vulnerable implementation, a specific ground-truth property, an independently validated trigger and a scope-compatible threat model. A CVE label is used only for a documented assigned identifier. Non-EVM translations and sanitized skeletons are reported as adaptations rather than exact historical rediscoveries.
+
+The sealed cohort consists of independently constructed, unpublished vulnerable variants and matched benign or patched versions on evaluation-only code lineages. Operators have explicit preconditions and a documented security-semantic change. Retained mutations must be reachable, non-equivalent with respect to their intended property, and independently triggerable. The paired negative must block the ground-truth trigger while preserving legitimate workflows. Mutation creation and adjudication are separated from model evaluation, and the exact benchmark is committed before test queries.
+
+Lineage separation uses implementation ancestry rather than protocol names alone. Multiple versions, forks, mutations and prompts remain grouped under their shared lineage. Counts of lineages, versions, vulnerabilities, negative instances, mutants and infrastructure contracts are reported separately. Sample sizes are determined prospectively using development-only precision and power analysis; the realized composition is \CrossTBD.
+
+Lexical sanitization removes incident-specific names, comments, addresses and exploit constants, while structural transformations reduce direct source matching. Their semantic correspondence is independently validated. These controls limit explanations based on exact-case retrieval but do not prove that every relevant semantic pattern is absent from training. A temporal holdout is described as post-snapshot only when its chronology can be tied to an authenticated served-model revision. Deployment years and model release dates are not treated as training cutoffs.
+
+\subsection{Ground Truth and Failure Analysis}
+
+Two blinded experts independently assess whether a reported claim identifies a specific causal defect and violates a warranted security requirement under the evaluated threat model. Disagreements are resolved by a third expert, while agreement is reported before reconciliation. Normalization of report format reduces stylistic clues to method identity. Gold properties and triggers are inaccessible to automatic methods.
+
+Discovery recall and native witness yield are distinct endpoints. A sufficiently specific textual claim can count as a correct discovery after independent validation, but evaluator labor is not credited as a native witness generated by that method. For every method, duplicate reports are consolidated by instance and root cause. For negative controls, both the probability of any false alert and the false-discovery proportion among emitted security claims are reported. An empty report set has undefined precision rather than perfect precision.
+
+Proposal analysis distinguishes malformed output, unresolved references, incompatible types or modes, unwarranted security properties, vacuity, duplicate proposals, infeasible traces, solver uncertainty, replay failures and replayed non-security behavior. A type-accepted unresolved reference is recorded as a checker defect. Gold-property diagnostic runs after primary evaluation distinguish proposal misses from lowering defects, unsupported semantics, insufficient bounds, solver limitations and threat-model mismatch. Their findings do not retroactively alter the primary configuration.
+
+\subsection{Statistical Protocol}
+
+The observational hierarchy is code lineage, version/instance, backbone, prompt and stochastic campaign. The primary detection estimand averages campaigns within instances and instances within lineages, then weights lineages equally. Paired absolute recall differences are computed on the same instances. Secondary micro-averages and unions across repetitions are labeled as different estimands.
+
+Confidence intervals resample independent lineages while retaining their complete paired method data. A separate conditional Monte Carlo analysis quantifies variability of repeated stochastic campaigns on the fixed corpus. The analysis reports the number of independent clusters, leave-one-lineage-out sensitivity and per-lineage effects; resampling arbitrary individual prompts is not used to claim cross-protocol precision.
+
+Five prespecified confirmatory contrasts compare each CrossLLM backbone with its corresponding direct auditor and the equal-weight CrossLLM average with fixed templates. The principal quantities are risk differences and their intervals. Exact lineage sign tests separately assess directional consistency across non-tied lineage effects, with Holm adjustment over those five tests. These tests concern the probability of a positive lineage effect, not equality of pooled means. Secondary baseline comparisons use a separately stated family; exploratory interactions are not promoted to confirmatory findings.
+
+For native witness-producing methods, time to the first independently valid witness is administratively censored at the common horizon $\tau$. Kaplan--Meier curves are descriptive. The principal time summary is restricted mean time without a witness,
+\[
+\mathsf{RMTTW}(\tau)=\int_0^\tau S(t)\,dt,
+\]
+with paired lineage-bootstrap intervals. Lower values indicate earlier or more frequent discovery. Medians are reported only when estimable. Timeouts count as non-detections at $\tau$; crashes and unsupported cases remain in operational analyses rather than being censored at an artificially favorable early time.
+
+Zero observed false alerts are reported with their denominator and an appropriate uncertainty statement. Independent-binomial bounds are not applied to correlated variants or prompts. When all cluster outcomes are zero, the analysis reports the lineage-level zero-event bound and the scope of that estimand rather than a degenerate bootstrap interval. Family-level conclusions remain qualified by their actual number of lineages and validated cases.
+
+\subsection{Reproducibility and Responsible Evaluation}
+
+The artifact records source and bytecode identities, compiler and solver versions, semantic support, container and analysis commits, initial-state configuration, prompts and hashes, requested/effective Cloud parameters, exact model tags and available digests, and timestamps. Missing served-weight identity is explicit. Archived proposal streams permit deterministic downstream re-execution even when fresh calls to a mutable Cloud endpoint cannot be reproduced exactly.
+
+Evaluation executes in isolated local or read-only fork environments without transaction broadcast. Public artifacts contain benign and mutation-based cases sufficient to reproduce the methodological findings. Active-vulnerability material is restricted only where necessary and remains available for controlled independent verification. Institutional approvals, maintainer acknowledgments and novel-vulnerability status are stated only when supported by actual records. The protocol makes no assertion about the presence or number of new vulnerabilities before the evaluation is performed.
+
+
+
+\section{Experimental Protocol}
+\label{sec:experimental-protocol}
+
+\subsection{Benchmark Layers}
+The benchmark is partitioned into four evidence layers. The \emph{historical rediscovery} cohort contains exact, independently admitted historical implementations and patches wherever available. Each case records the code lineage, repository revision, vulnerable property, trigger, threat profile, and whether the instance is native EVM-to-EVM or an explicitly labeled adaptation. Historical cases are not described as contamination-free.
+
+The primary \emph{sealed evaluation} cohort is planned to contain independently validated vulnerable variants distributed across at least twelve independent evaluation code lineages, with representation across six in-scope property families. The planning target is 120 positive instances, contingent on development-based precision analysis and the availability of genuinely independent, supported hosts. The exact vulnerable programs, gold properties, mutation implementations, and triggers are committed before test queries and are not available to the tool process.
+
+A matched \emph{negative-control} cohort is planned to contain up to 120 distinct patched or benign instances from the same evaluation lineages and comparable transformation distributions. Multiple copies of the same unchanged patch do not create independent negative observations. A prospective temporal cohort is optional and is called post-snapshot only when an authenticated served-model revision provides a defensible chronology.
+
+\subsection{Model Matrix}
+All new generative experiments use open-weight models that are listed in the Ollama Cloud catalogue at execution time and whose public weights and licenses are archived with the artifact. The primary families are GLM-5.3, DeepSeek-V4-Pro, Qwen3.5-397B-A17B, and gpt-oss-120B. The exact execution tag, response model identifier, any available digest, context limit, requested and effective reasoning controls, sampling parameters, and run timestamp are recorded for every campaign. A model-family name or dated alias is not assumed to identify immutable served weights.
+
+For each backbone $m$, the automatic track compares CrossLLM+$m$ against a direct-auditing pure-LLM baseline using the same artifact pack and the same within-backbone sampling and request budgets. A deterministic fixed-template proposer, denoted T0, uses the unchanged CrossLLM compiler, joint-state backend, and replay stage and therefore isolates the incremental contribution of learned specification search.
+
+\begin{table}[t]
+\centering
+\caption{Primary four-backbone automatic evaluation matrix. All results are prospective.}
+\label{tab:model-matrix}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Backbone & CrossLLM arm & Direct-LLM arm \\ \midrule
+GLM-5.3 & X-G & P-G \\
+DeepSeek-V4-Pro & X-D & P-D \\
+Qwen3.5-397B-A17B & X-Q & P-Q \\
+gpt-oss-120B & X-O & P-O \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Calibration and Stochastic Repetition}
+Prompt templates, reasoning level, temperature, output cap, proposal count, and final search bounds are selected using development lineages only. The evaluation configuration is frozen before sealed artifacts are exposed to the tool process. A CrossLLM campaign contains a fixed sequence of proposal slots; malformed, duplicate, truncated, refused, and abstaining outputs consume their slots. The primary proposal prefixes are $N\in\{1,2,4,8\}$. No independence formula is used to infer batch reliability.
+
+The number of stochastic campaigns $R$ is selected prospectively from development-only Monte Carlo precision analysis. Numerical API seeds are recorded when accepted by the provider but are not treated as evidence of deterministic Cloud execution unless such behavior is documented for the evaluated endpoint.
+
+\subsection{Baseline Tracks}
+The automatic auditing track provides code, documentation, grounded symbols, and the common threat profile, but no target-specific gold property or exploit trigger. In addition to the same-backbone LLM controls and T0, the primary portfolio includes reproducible native static and dynamic analyzers on their supported scope. LLM-assisted competitors are included only when their original methodological components can be reproduced or transparently adapted to one of the eligible open-weight backbones.
+
+The specification-conditioned track supplies the same independently authored property and semantic harness to each applicable backend. It includes the CrossLLM backend with gold properties as a diagnostic ceiling and supported configurations of hevm, Halmos, Echidna, and, where reproducible access permits, an additional formal-verification system. Results from this track characterize analysis capability given a specification and are not pooled into the fully automatic discovery claim.
+
+\subsection{Ground Truth and Adjudication}
+A correct discovery must identify an affected program binding or location, a specific violated security requirement, allowed preconditions, and the causal defect matching the independently validated ground truth. Generic vulnerability-family labels do not count. Two qualified annotators independently assess security relevance and threat-model admissibility while blinded to method identity where feasible; disagreements are resolved by a third reviewer. Agreement is reported before reconciliation.
+
+The proposal audit distinguishes malformed serialization, unresolved references, type or domain mismatch, unwarranted properties, vacuity, duplication, solver infeasibility, timeout or unsupported execution, replay failure, replayed but non-security-relevant behavior, and true vulnerability. A candidate accepted as grounded and type-correct despite an unresolved artifact reference is treated as a checker defect.
+
+\subsection{Ablation and Sensitivity Design}
+The P0 ablations keep either candidate information or executable semantics fixed. The learned proposer is compared with T0 under the identical downstream pipeline. The bridge-macro interface is compared with a generic typed core that preserves the expressible property set. Early and deferred grounding use the same stored proposal pool. Replay filtering is studied on the same symbolic candidate pool. Gold-property diagnostic runs are executed only after the primary output is locked to distinguish proposer misses from backend, bound, or semantic failures.
+
+A prespecified sensitivity subset varies proposal count, transaction bound, channel-action bound, buffer size, SMT timeout, campaign horizon, channel scheduling, source-reorganization profile, challenge timing, and relevant attestation assumptions. Resource measurements include explored paths, channel schedules, joint states, SMT queries and outcomes, solver time, peak memory, CPU time, wall time, model input/output tokens, observable cloud cost, and failure status.
+
+\subsection{Statistical Analysis}
+The observational hierarchy is code lineage $\rightarrow$ instance/version $\rightarrow$ backbone $\rightarrow$ prompt $\rightarrow$ stochastic campaign. The primary detection estimand first averages repeated campaigns within an instance, then instances within a code lineage, and finally gives independent lineages equal weight. The principal effect is a paired absolute recall difference between methods on the same instances. Micro-averages and ``at least one success across $R$ campaigns'' are reported only as secondary, explicitly different estimands.
+
+Confidence intervals resample entire code lineages while retaining paired observations. Stochastic campaign variability on the fixed corpus is analyzed separately. The confirmatory family consists of the four matched CrossLLM-versus-direct-LLM backbone contrasts and the equal-weight CrossLLM average versus T0; Holm's method corrects this prespecified family. Raw and adjusted $p$-values are accompanied by effect sizes and confidence intervals and are not the primary scientific result.
+
+For methods producing native executable witnesses, Kaplan--Meier curves are descriptive and the principal time summary is restricted mean time without a valid witness up to the common horizon. A median is reported only when estimable. Timeouts remain non-detections at the horizon; crashes, unsupported cases, and infrastructure failures are retained and separately categorized. Zero observed false alerts are accompanied by a denominator and an uncertainty bound rather than interpreted as a true zero probability.
+
+\section{Results}
+\label{sec:results}
+
+This section is intentionally a result skeleton until the V2 protocol is executed. No V1 result is automatically transferred into V2 because the model family, benchmark construction, negative controls, statistical unit, adjudication, and baseline conditions have changed.
+
+\subsection{RQ1: End-to-End Effectiveness}
+Historical rediscovery: \CrossTBD.\
+Sealed positive recall and paired effects: \CrossTBD.\
+Native witness yield: \CrossTBD.
+
+\subsection{RQ2: Contamination-Resistant Transfer}
+Performance on sealed evaluation-only lineages, representation transformations, and independent mutation implementations: \CrossTBD.
+
+\subsection{RQ3: Precision and Unsupported Proposals}
+Negative-control false-alert rate, false-discovery proportion, grounding precision, vacuity, symbolic rejection, replay rejection, and replayed non-security behavior: \CrossTBD.
+
+\subsection{RQ4: Component Contribution}
+Learned proposer versus T0, typed macro interface versus generic core, grounding, channel semantics, symbolic filtering, and replay filtering: \CrossTBD.
+
+\subsection{RQ5: Backbone Robustness and Proposal Efficiency}
+Per-backbone proposal validity, useful property recall, recall@$N$, diversity, verified recall, and cost frontier: \CrossTBD.
+
+\subsection{RQ6: Efficiency, Bounds, and Failure Modes}
+Restricted time without a witness, path/schedule/SMT scaling, search-bound sensitivity, memory, timeouts, unsupported semantics, and failure taxonomy: \CrossTBD.
+
+\begin{table*}[t]
+\centering
+\caption{Schema of the principal automatic-detection results. No numerical V2 outcome has yet been inserted.}
+\label{tab:main-v2}
+\small
+\begin{tabular}{@{}lccccccc@{}}
+% BEGIN GENERATED:tab:main-v2
+\toprule
+Method & Cohort & Eligible & Recall & $\Delta$ vs. comparator & 95\% CI & Native witness yield & RMTTW \\ \midrule
+X-G & sealed & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD \\
+X-D & sealed & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD \\
+X-Q & sealed & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD \\
+X-O & sealed & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD & \ResultTBD \\
+T0 & sealed & \ResultTBD & \ResultTBD & --- & \ResultTBD & \ResultTBD & \ResultTBD \\
+\bottomrule
+% END GENERATED:tab:main-v2
+\end{tabular}
+\end{table*}
+
+\section{Threats to Validity}
+\label{sec:validity}
+
+\noindent\textbf{Construct validity.} CrossLLM evaluates executable on-chain properties in a bounded EVM-to-EVM model. Security failures dominated by governance compromise, key theft, social engineering, heterogeneous execution environments, or entirely off-chain behavior are outside the primary construct. A broad vulnerability taxonomy therefore does not imply that every member is expressible in \xlir.
+
+\noindent\textbf{Internal validity.} The main causal contrasts use fixed information or fixed candidate pools where possible. Nevertheless, learned proposal, representation, symbolic search, and replay interact. The manuscript interprets only those ablations whose substitutions preserve the quantity being attributed. Gold-property diagnostics are executed after primary outputs are locked and cannot be used to retune the evaluation.
+
+\noindent\textbf{External validity.} Code lineage, not protocol branding, defines the main independent grouping. Mutants increase property coverage but do not create new protocol lineages. Claims are therefore limited to the realized EVM bridge architectures and threat profiles. Historical cases demonstrate realism, while sealed variants provide contamination-resistant transfer evidence; neither alone establishes universal deployed-bridge performance.
+
+\noindent\textbf{Statistical validity.} The primary analysis reports the number of independent lineages and retains the hierarchical dependence among versions, mutants, prompts, and stochastic campaigns. With few lineages, confidence intervals and significance procedures remain limited; additional LLM repetitions cannot substitute for new independent lineages. Zero-event outcomes are not interpreted through degenerate bootstrap intervals.
+
+\noindent\textbf{Model reproducibility.} Cloud aliases may change over time, and an upstream public checkpoint does not necessarily identify the exact hosted weights. The artifact records every available model identifier and archives raw proposal streams. Downstream compilation, symbolic search, and replay can therefore be rerun on archived outputs even when fresh proposal generation is not bitwise reproducible.
+
+\section{Responsible Evaluation and Artifact Release}
+\label{sec:ethics}
+
+Evaluation is conducted in isolated local or read-only fork environments without transaction broadcasting. The public artifact should contain the auditor core, \xlir grammar and semantics, compiler and validation tests, safe mutation/negative benchmarks, prompts, model metadata, raw non-sensitive results, and analysis scripts sufficient to reproduce the methodological findings. Material enabling exploitation of an active unpatched deployment may be restricted when necessary, but the core claims must remain independently verifiable through benign or patched artifacts.
+
+Institutional approvals, legal review, maintainer acknowledgments, CVE assignments, patch status, and embargo statements are included only when corresponding records exist. The V2 manuscript makes no numerical claim regarding novel vulnerabilities before the redesigned evaluation and disclosure process is completed.
+
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Smart-Contract Semantics, Static Analysis, and Formal Verification}
+
+Early work established that smart-contract vulnerabilities require semantics-aware reasoning rather than syntactic pattern matching alone. Oyente's lineage of symbolic reasoning was followed by systems that formalized or approximated contract behavior at different levels: \emph{Making Smart Contracts Smarter} demonstrated symbolic analysis over Ethereum bytecode~\cite{luu2016making}; ZEUS reduced policy checking to verification conditions~\cite{kalra2018zeus}; Securify inferred semantic compliance and violation patterns~\cite{tsankov2018securify}; and MAIAN emphasized trace properties spanning multiple invocations rather than isolated calls~\cite{nikolic2018maian}. Concrete exploit generation and runtime validation further narrowed the gap between alarms and executable behavior, as illustrated by teEther~\cite{krupp2018teether} and Sereum~\cite{rodler2019sereum}.
+
+Subsequent systems increased semantic precision and the strength of the checked property. VerX performs safety verification over smart-contract transition systems~\cite{permenev2020verx}, VeriSmart targets arithmetic safety with a specialized verifier~\cite{so2020verismart}, and executable operational semantics for Solidity make language behavior itself an explicit object of verification~\cite{jiao2020solidity}. eThor develops a provably sound static analysis for EVM contracts~\cite{schneidewind2020ethor}, whereas ETHBMC uses bounded model checking with a detailed Ethereum model~\cite{frank2020ethbmc}. TXSPECTOR reasons over transaction traces for attack discovery~\cite{zhang2020txspector}, and Solythesis compiles user-provided invariants into runtime validation checks~\cite{li2020solythesis}. These systems demonstrate that useful security conclusions depend critically on the semantics and specification supplied to the analysis.
+
+CrossLLM builds on this verification lineage but targets a different specification boundary. Its primary property is not a local assertion over one contract state: it relates grounded observations from two versioned EVM programs to an asynchronous communication and attestation model. The contribution is therefore not a claim that existing verifiers cannot be composed across contracts. Instead, CrossLLM makes the cross-program temporal property, the message/environment transition system, and the grounding relation first-class objects, and experimentally separates automatic property search from specification-conditioned backend verification.
+
+\subsection{Stateful Symbolic Execution and Smart-Contract Fuzzing}
+
+Dynamic and hybrid analyses have progressively improved the exploration of stateful smart-contract behavior. ContractFuzzer introduced ABI-guided fuzzing for Ethereum contracts~\cite{jiang2018contractfuzzer}; ILF learned a fuzzing policy from symbolic execution~\cite{he2019ilf}; Harvey developed greybox techniques specialized to transaction sequences~\cite{wustholz2020harvey}; and SMARTIAN combines static and dynamic data-flow information to guide smart-contract fuzzing~\cite{choi2021smartian}. SmarTest is especially relevant because it uses a learned language model to prioritize vulnerable transaction sequences explored by symbolic execution~\cite{so2021smartest}. SAILFISH combines scalable exploration with symbolic refinement to detect state-inconsistency flaws~\cite{bose2022sailfish}, while ItyFuzz uses snapshots for efficient stateful fuzzing~\cite{shou2023ityfuzz}. Replay-seeded fuzzing has also been used to expose state inconsistencies in decentralized applications~\cite{ye2023dappstate}, and large-scale analyses of proxy-based upgradeable contracts show why version and deployment identity matter for security evaluation~\cite{bodell2023proxy}.
+
+CrossLLM inherits two lessons from this literature. First, search guidance and semantic validation should be separated: a learned heuristic may prioritize promising behavior without becoming the correctness oracle. Second, evaluation must retain timeouts, unsupported executions, and failed campaigns instead of conditioning efficiency on successful detections. The difference is the search target. The LLM in CrossLLM proposes \emph{cross-program security properties}; the dual-state backend then explores source transactions, communication actions, and destination transactions under an explicit threat profile. This permits an experiment that holds the backend fixed while substituting the learned proposer with deterministic templates, thereby measuring specification-search value rather than conflating it with a different execution engine.
+
+\subsection{Invariant Inference and LLM-Assisted Program Analysis}
+
+Automating specification construction predates modern language models. Daikon dynamically infers likely program invariants from executions~\cite{ernst2001daikon}, while Code2Inv learns program invariants for verification from program structure~\cite{si2020code2inv}. In the smart-contract domain, SmartInv combines code and natural-language context to infer invariants for otherwise difficult-to-audit behaviors~\cite{wang2024smartinv}. PropertyGPT moves closer to formal verification by retrieving and generating properties that are subsequently checked~\cite{liu2025propertygpt}. These works make specification generation itself a central research problem rather than assuming complete manual properties.
+
+A parallel line uses foundation models as components inside program-analysis workflows. Lemur combines LLM-generated reasoning steps with automated verification and formalizes the interaction between the two components~\cite{wu2024lemur}. GPTScan combines GPT-based semantic reasoning with program analysis for smart-contract logic vulnerabilities~\cite{sun2024gptscan}, while iAudit couples fine-tuning and LLM-based agents for vulnerability decisions and justifications~\cite{ma2025iaudit}. Beyond security auditing, Fuzz4All uses LLMs to generate fuzzing inputs across systems~\cite{xia2024fuzz4all}, and zero-shot LLM fuzzing has been demonstrated for deep-learning libraries~\cite{deng2023zeroshot}. LLMs have also been integrated into automated program repair through pre-trained generation~\cite{xia2023apr}, completion-engine collaboration~\cite{wei2023copiloting}, zero-shot repair~\cite{xia2022lesstraining}, and conversational repair~\cite{xia2024chatrepair}.
+
+CrossLLM is closest in spirit to systems that synthesize hypotheses or specifications and then invoke deterministic analysis, rather than systems that treat a model's textual vulnerability verdict as final evidence. Its distinguishing interface is a grounded typed cross-program property language: model output cannot silently introduce program state, domains, keys, finality assumptions, or proof capabilities that are absent from the evaluated artifacts and threat profile. Moreover, the evaluation compares each CrossLLM proposer with a direct-auditing baseline using the \emph{same} backbone, and with a deterministic template proposer using the \emph{same} verification backend. These controls are intended to isolate whether the LLM contributes useful specification coverage, rather than merely whether a strong model and a strong analyzer perform well when combined.
+
+\subsection{Symbolic-Execution and Fuzzing Methodology Beyond Smart Contracts}
+
+CrossLLM's search and evaluation design also draws on mature work in symbolic execution and fuzzing. KLEE showed the effectiveness of systematic symbolic execution for generating high-coverage tests~\cite{cadar2008klee}, while Driller combined fuzzing with selective symbolic execution to cross difficult program conditions~\cite{stephens2016driller}. Coverage-based greybox fuzzing can be modeled and optimized through probabilistic power schedules~\cite{bohme2016aflfast}, and directed greybox fuzzing explicitly biases exploration toward designated targets~\cite{bohme2017aflgo}. Angora uses principled search to satisfy branch conditions~\cite{chen2018angora}, whereas QSYM makes concolic execution practical inside hybrid fuzzing~\cite{yun2018qsym}. NEUZZ learns a smooth surrogate for program behavior~\cite{she2019neuzz}, GREYONE incorporates data-flow sensitivity~\cite{gan2020greyone}, and ParmeSan uses sanitizer information as guidance~\cite{osterlund2020parmesan}.
+
+This literature is relevant not because CrossLLM reproduces these algorithms, but because it clarifies how a guidance mechanism should be evaluated. Search guidance changes which parts of a state space are reached under a finite resource budget; it does not by itself justify a security claim. Klees \emph{et al.} further show that fuzzing comparisons are highly sensitive to replication, time budgets, benchmarks, and statistical treatment~\cite{klees2018evaluating}. Accordingly, CrossLLM reports both the coverage benefit and the cost of additional proposals, retains unsuccessful runs in bounded-time outcomes, and separates stochastic proposal variation from variation across independent program lineages.
+
+\subsection{Blockchain Interoperability and Cross-Chain Security}
+
+Blockchain interoperability research establishes the systems context in which CrossLLM operates. Broad surveys characterize interoperability mechanisms, trust boundaries, and architectural trade-offs~\cite{belchior2021survey}, while the cross-ledger SoK of Zamyatin \emph{et al.} systematizes communication mechanisms across distributed ledgers~\cite{zamyatin2021sok}. Trusted data-feed work such as Town Crier illustrates an earlier form of the problem of binding external assertions to smart-contract execution~\cite{zhang2016towncrier}. More recent bridge constructions increasingly make cross-domain verification an explicit protocol objective. zkBridge uses succinct proofs to realize trust-minimized cross-chain communication~\cite{xie2022zkbridge}; Glimpse constructs an on-demand proof-of-work light client with constant-size on-chain storage~\cite{scaffino2023glimpse}; and Alba develops scalable blockchain bridges with cryptographic security arguments~\cite{scaffino2025alba}.
+
+Other work focuses on privacy or specialized cross-chain transfer semantics. zkCross develops privacy-preserving cross-chain auditing protocols~\cite{guo2024zkcross}; P2C2T targets privacy-preserving cross-chain transfer~\cite{han2025p2c2t}; and PipeSwap studies the timing structure of atomic cross-chain swaps~\cite{ni2025pipeswap}. BitVM2-based bridging extends the design space toward Bitcoin and its second layers~\cite{woll2026bitvm2}. Collectively, these systems demonstrate that cross-chain security depends on protocol-specific finality, authentication, timing, and message semantics. They primarily propose or analyze interoperability protocols, whereas CrossLLM asks how to \emph{audit implementations} when the security requirement spans two executable domains and an adversarial communication environment.
+
+\subsection{Positioning CrossLLM}
+
+The closest research lines therefore address complementary parts of the problem. Smart-contract verifiers and fuzzers provide precise local or multi-transaction execution reasoning~\cite{permenev2020verx,frank2020ethbmc,choi2021smartian,shou2023ityfuzz}; learned specification systems reduce the cost of constructing useful properties~\cite{wang2024smartinv,liu2025propertygpt}; LLM-assisted analyzers combine semantic models with program-analysis signals~\cite{sun2024gptscan,ma2025iaudit}; and bridge research formalizes or implements cross-domain trust mechanisms~\cite{xie2022zkbridge,scaffino2023glimpse,scaffino2025alba}. CrossLLM combines these concerns around a deliberately narrow interface: an untrusted model searches for grounded typed properties, while an explicit bounded two-domain semantics, symbolic feasibility checking, independent witness checking, and concrete replay determine executable evidence.
+
+The methodological distinction is equally important to the technical one. CrossLLM does not infer correctness from agreement between an LLM narrative and a known historical incident. Historical cases are used for realistic rediscovery; contamination-resistant transfer is evaluated on sealed variants and matched negatives. Likewise, a replayed execution is not automatically a vulnerability: the reported behavior must violate an independently warranted security requirement under the declared threat model. This evidence chain is the basis for the paper's claim that language models can improve specification search without becoming vulnerability oracles.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+CrossLLM treats language models as specification-search components rather than vulnerability oracles. Its technical core is a grounded typed property layer, an explicit asynchronous two-EVM transition model, symbolic counterexample search, and independently checked concrete validation. The resulting formal guarantees are deliberately model-relative: they concern typing, lowering, and accepted witnesses within the declared bounded semantics, while deployment correspondence is validated separately. The V2 evaluation is designed to determine whether learned proposal increases useful specification coverage beyond deterministic templates and direct language-model auditing, whether that advantage persists across four independent open-weight proposer families, and whether it survives sealed contamination controls, matched negatives, and lineage-aware inference. The empirical answers are \CrossTBD. This evidence structure is intended to make the paper's strongest claim depend on a reproducible verification architecture rather than on trust in an LLM-generated vulnerability judgment.
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,688 @@
+{
+  "lineage_id": "arbitrum_token_bridge",
+  "protocol": "Arbitrum Token Bridge",
+  "contracts": {
+    "L1GatewayRouter": {
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710",
+      "source_target": {
+        "contract_name": "L1GatewayRouter",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 36
+      },
+      "function_count": 23,
+      "functions": [
+        "calculateL2TokenAddress",
+        "counterpartGateway",
+        "defaultGateway",
+        "finalizeInboundTransfer",
+        "getGateway",
+        "getOutboundCalldata",
+        "inbox",
+        "initialize",
+        "l1TokenToGateway",
+        "outboundTransfer",
+        "outboundTransferCustomRefund",
+        "outboundTransferCustomRefundWithSlippageTolerance",
+        "owner",
+        "postUpgradeInit",
+        "router",
+        "setDefaultGateway",
+        "setGateway",
+        "setGateways",
+        "setOwner",
+        "supportsInterface",
+        "updateWhitelistSource",
+        "whitelist"
+      ],
+      "event_count": 5,
+      "events": [
+        "DefaultGatewayUpdated",
+        "GatewaySet",
+        "TransferRouted",
+        "TxToL2",
+        "WhitelistSourceUpdated"
+      ],
+      "storage_slot_count": 7,
+      "storage_slots": [
+        "whitelist",
+        "counterpartGateway",
+        "router",
+        "l1TokenToGateway",
+        "defaultGateway",
+        "owner",
+        "inbox"
+      ]
+    },
+    "L2GatewayRouter": {
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3",
+      "source_target": {
+        "contract_name": "L2GatewayRouter",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 30
+      },
+      "function_count": 14,
+      "functions": [
+        "calculateL2TokenAddress",
+        "counterpartGateway",
+        "defaultGateway",
+        "finalizeInboundTransfer",
+        "getGateway",
+        "getOutboundCalldata",
+        "initialize",
+        "l1TokenToGateway",
+        "outboundTransfer",
+        "postUpgradeInit",
+        "router",
+        "setDefaultGateway",
+        "setGateway"
+      ],
+      "event_count": 4,
+      "events": [
+        "DefaultGatewayUpdated",
+        "GatewaySet",
+        "TransferRouted",
+        "TxToL1"
+      ],
+      "storage_slot_count": 4,
+      "storage_slots": [
+        "counterpartGateway",
+        "router",
+        "l1TokenToGateway",
+        "defaultGateway"
+      ]
+    }
+  },
+  "stable_symbols": [
+    {
+      "symbol_id": "abi_event.L1GatewayRouter.127be1fd978c20bbae19ba69fc509af455f5ac9eb4d756b8a8e3820a4217f6f1",
+      "contract": "L1GatewayRouter",
+      "name": "TransferRouted",
+      "signature": "TransferRouted(address,address,address,address)",
+      "kind": "abi_event",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_event.L1GatewayRouter.1471b3dff9ff2fc1f0878bfe14df3f96e88155503b28ad52255df8dd42fe412c",
+      "contract": "L1GatewayRouter",
+      "name": "TxToL2",
+      "signature": "TxToL2(address,address,uint256,bytes)",
+      "kind": "abi_event",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_event.L1GatewayRouter.15173a8f9272bc793cefb91cc4238e2841ab289bc5b91115a8c6ad50fe3c35f6",
+      "contract": "L1GatewayRouter",
+      "name": "DefaultGatewayUpdated",
+      "signature": "DefaultGatewayUpdated(address)",
+      "kind": "abi_event",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_event.L1GatewayRouter.2c2d3a6f0f5fb764fe075282a9db67edeb662de45c1792786656086610ae8ece",
+      "contract": "L1GatewayRouter",
+      "name": "WhitelistSourceUpdated",
+      "signature": "WhitelistSourceUpdated(address)",
+      "kind": "abi_event",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_event.L1GatewayRouter.f1189d2004906cbee71862dc2f786e7a8c43f80517675256305e57e2cefa6ca5",
+      "contract": "L1GatewayRouter",
+      "name": "GatewaySet",
+      "signature": "GatewaySet(address,address)",
+      "kind": "abi_event",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_event.L2GatewayRouter.237efa066e398d9b05957dc99b6d622c45bbc4dd3e5a31f8f2e9c180b0b219d8",
+      "contract": "L2GatewayRouter",
+      "name": "DefaultGatewayUpdated",
+      "signature": "DefaultGatewayUpdated(address)",
+      "kind": "abi_event",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_event.L2GatewayRouter.6fa7a08b999129224d9c4ef2ff3dedeb558ac6ad9b1c6250502c0a145b02f4a2",
+      "contract": "L2GatewayRouter",
+      "name": "GatewaySet",
+      "signature": "GatewaySet(address,address)",
+      "kind": "abi_event",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_event.L2GatewayRouter.7bddfbe6190728d464f22328646fc980c3e7b89f2e02502f6508e96f7167a049",
+      "contract": "L2GatewayRouter",
+      "name": "TxToL1",
+      "signature": "TxToL1(address,address,uint256,bytes)",
+      "kind": "abi_event",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_event.L2GatewayRouter.d689decd170bedbdb2d0e2abc0704d3cf8fdc0b6e946679c44abab3d4985c23d",
+      "contract": "L2GatewayRouter",
+      "name": "TransferRouted",
+      "signature": "TransferRouted(address,address,address,address)",
+      "kind": "abi_event",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.047eebe740e62fe4a816ff04817bba7519fc3dc7d9147d68d5331312dca2d249",
+      "contract": "L1GatewayRouter",
+      "name": "router",
+      "signature": "router()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.09096f0d7e7f82153e78cbf50aa0970e7fc6ad09b392f34192a2e6a2d72c67b4",
+      "contract": "L1GatewayRouter",
+      "name": "counterpartGateway",
+      "signature": "counterpartGateway()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.0be8ab79b07b7ffc88ad9deaf4f29ed8cbdec32ea54b916b4f2f1182805f0c3a",
+      "contract": "L1GatewayRouter",
+      "name": "owner",
+      "signature": "owner()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.1ccefc5792ea1e0bb7221352d027e662dfb874f6da56847fec71615a59fd02b5",
+      "contract": "L1GatewayRouter",
+      "name": "updateWhitelistSource",
+      "signature": "updateWhitelistSource(address)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.2a3cce28d8d3b87e10a64f02726c348992cabc22b4f62942daebe24866f1b6c5",
+      "contract": "L1GatewayRouter",
+      "name": "l1TokenToGateway",
+      "signature": "l1TokenToGateway(address)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.602932794b093d8c5a2cd6f64906b3d85e1de2a58fe8b82c0cb4faa1f4b7099e",
+      "contract": "L1GatewayRouter",
+      "name": "outboundTransferCustomRefundWithSlippageTolerance",
+      "signature": "outboundTransferCustomRefundWithSlippageTolerance(address,address,address,uint256,uint256,uint256,bytes,uint256)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.6a01e7f8c08bb399b789cfcbfc3369cf4d8b6ddd9149e4b5f5d104abd2d428a5",
+      "contract": "L1GatewayRouter",
+      "name": "setGateway",
+      "signature": "setGateway(address,uint256,uint256,uint256)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.8163b339ba5c276bcea09f42e4c64e27f9f2909c17450171d76ad10c63f171d9",
+      "contract": "L1GatewayRouter",
+      "name": "defaultGateway",
+      "signature": "defaultGateway()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.8336bc2953e8385b5289f9c8c86506b8699c48fa4058a2743932a768e06f4a90",
+      "contract": "L1GatewayRouter",
+      "name": "setOwner",
+      "signature": "setOwner(address)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.84788febf236bfe1d325390dc2f8602205568b95de2584118c348f94668442ab",
+      "contract": "L1GatewayRouter",
+      "name": "calculateL2TokenAddress",
+      "signature": "calculateL2TokenAddress(address)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.86efc549c260a7ab9606bbedfa7b71e2f878c1d6cfdfd48e5bfdf9d9ae9c4d66",
+      "contract": "L1GatewayRouter",
+      "name": "supportsInterface",
+      "signature": "supportsInterface(bytes4)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.948141a2614f1278ba2a2b75675c9d48442d0c32c6a663d6314d07b1d89daa9a",
+      "contract": "L1GatewayRouter",
+      "name": "setGateway",
+      "signature": "setGateway(address,uint256,uint256,uint256,address)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.9ac23fb4b15f65685077580994bbb4904086e34133f55736806a508d4ba77c72",
+      "contract": "L1GatewayRouter",
+      "name": "getGateway",
+      "signature": "getGateway(address)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.a2f171a6e2428b0142fb120c95ce2e0a4d002acc4212f416f8dc88a85bfc7ca2",
+      "contract": "L1GatewayRouter",
+      "name": "setGateways",
+      "signature": "setGateways(address[],address[],uint256,uint256,uint256)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.b17ccb77c6377fdb4ac513dc1515fdd9c49b7ad0808a7fa3b732d4bffc289965",
+      "contract": "L1GatewayRouter",
+      "name": "outboundTransfer",
+      "signature": "outboundTransfer(address,address,uint256,uint256,uint256,bytes)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.c60081d7cd72cfc88c1b3044656259e8e316e98bc5893bb08fa5199e49b39607",
+      "contract": "L1GatewayRouter",
+      "name": "finalizeInboundTransfer",
+      "signature": "finalizeInboundTransfer(address,address,address,uint256,bytes)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.c8ba5c2f7b9b677147aa0e993c71035349199bb343012813d0f9ccbd2493f23f",
+      "contract": "L1GatewayRouter",
+      "name": "initialize",
+      "signature": "initialize(address,address,address,address,address)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.c951e06e355ac99d83a60ffbf57312da0df173c93350752ac2faabeba77c557b",
+      "contract": "L1GatewayRouter",
+      "name": "outboundTransferCustomRefund",
+      "signature": "outboundTransferCustomRefund(address,address,address,uint256,uint256,uint256,bytes)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.cc1809aa64129743be25ebf171e00b8bfb3438f0e4159be93178892088ae89fd",
+      "contract": "L1GatewayRouter",
+      "name": "inbox",
+      "signature": "inbox()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.cfa8f205f291ffdea3c72badc6744a5e2d7c0ce6ba971e8351c8760f992f03c3",
+      "contract": "L1GatewayRouter",
+      "name": "whitelist",
+      "signature": "whitelist()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.e49ddd3c2db2a0638fd61d4065b78f5ee17bd13401ebce331fb76f17cabb4c6b",
+      "contract": "L1GatewayRouter",
+      "name": "getOutboundCalldata",
+      "signature": "getOutboundCalldata(address,address,address,uint256,bytes)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.eab530f8d51752d9b8572427b3bdfe97f7edba84b08be026c30bfec64f951dd6",
+      "contract": "L1GatewayRouter",
+      "name": "postUpgradeInit",
+      "signature": "postUpgradeInit()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L1GatewayRouter.f06d3e96567dc0b2bd8c56ab5b1f36ad2ec62df9bd3f5634d1b0bf1ff016cd91",
+      "contract": "L1GatewayRouter",
+      "name": "setDefaultGateway",
+      "signature": "setDefaultGateway(address,uint256,uint256,uint256)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.0d73fad9b9f950b2b78b088b7356f2708e976419388ac502daca645c9bc3da91",
+      "contract": "L2GatewayRouter",
+      "name": "outboundTransfer",
+      "signature": "outboundTransfer(address,address,uint256,bytes)",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.0fc2db02f5002622c49cd7107034a92ba34ecab93f7f4a82537a8a01c5822660",
+      "contract": "L2GatewayRouter",
+      "name": "getGateway",
+      "signature": "getGateway(address)",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.2648cdca2d297690157c09ab53eba8df960c23137197b6d99c0d3e280a43e288",
+      "contract": "L2GatewayRouter",
+      "name": "calculateL2TokenAddress",
+      "signature": "calculateL2TokenAddress(address)",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.2da92d30dc15b9fe8b3d1e5470b3ae06ec409aef6e255cdfba2dc8ef76211228",
+      "contract": "L2GatewayRouter",
+      "name": "finalizeInboundTransfer",
+      "signature": "finalizeInboundTransfer(address,address,address,uint256,bytes)",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.410f520491e6508cb032880055cb41121115390bd09b7ff51b52e7787ba1c03b",
+      "contract": "L2GatewayRouter",
+      "name": "setDefaultGateway",
+      "signature": "setDefaultGateway(address)",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.76f3ffffe7f358b9e4d5deabe1646cb9a027e5b37dc4f2cf92115dae6ceb51a9",
+      "contract": "L2GatewayRouter",
+      "name": "getOutboundCalldata",
+      "signature": "getOutboundCalldata(address,address,address,uint256,bytes)",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.89530b16f49974dc5bd20c6731219416c4e09e01c1822f317f8c1da8604a3194",
+      "contract": "L2GatewayRouter",
+      "name": "defaultGateway",
+      "signature": "defaultGateway()",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.9806215e37483ae5d4cda3536bec4a693075878220e39e6694f0850cb4b716b7",
+      "contract": "L2GatewayRouter",
+      "name": "initialize",
+      "signature": "initialize(address,address)",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.ad5b0a4b5646a9deb50195bb741d1f01546e5e46fa82791ad4d07602727fd182",
+      "contract": "L2GatewayRouter",
+      "name": "l1TokenToGateway",
+      "signature": "l1TokenToGateway(address)",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.b4feb95dd34034f45fb0c0ec924454c3aa853803d28ad55949eeeb6ed5d560da",
+      "contract": "L2GatewayRouter",
+      "name": "setGateway",
+      "signature": "setGateway(address[],address[])",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.c2c0c323626be7a57f7b0ff9d8794f99c2ff3ef84ba1fc754ffe3f2ac18e6e41",
+      "contract": "L2GatewayRouter",
+      "name": "counterpartGateway",
+      "signature": "counterpartGateway()",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.d5aa947fc6c7405d6b47ce935d9396719a84923de837e033a7ddd88f3976ff33",
+      "contract": "L2GatewayRouter",
+      "name": "postUpgradeInit",
+      "signature": "postUpgradeInit()",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.f17878d5f46d7876bd659a652f1073e18e3817dbc802021e61ef16adc7bcd8a4",
+      "contract": "L2GatewayRouter",
+      "name": "outboundTransfer",
+      "signature": "outboundTransfer(address,address,uint256,uint256,uint256,bytes)",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "abi_function.L2GatewayRouter.fa314e1bff8a298fa0a950b0ac1a51f7758c167030c8ead09c0653516a94b1ca",
+      "contract": "L2GatewayRouter",
+      "name": "router",
+      "signature": "router()",
+      "kind": "abi_function",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "storage.L1GatewayRouter.slot_0.whitelist",
+      "contract": "L1GatewayRouter",
+      "name": "whitelist",
+      "signature": "storage(0)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "storage.L1GatewayRouter.slot_1.counterpartGateway",
+      "contract": "L1GatewayRouter",
+      "name": "counterpartGateway",
+      "signature": "storage(1)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "storage.L1GatewayRouter.slot_2.router",
+      "contract": "L1GatewayRouter",
+      "name": "router",
+      "signature": "storage(2)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "storage.L1GatewayRouter.slot_3.l1TokenToGateway",
+      "contract": "L1GatewayRouter",
+      "name": "l1TokenToGateway",
+      "signature": "storage(3)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_address)",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "storage.L1GatewayRouter.slot_4.defaultGateway",
+      "contract": "L1GatewayRouter",
+      "name": "defaultGateway",
+      "signature": "storage(4)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "storage.L1GatewayRouter.slot_5.owner",
+      "contract": "L1GatewayRouter",
+      "name": "owner",
+      "signature": "storage(5)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "storage.L1GatewayRouter.slot_6.inbox",
+      "contract": "L1GatewayRouter",
+      "name": "inbox",
+      "signature": "storage(6)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "source",
+      "source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+      "source_file_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710"
+    },
+    {
+      "symbol_id": "storage.L2GatewayRouter.slot_0.counterpartGateway",
+      "contract": "L2GatewayRouter",
+      "name": "counterpartGateway",
+      "signature": "storage(0)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "storage.L2GatewayRouter.slot_1.router",
+      "contract": "L2GatewayRouter",
+      "name": "router",
+      "signature": "storage(1)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "storage.L2GatewayRouter.slot_2.l1TokenToGateway",
+      "contract": "L2GatewayRouter",
+      "name": "l1TokenToGateway",
+      "signature": "storage(2)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_address)",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    },
+    {
+      "symbol_id": "storage.L2GatewayRouter.slot_3.defaultGateway",
+      "contract": "L2GatewayRouter",
+      "name": "defaultGateway",
+      "signature": "storage(3)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "destination",
+      "source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+      "source_file_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3"
+    }
+  ],
+  "stable_symbols_sha256": "f07604e2266626b24819fd729641e57d6820d13cdd23262d38705b3fc911c65d",
+  "domain_assignments": {
+    "L1GatewayRouter": "source",
+    "L2GatewayRouter": "destination"
+  },
+  "source_selection_hash": "54608513b6cab3111b36d40f1fa1e3eca3247f8387e4aa5b16b3e40824afed17"
+}

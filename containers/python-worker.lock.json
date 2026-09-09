@@ -1,0 +1,10 @@
+{
+  "base_image": "python:3.11-slim@sha256:9534e5a8e315485d4061ed659af0fd78a284c015f9b73661b41d6bab25604534",
+  "dockerfile_sha256": "4be9b2ea73a4f6e1dec16279a6498e3d95a87f34a2548f5aa2618e222b62cb3a",
+  "lock_hash": "77398d2edc9230e2d4e48e15e528f479fc773993aab518738b3ca713e9b1ef62",
+  "observed_on": "2026-09-09",
+  "record_type": "python_worker_base_lock",
+  "requirements_lock_sha256": "0c235b6291806b71d52057a56f0eb57b1dd2faec74d920852737af266f4b4dd0",
+  "schema_version": 1,
+  "status": "development_probe"
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "development_prompt_assets",
+  "files": [
+    {
+      "path": "prompts/crossllm_proposer_v1.txt",
+      "sha256": "451f5d1a610067b5deeb1057df73c4f0356e264149e33b2d19ddf40b0765e543",
+      "template_id": "crossllm-proposer-public-v1",
+      "version": "v1",
+      "track": "X"
+    },
+    {
+      "path": "prompts/direct_audit_v1.txt",
+      "sha256": "d882dd4b36aee70fd26fbefd67393b6cb0b1aee1b1bdf19e43fc7e6f9a641cec",
+      "template_id": "direct-audit-public-v1",
+      "version": "v1",
+      "track": "P"
+    },
+    {
+      "path": "prompts/t0_proposer_v1.txt",
+      "sha256": "d2a3ee87661381bc8179626e30f9aeb59a44cb0d842ec43200757a558c11ded8",
+      "template_id": "t0-proposer-public-v1",
+      "version": "v1",
+      "track": "T0"
+    },
+    {
+      "path": "protocol/preflight_prompt.txt",
+      "sha256": "1712de6239659b3b71f468595c36c99e1a67e09f7ff8ab3c972c39a997f10e4c",
+      "template_id": "ollama-cloud-preflight-v1",
+      "version": "v1",
+      "track": "preflight"
+    }
+  ]
+}

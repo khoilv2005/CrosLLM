@@ -1,0 +1,95 @@
+{
+  "admission_eligible": false,
+  "cell_count": 13824,
+  "command": "python scripts/run_sensitivity_matrix_rehearsal.py --check",
+  "coverage": [
+    {
+      "cell_count": 6912,
+      "method": "X",
+      "track": "automatic"
+    },
+    {
+      "cell_count": 6912,
+      "method": "P",
+      "track": "automatic"
+    }
+  ],
+  "dimensions": {
+    "attestation_profiles": [
+      "honest",
+      "conditional"
+    ],
+    "challenge_timings": [
+      "before",
+      "at",
+      "after"
+    ],
+    "channel_bounds": [
+      [
+        6,
+        1
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        24,
+        4
+      ]
+    ],
+    "channel_modes": [
+      "fifo",
+      "reordering"
+    ],
+    "horizons_minutes": [
+      15,
+      60
+    ],
+    "methods": [
+      "X",
+      "P"
+    ],
+    "program_size_strata": [
+      "small"
+    ],
+    "proposal_prefixes": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "reorg_modes": [
+      "none",
+      "bounded_pre_finality"
+    ],
+    "solver_timeouts_seconds": [
+      10,
+      30,
+      120
+    ],
+    "tracks": [
+      "automatic"
+    ],
+    "transaction_bounds": [
+      2,
+      4,
+      6,
+      8
+    ]
+  },
+  "eligibility_counts": {
+    "eligible": 0,
+    "pending": 13824,
+    "unsupported": 0
+  },
+  "evidence_scope": "development_planning_non_admission",
+  "matrix_hash": "03c3b4848e9af57e4dcdd6c840b2516d577a88813213b5b50d44e1c25088b0da",
+  "matrix_id": "m07-sensitivity-v1",
+  "observed_at": "2026-09-09T07:11:27.133642Z",
+  "record_type": "development_sensitivity_matrix_rehearsal",
+  "report_hash": "0e42c75bf5f6ff7c4ecdec1a790a4e32b43f27dc4d7ca312acc97087be1dc481",
+  "schema_version": 1,
+  "scope": "m07_07_planning_contract_only",
+  "status": "pass"
+}

@@ -1,0 +1,143 @@
+{
+  "lineage_id": "celer_cbridge",
+  "protocol": "Celer cBridge",
+  "contracts": {
+    "CBridge": {
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2",
+      "source_target": {
+        "contract_name": "CBridge",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 8
+      },
+      "function_count": 5,
+      "functions": [
+        "confirm",
+        "refund",
+        "transferIn",
+        "transferOut",
+        "transfers"
+      ],
+      "event_count": 4,
+      "events": [
+        "LogNewTransferIn",
+        "LogNewTransferOut",
+        "LogTransferConfirmed",
+        "LogTransferRefunded"
+      ],
+      "storage_slot_count": 1,
+      "storage_slots": [
+        "transfers"
+      ]
+    }
+  },
+  "stable_symbols": [
+    {
+      "symbol_id": "abi_event.CBridge.84d5dcff246fe2a1f1235a44a6c4f84c71655ad33a41ba9ff202b08847373338",
+      "contract": "CBridge",
+      "name": "LogNewTransferOut",
+      "signature": "LogNewTransferOut(bytes32,address,address,address,uint256,bytes32,uint64,uint64,address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    },
+    {
+      "symbol_id": "abi_event.CBridge.b2272871bf99a30c9d2347ed52e516a076d98f0017f49bd2e4245e1a27b59261",
+      "contract": "CBridge",
+      "name": "LogTransferConfirmed",
+      "signature": "LogTransferConfirmed(bytes32,bytes32)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    },
+    {
+      "symbol_id": "abi_event.CBridge.e0560f8ac403e4cc08f8040c928608fa6d7f4323925a485fba10573963387474",
+      "contract": "CBridge",
+      "name": "LogNewTransferIn",
+      "signature": "LogNewTransferIn(bytes32,address,address,address,uint256,bytes32,uint64,uint64,bytes32)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    },
+    {
+      "symbol_id": "abi_event.CBridge.f62eaa696b235097c7d218bb4d1c8629ba9039d217f8b22068e10292061219f8",
+      "contract": "CBridge",
+      "name": "LogTransferRefunded",
+      "signature": "LogTransferRefunded(bytes32)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    },
+    {
+      "symbol_id": "abi_function.CBridge.03e55721754273c2be4384a6657b2c61c45de620b46faab163f3f52892bc084d",
+      "contract": "CBridge",
+      "name": "transfers",
+      "signature": "transfers(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    },
+    {
+      "symbol_id": "abi_function.CBridge.582a9ddec2e0d557a855b72922a5e0f2f8d29f2df1e669deb85e1b624405c4e4",
+      "contract": "CBridge",
+      "name": "confirm",
+      "signature": "confirm(bytes32,bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    },
+    {
+      "symbol_id": "abi_function.CBridge.605730e532cb4d965536afee40ad5640b979f3fb8d4f85ce3e3809219b99db35",
+      "contract": "CBridge",
+      "name": "transferIn",
+      "signature": "transferIn(address,address,uint256,bytes32,uint64,uint64,bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    },
+    {
+      "symbol_id": "abi_function.CBridge.99a5bba8eef204d07997fd540ee1c62e5b2a4db19c51cb3f9e49be21b978a404",
+      "contract": "CBridge",
+      "name": "transferOut",
+      "signature": "transferOut(address,address,uint256,bytes32,uint64,uint64,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    },
+    {
+      "symbol_id": "abi_function.CBridge.e2bb259fa199da0fdfab8d65c6afdb51e53669526d5ff7bfecf585f3a3e3130b",
+      "contract": "CBridge",
+      "name": "refund",
+      "signature": "refund(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    },
+    {
+      "symbol_id": "storage.CBridge.slot_0.transfers",
+      "contract": "CBridge",
+      "name": "transfers",
+      "signature": "storage(0)",
+      "kind": "storage",
+      "type": "t_mapping(t_bytes32,t_struct(Transfer)28_storage)",
+      "domain": "shared",
+      "source_path": "contracts/CBridge.sol",
+      "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2"
+    }
+  ],
+  "stable_symbols_sha256": "00954ba1164280887f15d55bfe4078d00cd52eddd818e4003f095d92f47637ed",
+  "domain_assignments": {
+    "CBridge": "shared"
+  },
+  "source_selection_hash": "4ea61a786a5f7b23f263eaae37c20da74cd67fc91d8e3f67664b270002958426"
+}

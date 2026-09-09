@@ -1,0 +1,106 @@
+{
+  "artifact_manifest_sha256": "eba5e0b214f136e0427b1014855000996ff9d8ef4c49f833e9d3c2827b52cae8",
+  "compiler": {
+    "binary_sha256": "fadfc5f198e9f4eebee03db4a3d7a71534de94281f40b5d9ac72dc6b88c7cbf1",
+    "image": "ghcr.io/argotorg/solc@sha256:2fe6baaada4141dfb52cb786c11e16b77f675ee103bb1d586a446fdd572c6c66",
+    "optimizer": true,
+    "optimizer_runs": 200,
+    "version": "0.8.11"
+  },
+  "contracts": [
+    "Bridge",
+    "ERC20Handler"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "1478a9b9e95f469e2b140ddb2f3f2d40f47a6a596fa3c8b7e420b29f29f8b359",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "chainbridge",
+  "protocol": "ChainBridge",
+  "source_backed": true,
+  "source_commit": "b929c980afcdffae10d61c7065a5655479638519",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "9a8b7d4b2c73c159004f0ba109b47d0e82a43004a25d16310231ec446124f115",
+  "source_repository": "https://github.com/ChainSafe/chainbridge-solidity.git",
+  "source_selection_hash": "bbaa66be4fff2e02e8b1cc6baaa27a8d2a09abd6091fd3555e8900676bf1ff72",
+  "split": "development",
+  "test_contract": "ChainBridgePairedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "admin": [
+        "Bridge.adminSetResource"
+      ],
+      "alice": [
+        "Bridge.deposit"
+      ],
+      "eve": [],
+      "relayer_1": [
+        "Bridge.voteProposal"
+      ],
+      "relayer_2": [
+        "Bridge.voteProposal"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_non_relayer_cannot_vote",
+      "mechanism": "relayer role membership and proposal vote bitmap"
+    },
+    "callbacks": {
+      "destination_callback": "Bridge.executeProposal -> ERC20Handler.executeProposal",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "proposal expiry uses locked Bridge _expiry",
+      "explicit_time_warp": false,
+      "source": "block.number at deposit/proposal creation"
+    },
+    "finality": {
+      "model": "m-of-n relayer threshold",
+      "status": "threshold_and_duplicate_vote_tested"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "deposit_nonce",
+        "threshold",
+        "resource_binding",
+        "token_conservation"
+      ],
+      "steps": [
+        "deposit",
+        "relayer_vote_1",
+        "relayer_vote_2",
+        "handler_execute"
+      ],
+      "test": "test_normal_cross_chain_lock_and_relay"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys bridge, handlers and tokens for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys two Bridge/handler pairs and configures resource IDs",
+      "source_contracts": [
+        "Bridge",
+        "ERC20Handler"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

@@ -1,0 +1,79 @@
+{
+  "lineage_id": "hop",
+  "protocol": "Hop Protocol",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "L1_Bridge": {
+      "contract_name": "L1_Bridge",
+      "source_path": "contracts/test/Mock_L1_Bridge.sol",
+      "source_file_sha256": "cff786fef43007fd3776db15cf3af00ecff40561fc22f9445df45f1853a4e65a",
+      "source_target": {
+        "contract_name": "Mock_L1_Bridge",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 8
+      },
+      "abi_path": "abi/L1_Bridge.json",
+      "abi_sha256": "f360f5e1926e8a81988193a1c0db53663dd01845bf25a7d9a587bb3944372ca2",
+      "creation_bytecode_path": "bytecode/L1_Bridge.creation.hex",
+      "creation_bytecode_sha256": "7d2fc8e04b4e6306780d054ab6b6504cde0417a02a200c10f47d5f7223776c24",
+      "deployed_bytecode_path": "bytecode/L1_Bridge.deployed.hex",
+      "deployed_bytecode_sha256": "b61ff4cce4a02a85a73b7a06dd42b82e2b6a0f8efac0b2e6ac90252687887233",
+      "storage_layout_path": "storage_layout/L1_Bridge.json",
+      "storage_layout_sha256": "dc18d129b1c57ff9a4daa95153065d3cc02077cfae662a121e29a567d8a8c2be",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": null,
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": false,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    },
+    "L2_Bridge": {
+      "contract_name": "L2_Bridge",
+      "source_path": "contracts/test/Mock_L2_Bridge.sol",
+      "source_file_sha256": "4a70c0ce09d9e8d0aa8ae2c9af411c69fadbdf6cb8565d1dda9a6eece373f169",
+      "source_target": {
+        "contract_name": "Mock_L2_Bridge",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 8
+      },
+      "abi_path": "abi/L2_Bridge.json",
+      "abi_sha256": "b86efbc9eb78c28f50c8b55f10d44f727ce0a323bb42e9f332b0dbc87713d327",
+      "creation_bytecode_path": "bytecode/L2_Bridge.creation.hex",
+      "creation_bytecode_sha256": "ee537323ba4fd362c701e671bb59bb18a64742049040ecd3370dd628123d50a6",
+      "deployed_bytecode_path": "bytecode/L2_Bridge.deployed.hex",
+      "deployed_bytecode_sha256": "f1c7f7d9ae3ae9937ff36b2abd1202f96a39e1a5713f737391905b6c4e85644c",
+      "storage_layout_path": "storage_layout/L2_Bridge.json",
+      "storage_layout_sha256": "03ab7beb6e9084fe70543b002a9f7a320bbcfca4db1e8114e9ca409bd890c6af",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": null,
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": false,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

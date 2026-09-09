@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.invalid/schemas/model_lock.schema.json",
+  "title": "CrossLLM runtime model lock",
+  "description": "Public, hash-addressed Ollama Cloud preflight attestation. It intentionally contains no credential or response text.",
+  "type": "object",
+  "required": ["schema_version", "status", "captured_at", "provider", "expected_families", "preflight_ready", "models", "lock_hash"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "status": {"enum": ["RUNTIME_ATTESTATION_LOCKED", "RUNTIME_PREFLIGHT_PENDING"]},
+    "captured_at": {"type": "string", "minLength": 1},
+    "provider": {"$ref": "#/$defs/provider"},
+    "expected_families": {"type": "array", "items": {"$ref": "#/$defs/id"}, "minItems": 1, "uniqueItems": true},
+    "preflight_ready": {"type": "boolean"},
+    "models": {"type": "array", "items": {"$ref": "#/$defs/model"}, "minItems": 1},
+    "lock_hash": {"$ref": "#/$defs/sha256"}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "provider": {
+      "type": "object",
+      "required": ["name", "base_url", "chat_endpoint", "auth_env", "execution_mode", "local_weights"],
+      "properties": {
+        "name": {"const": "ollama_cloud"},
+        "base_url": {"const": "https://ollama.com"},
+        "chat_endpoint": {"const": "https://ollama.com/api/chat"},
+        "auth_env": {"const": "OLLAMA_API_KEY"},
+        "execution_mode": {"const": "remote_cloud_api"},
+        "local_weights": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "required": [
+        "family", "requested_tag", "response_model", "served_weight_digest", "effective_api_settings",
+        "preflight_status", "preflight_checks", "missing_field_reasons", "run_date", "request_hash",
+        "response_hash", "http_status", "attempts", "partial", "usage", "immutable_served_weights_guaranteed"
+      ],
+      "properties": {
+        "family": {"$ref": "#/$defs/id"},
+        "model": {"$ref": "#/$defs/id"},
+        "upstream_weights": {"$ref": "#/$defs/id"},
+        "license": {"$ref": "#/$defs/id"},
+        "license_source": {"$ref": "#/$defs/id"},
+        "public_weight_and_license_evidence": {"$ref": "#/$defs/id"},
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/id"}},
+        "requested_tag": {"$ref": "#/$defs/id"},
+        "response_model": {"type": ["string", "null"]},
+        "served_weight_digest": {"type": ["string", "null"]},
+        "effective_api_settings": {"type": ["object", "null"]},
+        "preflight_status": {"enum": ["passed", "blocked"]},
+        "preflight_checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "passed", "detail"],
+            "properties": {
+              "name": {"$ref": "#/$defs/id"},
+              "passed": {"type": "boolean"},
+              "detail": {"type": "string", "minLength": 1}
+            },
+            "additionalProperties": false
+          }
+        },
+        "missing_field_reasons": {"type": "object", "additionalProperties": {"type": "string", "minLength": 1}},
+        "run_date": {"type": "string", "minLength": 1},
+        "request_hash": {"$ref": "#/$defs/nonempty"},
+        "response_hash": {"type": ["string", "null"]},
+        "http_status": {"type": ["integer", "null"], "minimum": 100, "maximum": 599},
+        "attempts": {"type": "integer", "minimum": 0},
+        "partial": {"type": "boolean"},
+        "usage": {"type": "object", "additionalProperties": {"type": ["integer", "null"], "minimum": 0}},
+        "immutable_served_weights_guaranteed": {"const": false},
+        "identity_limitations": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "nonempty": {"type": "string", "minLength": 1}
+  }
+}

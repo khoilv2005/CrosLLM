@@ -1,0 +1,8 @@
+{
+  "lineage_id": "chainbridge",
+  "protocol": "ChainBridge",
+  "test_suite": "ChainBridgePairedHarnessTest",
+  "execution_engine": "Foundry EVM in pinned Docker image",
+  "status": "PASS",
+  "evidence_scope": "generated_development_harness_smoke_only"
+}

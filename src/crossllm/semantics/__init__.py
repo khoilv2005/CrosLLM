@@ -2,10 +2,22 @@
 
 from .paired import (
     Action,
+    ActionRecord,
     ChainState,
     DualChainState,
     Message,
     PairedFixture,
+    TransitionBounds,
+    TransitionProfile,
 )
 
-__all__ = ["Action", "ChainState", "DualChainState", "Message", "PairedFixture"]
+__all__ = [
+    "Action",
+    "ActionRecord",
+    "ChainState",
+    "DualChainState",
+    "Message",
+    "PairedFixture",
+    "TransitionBounds",
+    "TransitionProfile",
+]

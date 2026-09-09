@@ -1,0 +1,10 @@
+{
+  "lineage_id": "synapse",
+  "protocol": "Synapse Protocol",
+  "declared_license": "MIT",
+  "source_repository": "https://github.com/synapsecns/synapse-contracts.git",
+  "spdx_identifier": "MIT",
+  "commercial_use_restrictions": false,
+  "redistribution_permitted": null,
+  "license_review_status": "pending_component_review"
+}

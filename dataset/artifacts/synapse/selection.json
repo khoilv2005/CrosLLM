@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/bridge/SynapseBridge.sol"
+  ],
+  "document_paths": [
+    "README.md"
+  ],
+  "selected_paths": [
+    "README.md",
+    "contracts/bridge/SynapseBridge.sol",
+    "contracts/bridge/interfaces/ISwap.sol",
+    "contracts/bridge/interfaces/IWETH9.sol"
+  ],
+  "unresolved_imports": [
+    "contracts/bridge/SynapseBridge.sol:@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+    "contracts/bridge/SynapseBridge.sol:@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
+    "contracts/bridge/SynapseBridge.sol:@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol",
+    "contracts/bridge/SynapseBridge.sol:@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol",
+    "contracts/bridge/SynapseBridge.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/bridge/SynapseBridge.sol:@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol",
+    "contracts/bridge/SynapseBridge.sol:@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/bridge/SynapseBridge.sol:@openzeppelin/contracts/token/ERC20/SafeERC20.sol",
+    "contracts/bridge/interfaces/ISwap.sol:@openzeppelin/contracts/token/ERC20/ERC20.sol"
+  ],
+  "selection_hash": "99d1cee3c21379228a8e3cc80a304296b2aca08e0bc9a1ddbb6eb1d65cb20f72"
+}

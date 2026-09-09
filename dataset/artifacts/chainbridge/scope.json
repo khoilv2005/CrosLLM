@@ -1,0 +1,16 @@
+{
+  "lineage_id": "chainbridge",
+  "protocol": "ChainBridge",
+  "split": "development",
+  "in_scope_contracts": [
+    "Bridge",
+    "ERC20Handler"
+  ],
+  "entry_points": {
+    "Bridge": "contracts/Bridge.sol",
+    "ERC20Handler": "contracts/handlers/ERC20Handler.sol"
+  },
+  "channel_type": "lock_mint_burn_release",
+  "topology": "bidirectional_peer",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

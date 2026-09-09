@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/source_backed_replays.schema.json",
+  "title": "CrossLLM source-backed development EVM replay collection",
+  "description": "Native Foundry replays bound to locked development source and host matrices. This is not evaluation admission.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "receipts", "source_backed",
+    "native_evm_replay", "independent_evaluator", "independent_property_validation",
+    "independent_trigger_validation", "admission_eligible", "network_mode",
+    "evidence_scope", "observed_at", "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "source_backed_independent_evm_replays"},
+    "scope": {"const": "source_backed_development_replay_only"},
+    "receipts": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/receipt"}
+    },
+    "source_backed": {"const": true},
+    "native_evm_replay": {"const": true},
+    "independent_evaluator": {"const": false},
+    "independent_property_validation": {"const": false},
+    "independent_trigger_validation": {"const": false},
+    "admission_eligible": {"const": false},
+    "network_mode": {"const": "none"},
+    "evidence_scope": {"const": "source_backed_development_replay_only"},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "report_hash": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version", "record_type", "scope", "lineage_id", "source_repository",
+        "source_commit", "source_manifest_sha256", "source_file_sha256",
+        "artifact_manifest_sha256", "initialization_sha256", "profile_sha256",
+        "replay_spec", "result", "compiler", "source_backed", "native_evm_replay",
+        "independent_evaluator", "independent_property_validation",
+        "independent_trigger_validation", "admission_eligible", "network_mode",
+        "evidence_scope", "observed_at", "receipt_hash"
+      ],
+      "properties": {
+        "schema_version": {"const": 1},
+        "record_type": {"const": "source_backed_independent_evm_replay"},
+        "scope": {"const": "source_backed_development_replay_only"},
+        "lineage_id": {"enum": ["celer_cbridge", "chainbridge", "layerzero_v2"]},
+        "source_repository": {"type": "string", "format": "uri"},
+        "source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "source_manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "source_file_sha256": {"$ref": "#/$defs/sha256"},
+        "artifact_manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "initialization_sha256": {"$ref": "#/$defs/sha256"},
+        "profile_sha256": {"$ref": "#/$defs/sha256"},
+        "replay_spec": {"$ref": "#/$defs/replay_spec"},
+        "result": {"$ref": "#/$defs/result"},
+        "compiler": {"$ref": "#/$defs/compiler"},
+        "source_backed": {"const": true},
+        "native_evm_replay": {"const": true},
+        "independent_evaluator": {"const": false},
+        "independent_property_validation": {"const": false},
+        "independent_trigger_validation": {"const": false},
+        "admission_eligible": {"const": false},
+        "network_mode": {"const": "none"},
+        "evidence_scope": {"const": "source_backed_development_replay_only"},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "receipt_hash": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "replay_spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version", "image_ref", "project_path", "tool_revision", "artifact_hash",
+        "initialization_hash", "profile_hash", "semantic_engine", "compiler_version",
+        "test_filter", "network_mode", "timeout_seconds", "support_matrix_hash",
+        "compiler_volume", "compiler_image_ref", "spec_hash"
+      ],
+      "properties": {
+        "schema_version": {"const": 1},
+        "image_ref": {"type": "string", "pattern": "@sha256:[0-9a-fA-F]{64}$"},
+        "project_path": {"type": "string", "minLength": 1},
+        "tool_revision": {"type": "string", "minLength": 1},
+        "artifact_hash": {"$ref": "#/$defs/sha256"},
+        "initialization_hash": {"$ref": "#/$defs/sha256"},
+        "profile_hash": {"$ref": "#/$defs/sha256"},
+        "semantic_engine": {"type": "string", "minLength": 1},
+        "compiler_version": {"type": "string", "pattern": "^0\\.[0-9]+\\.[0-9]+$"},
+        "test_filter": {"type": ["string", "null"]},
+        "network_mode": {"const": "none"},
+        "timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "support_matrix_hash": {"$ref": "#/$defs/sha256"},
+        "compiler_volume": {"type": "string", "minLength": 1},
+        "compiler_image_ref": {"type": "string", "pattern": "@sha256:[0-9a-fA-F]{64}$"},
+        "spec_hash": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version", "spec_hash", "status", "exit_code", "stdout_hash",
+        "stderr_hash", "elapsed_seconds", "test_count", "passed_tests",
+        "failed_tests", "reason"
+      ],
+      "properties": {
+        "schema_version": {"const": 1},
+        "spec_hash": {"$ref": "#/$defs/sha256"},
+        "status": {"enum": ["pass", "fail", "unknown", "unsupported"]},
+        "exit_code": {"type": ["integer", "null"]},
+        "stdout_hash": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "stderr_hash": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "elapsed_seconds": {"type": "number", "minimum": 0},
+        "test_count": {"type": "integer", "minimum": 0},
+        "passed_tests": {"type": "integer", "minimum": 0},
+        "failed_tests": {"type": "integer", "minimum": 0},
+        "reason": {"type": ["string", "null"]}
+      }
+    },
+    "compiler": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "image", "path", "binary_sha256"],
+      "properties": {
+        "version": {"type": "string", "pattern": "^0\\.[0-9]+\\.[0-9]+$"},
+        "image": {"type": "string", "pattern": "@sha256:[0-9a-fA-F]{64}$"},
+        "path": {"const": "/compiler/solc"},
+        "binary_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  }
+}

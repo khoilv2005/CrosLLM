@@ -1,5 +1,13 @@
 {
   "status": "RESEARCH_METADATA_NOT_RUNTIME_ATTESTATION",
+  "provider": {
+    "name": "ollama_cloud",
+    "base_url": "https://ollama.com",
+    "chat_endpoint": "https://ollama.com/api/chat",
+    "auth_env": "OLLAMA_API_KEY",
+    "execution_mode": "remote_cloud_api",
+    "local_weights": false
+  },
   "models": [
     {
       "family": "GLM",

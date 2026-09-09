@@ -1,0 +1,10 @@
+{
+  "lineage_id": "polygon_zkevm",
+  "protocol": "Polygon zkEVM / Agglayer",
+  "declared_license": "AGPL-3.0",
+  "source_repository": "https://github.com/0xPolygonHermez/zkevm-contracts.git",
+  "spdx_identifier": "AGPL-3.0",
+  "commercial_use_restrictions": false,
+  "redistribution_permitted": null,
+  "license_review_status": "pending_component_review"
+}

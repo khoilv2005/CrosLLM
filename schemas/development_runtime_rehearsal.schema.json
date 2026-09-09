@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/development_runtime_rehearsal.schema.json",
+  "title": "CrossLLM development M08 runtime rehearsal",
+  "description": "Offline fixture-only end-to-end runtime rehearsal with hash-bound raw event exports.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "admission_eligible", "fake_provider_only",
+    "ollama_cloud_calls", "synthetic_provider_calls", "events_path", "events_sha256",
+    "fault_events_path", "fault_events_sha256", "summary", "limitations", "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "development_m08_runtime_rehearsal"},
+    "scope": {"const": "development_offline_runtime_rehearsal_only"},
+    "admission_eligible": {"const": false},
+    "fake_provider_only": {"const": true},
+    "ollama_cloud_calls": {"const": 0},
+    "synthetic_provider_calls": {"const": 24},
+    "events_path": {"type": "string", "minLength": 1},
+    "events_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "fault_events_path": {"type": "string", "minLength": 1},
+    "fault_events_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "summary": {"type": "object", "required": ["event_count", "method_event_count", "resumed_same_attempt", "fault_event_count", "fault_telemetry_count"]},
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "report_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

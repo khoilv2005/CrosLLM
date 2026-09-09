@@ -1,0 +1,1456 @@
+{
+  "analysis": {
+    "claim_time": {
+      "P": {
+        "known": 9,
+        "missing": 3,
+        "note": "censored_at_horizon",
+        "total": 12,
+        "value": 18.5
+      },
+      "T0": {
+        "known": 6,
+        "missing": 6,
+        "note": "censored_at_horizon",
+        "total": 12,
+        "value": 32.25
+      },
+      "X": {
+        "known": 12,
+        "missing": 0,
+        "note": "censored_at_horizon",
+        "total": 12,
+        "value": 5.0
+      }
+    },
+    "false_alert_rate": {
+      "P": {
+        "known": 9,
+        "missing": 1,
+        "note": null,
+        "total": 10,
+        "value": 0.0
+      },
+      "T0": {
+        "known": 10,
+        "missing": 0,
+        "note": null,
+        "total": 10,
+        "value": 0.0
+      },
+      "X": {
+        "known": 10,
+        "missing": 0,
+        "note": null,
+        "total": 10,
+        "value": 1.0
+      }
+    },
+    "false_discovery_proportion": {
+      "P": {
+        "known": 0,
+        "missing": 0,
+        "note": "precision_NA_no_claims",
+        "total": 0,
+        "value": null
+      },
+      "T0": {
+        "known": 0,
+        "missing": 0,
+        "note": "precision_NA_no_claims",
+        "total": 0,
+        "value": null
+      },
+      "X": {
+        "known": 10,
+        "missing": 0,
+        "note": null,
+        "total": 10,
+        "value": 1.0
+      }
+    },
+    "independent_replay_rate": {
+      "P": {
+        "known": 11,
+        "missing": 1,
+        "note": null,
+        "total": 12,
+        "value": 0.0
+      },
+      "T0": {
+        "known": 12,
+        "missing": 0,
+        "note": null,
+        "total": 12,
+        "value": 0.0
+      },
+      "X": {
+        "known": 12,
+        "missing": 0,
+        "note": null,
+        "total": 12,
+        "value": 1.0
+      }
+    },
+    "methods": [
+      "P",
+      "T0",
+      "X"
+    ],
+    "native_witness_yield": {
+      "P": {
+        "known": 11,
+        "missing": 1,
+        "note": null,
+        "total": 12,
+        "value": 0.875
+      },
+      "T0": {
+        "known": 12,
+        "missing": 0,
+        "note": null,
+        "total": 12,
+        "value": 0.0
+      },
+      "X": {
+        "known": 12,
+        "missing": 0,
+        "note": null,
+        "total": 12,
+        "value": 1.0
+      }
+    },
+    "paired_effects": {},
+    "recall": {
+      "P": {
+        "known": 11,
+        "missing": 1,
+        "note": null,
+        "total": 12,
+        "value": 0.875
+      },
+      "T0": {
+        "known": 12,
+        "missing": 0,
+        "note": null,
+        "total": 12,
+        "value": 0.5
+      },
+      "X": {
+        "known": 12,
+        "missing": 0,
+        "note": null,
+        "total": 12,
+        "value": 1.0
+      }
+    },
+    "schema_version": 1,
+    "stage_denominators": {
+      "P": {
+        "availability": {
+          "available": 20,
+          "provider_failure": 2
+        },
+        "claim_emitted": {
+          "known": 20,
+          "missing": 2,
+          "positive": 9,
+          "total": 22
+        },
+        "detected": {
+          "known": 20,
+          "missing": 2,
+          "positive": 9,
+          "total": 22
+        },
+        "independent_replay": {
+          "known": 20,
+          "missing": 2,
+          "positive": 0,
+          "total": 22
+        },
+        "native_witness": {
+          "known": 20,
+          "missing": 2,
+          "positive": 9,
+          "total": 22
+        },
+        "useful_proposal": {
+          "known": 20,
+          "missing": 2,
+          "positive": 9,
+          "total": 22
+        }
+      },
+      "T0": {
+        "availability": {
+          "available": 22
+        },
+        "claim_emitted": {
+          "known": 22,
+          "missing": 0,
+          "positive": 6,
+          "total": 22
+        },
+        "detected": {
+          "known": 22,
+          "missing": 0,
+          "positive": 6,
+          "total": 22
+        },
+        "independent_replay": {
+          "known": 22,
+          "missing": 0,
+          "positive": 0,
+          "total": 22
+        },
+        "native_witness": {
+          "known": 22,
+          "missing": 0,
+          "positive": 0,
+          "total": 22
+        },
+        "useful_proposal": {
+          "known": 22,
+          "missing": 0,
+          "positive": 6,
+          "total": 22
+        }
+      },
+      "X": {
+        "availability": {
+          "available": 22
+        },
+        "claim_emitted": {
+          "known": 22,
+          "missing": 0,
+          "positive": 22,
+          "total": 22
+        },
+        "detected": {
+          "known": 22,
+          "missing": 0,
+          "positive": 12,
+          "total": 22
+        },
+        "independent_replay": {
+          "known": 22,
+          "missing": 0,
+          "positive": 12,
+          "total": 22
+        },
+        "native_witness": {
+          "known": 22,
+          "missing": 0,
+          "positive": 12,
+          "total": 22
+        },
+        "useful_proposal": {
+          "known": 22,
+          "missing": 0,
+          "positive": 12,
+          "total": 22
+        }
+      }
+    },
+    "time_details": {
+      "P": {
+        "claim_time": {
+          "availability_conditioned": {
+            "known": 9,
+            "missing": 2,
+            "note": "availability_conditioned",
+            "total": 11,
+            "value": 11.5
+          },
+          "intention_to_run": {
+            "known": 12,
+            "missing": 0,
+            "note": "available_execution_fraction",
+            "total": 12,
+            "value": 0.9166666666666666
+          },
+          "kaplan_meier": [
+            {
+              "at_risk": 12,
+              "events": 4,
+              "survival": 0.6666666666666667,
+              "time": 4.0
+            },
+            {
+              "at_risk": 8,
+              "events": 3,
+              "survival": 0.41666666666666674,
+              "time": 5.0
+            },
+            {
+              "at_risk": 5,
+              "events": 2,
+              "survival": 0.25000000000000006,
+              "time": 6.0
+            },
+            {
+              "at_risk": 3,
+              "events": 0,
+              "survival": 0.25000000000000006,
+              "time": 60.0
+            }
+          ],
+          "restricted": {
+            "known": 9,
+            "missing": 3,
+            "note": "censored_at_horizon",
+            "total": 12,
+            "value": 18.5
+          }
+        },
+        "witness_time": {
+          "availability_conditioned": {
+            "known": 9,
+            "missing": 2,
+            "note": "availability_conditioned",
+            "total": 11,
+            "value": 9.5
+          },
+          "intention_to_run": {
+            "known": 12,
+            "missing": 0,
+            "note": "available_execution_fraction",
+            "total": 12,
+            "value": 0.9166666666666666
+          },
+          "kaplan_meier": [
+            {
+              "at_risk": 12,
+              "events": 6,
+              "survival": 0.5,
+              "time": 2.0
+            },
+            {
+              "at_risk": 6,
+              "events": 3,
+              "survival": 0.25,
+              "time": 3.0
+            },
+            {
+              "at_risk": 3,
+              "events": 0,
+              "survival": 0.25,
+              "time": 60.0
+            }
+          ],
+          "restricted": {
+            "known": 9,
+            "missing": 3,
+            "note": "censored_at_horizon",
+            "total": 12,
+            "value": 16.75
+          }
+        }
+      },
+      "T0": {
+        "claim_time": {
+          "availability_conditioned": {
+            "known": 6,
+            "missing": 6,
+            "note": "availability_conditioned",
+            "total": 12,
+            "value": 32.25
+          },
+          "intention_to_run": {
+            "known": 12,
+            "missing": 0,
+            "note": "available_execution_fraction",
+            "total": 12,
+            "value": 1.0
+          },
+          "kaplan_meier": [
+            {
+              "at_risk": 12,
+              "events": 4,
+              "survival": 0.6666666666666667,
+              "time": 4.0
+            },
+            {
+              "at_risk": 8,
+              "events": 2,
+              "survival": 0.5,
+              "time": 6.0
+            },
+            {
+              "at_risk": 6,
+              "events": 0,
+              "survival": 0.5,
+              "time": 60.0
+            }
+          ],
+          "restricted": {
+            "known": 6,
+            "missing": 6,
+            "note": "censored_at_horizon",
+            "total": 12,
+            "value": 32.25
+          }
+        },
+        "witness_time": {
+          "availability_conditioned": {
+            "known": 0,
+            "missing": 12,
+            "note": "availability_conditioned",
+            "total": 12,
+            "value": 60.0
+          },
+          "intention_to_run": {
+            "known": 12,
+            "missing": 0,
+            "note": "available_execution_fraction",
+            "total": 12,
+            "value": 1.0
+          },
+          "kaplan_meier": [
+            {
+              "at_risk": 12,
+              "events": 0,
+              "survival": 1.0,
+              "time": 60.0
+            }
+          ],
+          "restricted": {
+            "known": 0,
+            "missing": 12,
+            "note": "censored_at_horizon",
+            "total": 12,
+            "value": 60.0
+          }
+        }
+      },
+      "X": {
+        "claim_time": {
+          "availability_conditioned": {
+            "known": 12,
+            "missing": 0,
+            "note": "availability_conditioned",
+            "total": 12,
+            "value": 5.0
+          },
+          "intention_to_run": {
+            "known": 12,
+            "missing": 0,
+            "note": "available_execution_fraction",
+            "total": 12,
+            "value": 1.0
+          },
+          "kaplan_meier": [
+            {
+              "at_risk": 12,
+              "events": 4,
+              "survival": 0.6666666666666667,
+              "time": 4.0
+            },
+            {
+              "at_risk": 8,
+              "events": 4,
+              "survival": 0.33333333333333337,
+              "time": 5.0
+            },
+            {
+              "at_risk": 4,
+              "events": 2,
+              "survival": 0.16666666666666669,
+              "time": 6.0
+            },
+            {
+              "at_risk": 2,
+              "events": 2,
+              "survival": 0.0,
+              "time": 7.0
+            }
+          ],
+          "restricted": {
+            "known": 12,
+            "missing": 0,
+            "note": "censored_at_horizon",
+            "total": 12,
+            "value": 5.0
+          }
+        },
+        "witness_time": {
+          "availability_conditioned": {
+            "known": 12,
+            "missing": 0,
+            "note": "availability_conditioned",
+            "total": 12,
+            "value": 2.5
+          },
+          "intention_to_run": {
+            "known": 12,
+            "missing": 0,
+            "note": "available_execution_fraction",
+            "total": 12,
+            "value": 1.0
+          },
+          "kaplan_meier": [
+            {
+              "at_risk": 12,
+              "events": 6,
+              "survival": 0.5,
+              "time": 2.0
+            },
+            {
+              "at_risk": 6,
+              "events": 6,
+              "survival": 0.0,
+              "time": 3.0
+            }
+          ],
+          "restricted": {
+            "known": 12,
+            "missing": 0,
+            "note": "censored_at_horizon",
+            "total": 12,
+            "value": 2.5
+          }
+        }
+      }
+    },
+    "useful_proposal_recall": {
+      "P": {
+        "known": 11,
+        "missing": 1,
+        "note": null,
+        "total": 12,
+        "value": 0.875
+      },
+      "T0": {
+        "known": 12,
+        "missing": 0,
+        "note": null,
+        "total": 12,
+        "value": 0.5
+      },
+      "X": {
+        "known": 12,
+        "missing": 0,
+        "note": null,
+        "total": 12,
+        "value": 1.0
+      }
+    },
+    "witness_time": {
+      "P": {
+        "known": 9,
+        "missing": 3,
+        "note": "censored_at_horizon",
+        "total": 12,
+        "value": 16.75
+      },
+      "T0": {
+        "known": 0,
+        "missing": 12,
+        "note": "censored_at_horizon",
+        "total": 12,
+        "value": 60.0
+      },
+      "X": {
+        "known": 12,
+        "missing": 0,
+        "note": "censored_at_horizon",
+        "total": 12,
+        "value": 2.5
+      }
+    }
+  },
+  "artifact_hash": "ee2559b4fb12f6e4f8ad00588ba1a72edc1419a7a1ee257c4047e9ff9cc4807c",
+  "input_hash": "cea7083234a956d08f5defe881486c02a4668b90dbe994f68c78f9bd35cc5115",
+  "primary_inference": [
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.25,
+        "ci_low": -0.5,
+        "draws": 10000,
+        "estimate": -0.125,
+        "lineage_count": 4,
+        "seed": 20260909
+      },
+      "contrast": "primary-0",
+      "sign_test": {
+        "effective_n": 3,
+        "losses": 2,
+        "p_value": 1.0,
+        "ties": 1,
+        "wins": 1
+      }
+    },
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.375,
+        "ci_low": -0.375,
+        "draws": 10000,
+        "estimate": 0.0,
+        "lineage_count": 4,
+        "seed": 20260910
+      },
+      "contrast": "primary-1",
+      "sign_test": {
+        "effective_n": 2,
+        "losses": 1,
+        "p_value": 1.0,
+        "ties": 2,
+        "wins": 1
+      }
+    },
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.5,
+        "ci_low": -0.25,
+        "draws": 10000,
+        "estimate": 0.125,
+        "lineage_count": 4,
+        "seed": 20260911
+      },
+      "contrast": "primary-2",
+      "sign_test": {
+        "effective_n": 3,
+        "losses": 1,
+        "p_value": 1.0,
+        "ties": 1,
+        "wins": 2
+      }
+    },
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.25,
+        "ci_low": -0.5,
+        "draws": 10000,
+        "estimate": -0.125,
+        "lineage_count": 4,
+        "seed": 20260912
+      },
+      "contrast": "primary-3",
+      "sign_test": {
+        "effective_n": 3,
+        "losses": 2,
+        "p_value": 1.0,
+        "ties": 1,
+        "wins": 1
+      }
+    },
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.375,
+        "ci_low": -0.375,
+        "draws": 10000,
+        "estimate": 0.0,
+        "lineage_count": 4,
+        "seed": 20260913
+      },
+      "contrast": "primary-4",
+      "sign_test": {
+        "effective_n": 2,
+        "losses": 1,
+        "p_value": 1.0,
+        "ties": 2,
+        "wins": 1
+      }
+    }
+  ],
+  "row_count": 66,
+  "schema_version": 1,
+  "secondary_inference": [
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.3333333333333333,
+        "ci_low": -0.3333333333333333,
+        "draws": 10000,
+        "estimate": 0.0,
+        "lineage_count": 4,
+        "seed": 20260914
+      },
+      "contrast": "secondary-0",
+      "sign_test": {
+        "effective_n": 4,
+        "losses": 2,
+        "p_value": 1.0,
+        "ties": 0,
+        "wins": 2
+      }
+    },
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.3333333333333333,
+        "ci_low": -0.3333333333333333,
+        "draws": 10000,
+        "estimate": 0.0,
+        "lineage_count": 4,
+        "seed": 20260915
+      },
+      "contrast": "secondary-1",
+      "sign_test": {
+        "effective_n": 4,
+        "losses": 2,
+        "p_value": 1.0,
+        "ties": 0,
+        "wins": 2
+      }
+    },
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.3333333333333333,
+        "ci_low": -0.3333333333333333,
+        "draws": 10000,
+        "estimate": 0.0,
+        "lineage_count": 4,
+        "seed": 20260916
+      },
+      "contrast": "secondary-2",
+      "sign_test": {
+        "effective_n": 4,
+        "losses": 2,
+        "p_value": 1.0,
+        "ties": 0,
+        "wins": 2
+      }
+    },
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.3333333333333333,
+        "ci_low": -0.3333333333333333,
+        "draws": 10000,
+        "estimate": 0.0,
+        "lineage_count": 4,
+        "seed": 20260917
+      },
+      "contrast": "secondary-3",
+      "sign_test": {
+        "effective_n": 4,
+        "losses": 2,
+        "p_value": 1.0,
+        "ties": 0,
+        "wins": 2
+      }
+    },
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.3333333333333333,
+        "ci_low": -0.3333333333333333,
+        "draws": 10000,
+        "estimate": 0.0,
+        "lineage_count": 4,
+        "seed": 20260918
+      },
+      "contrast": "secondary-4",
+      "sign_test": {
+        "effective_n": 4,
+        "losses": 2,
+        "p_value": 1.0,
+        "ties": 0,
+        "wins": 2
+      }
+    },
+    {
+      "adjusted_p_value": 1.0,
+      "bootstrap": {
+        "ci_high": 0.3333333333333333,
+        "ci_low": -0.3333333333333333,
+        "draws": 10000,
+        "estimate": 0.0,
+        "lineage_count": 4,
+        "seed": 20260919
+      },
+      "contrast": "secondary-5",
+      "sign_test": {
+        "effective_n": 4,
+        "losses": 2,
+        "p_value": 1.0,
+        "ties": 0,
+        "wins": 2
+      }
+    }
+  ],
+  "tables": [
+    {
+      "columns": [
+        "method",
+        "value",
+        "known",
+        "total",
+        "missing",
+        "note"
+      ],
+      "rows": [
+        {
+          "known": 11,
+          "method": "P",
+          "missing": 1,
+          "note": null,
+          "total": 12,
+          "value": 0.875
+        },
+        {
+          "known": 12,
+          "method": "T0",
+          "missing": 0,
+          "note": null,
+          "total": 12,
+          "value": 0.5
+        },
+        {
+          "known": 12,
+          "method": "X",
+          "missing": 0,
+          "note": null,
+          "total": 12,
+          "value": 1.0
+        }
+      ],
+      "table_id": "recall"
+    },
+    {
+      "columns": [
+        "method",
+        "value",
+        "known",
+        "total",
+        "missing",
+        "note"
+      ],
+      "rows": [
+        {
+          "known": 11,
+          "method": "P",
+          "missing": 1,
+          "note": null,
+          "total": 12,
+          "value": 0.875
+        },
+        {
+          "known": 12,
+          "method": "T0",
+          "missing": 0,
+          "note": null,
+          "total": 12,
+          "value": 0.5
+        },
+        {
+          "known": 12,
+          "method": "X",
+          "missing": 0,
+          "note": null,
+          "total": 12,
+          "value": 1.0
+        }
+      ],
+      "table_id": "useful_proposal_recall"
+    },
+    {
+      "columns": [
+        "method",
+        "value",
+        "known",
+        "total",
+        "missing",
+        "note"
+      ],
+      "rows": [
+        {
+          "known": 9,
+          "method": "P",
+          "missing": 1,
+          "note": null,
+          "total": 10,
+          "value": 0.0
+        },
+        {
+          "known": 10,
+          "method": "T0",
+          "missing": 0,
+          "note": null,
+          "total": 10,
+          "value": 0.0
+        },
+        {
+          "known": 10,
+          "method": "X",
+          "missing": 0,
+          "note": null,
+          "total": 10,
+          "value": 1.0
+        }
+      ],
+      "table_id": "false_alert_rate"
+    },
+    {
+      "columns": [
+        "method",
+        "value",
+        "known",
+        "total",
+        "missing",
+        "note"
+      ],
+      "rows": [
+        {
+          "known": 0,
+          "method": "P",
+          "missing": 0,
+          "note": "precision_NA_no_claims",
+          "total": 0,
+          "value": null
+        },
+        {
+          "known": 0,
+          "method": "T0",
+          "missing": 0,
+          "note": "precision_NA_no_claims",
+          "total": 0,
+          "value": null
+        },
+        {
+          "known": 10,
+          "method": "X",
+          "missing": 0,
+          "note": null,
+          "total": 10,
+          "value": 1.0
+        }
+      ],
+      "table_id": "false_discovery_proportion"
+    },
+    {
+      "columns": [
+        "method",
+        "value",
+        "known",
+        "total",
+        "missing",
+        "note"
+      ],
+      "rows": [
+        {
+          "known": 11,
+          "method": "P",
+          "missing": 1,
+          "note": null,
+          "total": 12,
+          "value": 0.875
+        },
+        {
+          "known": 12,
+          "method": "T0",
+          "missing": 0,
+          "note": null,
+          "total": 12,
+          "value": 0.0
+        },
+        {
+          "known": 12,
+          "method": "X",
+          "missing": 0,
+          "note": null,
+          "total": 12,
+          "value": 1.0
+        }
+      ],
+      "table_id": "native_witness_yield"
+    },
+    {
+      "columns": [
+        "method",
+        "value",
+        "known",
+        "total",
+        "missing",
+        "note"
+      ],
+      "rows": [
+        {
+          "known": 11,
+          "method": "P",
+          "missing": 1,
+          "note": null,
+          "total": 12,
+          "value": 0.0
+        },
+        {
+          "known": 12,
+          "method": "T0",
+          "missing": 0,
+          "note": null,
+          "total": 12,
+          "value": 0.0
+        },
+        {
+          "known": 12,
+          "method": "X",
+          "missing": 0,
+          "note": null,
+          "total": 12,
+          "value": 1.0
+        }
+      ],
+      "table_id": "independent_replay_rate"
+    },
+    {
+      "columns": [
+        "method",
+        "value",
+        "known",
+        "total",
+        "missing",
+        "note"
+      ],
+      "rows": [
+        {
+          "known": 9,
+          "method": "P",
+          "missing": 3,
+          "note": "censored_at_horizon",
+          "total": 12,
+          "value": 16.75
+        },
+        {
+          "known": 0,
+          "method": "T0",
+          "missing": 12,
+          "note": "censored_at_horizon",
+          "total": 12,
+          "value": 60.0
+        },
+        {
+          "known": 12,
+          "method": "X",
+          "missing": 0,
+          "note": "censored_at_horizon",
+          "total": 12,
+          "value": 2.5
+        }
+      ],
+      "table_id": "witness_time"
+    },
+    {
+      "columns": [
+        "method",
+        "value",
+        "known",
+        "total",
+        "missing",
+        "note"
+      ],
+      "rows": [
+        {
+          "known": 9,
+          "method": "P",
+          "missing": 3,
+          "note": "censored_at_horizon",
+          "total": 12,
+          "value": 18.5
+        },
+        {
+          "known": 6,
+          "method": "T0",
+          "missing": 6,
+          "note": "censored_at_horizon",
+          "total": 12,
+          "value": 32.25
+        },
+        {
+          "known": 12,
+          "method": "X",
+          "missing": 0,
+          "note": "censored_at_horizon",
+          "total": 12,
+          "value": 5.0
+        }
+      ],
+      "table_id": "claim_time"
+    },
+    {
+      "columns": [
+        "method",
+        "stage",
+        "total",
+        "known",
+        "missing",
+        "positive"
+      ],
+      "rows": [
+        {
+          "available": 20,
+          "method": "P",
+          "provider_failure": 2,
+          "stage": "availability"
+        },
+        {
+          "known": 20,
+          "method": "P",
+          "missing": 2,
+          "positive": 9,
+          "stage": "claim_emitted",
+          "total": 22
+        },
+        {
+          "known": 20,
+          "method": "P",
+          "missing": 2,
+          "positive": 9,
+          "stage": "detected",
+          "total": 22
+        },
+        {
+          "known": 20,
+          "method": "P",
+          "missing": 2,
+          "positive": 0,
+          "stage": "independent_replay",
+          "total": 22
+        },
+        {
+          "known": 20,
+          "method": "P",
+          "missing": 2,
+          "positive": 9,
+          "stage": "native_witness",
+          "total": 22
+        },
+        {
+          "known": 20,
+          "method": "P",
+          "missing": 2,
+          "positive": 9,
+          "stage": "useful_proposal",
+          "total": 22
+        },
+        {
+          "available": 22,
+          "method": "T0",
+          "stage": "availability"
+        },
+        {
+          "known": 22,
+          "method": "T0",
+          "missing": 0,
+          "positive": 6,
+          "stage": "claim_emitted",
+          "total": 22
+        },
+        {
+          "known": 22,
+          "method": "T0",
+          "missing": 0,
+          "positive": 6,
+          "stage": "detected",
+          "total": 22
+        },
+        {
+          "known": 22,
+          "method": "T0",
+          "missing": 0,
+          "positive": 0,
+          "stage": "independent_replay",
+          "total": 22
+        },
+        {
+          "known": 22,
+          "method": "T0",
+          "missing": 0,
+          "positive": 0,
+          "stage": "native_witness",
+          "total": 22
+        },
+        {
+          "known": 22,
+          "method": "T0",
+          "missing": 0,
+          "positive": 6,
+          "stage": "useful_proposal",
+          "total": 22
+        },
+        {
+          "available": 22,
+          "method": "X",
+          "stage": "availability"
+        },
+        {
+          "known": 22,
+          "method": "X",
+          "missing": 0,
+          "positive": 22,
+          "stage": "claim_emitted",
+          "total": 22
+        },
+        {
+          "known": 22,
+          "method": "X",
+          "missing": 0,
+          "positive": 12,
+          "stage": "detected",
+          "total": 22
+        },
+        {
+          "known": 22,
+          "method": "X",
+          "missing": 0,
+          "positive": 12,
+          "stage": "independent_replay",
+          "total": 22
+        },
+        {
+          "known": 22,
+          "method": "X",
+          "missing": 0,
+          "positive": 12,
+          "stage": "native_witness",
+          "total": 22
+        },
+        {
+          "known": 22,
+          "method": "X",
+          "missing": 0,
+          "positive": 12,
+          "stage": "useful_proposal",
+          "total": 22
+        }
+      ],
+      "table_id": "stage_denominators"
+    },
+    {
+      "columns": [
+        "method",
+        "endpoint",
+        "restricted_value",
+        "conditioned_value",
+        "intention_to_run",
+        "conditioned_known",
+        "conditioned_total"
+      ],
+      "rows": [
+        {
+          "conditioned_known": 9,
+          "conditioned_total": 11,
+          "conditioned_value": 11.5,
+          "endpoint": "claim_time",
+          "intention_to_run": 0.9166666666666666,
+          "method": "P",
+          "restricted_value": 18.5
+        },
+        {
+          "conditioned_known": 9,
+          "conditioned_total": 11,
+          "conditioned_value": 9.5,
+          "endpoint": "witness_time",
+          "intention_to_run": 0.9166666666666666,
+          "method": "P",
+          "restricted_value": 16.75
+        },
+        {
+          "conditioned_known": 6,
+          "conditioned_total": 12,
+          "conditioned_value": 32.25,
+          "endpoint": "claim_time",
+          "intention_to_run": 1.0,
+          "method": "T0",
+          "restricted_value": 32.25
+        },
+        {
+          "conditioned_known": 0,
+          "conditioned_total": 12,
+          "conditioned_value": 60.0,
+          "endpoint": "witness_time",
+          "intention_to_run": 1.0,
+          "method": "T0",
+          "restricted_value": 60.0
+        },
+        {
+          "conditioned_known": 12,
+          "conditioned_total": 12,
+          "conditioned_value": 5.0,
+          "endpoint": "claim_time",
+          "intention_to_run": 1.0,
+          "method": "X",
+          "restricted_value": 5.0
+        },
+        {
+          "conditioned_known": 12,
+          "conditioned_total": 12,
+          "conditioned_value": 2.5,
+          "endpoint": "witness_time",
+          "intention_to_run": 1.0,
+          "method": "X",
+          "restricted_value": 2.5
+        }
+      ],
+      "table_id": "time_conditioned"
+    },
+    {
+      "columns": [
+        "family",
+        "contrast",
+        "adjusted_p_value",
+        "wins",
+        "losses",
+        "ties",
+        "effective_n",
+        "raw_p_value",
+        "estimate",
+        "ci_low",
+        "ci_high"
+      ],
+      "rows": [
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.25,
+          "ci_low": -0.5,
+          "contrast": "primary-0",
+          "effective_n": 3,
+          "estimate": -0.125,
+          "family": "primary",
+          "losses": 2,
+          "raw_p_value": 1.0,
+          "ties": 1,
+          "wins": 1
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.375,
+          "ci_low": -0.375,
+          "contrast": "primary-1",
+          "effective_n": 2,
+          "estimate": 0.0,
+          "family": "primary",
+          "losses": 1,
+          "raw_p_value": 1.0,
+          "ties": 2,
+          "wins": 1
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.5,
+          "ci_low": -0.25,
+          "contrast": "primary-2",
+          "effective_n": 3,
+          "estimate": 0.125,
+          "family": "primary",
+          "losses": 1,
+          "raw_p_value": 1.0,
+          "ties": 1,
+          "wins": 2
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.25,
+          "ci_low": -0.5,
+          "contrast": "primary-3",
+          "effective_n": 3,
+          "estimate": -0.125,
+          "family": "primary",
+          "losses": 2,
+          "raw_p_value": 1.0,
+          "ties": 1,
+          "wins": 1
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.375,
+          "ci_low": -0.375,
+          "contrast": "primary-4",
+          "effective_n": 2,
+          "estimate": 0.0,
+          "family": "primary",
+          "losses": 1,
+          "raw_p_value": 1.0,
+          "ties": 2,
+          "wins": 1
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.3333333333333333,
+          "ci_low": -0.3333333333333333,
+          "contrast": "secondary-0",
+          "effective_n": 4,
+          "estimate": 0.0,
+          "family": "secondary",
+          "losses": 2,
+          "raw_p_value": 1.0,
+          "ties": 0,
+          "wins": 2
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.3333333333333333,
+          "ci_low": -0.3333333333333333,
+          "contrast": "secondary-1",
+          "effective_n": 4,
+          "estimate": 0.0,
+          "family": "secondary",
+          "losses": 2,
+          "raw_p_value": 1.0,
+          "ties": 0,
+          "wins": 2
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.3333333333333333,
+          "ci_low": -0.3333333333333333,
+          "contrast": "secondary-2",
+          "effective_n": 4,
+          "estimate": 0.0,
+          "family": "secondary",
+          "losses": 2,
+          "raw_p_value": 1.0,
+          "ties": 0,
+          "wins": 2
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.3333333333333333,
+          "ci_low": -0.3333333333333333,
+          "contrast": "secondary-3",
+          "effective_n": 4,
+          "estimate": 0.0,
+          "family": "secondary",
+          "losses": 2,
+          "raw_p_value": 1.0,
+          "ties": 0,
+          "wins": 2
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.3333333333333333,
+          "ci_low": -0.3333333333333333,
+          "contrast": "secondary-4",
+          "effective_n": 4,
+          "estimate": 0.0,
+          "family": "secondary",
+          "losses": 2,
+          "raw_p_value": 1.0,
+          "ties": 0,
+          "wins": 2
+        },
+        {
+          "adjusted_p_value": 1.0,
+          "ci_high": 0.3333333333333333,
+          "ci_low": -0.3333333333333333,
+          "contrast": "secondary-5",
+          "effective_n": 4,
+          "estimate": 0.0,
+          "family": "secondary",
+          "losses": 2,
+          "raw_p_value": 1.0,
+          "ties": 0,
+          "wins": 2
+        }
+      ],
+      "table_id": "inference"
+    }
+  ]
+}

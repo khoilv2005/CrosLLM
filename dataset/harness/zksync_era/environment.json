@@ -1,0 +1,20 @@
+{
+  "lineage_id": "zksync_era",
+  "solc_version": "0.8.28",
+  "evm_version": "cancun",
+  "initial_accounts": [
+    {
+      "label": "admin",
+      "balance_wei": "1000000000000000000000"
+    },
+    {
+      "label": "relayer",
+      "balance_wei": "1000000000000000000000"
+    },
+    {
+      "label": "user",
+      "balance_wei": "1000000000000000000000"
+    }
+  ],
+  "gas_limit": 30000000
+}

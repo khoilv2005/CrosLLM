@@ -1,0 +1,21 @@
+{
+  "artifact_count": 13,
+  "files": {
+    "abi/CBridge.json": "efa10676c167f620525a52213e79c967a2d5c29932464bd2b4ee54a9e2a96e09",
+    "build_info.json": "e5f5881c0586e16b4e1dc64acddc486e14e8b24692134fc0c3117739936bca38",
+    "bytecode/CBridge.creation.hex": "7a4bd51d9f65ecd98f4c513a01e84fa06abd86dbec934b5ef003192b0b1b2e5a",
+    "bytecode/CBridge.deployed.hex": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+    "channel_profile.json": "a16287f69389e08c55ea16517d022574c8107e94192bdaeb5b5ff7c85bc57f51",
+    "deployment.json": "d8387a2a2c286dbfcd9002767d21fdf876b8e7d76df56cd926c3f50f6441e2bc",
+    "license.json": "43353053c26f154de825aae6581db1dd0bd0cb87a5851857ed6d55a8d860f047",
+    "normal_workflow.json": "af48867205846c804509bfe7b454eb27c877cf0a9e5637200b62e3b193070485",
+    "scope.json": "c3e7987550403aa7f4a0360e045288266b64460dbf3def9b7c0ea4e379fdfc47",
+    "selection.json": "a4121d08f2091be4f55713cc9a62725df583eaf3ae72114f650954431e47e520",
+    "source_receipt.json": "051678ec9532f9585c841fee99c344a8687cb42fb6ef204f11c1a3900422feac",
+    "storage_layout/CBridge.json": "7089dc77fbc0dec06f38486b257eba37b2525dbce9adeb8f61dfb05cfee9ea4d",
+    "symbols.json": "986b4b042b8f31146e2a514357ac9a1238e2e19a8875e00f3d01c1ed83d7301a"
+  },
+  "lineage_id": "celer_cbridge",
+  "protocol": "Celer cBridge",
+  "split": "development"
+}

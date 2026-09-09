@@ -1,0 +1,12 @@
+{
+  "channel_type": "rollup_canonical_cross_domain_messenger",
+  "topology": "l1_l2_paired",
+  "source_domains": [
+    "Ethereum"
+  ],
+  "target_domains": [
+    "OP Mainnet"
+  ],
+  "message_passing": "portal_deposit_and_relay",
+  "settlement": "fault_proof_system_portal2"
+}

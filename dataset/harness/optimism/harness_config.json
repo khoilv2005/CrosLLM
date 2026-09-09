@@ -1,0 +1,110 @@
+{
+  "artifact_manifest_sha256": "0cd044b6f68c6b6bcd5f397e721412e57bd2e9093a14bd809eb22b3dfaaffb11",
+  "compiler": {
+    "binary_sha256": "527e32e6a251b3e15b1a68506df15bfe63920ef63b5a12185b884adb2b7fec2b",
+    "image": "ghcr.io/argotorg/solc@sha256:91d56ebfabd56ade7c1961eea005ed7b23cdb777422948abde2e1532d40877ea",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.8.15"
+  },
+  "contracts": [
+    "OptimismPortal2",
+    "L1CrossDomainMessenger",
+    "CrossDomainMessenger",
+    "ProxyAdminOwnedBase",
+    "ReinitializableBase"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "668917f63c28196695d8b58f0f37658193922666d624e64f607b84fe24494125",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "optimism",
+  "protocol": "Optimism Bedrock",
+  "source_backed": true,
+  "source_commit": "392b395e8c7618a939e34174b6c9cea7eee5df0e",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "b804d99b1fb9be63f218c9787434162ed5827a576cd27d1e7c2a9f5f31960006",
+  "source_repository": "https://github.com/ethereum-optimism/optimism.git",
+  "source_selection_hash": "3e9338307e1dbc3e769e56b92effa1b718df5079892a3f3c64d992a0b3c47f1a",
+  "split": "evaluation",
+  "test_contract": "OptimismSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "eve": [],
+      "portal": [
+        "IOptimismPortal2.depositTransaction"
+      ],
+      "proxy_admin_owner": [
+        "L1CrossDomainMessenger.initialize"
+      ],
+      "user": [
+        "CrossDomainMessenger.sendMessage"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_source_backed_rejects_unauthorized_initialization",
+      "mechanism": "exact source messenger enforces proxy-admin-owner initialization, computes versioned message nonce/base gas and hands the encoded relay call to the configured portal"
+    },
+    "callbacks": {
+      "destination_callback": "IOptimismPortal2.depositTransaction boundary receives the source-generated relay calldata",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Not exercised; L2 relay requires the paired messenger and portal delivery",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at L1CrossDomainMessenger.initialize/sendMessage"
+    },
+    "finality": {
+      "model": "source cross-domain message encoding and portal deposit handoff",
+      "status": "message_identity_nonce_and_portal_deposit_boundary_tested_without_L2_relay_fault_proof_or_withdrawal_finality"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "proxy_admin_owner",
+        "portal_value",
+        "portal_gas_limit",
+        "deposit_call",
+        "message_nonce"
+      ],
+      "steps": [
+        "proxy_owner_initialization",
+        "sendMessage",
+        "base_gas",
+        "portal.depositTransaction",
+        "versioned_nonce"
+      ],
+      "test": "test_normal_source_backed_message_deposit"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys source implementation, proxy storage, proxy-admin probe, system-config probe and portal probe for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the exact L1CrossDomainMessenger behind isolated implementation and proxy-owner storage slots with a portal deposit boundary probe",
+      "source_contracts": [
+        "L1CrossDomainMessenger",
+        "CrossDomainMessenger",
+        "ProxyAdminOwnedBase",
+        "ReinitializableBase"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

@@ -1,0 +1,14 @@
+{
+  "lineage_id": "hyperlane",
+  "protocol": "Hyperlane",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "Mailbox"
+  ],
+  "entry_points": {
+    "Mailbox": "contracts/Mailbox.sol"
+  },
+  "channel_type": "modular_messaging",
+  "topology": "any_to_any",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

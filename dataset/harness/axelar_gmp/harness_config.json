@@ -1,0 +1,102 @@
+{
+  "artifact_manifest_sha256": "b64562276f4aa6b88ec20d6626eec4cebf856c780d88f2b1f9359cfe799ed750",
+  "compiler": {
+    "binary_sha256": "ce964c1bfb05a62099633caa7360f80ba6013b3f5529daaaa080c74654a6d577",
+    "image": "ghcr.io/argotorg/solc@sha256:90f88c49adfef1286f13980b65c4e6524abb4c012e4394abc53649c5fc76f6aa",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.8.36"
+  },
+  "contracts": [
+    "AxelarAmplifierGateway"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "43678d3369374693279c11d89576ca4814f38cbe6ff5f4401166527b05c1928b",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "axelar_gmp",
+  "protocol": "Axelar GMP",
+  "source_backed": true,
+  "source_commit": "30196ca7cb9479fd5f79f0668523bd2a488093ed",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "28bd755559b1559c24374daa0beabf4e8ad4be6965560dac0124f3dd83fc9807",
+  "source_repository": "https://github.com/axelarnetwork/axelar-gmp-sdk-solidity.git",
+  "source_selection_hash": "de05ada4e226668a5199504ae8921fff36d938f21ad0ab4a733294aec2f830c9",
+  "split": "evaluation",
+  "test_contract": "AxelarSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "application": [
+        "IAxelarGateway.callContract"
+      ],
+      "eve": [],
+      "recipient": [
+        "AxelarAmplifierGateway.validateMessage"
+      ],
+      "signer": [
+        "AxelarAmplifierGateway.approveMessages"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_on_invalid_weighted_proof",
+      "mechanism": "source gateway validates an ECDSA proof over the command and current signer set"
+    },
+    "callbacks": {
+      "destination_callback": "application consumer invokes validateMessage; gateway has no direct callback in selected scope",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp for approval/consumption",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp for outbound call"
+    },
+    "finality": {
+      "model": "weighted signer proof with threshold one in the development profile",
+      "status": "proof_threshold_and_executed_state_tested"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "outbound_payload_hash",
+        "weighted_proof",
+        "approval_identity",
+        "replay_blocked"
+      ],
+      "steps": [
+        "callContract",
+        "approveMessages",
+        "validateMessage",
+        "executed_state"
+      ],
+      "test": "test_outbound_and_approved_message_lifecycle"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys implementation, proxy, signer set and recipient for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the locked AxelarAmplifierGateway behind its locked proxy and seeds one weighted signer set",
+      "source_contracts": [
+        "AxelarAmplifierGateway",
+        "AxelarAmplifierGatewayProxy"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

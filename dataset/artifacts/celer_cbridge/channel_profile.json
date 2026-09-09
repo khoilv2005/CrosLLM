@@ -1,0 +1,18 @@
+{
+  "channel_type": "liquidity_pool",
+  "topology": "any_to_any",
+  "source_domains": [
+    "Ethereum",
+    "BSC",
+    "Polygon",
+    "Arbitrum"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "BSC",
+    "Polygon",
+    "Arbitrum"
+  ],
+  "message_passing": "sgn_multisig_attestation",
+  "settlement": "sgn_validator_quorum"
+}

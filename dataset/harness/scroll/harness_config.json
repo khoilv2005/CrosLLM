@@ -1,0 +1,112 @@
+{
+  "artifact_manifest_sha256": "ffff06aa954067c860d24d3742b81ffbe945ab4d90dd5f0db58441b3c16eefab",
+  "compiler": {
+    "binary_sha256": "fb03a29a517452b9f12bcf459ef37d0a543765bb3bbc911e70a87d6a37c30d5f",
+    "image": "ghcr.io/argotorg/solc@sha256:8e9c10e5786193986b82579d056f42868620b06186a77f616523d98e7c3a35b8",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.8.24"
+  },
+  "contracts": [
+    "L1ScrollMessenger",
+    "L2ScrollMessenger"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "2e8122889ed119c2f9f3c7828c6d13fec850b1a3a9ba2d2ca3ba5b205b7f0d3f",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "scroll",
+  "protocol": "Scroll",
+  "source_backed": true,
+  "source_commit": "dfbd661520ac30505a773881728cc5cfb005978b",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "2d5277f73180b88738e8a4a979bb79b3daa12398d7c3134f83cf49bbd0ef2407",
+  "source_repository": "https://github.com/scroll-tech/scroll-contracts.git",
+  "source_selection_hash": "8bde0fca2660a5b07a77a3bee4e6ff1076c86f6c2217d8ee21bd6fb87263498f",
+  "split": "evaluation",
+  "test_contract": "ScrollSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "aliased_l1_messenger": [
+        "L2ScrollMessenger.relayMessage"
+      ],
+      "eve": [],
+      "receiver": [
+        "ScrollRelayReceiver.receiveMessage"
+      ],
+      "user": [
+        "L1ScrollMessenger.sendMessage",
+        "L2ScrollMessenger.sendMessage"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_l2_relay_wrong_authority",
+      "mechanism": "exact source messengers enforce queue calls, message identity and L1-to-L2 alias counterpart authorization"
+    },
+    "callbacks": {
+      "destination_callback": "L2ScrollMessenger.relayMessage -> ScrollRelayReceiver.receiveMessage",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp at L2 relayMessage",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at L1/L2 sendMessage"
+    },
+    "finality": {
+      "model": "source enqueue hash/nonce, alias-authorized delivery and terminal replay state",
+      "status": "enqueue_alias_relay_and_replay_boundary_tested_without_ScrollChain_batch_finality_or_proof_trie"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "relay_calldata",
+        "queue_nonce",
+        "message_hash",
+        "alias_counterpart",
+        "receiver_payload",
+        "terminal_relay_state"
+      ],
+      "steps": [
+        "L1.sendMessage",
+        "L1_queue_append",
+        "L2.sendMessage",
+        "L2_queue_append",
+        "alias_authorization",
+        "relayMessage",
+        "receiver_callback",
+        "replay_guard"
+      ],
+      "test": "test_normal_source_backed_l1_enqueue"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys source implementations, proxy storage, queues and receiver for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys exact L1ScrollMessenger and L2ScrollMessenger implementations behind isolated initializer proxies with queue and receiver boundary probes",
+      "source_contracts": [
+        "L1ScrollMessenger",
+        "L2ScrollMessenger",
+        "ScrollMessengerBase",
+        "L2MessageQueue"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

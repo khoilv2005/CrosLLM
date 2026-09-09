@@ -1,0 +1,109 @@
+{
+  "storage": [
+    {
+      "astId": 33,
+      "contract": "contracts/CBridge.sol:CBridge",
+      "label": "transfers",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_mapping(t_bytes32,t_struct(Transfer)28_storage)"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_bytes32": {
+      "encoding": "inplace",
+      "label": "bytes32",
+      "numberOfBytes": "32"
+    },
+    "t_enum(TransferStatus)12": {
+      "encoding": "inplace",
+      "label": "enum CBridge.TransferStatus",
+      "numberOfBytes": "1"
+    },
+    "t_mapping(t_bytes32,t_struct(Transfer)28_storage)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => struct CBridge.Transfer)",
+      "numberOfBytes": "32",
+      "value": "t_struct(Transfer)28_storage"
+    },
+    "t_struct(Transfer)28_storage": {
+      "encoding": "inplace",
+      "label": "struct CBridge.Transfer",
+      "numberOfBytes": "192",
+      "members": [
+        {
+          "astId": 14,
+          "contract": "contracts/CBridge.sol:CBridge",
+          "label": "sender",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_address"
+        },
+        {
+          "astId": 16,
+          "contract": "contracts/CBridge.sol:CBridge",
+          "label": "receiver",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_address"
+        },
+        {
+          "astId": 18,
+          "contract": "contracts/CBridge.sol:CBridge",
+          "label": "token",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_address"
+        },
+        {
+          "astId": 20,
+          "contract": "contracts/CBridge.sol:CBridge",
+          "label": "amount",
+          "offset": 0,
+          "slot": "3",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 22,
+          "contract": "contracts/CBridge.sol:CBridge",
+          "label": "hashlock",
+          "offset": 0,
+          "slot": "4",
+          "type": "t_bytes32"
+        },
+        {
+          "astId": 24,
+          "contract": "contracts/CBridge.sol:CBridge",
+          "label": "timelock",
+          "offset": 0,
+          "slot": "5",
+          "type": "t_uint64"
+        },
+        {
+          "astId": 27,
+          "contract": "contracts/CBridge.sol:CBridge",
+          "label": "status",
+          "offset": 8,
+          "slot": "5",
+          "type": "t_enum(TransferStatus)12"
+        }
+      ]
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    },
+    "t_uint64": {
+      "encoding": "inplace",
+      "label": "uint64",
+      "numberOfBytes": "8"
+    }
+  }
+}

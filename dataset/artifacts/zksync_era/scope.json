@@ -1,0 +1,14 @@
+{
+  "lineage_id": "zksync_era",
+  "protocol": "zkSync Era",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "L1ERC20Bridge"
+  ],
+  "entry_points": {
+    "L1ERC20Bridge": "contracts/bridge/L1ERC20Bridge.sol"
+  },
+  "channel_type": "zk_rollup_canonical_bridge",
+  "topology": "l1_l2_paired",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

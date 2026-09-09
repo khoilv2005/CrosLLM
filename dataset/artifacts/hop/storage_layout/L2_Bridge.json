@@ -1,0 +1,304 @@
+{
+  "storage": [
+    {
+      "astId": 7397,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "_owner",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_address"
+    },
+    {
+      "astId": 9037,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "_status",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 16,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "_registry",
+      "offset": 0,
+      "slot": "2",
+      "type": "t_contract(IBonderRegistry)2340"
+    },
+    {
+      "astId": 20,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "_credit",
+      "offset": 0,
+      "slot": "3",
+      "type": "t_mapping(t_address,t_uint256)"
+    },
+    {
+      "astId": 24,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "_debit",
+      "offset": 0,
+      "slot": "4",
+      "type": "t_mapping(t_address,t_uint256)"
+    },
+    {
+      "astId": 407,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "_transferRoots",
+      "offset": 0,
+      "slot": "5",
+      "type": "t_mapping(t_bytes32,t_struct(TransferRoot)363_storage)"
+    },
+    {
+      "astId": 411,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "_spentTransferIds",
+      "offset": 0,
+      "slot": "6",
+      "type": "t_mapping(t_bytes32,t_bool)"
+    },
+    {
+      "astId": 417,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "_bondedWithdrawalAmounts",
+      "offset": 0,
+      "slot": "7",
+      "type": "t_mapping(t_address,t_mapping(t_bytes32,t_uint256))"
+    },
+    {
+      "astId": 1461,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "l1BridgeConnector",
+      "offset": 0,
+      "slot": "8",
+      "type": "t_address"
+    },
+    {
+      "astId": 1463,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "ammWrapper",
+      "offset": 0,
+      "slot": "9",
+      "type": "t_contract(L2_AmmWrapper)1442"
+    },
+    {
+      "astId": 1467,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "activeChainIds",
+      "offset": 0,
+      "slot": "10",
+      "type": "t_mapping(t_uint256,t_bool)"
+    },
+    {
+      "astId": 1470,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "minimumForceCommitDelay",
+      "offset": 0,
+      "slot": "11",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 1473,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "maxPendingTransfers",
+      "offset": 0,
+      "slot": "12",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 1476,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "minBonderBps",
+      "offset": 0,
+      "slot": "13",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 1479,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "minBonderFeeAbsolute",
+      "offset": 0,
+      "slot": "14",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 1486,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "pendingTransferIds",
+      "offset": 0,
+      "slot": "15",
+      "type": "t_mapping(t_uint256,t_mapping(t_address,t_array(t_bytes32)dyn_storage))"
+    },
+    {
+      "astId": 1492,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "pendingAmount",
+      "offset": 0,
+      "slot": "16",
+      "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))"
+    },
+    {
+      "astId": 1498,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "lastCommitTime",
+      "offset": 0,
+      "slot": "17",
+      "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))"
+    },
+    {
+      "astId": 1504,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "rootIndex",
+      "offset": 0,
+      "slot": "18",
+      "type": "t_mapping(t_uint256,t_mapping(t_address,t_uint256))"
+    },
+    {
+      "astId": 1506,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "transferNonceIncrementer",
+      "offset": 0,
+      "slot": "19",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 6989,
+      "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+      "label": "chainId",
+      "offset": 0,
+      "slot": "20",
+      "type": "t_uint256"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_array(t_bytes32)dyn_storage": {
+      "encoding": "dynamic_array",
+      "label": "bytes32[]",
+      "numberOfBytes": "32",
+      "base": "t_bytes32"
+    },
+    "t_bool": {
+      "encoding": "inplace",
+      "label": "bool",
+      "numberOfBytes": "1"
+    },
+    "t_bytes32": {
+      "encoding": "inplace",
+      "label": "bytes32",
+      "numberOfBytes": "32"
+    },
+    "t_contract(IBonderRegistry)2340": {
+      "encoding": "inplace",
+      "label": "contract IBonderRegistry",
+      "numberOfBytes": "20"
+    },
+    "t_contract(L2_AmmWrapper)1442": {
+      "encoding": "inplace",
+      "label": "contract L2_AmmWrapper",
+      "numberOfBytes": "20"
+    },
+    "t_mapping(t_address,t_array(t_bytes32)dyn_storage)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => bytes32[])",
+      "numberOfBytes": "32",
+      "value": "t_array(t_bytes32)dyn_storage"
+    },
+    "t_mapping(t_address,t_mapping(t_bytes32,t_uint256))": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => mapping(bytes32 => uint256))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_bytes32,t_uint256)"
+    },
+    "t_mapping(t_address,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_bytes32,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_mapping(t_bytes32,t_struct(TransferRoot)363_storage)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => struct Bridge.TransferRoot)",
+      "numberOfBytes": "32",
+      "value": "t_struct(TransferRoot)363_storage"
+    },
+    "t_mapping(t_bytes32,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_uint256,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_mapping(t_uint256,t_mapping(t_address,t_array(t_bytes32)dyn_storage))": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => mapping(address => bytes32[]))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_address,t_array(t_bytes32)dyn_storage)"
+    },
+    "t_mapping(t_uint256,t_mapping(t_address,t_uint256))": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => mapping(address => uint256))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_address,t_uint256)"
+    },
+    "t_struct(TransferRoot)363_storage": {
+      "encoding": "inplace",
+      "label": "struct Bridge.TransferRoot",
+      "numberOfBytes": "96",
+      "members": [
+        {
+          "astId": 358,
+          "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+          "label": "total",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 360,
+          "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+          "label": "amountWithdrawn",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 362,
+          "contract": "contracts/test/Mock_L2_Bridge.sol:Mock_L2_Bridge",
+          "label": "createdAt",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_uint256"
+        }
+      ]
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    }
+  }
+}

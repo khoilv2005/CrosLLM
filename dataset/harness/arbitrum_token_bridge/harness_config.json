@@ -1,0 +1,107 @@
+{
+  "artifact_manifest_sha256": "dbb86e31d96e077f72043dc25cb9deae6ca271fdac39514ad788112d859e99bd",
+  "compiler": {
+    "binary_sha256": "3e4385ccf61c9ac40ab32ad6b31552b448d72c983f505369bfab7fbcbf7ac2d8",
+    "image": "ghcr.io/argotorg/solc@sha256:23ad0dc6e3fb74b5118515314897f2a8badee9b86de529977e1256f1c4f65956",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.8.16"
+  },
+  "contracts": [
+    "L1GatewayRouter",
+    "L2GatewayRouter"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "7845f9a86e2a7882c6a87145df3986e910a52de63fe9ffb95404969f285ced96",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "arbitrum_token_bridge",
+  "protocol": "Arbitrum Token Bridge",
+  "source_backed": true,
+  "source_commit": "7ef9d4ed4257ec035aeaa1fd7457c537b8f7c7c5",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "6010673a5af35a44b071614258328b45190105ae29f14113d76da06543d88eab",
+  "source_repository": "https://github.com/OffchainLabs/token-bridge-contracts.git",
+  "source_selection_hash": "54608513b6cab3111b36d40f1fa1e3eca3247f8387e4aa5b16b3e40824afed17",
+  "split": "evaluation",
+  "test_contract": "ArbitrumSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "counterpart": [
+        "L2GatewayRouter.setGateway"
+      ],
+      "eve": [],
+      "l1_user": [
+        "L1GatewayRouter.outboundTransfer"
+      ],
+      "l2_user": [
+        "L2GatewayRouter.outboundTransfer"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_wrong_l2_route_authority_and_accept_alias",
+      "mechanism": "L1/L2 routers wrap original caller data and L2 router enforces AddressAliasHelper counterpart identity"
+    },
+    "callbacks": {
+      "destination_callback": "gateway probe receives encoded router call; Nitro delivery is outside selected source scope",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry EVM block number at L2 router call",
+      "explicit_time_warp": false,
+      "source": "Foundry EVM block number at L1 router call"
+    },
+    "finality": {
+      "model": "router route selection and aliased counterpart authorization",
+      "status": "router_and_authority_boundary_tested_without_Arbitrum_Nitro_retryable_or_outbox_finality"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "original_caller",
+        "recipient",
+        "amount",
+        "payload",
+        "route_selection"
+      ],
+      "steps": [
+        "L1Router.outboundTransfer",
+        "caller_encoding",
+        "L1_gateway_escrow",
+        "L2Router.outboundTransfer",
+        "L2_gateway_escrow"
+      ],
+      "test": "test_normal_source_backed_router_routes_l1_deposit"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys both source routers, gateway probes and tokens for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys exact L1GatewayRouter and L2GatewayRouter source contracts with isolated gateway/token doubles",
+      "source_contracts": [
+        "L1GatewayRouter",
+        "L2GatewayRouter",
+        "GatewayRouter",
+        "TokenGateway"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

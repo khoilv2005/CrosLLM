@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/Bridge.sol",
+    "contracts/Pool.sol",
+    "contracts/Router.sol"
+  ],
+  "document_paths": [
+    "LICENSE",
+    "README.md"
+  ],
+  "selected_paths": [
+    "LICENSE",
+    "README.md",
+    "contracts/Bridge.sol",
+    "contracts/Factory.sol",
+    "contracts/LPTokenERC20.sol",
+    "contracts/Pool.sol",
+    "contracts/Router.sol",
+    "contracts/interfaces/ILayerZeroEndpoint.sol",
+    "contracts/interfaces/ILayerZeroReceiver.sol",
+    "contracts/interfaces/ILayerZeroUserApplicationConfig.sol",
+    "contracts/interfaces/IStargateFeeLibrary.sol",
+    "contracts/interfaces/IStargateReceiver.sol",
+    "contracts/interfaces/IStargateRouter.sol"
+  ],
+  "unresolved_imports": [
+    "contracts/Bridge.sol:@openzeppelin/contracts/access/Ownable.sol",
+    "contracts/Bridge.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/Factory.sol:@openzeppelin/contracts/access/Ownable.sol",
+    "contracts/Factory.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/LPTokenERC20.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/Pool.sol:@openzeppelin/contracts/access/Ownable.sol",
+    "contracts/Pool.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/Pool.sol:@openzeppelin/contracts/utils/ReentrancyGuard.sol",
+    "contracts/Router.sol:@openzeppelin/contracts/access/Ownable.sol",
+    "contracts/Router.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/Router.sol:@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/Router.sol:@openzeppelin/contracts/utils/ReentrancyGuard.sol"
+  ],
+  "selection_hash": "3a2eb754f88b6238f3f6a3896678607cbd6967a6eb8eb42c796fe519cb5981bd"
+}

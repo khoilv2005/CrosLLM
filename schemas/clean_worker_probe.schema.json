@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/clean_worker_probe.schema.json",
+  "title": "CrossLLM clean worker installation probe",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_type",
+    "status",
+    "scope",
+    "base_image",
+    "input_hashes",
+    "container_policy",
+    "smoke_result",
+    "admission_eligible",
+    "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "clean_worker_installation_probe"},
+    "status": {"enum": ["clean_worker_pass", "clean_worker_fail"]},
+    "scope": {"const": "development_clean_worker_probe"},
+    "base_image": {"type": "string", "pattern": "^.+@sha256:[0-9a-f]{64}$"},
+    "image_id": {"type": ["string", "null"]},
+    "input_hashes": {
+      "type": "object",
+      "minProperties": 3,
+      "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    },
+    "container_policy": {
+      "type": "object",
+      "required": ["network", "read_only_root", "bind_mounts", "model_weights_mounted", "private_gold_mounted", "broadcast_capability", "run_as_non_root"],
+      "properties": {
+        "network": {"const": "none"},
+        "read_only_root": {"const": true},
+        "bind_mounts": {"const": []},
+        "model_weights_mounted": {"const": false},
+        "private_gold_mounted": {"const": false},
+        "broadcast_capability": {"const": false},
+        "run_as_non_root": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "smoke_result": {
+      "type": "object",
+      "required": ["exit_code", "stdout_sha256", "stderr_sha256", "assertions"],
+      "properties": {
+        "exit_code": {"type": "integer"},
+        "stdout_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "stderr_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "assertions": {"type": "object", "additionalProperties": {"type": "boolean"}}
+      },
+      "additionalProperties": false
+    },
+    "admission_eligible": {"const": false},
+    "report_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": false
+}

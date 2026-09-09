@@ -1,0 +1,311 @@
+{
+  "artifact_manifest_sha256": "011bde9c804eb1a1e68eb0490d98aad96c022c82f44e7ce5fc1823576b5ae723",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "9ea5a7d540e54289d5007813ad3b241c86b2bb44e4d082dcc78929d084db65bf",
+      "source_path": "contracts/external/interfaces/IAcrossV5Executor.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "3f7dd56253029bcc66ca9082ca145f8ff4021fe25684201884d8b540a0b39c05",
+      "source_path": "contracts/external/interfaces/IAcrossV5ExecutorAdapter.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b7cb6791c9529f5330c0edc09fb861e915499048f62e74202236b8b1eeb474de",
+      "source_path": "contracts/external/interfaces/IGateway.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "f4f88489c2f6ed70d18a61bb589b8a82ead9cb724dd3fc49c311c2bef8559875",
+      "source_path": "contracts/external/interfaces/WETH9Interface.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "1d9ba194ca91e5f5e1f3a74f3c321012d732621b4a5421c5c1712e208043b0ae",
+      "source_path": "contracts/interfaces/ERC7683.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "1ad0fa02f5b7b009365a85666303b5547207e619e31b8f37ec30bf1249599fe0",
+      "source_path": "contracts/interfaces/HubPoolInterface.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "44b92494f039fa2dfe1a881b44726efc62fdeb9ae211406d0e6e08f81aa86050",
+      "source_path": "contracts/interfaces/IOFT.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "86a7e54b0ea30870edb17fca9246008dd909324f06cee081e6318489e8175b29",
+      "source_path": "contracts/interfaces/SpokePoolInterface.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "3d7710b919bc638c27d7e66c596b72efbe13a31c0f90bec4bcfeaa986a9fe818",
+      "source_path": "contracts/interfaces/SpokePoolMessageHandler.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "f023955b312836d8af8f921715521d05cf9b1abb7292013dcc4c246dedf0acf4",
+      "source_path": "contracts/interfaces/V3SpokePoolInterface.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "e8dceee5026bf55109ff09b005b842eb84ba60db652d4ac3ff19d5f59b14b7e4",
+      "source_path": "contracts/interfaces/V5SpokePoolInterface.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "5f75f6a5f1b35c29bd769cdc19740fccfb2676c8b40cc5536550a1319fe027bb",
+      "source_path": "contracts/libraries/AddressConverters.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "a412f9c44b222a573dcfde74741bbc967e8ad7deb115fdff1882cadef4da91b7",
+      "source_path": "contracts/libraries/MerkleLib.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "359a53f2e4e9c3bfa6fd5d23f2727a9df2c49843c357035e6a2bc8dca65c8c62",
+      "source_path": "contracts/libraries/OFTTransportAdapter.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b877751eec4732b2059c1273e749da2fa2039d67f30582d091174a061d74b5e4",
+      "source_path": "contracts/libraries/SafeTransferERC20.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "58c0ea6c7d80001615459d378eb6b1879c0ef1ce396447978dc21bfc1ddc2f73",
+      "source_path": "contracts/spoke-pools/Ethereum_SpokePool.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+      "source_path": "contracts/spoke-pools/SpokePool.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "d7ce63505b391f70506565388d80806ba89fcaf141e643792f7908479e3dca8a",
+      "source_path": "contracts/upgradeable/AddressLibUpgradeable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "8f232dba66003aa0c27e0d02beaa66d8eb928bc5fe75fc47a8b5847dfd379b7a",
+      "source_path": "contracts/upgradeable/EIP712CrossChainUpgradeable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "3f9ce37aec30f651c997283f2e89902a40cc0ff53d6c7d65dcdaf40ad5b0795d",
+      "source_path": "contracts/upgradeable/MultiCallerUpgradeable.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:968cb5ba4b4ccec35d21f6a20e1c104606ee43844a6aec72611be8fb3ae237b8",
+  "compiler_version": "0.8.30",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "381a7a56eb70f3f091fbf90d063e48473a68672fb6f92d7b0111d663e5e78602"
+    }
+  ],
+  "lineage_id": "across",
+  "manifest_sha256": "369747d35f55f2f4e300e24f76c95406ae396eeca967ebc622b072b7a7b7f507",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "890b1faf820227d93205271c0e474c0cd4975a53e35ed6e99a855aeec15464c3",
+  "source_commit": "19e346a5415e2ebb18fafe590f76dc90f413d1b5",
+  "source_repository": "https://github.com/across-protocol/contracts.git",
+  "source_selection_hash": "32259cab04cb263c8340ae46a4a4e6b09bfadf4412d4a578b94d8487e5da5997",
+  "test_source": {
+    "path": "test/AcrossSourceBackedHarnessTest.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "0437c4b0bf598b91a73876a7af81614e5440272dcaea5eb090605918df5a4aa1"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/external/interfaces/IAcrossV5Executor.sol",
+      "role": "upstream_harness_input",
+      "sha256": "9ea5a7d540e54289d5007813ad3b241c86b2bb44e4d082dcc78929d084db65bf",
+      "source_path": "contracts/external/interfaces/IAcrossV5Executor.sol"
+    },
+    {
+      "harness_path": "contracts/external/interfaces/IAcrossV5ExecutorAdapter.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3f7dd56253029bcc66ca9082ca145f8ff4021fe25684201884d8b540a0b39c05",
+      "source_path": "contracts/external/interfaces/IAcrossV5ExecutorAdapter.sol"
+    },
+    {
+      "harness_path": "contracts/external/interfaces/IGateway.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b7cb6791c9529f5330c0edc09fb861e915499048f62e74202236b8b1eeb474de",
+      "source_path": "contracts/external/interfaces/IGateway.sol"
+    },
+    {
+      "harness_path": "contracts/external/interfaces/WETH9Interface.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f4f88489c2f6ed70d18a61bb589b8a82ead9cb724dd3fc49c311c2bef8559875",
+      "source_path": "contracts/external/interfaces/WETH9Interface.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/ERC7683.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1d9ba194ca91e5f5e1f3a74f3c321012d732621b4a5421c5c1712e208043b0ae",
+      "source_path": "contracts/interfaces/ERC7683.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/HubPoolInterface.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1ad0fa02f5b7b009365a85666303b5547207e619e31b8f37ec30bf1249599fe0",
+      "source_path": "contracts/interfaces/HubPoolInterface.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IOFT.sol",
+      "role": "upstream_harness_input",
+      "sha256": "44b92494f039fa2dfe1a881b44726efc62fdeb9ae211406d0e6e08f81aa86050",
+      "source_path": "contracts/interfaces/IOFT.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/SpokePoolInterface.sol",
+      "role": "upstream_harness_input",
+      "sha256": "86a7e54b0ea30870edb17fca9246008dd909324f06cee081e6318489e8175b29",
+      "source_path": "contracts/interfaces/SpokePoolInterface.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/SpokePoolMessageHandler.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3d7710b919bc638c27d7e66c596b72efbe13a31c0f90bec4bcfeaa986a9fe818",
+      "source_path": "contracts/interfaces/SpokePoolMessageHandler.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/V3SpokePoolInterface.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f023955b312836d8af8f921715521d05cf9b1abb7292013dcc4c246dedf0acf4",
+      "source_path": "contracts/interfaces/V3SpokePoolInterface.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/V5SpokePoolInterface.sol",
+      "role": "upstream_harness_input",
+      "sha256": "e8dceee5026bf55109ff09b005b842eb84ba60db652d4ac3ff19d5f59b14b7e4",
+      "source_path": "contracts/interfaces/V5SpokePoolInterface.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/AddressConverters.sol",
+      "role": "upstream_harness_input",
+      "sha256": "5f75f6a5f1b35c29bd769cdc19740fccfb2676c8b40cc5536550a1319fe027bb",
+      "source_path": "contracts/libraries/AddressConverters.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/MerkleLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "a412f9c44b222a573dcfde74741bbc967e8ad7deb115fdff1882cadef4da91b7",
+      "source_path": "contracts/libraries/MerkleLib.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/OFTTransportAdapter.sol",
+      "role": "upstream_harness_input",
+      "sha256": "359a53f2e4e9c3bfa6fd5d23f2727a9df2c49843c357035e6a2bc8dca65c8c62",
+      "source_path": "contracts/libraries/OFTTransportAdapter.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/SafeTransferERC20.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b877751eec4732b2059c1273e749da2fa2039d67f30582d091174a061d74b5e4",
+      "source_path": "contracts/libraries/SafeTransferERC20.sol"
+    },
+    {
+      "harness_path": "contracts/spoke-pools/Ethereum_SpokePool.sol",
+      "role": "upstream_harness_input",
+      "sha256": "58c0ea6c7d80001615459d378eb6b1879c0ef1ce396447978dc21bfc1ddc2f73",
+      "source_path": "contracts/spoke-pools/Ethereum_SpokePool.sol"
+    },
+    {
+      "harness_path": "contracts/spoke-pools/SpokePool.sol",
+      "role": "upstream_harness_input",
+      "sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+      "source_path": "contracts/spoke-pools/SpokePool.sol"
+    },
+    {
+      "harness_path": "contracts/upgradeable/AddressLibUpgradeable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "d7ce63505b391f70506565388d80806ba89fcaf141e643792f7908479e3dca8a",
+      "source_path": "contracts/upgradeable/AddressLibUpgradeable.sol"
+    },
+    {
+      "harness_path": "contracts/upgradeable/EIP712CrossChainUpgradeable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "8f232dba66003aa0c27e0d02beaa66d8eb928bc5fe75fc47a8b5847dfd379b7a",
+      "source_path": "contracts/upgradeable/EIP712CrossChainUpgradeable.sol"
+    },
+    {
+      "harness_path": "contracts/upgradeable/MultiCallerUpgradeable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3f9ce37aec30f651c997283f2e89902a40cc0ff53d6c7d65dcdaf40ad5b0795d",
+      "source_path": "contracts/upgradeable/MultiCallerUpgradeable.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "depositor": [
+        "SpokePool.depositV3"
+      ],
+      "eve": [],
+      "owner_setup": [
+        "Ethereum_SpokePool.initialize"
+      ],
+      "relayer": [
+        "SpokePool.fillRelay"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_exclusive_relayer_boundary",
+      "mechanism": "source SpokePool checks fill deadline/exclusive relayer and records terminal fill status before transferring output"
+    },
+    "callbacks": {
+      "destination_callback": "empty message path; no recipient callback selected",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp at fillRelay",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at depositV3"
+    },
+    "finality": {
+      "model": "SpokePool fill deadline, exclusivity boundary and terminal fill status",
+      "status": "deposit_and_fast_fill_boundary_tested_without_hub_root_or_optimistic_challenge_delay"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "deposit_nonce",
+        "source_escrow",
+        "destination_recipient_balance",
+        "fast_fill_balance",
+        "replay_status"
+      ],
+      "steps": [
+        "depositV3",
+        "source_escrow",
+        "relayer_approval",
+        "fillRelay",
+        "recipient_transfer"
+      ],
+      "test": "test_normal_source_backed_deposit_and_fast_fill"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys tokens, source/destination implementations and proxy storage for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys locked Ethereum_SpokePool implementations behind isolated immutable-implementation proxy storage",
+      "source_contracts": [
+        "Ethereum_SpokePool",
+        "SpokePool"
+      ]
+    }
+  }
+}

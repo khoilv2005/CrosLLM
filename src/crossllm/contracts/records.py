@@ -113,6 +113,8 @@ def validate_event_log(events: Iterable[EventLog]) -> list[str]:
             errors.append(f"{prefix}: duration_seconds must be non-negative")
         if not isinstance(event.missing_field_reasons, dict):
             errors.append(f"{prefix}: missing_field_reasons must be an object")
+        if not event.terminal and event.attempt_id in terminal_attempts:
+            errors.append(f"{prefix}: event appears after terminal attempt")
         if event.terminal:
             if event.attempt_id in terminal_attempts:
                 errors.append(f"{prefix}: duplicate terminal event")

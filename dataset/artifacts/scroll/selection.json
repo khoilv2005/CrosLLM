@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "src/L1/L1ScrollMessenger.sol",
+    "src/L2/L2ScrollMessenger.sol"
+  ],
+  "document_paths": [
+    "README.md"
+  ],
+  "selected_paths": [
+    "README.md",
+    "src/L1/IL1ScrollMessenger.sol",
+    "src/L1/L1ScrollMessenger.sol",
+    "src/L1/rollup/IL1MessageQueueV1.sol",
+    "src/L1/rollup/IL1MessageQueueV2.sol",
+    "src/L1/rollup/IScrollChain.sol",
+    "src/L2/IL2ScrollMessenger.sol",
+    "src/L2/L2ScrollMessenger.sol",
+    "src/L2/predeploys/L2MessageQueue.sol",
+    "src/libraries/IScrollMessenger.sol",
+    "src/libraries/ScrollMessengerBase.sol",
+    "src/libraries/common/AddressAliasHelper.sol",
+    "src/libraries/common/AppendOnlyMerkleTree.sol",
+    "src/libraries/common/OwnableBase.sol",
+    "src/libraries/constants/ScrollConstants.sol",
+    "src/libraries/verifier/PatriciaMerkleTrieVerifier.sol",
+    "src/libraries/verifier/WithdrawTrieVerifier.sol"
+  ],
+  "unresolved_imports": [
+    "src/libraries/ScrollMessengerBase.sol:@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+    "src/libraries/ScrollMessengerBase.sol:@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+    "src/libraries/ScrollMessengerBase.sol:@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol"
+  ],
+  "selection_hash": "8bde0fca2660a5b07a77a3bee4e6ff1076c86f6c2217d8ee21bd6fb87263498f"
+}

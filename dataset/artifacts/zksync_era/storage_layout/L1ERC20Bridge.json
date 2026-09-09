@@ -1,0 +1,139 @@
+{
+  "storage": [
+    {
+      "astId": 60,
+      "contract": "contracts/bridge/L1ERC20Bridge.sol:L1ERC20Bridge",
+      "label": "isWithdrawalFinalized",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_bool))"
+    },
+    {
+      "astId": 69,
+      "contract": "contracts/bridge/L1ERC20Bridge.sol:L1ERC20Bridge",
+      "label": "depositAmount",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_mapping(t_address,t_mapping(t_address,t_mapping(t_bytes32,t_uint256)))"
+    },
+    {
+      "astId": 72,
+      "contract": "contracts/bridge/L1ERC20Bridge.sol:L1ERC20Bridge",
+      "label": "l2Bridge",
+      "offset": 0,
+      "slot": "2",
+      "type": "t_address"
+    },
+    {
+      "astId": 75,
+      "contract": "contracts/bridge/L1ERC20Bridge.sol:L1ERC20Bridge",
+      "label": "l2TokenBeacon",
+      "offset": 0,
+      "slot": "3",
+      "type": "t_address"
+    },
+    {
+      "astId": 78,
+      "contract": "contracts/bridge/L1ERC20Bridge.sol:L1ERC20Bridge",
+      "label": "l2TokenProxyBytecodeHash",
+      "offset": 0,
+      "slot": "4",
+      "type": "t_bytes32"
+    },
+    {
+      "astId": 83,
+      "contract": "contracts/bridge/L1ERC20Bridge.sol:L1ERC20Bridge",
+      "label": "__DEPRECATED_lastWithdrawalLimitReset",
+      "offset": 0,
+      "slot": "5",
+      "type": "t_mapping(t_address,t_uint256)"
+    },
+    {
+      "astId": 88,
+      "contract": "contracts/bridge/L1ERC20Bridge.sol:L1ERC20Bridge",
+      "label": "__DEPRECATED_withdrawnAmountInWindow",
+      "offset": 0,
+      "slot": "6",
+      "type": "t_mapping(t_address,t_uint256)"
+    },
+    {
+      "astId": 95,
+      "contract": "contracts/bridge/L1ERC20Bridge.sol:L1ERC20Bridge",
+      "label": "__DEPRECATED_totalDepositedAmountPerUser",
+      "offset": 0,
+      "slot": "7",
+      "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_bool": {
+      "encoding": "inplace",
+      "label": "bool",
+      "numberOfBytes": "1"
+    },
+    "t_bytes32": {
+      "encoding": "inplace",
+      "label": "bytes32",
+      "numberOfBytes": "32"
+    },
+    "t_mapping(t_address,t_mapping(t_address,t_mapping(t_bytes32,t_uint256)))": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => mapping(address => mapping(bytes32 => uint256)))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_address,t_mapping(t_bytes32,t_uint256))"
+    },
+    "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => mapping(address => uint256))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_address,t_uint256)"
+    },
+    "t_mapping(t_address,t_mapping(t_bytes32,t_uint256))": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => mapping(bytes32 => uint256))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_bytes32,t_uint256)"
+    },
+    "t_mapping(t_address,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_bytes32,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_uint256,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_mapping(t_uint256,t_mapping(t_uint256,t_bool))": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => mapping(uint256 => bool))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint256,t_bool)"
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    }
+  }
+}

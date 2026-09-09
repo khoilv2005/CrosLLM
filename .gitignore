@@ -6,3 +6,11 @@ venv/
 build/
 dist/
 *.egg-info/
+
+# Local credentials; never commit provider secrets.
+.env
+.env.*
+!.env.example
+
+# Sealed private benchmark ground truth (restricted access)
+dataset/benchmark/benchmark.private.jsonl

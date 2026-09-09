@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+  ],
+  "document_paths": [
+    "README.md"
+  ],
+  "selected_paths": [
+    "README.md",
+    "l1-contracts/contracts/bridge/L1ERC20Bridge.sol",
+    "l1-contracts/contracts/bridge/asset-router/IAssetRouterBase.sol",
+    "l1-contracts/contracts/bridge/asset-router/IL1AssetRouter.sol",
+    "l1-contracts/contracts/bridge/interfaces/IL1AssetDeploymentTracker.sol",
+    "l1-contracts/contracts/bridge/interfaces/IL1ERC20Bridge.sol",
+    "l1-contracts/contracts/bridge/interfaces/IL1Nullifier.sol",
+    "l1-contracts/contracts/bridge/interfaces/IL1SharedBridgeLegacy.sol",
+    "l1-contracts/contracts/bridge/ntv/IL1NativeTokenVault.sol",
+    "l1-contracts/contracts/bridge/ntv/INativeTokenVault.sol",
+    "l1-contracts/contracts/bridgehub/IBridgehub.sol",
+    "l1-contracts/contracts/bridgehub/ICTMDeploymentTracker.sol",
+    "l1-contracts/contracts/bridgehub/IMessageRoot.sol",
+    "l1-contracts/contracts/common/Config.sol",
+    "l1-contracts/contracts/common/L1ContractErrors.sol",
+    "l1-contracts/contracts/common/Messaging.sol",
+    "l1-contracts/contracts/common/ReentrancyGuard.sol",
+    "l1-contracts/contracts/common/interfaces/IL2InteropRootStorage.sol",
+    "l1-contracts/contracts/common/l2-helpers/IL2ToL1Messenger.sol",
+    "l1-contracts/contracts/common/l2-helpers/L2ContractAddresses.sol",
+    "l1-contracts/contracts/common/l2-helpers/L2ContractHelper.sol",
+    "l1-contracts/contracts/common/libraries/UncheckedMath.sol",
+    "l1-contracts/contracts/state-transition/chain-interfaces/IMessageVerification.sol"
+  ],
+  "unresolved_imports": [
+    "l1-contracts/contracts/bridge/L1ERC20Bridge.sol:@openzeppelin/contracts-v4/token/ERC20/IERC20.sol",
+    "l1-contracts/contracts/bridge/L1ERC20Bridge.sol:@openzeppelin/contracts-v4/token/ERC20/utils/SafeERC20.sol"
+  ],
+  "selection_hash": "1348d08a035f45537f512088ad1708af1927b57e0fab6e48e7958eea8544a59f"
+}

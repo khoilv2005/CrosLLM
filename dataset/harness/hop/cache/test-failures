@@ -1,0 +1,1 @@
+{"version":1,"failures":[{"contract":"test/HopPairedHarness.t.sol:HopPairedHarnessTest","test":"test_revert_unauthorized_distribute"}]}

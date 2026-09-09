@@ -1,0 +1,228 @@
+{
+  "artifact_manifest_sha256": "f331f26beab8ba5bc79efecc2cae20948d696ece43a8e5d60605253a2a902dae",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "bb2ebfa5ac616b7dc203ce5c84d738467d8790927c1a41454f40a62996287490",
+      "source_path": "contracts/Bridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "772b2b6f5631e216d1a1c63b55c250bcb7d77f8bfd2704bc131499cc6d684b1a",
+      "source_path": "contracts/Factory.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "7a2b1acd2d9cb8cc34c68c0123536306534a26e6845980ee0accace2cae4b089",
+      "source_path": "contracts/LPTokenERC20.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+      "source_path": "contracts/Pool.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "3140a8e79abcfc5afa772857fb58e210a56007870f87236b5580e19a3ab81bc0",
+      "source_path": "contracts/Router.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "a7df2dc81d3f0c4cf1c332963b7d9cd282904d2ae15d3001901ec0df7de96073",
+      "source_path": "contracts/interfaces/ILayerZeroEndpoint.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c8bd159e0600c2d73ca43fb4bd8f8d843c15eebeaea744a4e369b89c5ff17126",
+      "source_path": "contracts/interfaces/ILayerZeroReceiver.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "30b3b38665e1faffaf50ccb84fa06e421b5637eff716110014172a7a5c1a7e15",
+      "source_path": "contracts/interfaces/ILayerZeroUserApplicationConfig.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "06d06948e1b9d042dd108e3de630143e2bf50b60f82c2c1f9633a2641b5524e5",
+      "source_path": "contracts/interfaces/IStargateFeeLibrary.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "19e915af0648533207615a1fe0caac7ed55d6b96c189667206c3856c13664917",
+      "source_path": "contracts/interfaces/IStargateReceiver.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "6db9a251a00e13bb12b3df58e4a035983722030a6957943262a5b914ce95c077",
+      "source_path": "contracts/interfaces/IStargateRouter.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:9269c273c337f3ea3b41e04909fa4ea0692e830c4b94dd99c109819c84ea16b4",
+  "compiler_version": "0.7.6",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "962e4ab63df4e514a2b222e3bcccac075117401af431996a6ea275296f8e6a92"
+    },
+    {
+      "harness_path": "contracts/StargateEndpointMock.sol",
+      "role": "generated_test_support",
+      "sha256": "4641617231170d2116849e4d50fce0b50aefde034dfdb731de7e95c68b7566bc"
+    },
+    {
+      "harness_path": "contracts/StargateRouterController.sol",
+      "role": "generated_test_support",
+      "sha256": "927af71a4423e374ada921f90212b334945c3021dda89a2464a2c234eacfa4f7"
+    }
+  ],
+  "lineage_id": "stargate",
+  "manifest_sha256": "437faa988b385c1f3eed87c909341af1ab7849894344a5d659835734bdb6e478",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "876da7f357274f3e55a182fd7f8433c151a1196037022fb2f745f2d45a1ddcf2",
+  "source_commit": "c4212c2ee76997b1099ee9b34da0f1ed32dcf9c4",
+  "source_repository": "https://github.com/stargate-protocol/stargate.git",
+  "source_selection_hash": "3a2eb754f88b6238f3f6a3896678607cbd6967a6eb8eb42c796fe519cb5981bd",
+  "test_source": {
+    "path": "test/StargateSourceBackedHarnessTest.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "a549d2febdf040f9ce57f7d3a43b7afca7a61efa139c9809a5bb8c76a6e65368"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "bb2ebfa5ac616b7dc203ce5c84d738467d8790927c1a41454f40a62996287490",
+      "source_path": "contracts/Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/Factory.sol",
+      "role": "upstream_harness_input",
+      "sha256": "772b2b6f5631e216d1a1c63b55c250bcb7d77f8bfd2704bc131499cc6d684b1a",
+      "source_path": "contracts/Factory.sol"
+    },
+    {
+      "harness_path": "contracts/LPTokenERC20.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7a2b1acd2d9cb8cc34c68c0123536306534a26e6845980ee0accace2cae4b089",
+      "source_path": "contracts/LPTokenERC20.sol"
+    },
+    {
+      "harness_path": "contracts/Pool.sol",
+      "role": "upstream_harness_input",
+      "sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+      "source_path": "contracts/Pool.sol"
+    },
+    {
+      "harness_path": "contracts/Router.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3140a8e79abcfc5afa772857fb58e210a56007870f87236b5580e19a3ab81bc0",
+      "source_path": "contracts/Router.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/ILayerZeroEndpoint.sol",
+      "role": "upstream_harness_input",
+      "sha256": "a7df2dc81d3f0c4cf1c332963b7d9cd282904d2ae15d3001901ec0df7de96073",
+      "source_path": "contracts/interfaces/ILayerZeroEndpoint.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/ILayerZeroReceiver.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c8bd159e0600c2d73ca43fb4bd8f8d843c15eebeaea744a4e369b89c5ff17126",
+      "source_path": "contracts/interfaces/ILayerZeroReceiver.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/ILayerZeroUserApplicationConfig.sol",
+      "role": "upstream_harness_input",
+      "sha256": "30b3b38665e1faffaf50ccb84fa06e421b5637eff716110014172a7a5c1a7e15",
+      "source_path": "contracts/interfaces/ILayerZeroUserApplicationConfig.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IStargateFeeLibrary.sol",
+      "role": "upstream_harness_input",
+      "sha256": "06d06948e1b9d042dd108e3de630143e2bf50b60f82c2c1f9633a2641b5524e5",
+      "source_path": "contracts/interfaces/IStargateFeeLibrary.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IStargateReceiver.sol",
+      "role": "upstream_harness_input",
+      "sha256": "19e915af0648533207615a1fe0caac7ed55d6b96c189667206c3856c13664917",
+      "source_path": "contracts/interfaces/IStargateReceiver.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IStargateRouter.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6db9a251a00e13bb12b3df58e4a035983722030a6957943262a5b914ce95c077",
+      "source_path": "contracts/interfaces/IStargateRouter.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "endpoint": [
+        "Bridge.lzReceive"
+      ],
+      "eve": [],
+      "liquidity_provider": [
+        "Router.addLiquidity"
+      ],
+      "router_operator": [
+        "Router.callDelta",
+        "Router.sendCredits"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_direct_lz_receive",
+      "mechanism": "source Bridge requires the configured endpoint and destination Bridge checks the registered source address"
+    },
+    "callbacks": {
+      "destination_callback": "Bridge.lzReceive -> Router.creditChainPath -> Pool.creditChainPath",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.number at endpoint delivery",
+      "explicit_time_warp": false,
+      "source": "Foundry block.number at addLiquidity/sendCredits"
+    },
+    "finality": {
+      "model": "LayerZero endpoint identity plus configured source-bridge binding for credit delivery",
+      "status": "liquidity_credit_and_endpoint_binding_tested_without_external_message_finality_delay"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "source_pool_escrow",
+        "lp_mint",
+        "outbound_nonce",
+        "source_bridge_binding",
+        "destination_credit"
+      ],
+      "steps": [
+        "approve",
+        "addLiquidity",
+        "callDelta",
+        "sendCredits",
+        "endpoint_deliver",
+        "lzReceive",
+        "credit_chain_path"
+      ],
+      "test": "test_normal_source_backed_liquidity_credit_delivery"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys endpoint, routers, factories, bridges, pools and tokens for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys locked Router/Factory/Bridge/Pool pairs on isolated source and destination domains",
+      "source_contracts": [
+        "Router",
+        "Factory",
+        "Bridge",
+        "Pool",
+        "LPTokenERC20"
+      ]
+    }
+  }
+}

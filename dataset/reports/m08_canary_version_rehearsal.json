@@ -1,0 +1,64 @@
+{
+  "admission_eligible": false,
+  "all_passed": true,
+  "case_count": 4,
+  "case_ids": [
+    "matching_identity_passes",
+    "failed_panel_blocks",
+    "identity_drift_blocks",
+    "explicit_deviation_is_distinct"
+  ],
+  "cases": [
+    {
+      "assertions": {
+        "identity_matches": true,
+        "reason_absent": true,
+        "status_passed": true
+      },
+      "case_id": "matching_identity_passes",
+      "evidence_sha256": "b79f1763dc45604f7057fc514fa0e7bc1006dec2ee3c1f0802a4277c6189e8d0",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "identity_preserved": true,
+        "reason_explicit": true,
+        "status_blocked": true
+      },
+      "case_id": "failed_panel_blocks",
+      "evidence_sha256": "7105dd1b83c5a9ef5b22ba83bcfeba9b45ae169687a2ddd34c31e0970b201b28",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "identity_changed": true,
+        "reason_requires_deviation": true,
+        "status_blocked": true
+      },
+      "case_id": "identity_drift_blocks",
+      "evidence_sha256": "b0ea491fcca02b59e89fa260388fb5eca3092491f464f92fdc6b11dc41443b65",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "evidence_recorded": true,
+        "reason_recorded": true,
+        "status_deviation": true
+      },
+      "case_id": "explicit_deviation_is_distinct",
+      "evidence_sha256": "6c9ddf3e4b461f43295c032cdfe79a3937ddebea99eff0afb4862229992cd628",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "no provider calls or model identity attestations were executed",
+    "identities and canary outcomes are synthetic fixtures",
+    "the rehearsal does not establish evaluation readiness or permit a deviation without governance approval"
+  ],
+  "passed_count": 4,
+  "provider_calls": 0,
+  "record_type": "synthetic_m08_canary_version_rehearsal",
+  "report_hash": "b0d075a2ee0ff6eb495d0358e18343e036e55a4dfeb955248cdc4f2697047c94",
+  "schema_version": 1,
+  "scope": "development_version_block_rehearsal_only"
+}

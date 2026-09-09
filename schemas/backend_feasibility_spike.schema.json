@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/backend_feasibility_spike.schema.json",
+  "title": "CrossLLM development backend feasibility spike",
+  "description": "Development contract evidence only; it is not an independent EVM admission result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "status", "fixture", "capabilities",
+    "unsupported_features", "symbolic_engine", "independent_evm", "direct_trace_comparable",
+    "admission_eligible", "evidence_scope", "command", "observed_at", "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "development_backend_feasibility_spike"},
+    "scope": {"const": "paired_fixture_g1_development_only"},
+    "status": {"const": "pass"},
+    "fixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_domain", "destination_domain", "bounds", "profile_hash", "message_count"],
+      "properties": {
+        "source_domain": {"type": "string", "minLength": 1},
+        "destination_domain": {"type": "string", "minLength": 1},
+        "bounds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["max_transactions", "max_channel_transitions", "max_pending"],
+          "properties": {
+            "max_transactions": {"type": "integer", "minimum": 1},
+            "max_channel_transitions": {"type": "integer", "minimum": 1},
+            "max_pending": {"type": "integer", "minimum": 1}
+          }
+        },
+        "profile_hash": {"$ref": "#/$defs/sha256"},
+        "message_count": {"type": "integer", "minimum": 1}
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["snapshot_restore", "transaction_stepping", "symbolic_storage", "channel_actions", "witness_extraction"],
+      "properties": {
+        "snapshot_restore": {"$ref": "#/$defs/capability"},
+        "transaction_stepping": {"$ref": "#/$defs/capability"},
+        "symbolic_storage": {"$ref": "#/$defs/capability"},
+        "channel_actions": {"$ref": "#/$defs/capability"},
+        "witness_extraction": {"$ref": "#/$defs/capability"}
+      }
+    },
+    "unsupported_features": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["feature", "status", "reason"],
+        "properties": {
+          "feature": {"type": "string", "minLength": 1},
+          "status": {"const": "unsupported"},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "symbolic_engine": {"type": "string", "minLength": 1},
+    "independent_evm": {"const": false},
+    "direct_trace_comparable": {"const": false},
+    "admission_eligible": {"const": false},
+    "evidence_scope": {"const": "development_contract_non_admission"},
+    "command": {"type": "string", "minLength": 1},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "report_hash": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checks", "evidence"],
+      "properties": {
+        "status": {"const": "pass"},
+        "checks": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "evidence": {"type": "object"}
+      }
+    }
+  }
+}

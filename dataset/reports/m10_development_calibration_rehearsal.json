@@ -1,0 +1,345 @@
+{
+  "admission_eligible": false,
+  "budget": {
+    "adjudication_hours": 2.0,
+    "estimated_provider_cost_usd": 4.66752,
+    "generated_tokens": 598400,
+    "input_tokens": 2872320,
+    "provider_calls": 2393.6000000000004,
+    "solver_core_hours": 2.2666666666666666,
+    "total_campaigns": 272
+  },
+  "executed_provider_calls": 0,
+  "freeze": {
+    "analysis_code_hash": "f5a667bf68f80afa779176002f29641307c574507320fe9048d40d49468f6deb",
+    "freeze_hash": "c5f6582e7ae0d671c3cdec473ec1bf42d67b46c50e2f3d23e405a5a281a28555",
+    "harness_policy_hash": "a90364bc579e23b1a68a2ce8f4cb76cadd567ae25b33eada6384e59f298e6fc0",
+    "mutation_policy_hash": "98f36e3f7135b6659c1d4997e90c90cb69bbd650eb16fad846d2dbd0636c0f0f",
+    "primitives_hash": "56f3fc7fed205400cbda9d3a86b20737636da6356196e9c5dbf6635e5a4c2cd0",
+    "prompt_hash": "492c76986f3c075ca7b1ba7eb968f7812168b5f8df97d17ee676bb490fe3e494",
+    "protocol_hash": "b39f7185c49825129b9c73b7274918c0568ddfcb0383524b051e7fbd5a067908",
+    "runtime_policy_hash": "ea5aef8d9a1abac8d32dcc13926b7ae22da386c65393e850bcf12439bfa66303",
+    "schema_version": 1,
+    "selection": {
+      "best_development_recall": 0.77,
+      "development_only": true,
+      "eligible_setting_ids": [
+        "cal-high-t0.5"
+      ],
+      "eligible_settings": [
+        {
+          "estimated_cost_usd": 0.2,
+          "output_cap": 8192,
+          "reasoning_level": "high",
+          "setting_id": "cal-high-t0.5",
+          "temperature": 0.5
+        }
+      ],
+      "max_truncation_rate": 0.05,
+      "observations": [
+        {
+          "calls": 10,
+          "recall": 0.76,
+          "setting_id": "cal-high-t0.5",
+          "split": "development",
+          "truncation_rate": 0.02
+        },
+        {
+          "calls": 10,
+          "recall": 0.77,
+          "setting_id": "cal-high-t0.9",
+          "split": "development",
+          "truncation_rate": 0.08
+        },
+        {
+          "calls": 10,
+          "recall": 0.7,
+          "setting_id": "cal-low-t0.5",
+          "split": "development",
+          "truncation_rate": 0.01
+        },
+        {
+          "calls": 10,
+          "recall": 0.72,
+          "setting_id": "cal-low-t0.9",
+          "split": "development",
+          "truncation_rate": 0.04
+        }
+      ],
+      "recall_tolerance": 0.02,
+      "selected_setting": {
+        "estimated_cost_usd": 0.2,
+        "output_cap": 8192,
+        "reasoning_level": "high",
+        "setting_id": "cal-high-t0.5",
+        "temperature": 0.5
+      },
+      "selection_hash": "d6bc8aa1491ef5115e29bcc4d6ad07ac47c658f073af454ae49ddb50aca49f63",
+      "setting_id": "cal-high-t0.5"
+    },
+    "split": "development"
+  },
+  "hash_inputs": {
+    "analysis_code_hash": "f5a667bf68f80afa779176002f29641307c574507320fe9048d40d49468f6deb",
+    "harness_policy_hash": "a90364bc579e23b1a68a2ce8f4cb76cadd567ae25b33eada6384e59f298e6fc0",
+    "mutation_policy_hash": "98f36e3f7135b6659c1d4997e90c90cb69bbd650eb16fad846d2dbd0636c0f0f",
+    "primitives_hash": "56f3fc7fed205400cbda9d3a86b20737636da6356196e9c5dbf6635e5a4c2cd0",
+    "prompt_hash": "492c76986f3c075ca7b1ba7eb968f7812168b5f8df97d17ee676bb490fe3e494",
+    "protocol_hash": "b39f7185c49825129b9c73b7274918c0568ddfcb0383524b051e7fbd5a067908",
+    "runtime_policy_hash": "ea5aef8d9a1abac8d32dcc13926b7ae22da386c65393e850bcf12439bfa66303"
+  },
+  "limitations": [
+    "no provider calls were executed",
+    "fixture observations are not model or raw campaign outcomes",
+    "precision probabilities are planning assumptions",
+    "freeze is development-only and has no named independent reviewer"
+  ],
+  "menu": [
+    {
+      "estimated_cost_usd": 0.1,
+      "output_cap": 8192,
+      "reasoning_level": "low",
+      "setting_id": "cal-low-t0.5",
+      "temperature": 0.5
+    },
+    {
+      "estimated_cost_usd": 0.11,
+      "output_cap": 8192,
+      "reasoning_level": "low",
+      "setting_id": "cal-low-t0.9",
+      "temperature": 0.9
+    },
+    {
+      "estimated_cost_usd": 0.2,
+      "output_cap": 8192,
+      "reasoning_level": "high",
+      "setting_id": "cal-high-t0.5",
+      "temperature": 0.5
+    },
+    {
+      "estimated_cost_usd": 0.21,
+      "output_cap": 8192,
+      "reasoning_level": "high",
+      "setting_id": "cal-high-t0.9",
+      "temperature": 0.9
+    }
+  ],
+  "observations": [
+    {
+      "calls": 10,
+      "recall": 0.7,
+      "setting_id": "cal-low-t0.5",
+      "split": "development",
+      "truncation_rate": 0.01
+    },
+    {
+      "calls": 10,
+      "recall": 0.72,
+      "setting_id": "cal-low-t0.9",
+      "split": "development",
+      "truncation_rate": 0.04
+    },
+    {
+      "calls": 10,
+      "recall": 0.76,
+      "setting_id": "cal-high-t0.5",
+      "split": "development",
+      "truncation_rate": 0.02
+    },
+    {
+      "calls": 10,
+      "recall": 0.77,
+      "setting_id": "cal-high-t0.9",
+      "split": "development",
+      "truncation_rate": 0.08
+    }
+  ],
+  "precision_config": {
+    "campaigns_per_instance": 1,
+    "draws": 1000,
+    "instances_per_lineage": {
+      "dev-lineage-a": 2,
+      "dev-lineage-b": 3,
+      "dev-lineage-c": 1,
+      "dev-lineage-d": 2
+    },
+    "seed": 20260909,
+    "target_difference_mcse": 0.03,
+    "target_recall_mcse": 0.025
+  },
+  "precision_inputs": {
+    "dev-lineage-a": [
+      0.55,
+      0.2,
+      0.1,
+      0.15
+    ],
+    "dev-lineage-b": [
+      0.45,
+      0.25,
+      0.1,
+      0.2
+    ],
+    "dev-lineage-c": [
+      0.5,
+      0.15,
+      0.2,
+      0.15
+    ],
+    "dev-lineage-d": [
+      0.4,
+      0.3,
+      0.1,
+      0.2
+    ]
+  },
+  "record_type": "synthetic_development_calibration_rehearsal",
+  "replicate_selection": {
+    "candidate_replicates": [
+      5,
+      10,
+      20
+    ],
+    "candidates": [
+      {
+        "between_lineage_difference_sd": 0.09354143466934854,
+        "between_lineage_recall_sd": 0.03535533905932737,
+        "campaigns_per_instance": 5,
+        "conditional_difference_mcse": 0.0030901594015185466,
+        "conditional_difference_sd": 0.09884752568139141,
+        "conditional_recall_mcse": 0.002347918806671714,
+        "conditional_recall_sd": 0.07875992001011682,
+        "difference_mcse": 0.0030901594015185466,
+        "difference_mean": 0.10174166666666667,
+        "difference_target_met": false,
+        "draws": 1000,
+        "recall_mcse": 0.002347918806671714,
+        "recall_mean": 0.7018666666666666,
+        "recall_target_met": false,
+        "seed": 20260909
+      },
+      {
+        "between_lineage_difference_sd": 0.09354143466934854,
+        "between_lineage_recall_sd": 0.03535533905932737,
+        "campaigns_per_instance": 10,
+        "conditional_difference_mcse": 0.002225753883941272,
+        "conditional_difference_sd": 0.06989575571282326,
+        "conditional_recall_mcse": 0.0017297755469676789,
+        "conditional_recall_sd": 0.055691673524863664,
+        "difference_mcse": 0.002225753883941272,
+        "difference_mean": 0.10204583333333334,
+        "difference_target_met": false,
+        "draws": 1000,
+        "recall_mcse": 0.0017297755469676789,
+        "recall_mean": 0.7021083333333333,
+        "recall_target_met": false,
+        "seed": 20260909
+      },
+      {
+        "between_lineage_difference_sd": 0.09354143466934854,
+        "between_lineage_recall_sd": 0.03535533905932737,
+        "campaigns_per_instance": 20,
+        "conditional_difference_mcse": 0.0015516907336908057,
+        "conditional_difference_sd": 0.049423762840695704,
+        "conditional_recall_mcse": 0.0012259036726598995,
+        "conditional_recall_sd": 0.03937996000505841,
+        "difference_mcse": 0.0015516907336908057,
+        "difference_mean": 0.09971666666666666,
+        "difference_target_met": false,
+        "draws": 1000,
+        "recall_mcse": 0.0012259036726598995,
+        "recall_mean": 0.70201875,
+        "recall_target_met": false,
+        "seed": 20260909
+      }
+    ],
+    "difference_target": 0.03,
+    "reason": "no_candidate_meets_mcse_targets",
+    "recall_target": 0.025,
+    "schema_version": 1,
+    "selected_replicates": null
+  },
+  "report_hash": "3aa62b79883702552f5f53bb7e58eadf608301a3b4cff28791553bdd37a82e23",
+  "schema_version": 1,
+  "scope": "development_pipeline_rehearsal_only",
+  "selection": {
+    "best_development_recall": 0.77,
+    "development_only": true,
+    "eligible_setting_ids": [
+      "cal-high-t0.5"
+    ],
+    "eligible_settings": [
+      {
+        "estimated_cost_usd": 0.2,
+        "output_cap": 8192,
+        "reasoning_level": "high",
+        "setting_id": "cal-high-t0.5",
+        "temperature": 0.5
+      }
+    ],
+    "max_truncation_rate": 0.05,
+    "observations": [
+      {
+        "calls": 10,
+        "recall": 0.76,
+        "setting_id": "cal-high-t0.5",
+        "split": "development",
+        "truncation_rate": 0.02
+      },
+      {
+        "calls": 10,
+        "recall": 0.77,
+        "setting_id": "cal-high-t0.9",
+        "split": "development",
+        "truncation_rate": 0.08
+      },
+      {
+        "calls": 10,
+        "recall": 0.7,
+        "setting_id": "cal-low-t0.5",
+        "split": "development",
+        "truncation_rate": 0.01
+      },
+      {
+        "calls": 10,
+        "recall": 0.72,
+        "setting_id": "cal-low-t0.9",
+        "split": "development",
+        "truncation_rate": 0.04
+      }
+    ],
+    "recall_tolerance": 0.02,
+    "selected_setting": {
+      "estimated_cost_usd": 0.2,
+      "output_cap": 8192,
+      "reasoning_level": "high",
+      "setting_id": "cal-high-t0.5",
+      "temperature": 0.5
+    },
+    "selection_hash": "d6bc8aa1491ef5115e29bcc4d6ad07ac47c658f073af454ae49ddb50aca49f63",
+    "setting_id": "cal-high-t0.5"
+  },
+  "synthetic_fixture_inputs": true,
+  "truncation_diagnostics": {
+    "cal-high-t0.5": {
+      "exceeds_threshold": false,
+      "rate": 0.02,
+      "threshold": 0.05
+    },
+    "cal-high-t0.9": {
+      "exceeds_threshold": true,
+      "rate": 0.08,
+      "threshold": 0.05
+    },
+    "cal-low-t0.5": {
+      "exceeds_threshold": false,
+      "rate": 0.01,
+      "threshold": 0.05
+    },
+    "cal-low-t0.9": {
+      "exceeds_threshold": false,
+      "rate": 0.04,
+      "threshold": 0.05
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "channel_type": "zk_rollup_canonical_bridge",
+  "topology": "l1_l2_paired",
+  "source_domains": [
+    "Ethereum"
+  ],
+  "target_domains": [
+    "zkSync Era"
+  ],
+  "message_passing": "priority_queue_and_l2_log",
+  "settlement": "snark_validity_proof"
+}

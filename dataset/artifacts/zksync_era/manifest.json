@@ -1,0 +1,21 @@
+{
+  "artifact_count": 13,
+  "files": {
+    "abi/L1ERC20Bridge.json": "3152039b10778586677d2ae34aa80eda085a091692d7bf8f187aa0c43591d0ca",
+    "build_info.json": "14ec98b5fa0f812e19c5c93b314f38794617933729bbd3859e25bd6d41f0482a",
+    "bytecode/L1ERC20Bridge.creation.hex": "469d3288c20dcc61cb9724ef1920211e4d61f9d6cb17dd9c6404f6bc3201ca56",
+    "bytecode/L1ERC20Bridge.deployed.hex": "ce155a9b10add75d372b3f5b5ec47646919baec100c93bd86979e66fa93cde36",
+    "channel_profile.json": "69c2d7f6f6b60808b0a8bd8a4fd8ead6178dc32e57264f8c194b77ea43978237",
+    "deployment.json": "d8e83cec61cb959b90b05a3eae2280c3646bea07317bcb3d0f08a1eca08e7214",
+    "license.json": "a9fcdae5dc596b130ba828f24c2f14fce730385f4795bd96afe6cb3cf9e9d112",
+    "normal_workflow.json": "9c7c89bb5b11fa57913a12b99476b77a9b6c3c0e7faac07bae41cc67f5b8f4ee",
+    "scope.json": "7c78258b2e4986925fd950af9bb08a841e82e4015b9941efbc1bafdd6b920098",
+    "selection.json": "303809b33e87c6f031748f1a6b90e4cb11dd41af1ffe2fa0572c24e99d797ecf",
+    "source_receipt.json": "eb964465ce1461dcd929fea791563224f5a8821250ffa1401b661c753575f6f6",
+    "storage_layout/L1ERC20Bridge.json": "7d34a646ff9575c2bfc1c13c39f1c89f6396d70cc4c329bcf944b36c65aeb055",
+    "symbols.json": "8c008297543f13cbda379759558bf3c73ce91f43449b8a39ff077b25aa782792"
+  },
+  "lineage_id": "zksync_era",
+  "protocol": "zkSync Era",
+  "split": "evaluation"
+}

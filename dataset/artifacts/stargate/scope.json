@@ -1,0 +1,18 @@
+{
+  "lineage_id": "stargate",
+  "protocol": "Stargate Finance",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "Bridge",
+    "Pool",
+    "Router"
+  ],
+  "entry_points": {
+    "Bridge": "contracts/Bridge.sol",
+    "Pool": "contracts/Pool.sol",
+    "Router": "contracts/Router.sol"
+  },
+  "channel_type": "unified_liquidity_bridge",
+  "topology": "mesh",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

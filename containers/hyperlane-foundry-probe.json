@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "development_probe",
+  "lineage_id": "hyperlane",
+  "harness_kind": "generated_mock_harness",
+  "independent_source_host": false,
+  "image_ref": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+  "command": "forge test --json",
+  "working_directory": "dataset/harness/hyperlane",
+  "observed_exit_code": 0,
+  "observed_test_count": 3,
+  "observed_test_statuses": ["Success", "Success", "Success"],
+  "stdout_utf8_bytes": 876,
+  "stdout_sha256": "8aa7b2dcfeae52b2f86ff43bc81aee7c707ad861276f99b6058288be6ccdbbf2",
+  "limitations": [
+    "generated harness contracts are not the source-pinned Hyperlane implementation",
+    "no independent EVM/property replay equivalence is established",
+    "dynamic Foundry duration fields make raw stdout hashes run-specific"
+  ]
+}

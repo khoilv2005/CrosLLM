@@ -1,0 +1,40 @@
+{
+  "figures": [
+    {
+      "figure_id": "paired_lineage",
+      "format": "svg",
+      "kind": "bar",
+      "source_hash": "efe09995e71938c37a3ddeab164a21d0f332988dda3710be8125b4dbb6a6abb4",
+      "svg_hash": "b383cb798744e3339cd9ad786dc11cdb3233b1115fc93ec759ea096897e7c440"
+    },
+    {
+      "figure_id": "recall_at_n",
+      "format": "svg",
+      "kind": "line",
+      "source_hash": "47f5588282efb750f569e553b51626652c11cf9f8a95914b93b8cf00b27e46df",
+      "svg_hash": "a366da38ec7c35fc88d15f267a373b5e887a16a1d31c41589cfe31e1bd9f4517"
+    },
+    {
+      "figure_id": "time_curves",
+      "format": "svg",
+      "kind": "line",
+      "source_hash": "6fb5014efcaf3c04e7cc2542247cbc757a8962e9bb1a3bbb05dbbb1cedba457c",
+      "svg_hash": "c5b4dcd16dd623a051080d98336ee215ed3203cfe6b6f0853d0a5ab8f5133067"
+    },
+    {
+      "figure_id": "scaling",
+      "format": "svg",
+      "kind": "line",
+      "source_hash": "3a082a8b819e72886a630b42c82f1b4b697c34e7715678a4b4656d7ced3a441d",
+      "svg_hash": "d1c4ddaeb33c25d7a9463a6f5efff2c0890f1e567fd0f2b32200c7b21d843ed3"
+    },
+    {
+      "figure_id": "failure_flow",
+      "format": "svg",
+      "kind": "bar",
+      "source_hash": "29cac4f64fb160ff48b836d51bf8d84561d2e21803b7b334160d4582a004e693",
+      "svg_hash": "ba0ce7c0ff099867899d2060b2852d070c44684caaf65a2249ebd24dda4e28f5"
+    }
+  ],
+  "schema_version": 1
+}

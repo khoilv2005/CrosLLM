@@ -1,0 +1,415 @@
+{
+  "artifact_manifest_sha256": "0cd044b6f68c6b6bcd5f397e721412e57bd2e9093a14bd809eb22b3dfaaffb11",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "19c9e56a51dfbedfb6aac31689ae4f67a116fd13ca39e8842d64bf6300c97361",
+      "source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "258b704e0ef87d0eb6c0ff4b26025cd3c6ee685dc62b1f5c70b0c17fb99945b7",
+      "source_path": "packages/contracts-bedrock/src/L1/OptimismPortal2.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:91d56ebfabd56ade7c1961eea005ed7b23cdb777422948abde2e1532d40877ea",
+  "compiler_version": "0.8.15",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "381a7a56eb70f3f091fbf90d063e48473a68672fb6f92d7b0111d663e5e78602"
+    }
+  ],
+  "lineage_id": "optimism",
+  "manifest_sha256": "7ef19a2eb96209eec964fa679addd91b7aba4b1b250de23459532fa04b5408a0",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "0dde9b7a7062b6482f26ffa1374b989fca2db64106be73cafb7fac435c22ff86",
+  "source_commit": "392b395e8c7618a939e34174b6c9cea7eee5df0e",
+  "source_repository": "https://github.com/ethereum-optimism/optimism.git",
+  "source_selection_hash": "3e9338307e1dbc3e769e56b92effa1b718df5079892a3f3c64d992a0b3c47f1a",
+  "test_source": {
+    "path": "test/OptimismSourceBackedHarness.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "5180fe0340482e1fd4edad7bb95e0ad9b17a87f9b1bc04cdb04d0c28befdab07"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/L1/IETHLockbox.sol",
+      "role": "upstream_harness_input",
+      "sha256": "0fa1615f75c4b0ff43d8726b7a9d18ae0d4824123721248e87919d9adabbc2fb",
+      "source_path": "packages/contracts-bedrock/interfaces/L1/IETHLockbox.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/L1/IOptimismPortal2.sol",
+      "role": "upstream_harness_input",
+      "sha256": "740e026b67a11256154b09ac3f159b6c7edd75af6b68ee2ff0222914a1cbf531",
+      "source_path": "packages/contracts-bedrock/interfaces/L1/IOptimismPortal2.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/L1/IResourceMetering.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ef5e136796e947735b805072c37b99f1edb6ecb7ec8a36bd10d7a2e6fa7d8a11",
+      "source_path": "packages/contracts-bedrock/interfaces/L1/IResourceMetering.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/L1/ISuperchainConfig.sol",
+      "role": "upstream_harness_input",
+      "sha256": "952c640ee477394a81b2344d7fe4ff2be56b54c3b2d1a0598279e27bcaad31e3",
+      "source_path": "packages/contracts-bedrock/interfaces/L1/ISuperchainConfig.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/L1/ISystemConfig.sol",
+      "role": "upstream_harness_input",
+      "sha256": "06ebe5b95e5c76062bc10a87a5bce01a2fce86164857ac876a741f8d10079f69",
+      "source_path": "packages/contracts-bedrock/interfaces/L1/ISystemConfig.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/dispute/IAnchorStateRegistry.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f12d6c9d64376d2ce8d93d2d0f531b152257e7dd6e24ceea480ddef2499a2845",
+      "source_path": "packages/contracts-bedrock/interfaces/dispute/IAnchorStateRegistry.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/dispute/IDisputeGame.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6ca2337c3a2d21ebd121e0040985f5e61e5ff408811b293f48be41e65c257047",
+      "source_path": "packages/contracts-bedrock/interfaces/dispute/IDisputeGame.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/dispute/IDisputeGameFactory.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b5c2ea6e54d1e36ebb9b5fab9e3cc179d3b5200fe88264d7477e6b700a585f45",
+      "source_path": "packages/contracts-bedrock/interfaces/dispute/IDisputeGameFactory.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/dispute/IInitializable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3adfcc7efab30666ecd3c82481f014ff4abace3fe983c3b07add4fb5537e55a6",
+      "source_path": "packages/contracts-bedrock/interfaces/dispute/IInitializable.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/legacy/IAddressManager.sol",
+      "role": "upstream_harness_input",
+      "sha256": "af3f1ebdee6bbe210c55c190825c15027100d7514afc8e3b266804dfccff06cc",
+      "source_path": "packages/contracts-bedrock/interfaces/legacy/IAddressManager.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/universal/IOwnable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "93bf82791f5547a841cd972aa905a8342a178a6c34fe19452e3228cb19022ef2",
+      "source_path": "packages/contracts-bedrock/interfaces/universal/IOwnable.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/universal/IProxyAdmin.sol",
+      "role": "upstream_harness_input",
+      "sha256": "cf088ebc3b9e2e01084be78f4e6584f49a4d4ba84ac09f7049c3a2326d05d657",
+      "source_path": "packages/contracts-bedrock/interfaces/universal/IProxyAdmin.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/universal/IProxyAdminOwnedBase.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1eef11f163662f92410603fbbbc0d57aa18e0656eebe59b9edbe11f969ad1cdc",
+      "source_path": "packages/contracts-bedrock/interfaces/universal/IProxyAdminOwnedBase.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/universal/IReinitializableBase.sol",
+      "role": "upstream_harness_input",
+      "sha256": "92a54859306231a94db88d73806a0d1618aedd4464b94ff5b8779015dde70d67",
+      "source_path": "packages/contracts-bedrock/interfaces/universal/IReinitializableBase.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/interfaces/universal/ISemver.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c380c72906606792df1ee67e0519a0d8a05191ba0c2cdcbe506fbbafd4f64a91",
+      "source_path": "packages/contracts-bedrock/interfaces/universal/ISemver.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "bb1be11b6b65e4e710c3af5894ce031cc272ae28b59f1224533470cacb53e842",
+      "source_path": "packages/contracts-bedrock/lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "35c5c93c405c4f6be38c53988d719b4ca6c549c135518e04345bfe5da0bb835e",
+      "source_path": "packages/contracts-bedrock/lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/lib/openzeppelin-contracts/contracts/proxy/utils/Initializable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2247f1accd687151c0dd09b16f65e84dcadd9e5c1746081a7f5686b6bffa7fab",
+      "source_path": "packages/contracts-bedrock/lib/openzeppelin-contracts/contracts/proxy/utils/Initializable.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/lib/openzeppelin-contracts/contracts/utils/Address.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3c4cf8f590c84c859d383dcea487351403f3ec5341be92eded1ff40ab815ea15",
+      "source_path": "packages/contracts-bedrock/lib/openzeppelin-contracts/contracts/utils/Address.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+      "role": "upstream_harness_input",
+      "sha256": "9703a093f6eb6861fdfd59736720c5f808b2e7e7435a001f5e5978a09054b74c",
+      "source_path": "packages/contracts-bedrock/lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+      "role": "upstream_harness_input",
+      "sha256": "9c4d29a1b61b289935db1ba1fdc4054fe42a5ed06a93a45c3f95ac592d3e9cd2",
+      "source_path": "packages/contracts-bedrock/lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/lib/solady/src/utils/LibString.sol",
+      "role": "upstream_harness_input",
+      "sha256": "15d25dbc9e490fb23006cc9c569a0d462e7342b1ab773dde2185ce5043c2c070",
+      "source_path": "packages/contracts-bedrock/lib/solady/src/utils/LibString.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/lib/solmate/src/utils/FixedPointMathLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "0045beaaf803ed7f3a0a005a6af927932381fbb444d7b231bea8f1836336c4d1",
+      "source_path": "packages/contracts-bedrock/lib/solmate/src/utils/FixedPointMathLib.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/scripts/libraries/Config.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c473168e13274f5923a84e36fde4f1643a725a5bca77df68c40a85edab25ad03",
+      "source_path": "packages/contracts-bedrock/scripts/libraries/Config.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "19c9e56a51dfbedfb6aac31689ae4f67a116fd13ca39e8842d64bf6300c97361",
+      "source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/L1/OptimismPortal2.sol",
+      "role": "upstream_harness_input",
+      "sha256": "258b704e0ef87d0eb6c0ff4b26025cd3c6ee685dc62b1f5c70b0c17fb99945b7",
+      "source_path": "packages/contracts-bedrock/src/L1/OptimismPortal2.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/L1/ResourceMetering.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3b9377a2881fe4143993a09f4e66d6b0ac85ec673a285ab37d370170a33439d9",
+      "source_path": "packages/contracts-bedrock/src/L1/ResourceMetering.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/dispute/lib/LibPosition.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6a6ba0030383e3fb0df734b0a15bc80d6c5764dcb01a9f688bd9d62edbe2635d",
+      "source_path": "packages/contracts-bedrock/src/dispute/lib/LibPosition.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/dispute/lib/LibUDT.sol",
+      "role": "upstream_harness_input",
+      "sha256": "09e728172d437809050055d57901da6d4e7fc1d60f7bfd79eb3ffc68887de90b",
+      "source_path": "packages/contracts-bedrock/src/dispute/lib/LibUDT.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/dispute/lib/Types.sol",
+      "role": "upstream_harness_input",
+      "sha256": "e16cf09a291120f5c20e9e4ad26544970e2ecc388819493f7bbacce7c56e097a",
+      "source_path": "packages/contracts-bedrock/src/dispute/lib/Types.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Arithmetic.sol",
+      "role": "upstream_harness_input",
+      "sha256": "abaf0ea3abbec197dfb6e5c903b86fbc785c50d227d7a21f2b06b09d34d4605a",
+      "source_path": "packages/contracts-bedrock/src/libraries/Arithmetic.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Burn.sol",
+      "role": "upstream_harness_input",
+      "sha256": "e4a0546157e0d6305fe0a066e8c6deb2ef98297da38ab019727f8dda49d85218",
+      "source_path": "packages/contracts-bedrock/src/libraries/Burn.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Bytes.sol",
+      "role": "upstream_harness_input",
+      "sha256": "e05b061b3452f7c314147abf6ff9a105b9bd4eb5786c3798cc0719e0d53cfabf",
+      "source_path": "packages/contracts-bedrock/src/libraries/Bytes.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Constants.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1099773d2b58613470fa86167d7025b738bf9cac1fe1fb1cb304347c7f8fb5a8",
+      "source_path": "packages/contracts-bedrock/src/libraries/Constants.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/DevFeatures.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6fa6a8f4c48ce9aed6a6020f86384c620845f5a4f3c3033e012a5ced4250e650",
+      "source_path": "packages/contracts-bedrock/src/libraries/DevFeatures.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/EOA.sol",
+      "role": "upstream_harness_input",
+      "sha256": "75398d0e4d93944ae40c7416b05e83dbf9fc5553ab46b6acc75309caaeaba2a3",
+      "source_path": "packages/contracts-bedrock/src/libraries/EOA.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Encoding.sol",
+      "role": "upstream_harness_input",
+      "sha256": "25c9676cfe5c6a0ab0096d47cef9d02d00c89390ce49c4edc7d95f2c51e1c782",
+      "source_path": "packages/contracts-bedrock/src/libraries/Encoding.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Features.sol",
+      "role": "upstream_harness_input",
+      "sha256": "80e80d7484597e6ff31d830f22489756f173cefc69a282a5ec820ccd48f34a3b",
+      "source_path": "packages/contracts-bedrock/src/libraries/Features.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Hashing.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f85f3c6c24fba7f8fed8b96239b23a2d366805ee3f8e97067e9dadd34bf6e4d5",
+      "source_path": "packages/contracts-bedrock/src/libraries/Hashing.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Predeploys.sol",
+      "role": "upstream_harness_input",
+      "sha256": "9568cf3cd51891bd054e3ec0b0475503a13c2790248ea0089b08501a143774a8",
+      "source_path": "packages/contracts-bedrock/src/libraries/Predeploys.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/SafeCall.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6007d63ca2c12fd5bf6626376c9e9f628e2a5754d459fab523ee911ab7df85e0",
+      "source_path": "packages/contracts-bedrock/src/libraries/SafeCall.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Storage.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ada199c3286334b169d74a802bab440d59f06aaad19e18a0931f2ce02343bd46",
+      "source_path": "packages/contracts-bedrock/src/libraries/Storage.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/Types.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1fd7b7ec4e34f99dadad9b8e37696795efb093b95459cace6e029f2ec657c121",
+      "source_path": "packages/contracts-bedrock/src/libraries/Types.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/rlp/RLPErrors.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ccb4ca933193a50253d7ea73a415b020fd47806446116169bb84f3e695a07188",
+      "source_path": "packages/contracts-bedrock/src/libraries/rlp/RLPErrors.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/rlp/RLPReader.sol",
+      "role": "upstream_harness_input",
+      "sha256": "4a16049fe39386cd71d2216b22e721d58206ba1df62639fb43adcd164a2ec810",
+      "source_path": "packages/contracts-bedrock/src/libraries/rlp/RLPReader.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/rlp/RLPWriter.sol",
+      "role": "upstream_harness_input",
+      "sha256": "559804e3a146ce7eadcd7bddc5883a0329b38c73cc891472da62bcedf9bdc632",
+      "source_path": "packages/contracts-bedrock/src/libraries/rlp/RLPWriter.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/trie/MerkleTrie.sol",
+      "role": "upstream_harness_input",
+      "sha256": "cf31d8b306618b15c00aeb179249478ee2bc8586fed3d97c8ec1b90ddc3f12ed",
+      "source_path": "packages/contracts-bedrock/src/libraries/trie/MerkleTrie.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/libraries/trie/SecureMerkleTrie.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2a7e716fda2d9294a8511e4806a0266e55fa93b330dff19ff932664ed8ba5eff",
+      "source_path": "packages/contracts-bedrock/src/libraries/trie/SecureMerkleTrie.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "e397aa94b8674dc3093c81303f968ecdaf98c0a3c78b4ae03648e741f21fb073",
+      "source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/universal/ProxyAdminOwnedBase.sol",
+      "role": "upstream_harness_input",
+      "sha256": "5a96568dc020560b17a158e0ea4b10dddf0dd879d4d3139308c90ffec7c1a2f7",
+      "source_path": "packages/contracts-bedrock/src/universal/ProxyAdminOwnedBase.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/universal/ReinitializableBase.sol",
+      "role": "upstream_harness_input",
+      "sha256": "515d12321545224b00142028f1c82a3cec1897209f9ffef292a6995bfe649c1c",
+      "source_path": "packages/contracts-bedrock/src/universal/ReinitializableBase.sol"
+    },
+    {
+      "harness_path": "contracts/packages/contracts-bedrock/src/vendor/AddressAliasHelper.sol",
+      "role": "upstream_harness_input",
+      "sha256": "93beb5915bf132fd071352358ab9c32186ed236e51bb1544c80fbcd6832ab871",
+      "source_path": "packages/contracts-bedrock/src/vendor/AddressAliasHelper.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "eve": [],
+      "portal": [
+        "IOptimismPortal2.depositTransaction"
+      ],
+      "proxy_admin_owner": [
+        "L1CrossDomainMessenger.initialize"
+      ],
+      "user": [
+        "CrossDomainMessenger.sendMessage"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_source_backed_rejects_unauthorized_initialization",
+      "mechanism": "exact source messenger enforces proxy-admin-owner initialization, computes versioned message nonce/base gas and hands the encoded relay call to the configured portal"
+    },
+    "callbacks": {
+      "destination_callback": "IOptimismPortal2.depositTransaction boundary receives the source-generated relay calldata",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Not exercised; L2 relay requires the paired messenger and portal delivery",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at L1CrossDomainMessenger.initialize/sendMessage"
+    },
+    "finality": {
+      "model": "source cross-domain message encoding and portal deposit handoff",
+      "status": "message_identity_nonce_and_portal_deposit_boundary_tested_without_L2_relay_fault_proof_or_withdrawal_finality"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "proxy_admin_owner",
+        "portal_value",
+        "portal_gas_limit",
+        "deposit_call",
+        "message_nonce"
+      ],
+      "steps": [
+        "proxy_owner_initialization",
+        "sendMessage",
+        "base_gas",
+        "portal.depositTransaction",
+        "versioned_nonce"
+      ],
+      "test": "test_normal_source_backed_message_deposit"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys source implementation, proxy storage, proxy-admin probe, system-config probe and portal probe for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the exact L1CrossDomainMessenger behind isolated implementation and proxy-owner storage slots with a portal deposit boundary probe",
+      "source_contracts": [
+        "L1CrossDomainMessenger",
+        "CrossDomainMessenger",
+        "ProxyAdminOwnedBase",
+        "ReinitializableBase"
+      ]
+    }
+  }
+}

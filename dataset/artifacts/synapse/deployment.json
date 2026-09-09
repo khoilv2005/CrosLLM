@@ -1,0 +1,49 @@
+{
+  "lineage_id": "synapse",
+  "protocol": "Synapse Protocol",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "SynapseBridge": {
+      "contract_name": "SynapseBridge",
+      "source_path": "contracts/bridge/SynapseBridge.sol",
+      "source_file_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+      "source_target": {
+        "contract_name": "SynapseBridge",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 21
+      },
+      "abi_path": "abi/SynapseBridge.json",
+      "abi_sha256": "782038854f6c5cd4d53946c3371d3eec0f15cc04d32453b05f969596a826451f",
+      "creation_bytecode_path": "bytecode/SynapseBridge.creation.hex",
+      "creation_bytecode_sha256": "b06c17bd51f466e87a152495c7d365cfab2f9ca93c41ed055f75523814463fab",
+      "deployed_bytecode_path": "bytecode/SynapseBridge.deployed.hex",
+      "deployed_bytecode_sha256": "f4816bbf809af18d1a434c0aaccd9c9f1fea307f3e164b38830c58156d93a69e",
+      "storage_layout_path": "storage_layout/SynapseBridge.json",
+      "storage_layout_sha256": "5175efbfe6ab49c2d45443804df958593f25c70ce1c74e0ca4e08b13174967c5",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": "initialize",
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": true,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

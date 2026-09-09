@@ -1,0 +1,89 @@
+{
+  "entries": [
+    {
+      "admission_boundary": "Planning metadata only; runtime identity/effective settings require live attestation.",
+      "canonical_paths": [
+        "protocol/models.json"
+      ],
+      "file_sha256": {
+        "protocol/models.json": "7812c9208402a3917ee9999e91736ab7e6e21fa5c1aa13865a7694df0bd2c12c"
+      },
+      "guide_reference": "models_registry.json",
+      "use": "Declared model families, provider settings, and planned identifiers."
+    },
+    {
+      "admission_boundary": "Locks do not replace retrieval, clean-tree, license, ancestry, build, or independent review evidence.",
+      "canonical_paths": [
+        "dataset/sources/source_lock.json",
+        "dataset/sources/source_registry.json",
+        "dataset/artifacts/lineage_reviews.jsonl"
+      ],
+      "file_sha256": {
+        "dataset/artifacts/lineage_reviews.jsonl": "8f5b36005cde52713d96a9e001b947bfb57b3d29a4c632b66c033f48d37e5ff9",
+        "dataset/sources/source_lock.json": "edfcd9404af9a64b11c65d44957c941db3293efcdf5a96d06bb229cef8ac0c99",
+        "dataset/sources/source_registry.json": "50a2562d2dea9887a70d1cc582b0e37da6ae234c4321e622882f7a32e7fd1895"
+      },
+      "guide_reference": "primary_sources.md",
+      "use": "Locked repositories, host/lineage/split metadata, and lineage review ledger."
+    },
+    {
+      "admission_boundary": "Generated tables require frozen raw outcomes and a provenance manifest; missing values remain explicit.",
+      "canonical_paths": [
+        "paper/paper.tex"
+      ],
+      "file_sha256": {
+        "paper/paper.tex": "10a163279f4590f35edb975af9f0274759f773ea921a0ca8ff661e96c6f5c2f8"
+      },
+      "guide_reference": "../manuscript/tables.tex",
+      "optional_paths": [
+        "analysis/outputs"
+      ],
+      "use": "Canonical manuscript and hash-linked generated analysis table outputs when available."
+    },
+    {
+      "admission_boundary": "paper/paper.tex is the sole canonical manuscript source; references.bib is its bibliography.",
+      "canonical_paths": [
+        "paper/"
+      ],
+      "guide_reference": "manuscript/",
+      "use": "Canonical paper source directory."
+    },
+    {
+      "admission_boundary": "Structural validation is not benchmark admission; use the admission validator with independent evidence.",
+      "canonical_paths": [
+        "benchmark.public.jsonl",
+        "dataset/benchmark/benchmark.public.jsonl"
+      ],
+      "file_sha256": {
+        "benchmark.public.jsonl": "09cd0f8dae7488ea8c2e5628cccd848ecbaaa9c0cad3f785084fa5220fdf076f",
+        "dataset/benchmark/benchmark.public.jsonl": "09cd0f8dae7488ea8c2e5628cccd848ecbaaa9c0cad3f785084fa5220fdf076f"
+      },
+      "guide_reference": "benchmark manifest",
+      "use": "Public structural manifest used by development validation and pipeline rehearsal."
+    },
+    {
+      "admission_boundary": "Existing generated rows are not independent mutation/trigger evidence and must not be published.",
+      "canonical_paths": [
+        "dataset/benchmark/benchmark.private.jsonl"
+      ],
+      "file_sha256": {
+        "dataset/benchmark/benchmark.private.jsonl": "d0d55118303cae0faaa4dec9b8a291b4758104197dcef8c13d36d35a33566524"
+      },
+      "guide_reference": "private benchmark truth",
+      "use": "Restricted proposal/ground-truth payloads."
+    }
+  ],
+  "generated_on": "2026-09-09",
+  "mapping_hash": "220b879b677660c39db24c3d89dc09bd54f5978237a7ac7c76a9089b0b005138",
+  "record_type": "repository_reconciliation_map",
+  "report_hash": "ab526a03a321a133993287b5e56a4b0568e4433f7cf3d4cf831084109600d092",
+  "schema_version": 1,
+  "source_of_truth": [
+    "dataset/sources/source_lock.json",
+    "containers/toolchain.lock.json",
+    "protocol/models.json",
+    "protocol/protocol.json",
+    "benchmark.public.jsonl"
+  ],
+  "status": "development_mapping_complete"
+}

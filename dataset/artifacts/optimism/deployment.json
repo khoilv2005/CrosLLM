@@ -1,0 +1,79 @@
+{
+  "lineage_id": "optimism",
+  "protocol": "Optimism Bedrock",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "OptimismPortal2": {
+      "contract_name": "OptimismPortal2",
+      "source_path": "src/L1/OptimismPortal2.sol",
+      "source_file_sha256": "258b704e0ef87d0eb6c0ff4b26025cd3c6ee685dc62b1f5c70b0c17fb99945b7",
+      "source_target": {
+        "contract_name": "OptimismPortal2",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 37
+      },
+      "abi_path": "abi/OptimismPortal2.json",
+      "abi_sha256": "e7c8b434f4fd7420b0d7e09d3b88c1e19ed07c473f73e23471d81ddea525a555",
+      "creation_bytecode_path": "bytecode/OptimismPortal2.creation.hex",
+      "creation_bytecode_sha256": "948e6a5aa757a20040cb378cb91d434ea25eb05141608478e0ab68432b5cf477",
+      "deployed_bytecode_path": "bytecode/OptimismPortal2.deployed.hex",
+      "deployed_bytecode_sha256": "4b487f7b8c2bbff4cd525f42ea93e26b83df08f463fc78f77c60d9a377ec4c50",
+      "storage_layout_path": "storage_layout/OptimismPortal2.json",
+      "storage_layout_sha256": "b2485dffb858e8300b132efcf6531fa7faf457a952e93e289cef3b7e1311d186",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": "initialize",
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": true,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    },
+    "L1CrossDomainMessenger": {
+      "contract_name": "L1CrossDomainMessenger",
+      "source_path": "src/L1/L1CrossDomainMessenger.sol",
+      "source_file_sha256": "19c9e56a51dfbedfb6aac31689ae4f67a116fd13ca39e8842d64bf6300c97361",
+      "source_target": {
+        "contract_name": "L1CrossDomainMessenger",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 23
+      },
+      "abi_path": "abi/L1CrossDomainMessenger.json",
+      "abi_sha256": "32215f5a97d1ae0a223cfd906a5053ea7d612f89bb93198906c38e56c7b61eb9",
+      "creation_bytecode_path": "bytecode/L1CrossDomainMessenger.creation.hex",
+      "creation_bytecode_sha256": "1f85ee478e1e2294637f3734e9b546e2b5226a709f5f2977b70af6189deff5f0",
+      "deployed_bytecode_path": "bytecode/L1CrossDomainMessenger.deployed.hex",
+      "deployed_bytecode_sha256": "aef5d3e43546b16057e279e8621a09209ce0ec8f1785a9a16662d29a5d42e8b3",
+      "storage_layout_path": "storage_layout/L1CrossDomainMessenger.json",
+      "storage_layout_sha256": "99a6220c9a982065c4f312b10b945679c076613c45e6970e3cf2c4316c7fc316",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": "initialize",
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": true,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

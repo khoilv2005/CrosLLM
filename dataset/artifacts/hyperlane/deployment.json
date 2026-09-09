@@ -1,0 +1,49 @@
+{
+  "lineage_id": "hyperlane",
+  "protocol": "Hyperlane",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "Mailbox": {
+      "contract_name": "Mailbox",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+      "source_target": {
+        "contract_name": "Mailbox",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 19
+      },
+      "abi_path": "abi/Mailbox.json",
+      "abi_sha256": "ba28551669772faf5543257dbc3473d45a31c3e518dee750f6d8fe71c7c6665e",
+      "creation_bytecode_path": "bytecode/Mailbox.creation.hex",
+      "creation_bytecode_sha256": "701a3f67bfe32ef2bf325cd98a44828fb2c8c674722131576b8b53de2d97ce9c",
+      "deployed_bytecode_path": "bytecode/Mailbox.deployed.hex",
+      "deployed_bytecode_sha256": "85fd72a35b3686105bb55d1d6200aef7ed27567810d6259dc3f5dc9dfa20b2eb",
+      "storage_layout_path": "storage_layout/Mailbox.json",
+      "storage_layout_sha256": "b8abb36734115e8d2fa14cb0f4495ba329c077a56de12fb7aeb6054ffadefe48",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": "initialize",
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": true,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

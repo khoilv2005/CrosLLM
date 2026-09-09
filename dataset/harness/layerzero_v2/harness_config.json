@@ -1,0 +1,101 @@
+{
+  "artifact_manifest_sha256": "63a3244193932494e455e1692da36e7a5244f0852381458df54a1411248cf4e1",
+  "compiler": {
+    "binary_sha256": "ce964c1bfb05a62099633caa7360f80ba6013b3f5529daaaa080c74654a6d577",
+    "image": "ghcr.io/argotorg/solc@sha256:90f88c49adfef1286f13980b65c4e6524abb4c012e4394abc53649c5fc76f6aa",
+    "optimizer": true,
+    "optimizer_runs": 20000,
+    "version": "0.8.36"
+  },
+  "contracts": [
+    "SendUln302"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "49984fd14f0a3599db7abcf0f87c89d6c7cd6824cdc3dbf777a0a59961f46e6a",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "layerzero_v2",
+  "protocol": "LayerZero v2",
+  "source_backed": true,
+  "source_commit": "9c741e7f9790639537b1710a203bcdfd73b0b9ac",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "4102477133e1416cbd15d1487bf905477e3aa1adcbce1219f846e90b9b86b888",
+  "source_repository": "https://github.com/LayerZero-Labs/LayerZero-v2.git",
+  "source_selection_hash": "fa9dcba06d6c66737e8e70f2a8d65f00ccfa2453187aca27012af4e85622e090",
+  "split": "development",
+  "test_contract": "LayerZeroV2PairedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "alice": [
+        "EndpointV2.send"
+      ],
+      "eve": [],
+      "executor": [
+        "EndpointV2.lzReceive"
+      ],
+      "message_library": [
+        "EndpointV2.verify"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_unauthorized_receive_library",
+      "mechanism": "registered receive library verifies the payload hash"
+    },
+    "callbacks": {
+      "destination_callback": "ILayerZeroReceiver.lzReceive",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "EVM block clock; no artificial delay in this profile",
+      "explicit_time_warp": false,
+      "source": "EVM block clock; no artificial delay in this profile"
+    },
+    "finality": {
+      "model": "DVN/library verification is represented by the registered receive library",
+      "status": "profiled_not_time_delayed"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "nonce_and_fee",
+        "payload_hash_cleared",
+        "receiver_callback"
+      ],
+      "steps": [
+        "quote",
+        "send",
+        "verify",
+        "lzReceive"
+      ],
+      "test": "test_normal_cross_chain_message_send_and_deliver"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys both domains for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys EndpointV2 and SimpleMessageLib on two EIDs",
+      "source_contracts": [
+        "EndpointV2",
+        "SimpleMessageLib"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

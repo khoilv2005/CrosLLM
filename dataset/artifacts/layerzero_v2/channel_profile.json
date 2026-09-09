@@ -1,0 +1,18 @@
+{
+  "channel_type": "arbitrary_messaging",
+  "topology": "any_to_any",
+  "source_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "BNB Chain"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "BNB Chain"
+  ],
+  "message_passing": "decentralized_verifier_network",
+  "settlement": "dvn_threshold_verification"
+}

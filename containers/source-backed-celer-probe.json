@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-09-09T00:25:26.730813Z",
+  "foundry_image": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+  "lineages": {
+    "celer_cbridge": {
+      "source_commit": "d1a097be65b3c9f0f89fabacc988de68770caa18",
+      "source_manifest_sha256": "0a3588b37b272ac949360c89a7147c5c39e5ea8a5d1fd4e81fb236d295dea8d8",
+      "source_selection_hash": "4ea61a786a5f7b23f263eaae37c20da74cd67fc91d8e3f67664b270002958426"
+    }
+  },
+  "mount_mode": "read_only_source_and_compiler",
+  "network_mode": "none",
+  "probes": [
+    {
+      "compiler": {
+        "binary_sha256": "addf724dcb862a48f0d0ce3407b58719dee759e5e4c4ed65023d8a060d523162",
+        "image": "ghcr.io/argotorg/solc@sha256:664760e66dfbe2f335d71060a8d78b908ac3d1887339a65e9286b8b72d0db5ba",
+        "path": "/compiler/solc",
+        "version": "0.8.9"
+      },
+      "compiler_image": "ghcr.io/argotorg/solc@sha256:664760e66dfbe2f335d71060a8d78b908ac3d1887339a65e9286b8b72d0db5ba",
+      "compiler_version": "0.8.9",
+      "exit_code": 0,
+      "failed_tests": 0,
+      "foundry_image": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+      "lineage_id": "celer_cbridge",
+      "mount_mode": "read_only_source_and_compiler",
+      "network_mode": "none",
+      "passed_tests": 3,
+      "probe_row_sha256": "f24336e6f834a05f7db184c68f1320b3312c3a7d2059a7cdfe6d886f0663ee02",
+      "reason": null,
+      "schema_version": 1,
+      "source_manifest_sha256": "0a3588b37b272ac949360c89a7147c5c39e5ea8a5d1fd4e81fb236d295dea8d8",
+      "started_at": "2026-09-09T00:25:16.329787Z",
+      "status": "pass",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2a7592c9e8096caddf8d322a738e8e430644d4e5bd97caa8c5803a423906507b",
+      "test_contract": "CBridgePairedHarnessTest",
+      "test_count": 3
+    }
+  ],
+  "report_hash": "9be7c7cc3c83d4d49e3757cd192c96b22606bca22c8f6cc86db4d5bb8848b836",
+  "schema_version": 1,
+  "scope": "development_source_backed_harness_probe",
+  "source_admission": "only passing rows may be finalized"
+}

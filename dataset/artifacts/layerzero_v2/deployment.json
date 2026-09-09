@@ -1,0 +1,49 @@
+{
+  "lineage_id": "layerzero_v2",
+  "protocol": "LayerZero v2",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "SendUln302": {
+      "contract_name": "SendUln302",
+      "source_path": "contracts/uln/uln302/SendUln302.sol",
+      "source_file_sha256": "56ff0a6e78da3566aff6879302faf86afed133019f6e81a53f2599aed524eedc",
+      "source_target": {
+        "contract_name": "SendUln302",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 15
+      },
+      "abi_path": "abi/SendUln302.json",
+      "abi_sha256": "f2f1e3a68efb814ab9c720b7366fbf486d58848482ff2c6b6c6bd270635864be",
+      "creation_bytecode_path": "bytecode/SendUln302.creation.hex",
+      "creation_bytecode_sha256": "b4ea56080c7bc5bc06fdf7a92059e53ae3fa48c9c6c19b222c3a0d36c17400f5",
+      "deployed_bytecode_path": "bytecode/SendUln302.deployed.hex",
+      "deployed_bytecode_sha256": "f441d649be26347f3af04657778fd93a599d2579d1f195c3fad3bbae160945f8",
+      "storage_layout_path": "storage_layout/SendUln302.json",
+      "storage_layout_sha256": "0ffe0aa6db078df95d237a7f176a7d8b54da5aa9160763942dc71904670b51dc",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": null,
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": false,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

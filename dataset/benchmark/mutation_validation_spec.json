@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "scope": "generated_development_mutation_harness_only",
+  "rows": [
+    {
+      "operator_id": "OP_REPLAY_NONCE_REMOVAL",
+      "mutant_contract": "TargetReplayNonceMutant",
+      "control_contract": "TargetReplayNonceControl",
+      "test_case": "test_OP_REPLAY_NONCE_REMOVAL()",
+      "trigger": "submit the same msgId twice",
+      "control_expectation": "the second submission reverts with Already executed"
+    },
+    {
+      "operator_id": "OP_REPLAY_DOMAIN_STRIP",
+      "mutant_contract": "TargetDomainStripMutant",
+      "control_contract": "TargetDomainStripControl",
+      "test_case": "test_OP_REPLAY_DOMAIN_STRIP()",
+      "trigger": "verify an unauthorized domain identifier",
+      "control_expectation": "the unauthorized domain reverts with Invalid target domain"
+    },
+    {
+      "operator_id": "OP_SPOOF_SOURCE_SENDER",
+      "mutant_contract": "TargetSourceSenderMutant",
+      "control_contract": "TargetSourceSenderControl",
+      "test_case": "test_OP_SPOOF_SOURCE_SENDER()",
+      "trigger": "handle a message from an unauthorized remote sender",
+      "control_expectation": "the unauthorized remote sender reverts"
+    },
+    {
+      "operator_id": "OP_SPOOF_CHAIN_ID",
+      "mutant_contract": "TargetChainIdMutant",
+      "control_contract": "TargetChainIdControl",
+      "test_case": "test_OP_SPOOF_CHAIN_ID()",
+      "trigger": "accept an unregistered chain identifier",
+      "control_expectation": "the unregistered chain identifier reverts"
+    },
+    {
+      "operator_id": "OP_INVARIANT_FEE_UNDERFLOW",
+      "mutant_contract": "TargetFeeConservationMutant",
+      "control_contract": "TargetFeeConservationControl",
+      "test_case": "test_OP_INVARIANT_FEE_UNDERFLOW()",
+      "trigger": "release an amount with a protocol fee",
+      "control_expectation": "the control releases amount minus fee"
+    },
+    {
+      "operator_id": "OP_INVARIANT_ACCOUNTING_DESYNC",
+      "mutant_contract": "TargetAccountingDesyncMutant",
+      "control_contract": "TargetAccountingDesyncControl",
+      "test_case": "test_OP_INVARIANT_ACCOUNTING_DESYNC()",
+      "trigger": "fill a transfer against a pool reserve",
+      "control_expectation": "the control debits the pool reserve atomically"
+    },
+    {
+      "operator_id": "OP_UNVERIFIED_CALLER_BYPASS",
+      "mutant_contract": "TargetUnverifiedCallerMutant",
+      "control_contract": "TargetUnverifiedCallerControl",
+      "test_case": "test_OP_UNVERIFIED_CALLER_BYPASS()",
+      "trigger": "invoke the callback from an arbitrary caller",
+      "control_expectation": "the arbitrary caller reverts and the trusted bridge succeeds"
+    },
+    {
+      "operator_id": "OP_CALLBACK_REENTRANCY",
+      "mutant_contract": "TargetReentrancyMutant",
+      "control_contract": "TargetReentrancyControl",
+      "test_case": "test_OP_CALLBACK_REENTRANCY()",
+      "trigger": "reenter execution through an external callback",
+      "control_expectation": "the CEI/nonReentrant control blocks reentry"
+    },
+    {
+      "operator_id": "OP_QUORUM_THRESHOLD_DECREMENT",
+      "mutant_contract": "TargetQuorumThresholdMutant",
+      "control_contract": "TargetQuorumThresholdControl",
+      "test_case": "test_OP_QUORUM_THRESHOLD_DECREMENT()",
+      "trigger": "submit a sub-threshold quorum",
+      "control_expectation": "the control rejects one signature and accepts quorum three"
+    },
+    {
+      "operator_id": "OP_FINALITY_WINDOW_TRUNCATION",
+      "mutant_contract": "TargetFinalityWindowMutant",
+      "control_contract": "TargetFinalityWindowControl",
+      "test_case": "test_OP_FINALITY_WINDOW_TRUNCATION()",
+      "trigger": "finalize immediately after proposal",
+      "control_expectation": "the control rejects before the seven-day challenge window"
+    }
+  ]
+}

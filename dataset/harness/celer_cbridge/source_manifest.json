@@ -1,0 +1,98 @@
+{
+  "artifact_manifest_sha256": "edb1d13f2cd8cf6ddca6907f8dc4e9d40537b24d778510c34d95bd0423181041",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2",
+      "source_path": "contracts/CBridge.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:664760e66dfbe2f335d71060a8d78b908ac3d1887339a65e9286b8b72d0db5ba",
+  "compiler_version": "0.8.9",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "1bf0cc7ed0a8bd047f34b37556392a7577addd06e015036d08adf8ef4f6fa16c"
+    }
+  ],
+  "lineage_id": "celer_cbridge",
+  "manifest_sha256": "84d43aa4f547a66b7a704f07196122979706aaac243f3732e4c221eaa7f57a43",
+  "optimizer": true,
+  "optimizer_runs": 800,
+  "schema_version": 1,
+  "source_archive_sha256": "2d2054dc59583ab4238cd86a3a54f98f2fab77d2c2e952503928300b56a2b53c",
+  "source_commit": "d1a097be65b3c9f0f89fabacc988de68770caa18",
+  "source_repository": "https://github.com/celer-network/cBridge-contracts.git",
+  "source_selection_hash": "4ea61a786a5f7b23f263eaae37c20da74cd67fc91d8e3f67664b270002958426",
+  "test_source": {
+    "path": "test/CBridgePairedHarness.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "1a2bb7a8a29993a51197d68e8c846972b8a5cc08e4a2d578571a08ac968aaf2d"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/CBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2",
+      "source_path": "contracts/CBridge.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "bridge_relayer": [
+        "CBridge.transferIn",
+        "CBridge.confirm"
+      ],
+      "public": [
+        "CBridge.refund"
+      ],
+      "sender": [
+        "CBridge.transferOut"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_confirm_incorrect_preimage",
+      "mechanism": "hashlock preimage"
+    },
+    "callbacks": {
+      "destination_callback": "SafeERC20 transfer to receiver",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "block.timestamp plus explicit timelock",
+      "explicit_time_warp": true,
+      "source": "block.timestamp at transferOut"
+    },
+    "finality": {
+      "model": "hashlock confirmation or timelock refund",
+      "status": "workflow_and_timeout_tested"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "hashlock_identity",
+        "token_conservation",
+        "confirmed_status"
+      ],
+      "steps": [
+        "approve",
+        "transferOut",
+        "transferIn",
+        "confirm"
+      ],
+      "test": "test_normal_cross_chain_transfer_and_confirm"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys bridges and tokens for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys CBridge and source/destination token accounts",
+      "source_contracts": [
+        "CBridge"
+      ]
+    }
+  }
+}

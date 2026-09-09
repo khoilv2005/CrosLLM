@@ -1,0 +1,18 @@
+{
+  "channel_type": "liquidity_bridge",
+  "topology": "hub_and_spoke",
+  "source_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "Polygon"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "Polygon"
+  ],
+  "message_passing": "bonder_relayed_with_l1_roots",
+  "settlement": "optimistic_challenge_window"
+}

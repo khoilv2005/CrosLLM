@@ -1,0 +1,14 @@
+{
+  "lineage_id": "linea",
+  "protocol": "Linea",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "LineaRollup"
+  ],
+  "entry_points": {
+    "LineaRollup": "contracts/LineaRollup.sol"
+  },
+  "channel_type": "type2_zkevm_canonical_rollup",
+  "topology": "l1_l2_paired",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

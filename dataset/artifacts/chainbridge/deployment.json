@@ -1,0 +1,79 @@
+{
+  "lineage_id": "chainbridge",
+  "protocol": "ChainBridge",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "Bridge": {
+      "contract_name": "Bridge",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669",
+      "source_target": {
+        "contract_name": "Bridge",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 17
+      },
+      "abi_path": "abi/Bridge.json",
+      "abi_sha256": "cf284fbbd025939814a8c14ac9780d6af5f23158de4c5e81861eb3c2ae96e4e1",
+      "creation_bytecode_path": "bytecode/Bridge.creation.hex",
+      "creation_bytecode_sha256": "a2c550bb21b1b8c4d2cfd138a35ad570862739cbeb47f872f59b7f634536d905",
+      "deployed_bytecode_path": "bytecode/Bridge.deployed.hex",
+      "deployed_bytecode_sha256": "23a5e78779e63826c65b511f25732da8302dc52807d7c58e63e145bce5879c80",
+      "storage_layout_path": "storage_layout/Bridge.json",
+      "storage_layout_sha256": "01be9b749440afd3edc5a19260a9371e168c815d1eba4686903514316c51f1b2",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": null,
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": false,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    },
+    "ERC20Handler": {
+      "contract_name": "ERC20Handler",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59",
+      "source_target": {
+        "contract_name": "ERC20Handler",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 14
+      },
+      "abi_path": "abi/ERC20Handler.json",
+      "abi_sha256": "b471383482ee152a01b874cbefff33efd5ccae338e3bc48fe926fb98039d0777",
+      "creation_bytecode_path": "bytecode/ERC20Handler.creation.hex",
+      "creation_bytecode_sha256": "3917fc8bc22c5b90b3ffdc38870d49f2fa73831230aa01f86b608d1d84f3abe2",
+      "deployed_bytecode_path": "bytecode/ERC20Handler.deployed.hex",
+      "deployed_bytecode_sha256": "10a28d93252d32f923a818b4659bdd21efd81e5605bede9443579aed6c3c1eb8",
+      "storage_layout_path": "storage_layout/ERC20Handler.json",
+      "storage_layout_sha256": "858168a96b46efc789d081e5d9ce3b89374498e21b6eba07abbf5129f85f1abe",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": null,
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": false,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

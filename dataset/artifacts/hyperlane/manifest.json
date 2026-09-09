@@ -1,0 +1,21 @@
+{
+  "artifact_count": 13,
+  "files": {
+    "abi/Mailbox.json": "ba28551669772faf5543257dbc3473d45a31c3e518dee750f6d8fe71c7c6665e",
+    "build_info.json": "3a4fb112a74d2d502ece4ea95a1124cfdddaedbb5978338c9badffc7f26ae001",
+    "bytecode/Mailbox.creation.hex": "701a3f67bfe32ef2bf325cd98a44828fb2c8c674722131576b8b53de2d97ce9c",
+    "bytecode/Mailbox.deployed.hex": "85fd72a35b3686105bb55d1d6200aef7ed27567810d6259dc3f5dc9dfa20b2eb",
+    "channel_profile.json": "5fac8368c030df04e05efa83addb16b3a3998890af554f080075418f6ce8914e",
+    "deployment.json": "d9c21626841a3cc9b4a5f024ec25c179f368111eee81d588d4c3d71d97bbe559",
+    "license.json": "41b95e028d6662007b7a3519babf007408c12765526ce3221907a6787cc55b0d",
+    "normal_workflow.json": "8f5f0f3b523affcb8463d9766275c90cadbb373ac6fcb65dd8dca6560019045f",
+    "scope.json": "ff2ef23d09a9e792d735b48543c29df3dede3d719a9632e147d3507591172c79",
+    "selection.json": "e7142b5b15bc3f997e0bc283b3f830a334f045ebb22a2e644c5ea3bb98620a56",
+    "source_receipt.json": "49665fa4329ec4a5a022b44aa91c74bc12f0ae7290453f4ebdc9ab2fe22d06ea",
+    "storage_layout/Mailbox.json": "b8abb36734115e8d2fa14cb0f4495ba329c077a56de12fb7aeb6054ffadefe48",
+    "symbols.json": "a31d79cdde51591f3b5516642cbfa03ccc257a734e4592d2e0fdf030e640f659"
+  },
+  "lineage_id": "hyperlane",
+  "protocol": "Hyperlane",
+  "split": "evaluation"
+}

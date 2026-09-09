@@ -1,0 +1,92 @@
+{
+  "admission_eligible": false,
+  "all_passed": true,
+  "broadcast_allowed": false,
+  "case_count": 6,
+  "case_ids": [
+    "public_sentinel_execution",
+    "private_gold_mount",
+    "model_weight_mount",
+    "provider_egress_allowlist",
+    "provider_egress_block",
+    "broadcast_block"
+  ],
+  "cases": [
+    {
+      "case_id": "public_sentinel_execution",
+      "command_hash": "45bfe7a54b9b76819a7d1ae4240449dbce06400c93527d8bc918258319a0dab2",
+      "expected": "pass",
+      "observed": "pass",
+      "passed": true,
+      "reason": "public sentinel readable; private/model paths absent in read-only network-none container",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "666bb0b3d2829433a15916100ca0a377e6aa3258ef8c5bc8cf9fc8d1947a5a64"
+    },
+    {
+      "case_id": "private_gold_mount",
+      "command_hash": null,
+      "expected": "blocked",
+      "observed": "blocked",
+      "passed": true,
+      "reason": "private gold mount is forbidden",
+      "stderr_sha256": null,
+      "stdout_sha256": null
+    },
+    {
+      "case_id": "model_weight_mount",
+      "command_hash": null,
+      "expected": "blocked",
+      "observed": "blocked",
+      "passed": true,
+      "reason": "model-weight/cache mount is forbidden",
+      "stderr_sha256": null,
+      "stdout_sha256": null
+    },
+    {
+      "case_id": "provider_egress_allowlist",
+      "command_hash": "5c827a880fadccec8d9e8868c0beb27bc8da0c77ae8b26c06881d57a1b8171a0",
+      "expected": "allowlisted_external_firewall",
+      "observed": "allowlisted_external_firewall",
+      "passed": true,
+      "reason": "provider worker is bridge-only and allowlisted to ollama.com; firewall remains an external deployment control",
+      "stderr_sha256": null,
+      "stdout_sha256": null
+    },
+    {
+      "case_id": "provider_egress_block",
+      "command_hash": null,
+      "expected": "blocked",
+      "observed": "blocked",
+      "passed": true,
+      "reason": "endpoint is outside provider allowlist",
+      "stderr_sha256": null,
+      "stdout_sha256": null
+    },
+    {
+      "case_id": "broadcast_block",
+      "command_hash": null,
+      "expected": "blocked",
+      "observed": "blocked",
+      "passed": true,
+      "reason": "execution must not broadcast",
+      "stderr_sha256": null,
+      "stdout_sha256": null
+    }
+  ],
+  "evidence_scope": "development_runtime_isolation_only",
+  "external_firewall_required_for_provider": true,
+  "image_ref": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+  "model_weights_mounted": false,
+  "network_none_for_execution": true,
+  "passed_count": 6,
+  "private_gold_mounted": false,
+  "provider_allowlist": [
+    "ollama.com"
+  ],
+  "record_type": "docker_worker_isolation_canary",
+  "report_hash": "c54135d8fb36ed882f287f21317acdfe56483d5e5a51f835701396897b243bb5",
+  "schema_version": 1,
+  "scope": "development_runtime_isolation_only",
+  "sentinel_sha256": "3a5260016b7c43f3cf5efe0aebf12370bcecc2d2abf41bee2260c244e2eb6068",
+  "source": "scripts/run_isolation_canary.py"
+}

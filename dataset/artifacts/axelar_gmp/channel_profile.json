@@ -1,0 +1,18 @@
+{
+  "channel_type": "general_message_passing",
+  "topology": "hub_and_spoke",
+  "source_domains": [
+    "Ethereum",
+    "Avalanche",
+    "Polygon",
+    "Fantom"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "Avalanche",
+    "Polygon",
+    "Fantom"
+  ],
+  "message_passing": "axelar_proof_verification",
+  "settlement": "weighted_multisig_gateway_approval"
+}

@@ -1,0 +1,49 @@
+{
+  "lineage_id": "across",
+  "protocol": "Across Protocol",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "Ethereum_SpokePool": {
+      "contract_name": "Ethereum_SpokePool",
+      "source_path": "contracts/spoke-pools/Ethereum_SpokePool.sol",
+      "source_file_sha256": "58c0ea6c7d80001615459d378eb6b1879c0ef1ce396447978dc21bfc1ddc2f73",
+      "source_target": {
+        "contract_name": "Ethereum_SpokePool",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 11
+      },
+      "abi_path": "abi/Ethereum_SpokePool.json",
+      "abi_sha256": "f136d5f12f8321d3a259c21adf7bc65bf9dbbcbe03378a10ada786b5650dc7e7",
+      "creation_bytecode_path": "bytecode/Ethereum_SpokePool.creation.hex",
+      "creation_bytecode_sha256": "b7c4189349d85bf000539e8e3890dc7794cacdd4767e0c8223b34df2b4acf0b2",
+      "deployed_bytecode_path": "bytecode/Ethereum_SpokePool.deployed.hex",
+      "deployed_bytecode_sha256": "1e3a1c7ce905d26cfec0c6ad4fdf885bc66b008836407971cfa39f2ec6a8a1d2",
+      "storage_layout_path": "storage_layout/Ethereum_SpokePool.json",
+      "storage_layout_sha256": "9394203cc427a4ee24584abfe7a7a23ac2e245500ac292ddb59cb18caa8f5479",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": "initialize",
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": true,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

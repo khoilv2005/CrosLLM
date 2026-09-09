@@ -1,0 +1,316 @@
+{
+  "artifact_manifest_sha256": "63a3244193932494e455e1692da36e7a5244f0852381458df54a1411248cf4e1",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "d34c2c493fe5892ea0df71824429afd42cacd1f97fd7ca28d076935f82c90e0d",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/MessageLibBase.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c6496d858371e3ae9ec994922515f9735b38c9a87481a69660e3c5beea831af8",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/SendLibBase.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "da14deb2ce60c6660d7704b5d809295f7ffe5278e3de54528be7a2e52e8d7af1",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/SendLibBaseE2.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "2bb0e3e69126799539dd84167bc1916d8232485f4493dcd26e5b9b64a80a0b43",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/interfaces/ILayerZeroExecutor.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "84e1fa1b363fd257ae3089af9aee4e3c443bf535941a2693ba54ee91be44d9b1",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/interfaces/ILayerZeroTreasury.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "006e37c1eb0f7764d5015009f230a7aa67ac66502bc9facf2247ed8c50c80387",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/libs/SafeCall.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "8ce4d81da7da562199777ed7f200afadf682856037c0007b676ac996acab8172",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/uln/SendUlnBase.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "bf9e4b54ea4c932c04f8836fb741e8f8d036b2bab08d81093340edd76abede4e",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/uln/UlnBase.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "d020a8db8c7c704ef4af794ae5da1b20e1e18b11152237ed4c709a1c17af47ce",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/uln/interfaces/ILayerZeroDVN.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "32a0f68c5334a1e3c35a4b50cef22b7e466d6ab700ce48f7c50e5286b0aad707",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/uln/libs/DVNOptions.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "9de0bb158d128f97977762b15f219d5d093f7d62a53e97c9be95a3ebca3eb058",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/uln/libs/UlnOptions.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "56ff0a6e78da3566aff6879302faf86afed133019f6e81a53f2599aed524eedc",
+      "source_path": "packages/layerzero-v2/evm/messagelib/contracts/uln/uln302/SendUln302.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:90f88c49adfef1286f13980b65c4e6524abb4c012e4394abc53649c5fc76f6aa",
+  "compiler_version": "0.8.36",
+  "dirty_worktree": false,
+  "generated_support_files": [],
+  "lineage_id": "layerzero_v2",
+  "manifest_sha256": "2e0d8b15d4a4dcaacb3442311908ffe568d702eaedcc8f00d2c832585289e569",
+  "optimizer": true,
+  "optimizer_runs": 20000,
+  "schema_version": 1,
+  "source_archive_sha256": "d482ed63164d8ce2073e0cc95f256b955da5378a6e9405012f7992702c4b593f",
+  "source_commit": "9c741e7f9790639537b1710a203bcdfd73b0b9ac",
+  "source_repository": "https://github.com/LayerZero-Labs/LayerZero-v2.git",
+  "source_selection_hash": "fa9dcba06d6c66737e8e70f2a8d65f00ccfa2453187aca27012af4e85622e090",
+  "test_source": {
+    "path": "test/LayerZeroV2PairedHarness.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "88a854c45bdc39781acdcf39a057dc63526724653f65f37a093d94383f7dd0d6"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/EndpointV2.sol",
+      "role": "upstream_harness_input",
+      "sha256": "9a98cafb9aa071bdd70e048fdba2bc8cc69e98f499fb31feaa2f7d821104f8f6",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/EndpointV2.sol"
+    },
+    {
+      "harness_path": "contracts/EndpointV2Alt.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6713e100f09f6f9e1fc26a165998232f1b361e1592dc7a327f215e7430a1bdbc",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/EndpointV2Alt.sol"
+    },
+    {
+      "harness_path": "contracts/MessageLibManager.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6b71e33bcd3859eb5ad123808457ba15188038ead09cada26907bcc2841069de",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/MessageLibManager.sol"
+    },
+    {
+      "harness_path": "contracts/MessagingChannel.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2399bd4f0291e5152de8dac3d0377090c96d3b119f6ae518082b137504c012aa",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/MessagingChannel.sol"
+    },
+    {
+      "harness_path": "contracts/MessagingComposer.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f40315e3713c145ca735edf5d2bcbafc4bc3412ca2fb124194288359c040591b",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/MessagingComposer.sol"
+    },
+    {
+      "harness_path": "contracts/MessagingContext.sol",
+      "role": "upstream_harness_input",
+      "sha256": "be917a01f9a3e05ff821006bdea2bee528e590d4fff64227f16196c4b9111c2d",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/MessagingContext.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/ILayerZeroComposer.sol",
+      "role": "upstream_harness_input",
+      "sha256": "8e348088a991d88e397655b5f3f89c142659f8abe2d13229b633edbf85cafdef",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/interfaces/ILayerZeroComposer.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/ILayerZeroEndpointV2.sol",
+      "role": "upstream_harness_input",
+      "sha256": "015a8d2a99b5aa15cf90a007afeeb20a949ff9fe6752e47336c722d1a7e2f76e",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/interfaces/ILayerZeroEndpointV2.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/ILayerZeroReceiver.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c0716a5fdce8430940fa3fd872c12b03926caedccbbd976b7a80ed9a68adbfc0",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/interfaces/ILayerZeroReceiver.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IMessageLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7921135550f934bbb1b52204b6a735991dbc5a364ed274896f4c19e87fd643af",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/interfaces/IMessageLib.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IMessageLibManager.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ce77f5c7f74ebb1ea88c43aee20aac50add6afa70da870c522c9465ef97a3c8e",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/interfaces/IMessageLibManager.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IMessagingChannel.sol",
+      "role": "upstream_harness_input",
+      "sha256": "62342c305d10ea1b236d08f4c520891001a85accf60c3cbf8b765249bef73d6b",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/interfaces/IMessagingChannel.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IMessagingComposer.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3b725f581b2ec516abde1259b3ee4e3fd083bd989507a03e0150eb85bcc31f61",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/interfaces/IMessagingComposer.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IMessagingContext.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c26e62075f63fe0dc363430a16c6418a0f0863786090aeffb63a983b6036ef16",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/interfaces/IMessagingContext.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/ISendLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "fb99710171114ab389fa64a423bca5abcbc193f8a2775e32b66b07d9eec59bbe",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/interfaces/ISendLib.sol"
+    },
+    {
+      "harness_path": "contracts/libs/AddressCast.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7b976e14d6950d01e909123ca309fee01b4b0bfd7cb20c2eaa911af7abf41733",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/libs/AddressCast.sol"
+    },
+    {
+      "harness_path": "contracts/libs/CalldataBytesLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c018b14103eeb5724796454159c9c90c4e55cac94bbc33a2ff083673b995d712",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/libs/CalldataBytesLib.sol"
+    },
+    {
+      "harness_path": "contracts/libs/Errors.sol",
+      "role": "upstream_harness_input",
+      "sha256": "5f85bfe2b830eb3a15be3a443a9354a285c9735a39d68ce3cd76bb4c42b04aa7",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/libs/Errors.sol"
+    },
+    {
+      "harness_path": "contracts/libs/GUID.sol",
+      "role": "upstream_harness_input",
+      "sha256": "4a0a052fa0f6d831fc06ce1d5bb01c5e51e367f8e1f19edf15a5c7cf40fb039c",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/libs/GUID.sol"
+    },
+    {
+      "harness_path": "contracts/libs/Transfer.sol",
+      "role": "upstream_harness_input",
+      "sha256": "d096740706de08251ffb15d12ee3f05c80ca02c3364ca94dc15e9e21236433bb",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/libs/Transfer.sol"
+    },
+    {
+      "harness_path": "contracts/messagelib/BlockedMessageLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "92b8bb70a7b2190c31f18321722b5810459eb3358f8380741273506dd512f709",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/messagelib/BlockedMessageLib.sol"
+    },
+    {
+      "harness_path": "contracts/messagelib/SimpleMessageLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "35fac29450420d72cc1a559a9cea8db49635f800ef3d9695e090bb1dc5585c9b",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/messagelib/SimpleMessageLib.sol"
+    },
+    {
+      "harness_path": "contracts/messagelib/libs/BitMaps.sol",
+      "role": "upstream_harness_input",
+      "sha256": "8f03904c66789dc68a9f9c02ce5bb328fcb062ea42fa7c82bbac8fa71e0092fc",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/messagelib/libs/BitMaps.sol"
+    },
+    {
+      "harness_path": "contracts/messagelib/libs/ExecutorOptions.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3b41f87ef9f789b6decba45dcc9b92043542c77865b917a29e28b7486a91db86",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/messagelib/libs/ExecutorOptions.sol"
+    },
+    {
+      "harness_path": "contracts/messagelib/libs/PacketV1Codec.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1036a9709c68bebfdd68b5798acb2fc6bb800b0e841ea10e191a9a23c5b1458b",
+      "source_path": "packages/layerzero-v2/evm/protocol/contracts/messagelib/libs/PacketV1Codec.sol"
+    },
+    {
+      "harness_path": "contracts/mocks/AppMock.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3d121f4c7b0a0cacf55094eec48d74a5573a2008aef75ee56fd088596b605c53",
+      "source_path": "packages/layerzero-v2/evm/protocol/test/mocks/AppMock.sol"
+    },
+    {
+      "harness_path": "contracts/mocks/MessageLibMock.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3ff2ad56fd766931ef5efe9d80ffa67f083acea688c988e2c62a7e5f76844b00",
+      "source_path": "packages/layerzero-v2/evm/protocol/test/mocks/MessageLibMock.sol"
+    },
+    {
+      "harness_path": "contracts/mocks/TokenMock.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3ac273e2b3b255b4a4a8955c9612cea729fa1c17683916fb7a109efadaee0c84",
+      "source_path": "packages/layerzero-v2/evm/protocol/test/mocks/TokenMock.sol"
+    },
+    {
+      "harness_path": "contracts/mocks/TreasuryMock.sol",
+      "role": "upstream_harness_input",
+      "sha256": "a5f983dcaeb024f35ebc9426e7b44fb0b8921799e707b0894fc201eb8f9ea9cc",
+      "source_path": "packages/layerzero-v2/evm/protocol/test/mocks/TreasuryMock.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "alice": [
+        "EndpointV2.send"
+      ],
+      "eve": [],
+      "executor": [
+        "EndpointV2.lzReceive"
+      ],
+      "message_library": [
+        "EndpointV2.verify"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_unauthorized_receive_library",
+      "mechanism": "registered receive library verifies the payload hash"
+    },
+    "callbacks": {
+      "destination_callback": "ILayerZeroReceiver.lzReceive",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "EVM block clock; no artificial delay in this profile",
+      "explicit_time_warp": false,
+      "source": "EVM block clock; no artificial delay in this profile"
+    },
+    "finality": {
+      "model": "DVN/library verification is represented by the registered receive library",
+      "status": "profiled_not_time_delayed"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "nonce_and_fee",
+        "payload_hash_cleared",
+        "receiver_callback"
+      ],
+      "steps": [
+        "quote",
+        "send",
+        "verify",
+        "lzReceive"
+      ],
+      "test": "test_normal_cross_chain_message_send_and_deliver"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys both domains for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys EndpointV2 and SimpleMessageLib on two EIDs",
+      "source_contracts": [
+        "EndpointV2",
+        "SimpleMessageLib"
+      ]
+    }
+  }
+}

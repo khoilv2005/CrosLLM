@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/test/Mock_L1_Bridge.sol",
+    "contracts/test/Mock_L2_Bridge.sol"
+  ],
+  "document_paths": [
+    "README.md"
+  ],
+  "selected_paths": [
+    "README.md",
+    "contracts/bridges/Accounting.sol",
+    "contracts/bridges/Bridge.sol",
+    "contracts/bridges/HopBridgeToken.sol",
+    "contracts/bridges/L1_Bridge.sol",
+    "contracts/bridges/L2_AmmWrapper.sol",
+    "contracts/bridges/L2_Bridge.sol",
+    "contracts/bridges/SwapDataConsumer.sol",
+    "contracts/interfaces/IBonderRegistry.sol",
+    "contracts/interfaces/IWETH.sol",
+    "contracts/libraries/Lib_MerkleTree.sol",
+    "contracts/saddle/LPToken.sol",
+    "contracts/saddle/MathUtils.sol",
+    "contracts/saddle/OwnerPausableUpgradeable.sol",
+    "contracts/saddle/Swap.sol",
+    "contracts/saddle/SwapUtils.sol",
+    "contracts/saddle/interfaces/IAllowlist.sol",
+    "contracts/saddle/interfaces/ISwap.sol",
+    "contracts/test/Mock_L1_Bridge.sol",
+    "contracts/test/Mock_L2_Bridge.sol"
+  ],
+  "unresolved_imports": [
+    "contracts/bridges/Accounting.sol:@openzeppelin/contracts/access/Ownable.sol",
+    "contracts/bridges/Accounting.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/bridges/Accounting.sol:@openzeppelin/contracts/utils/ReentrancyGuard.sol",
+    "contracts/bridges/HopBridgeToken.sol:@openzeppelin/contracts/access/Ownable.sol",
+    "contracts/bridges/HopBridgeToken.sol:@openzeppelin/contracts/token/ERC20/ERC20.sol",
+    "contracts/bridges/L1_Bridge.sol:@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/bridges/L1_Bridge.sol:@openzeppelin/contracts/token/ERC20/SafeERC20.sol",
+    "contracts/bridges/L2_AmmWrapper.sol:@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/bridges/L2_Bridge.sol:@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/bridges/L2_Bridge.sol:@openzeppelin/contracts/token/ERC20/SafeERC20.sol",
+    "contracts/saddle/LPToken.sol:@openzeppelin/contracts/access/Ownable.sol",
+    "contracts/saddle/LPToken.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/saddle/LPToken.sol:@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol",
+    "contracts/saddle/MathUtils.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/saddle/OwnerPausableUpgradeable.sol:@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+    "contracts/saddle/OwnerPausableUpgradeable.sol:@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol",
+    "contracts/saddle/Swap.sol:@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol",
+    "contracts/saddle/Swap.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/saddle/Swap.sol:@openzeppelin/contracts/token/ERC20/SafeERC20.sol",
+    "contracts/saddle/SwapUtils.sol:@openzeppelin/contracts/math/SafeMath.sol",
+    "contracts/saddle/SwapUtils.sol:@openzeppelin/contracts/token/ERC20/SafeERC20.sol",
+    "contracts/saddle/interfaces/ISwap.sol:@openzeppelin/contracts/token/ERC20/ERC20.sol"
+  ],
+  "selection_hash": "78fb4e9d88be9911caa190d9bcb114bfa68c1871ca6c926999afcec01897d617"
+}

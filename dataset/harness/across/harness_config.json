@@ -1,0 +1,104 @@
+{
+  "artifact_manifest_sha256": "011bde9c804eb1a1e68eb0490d98aad96c022c82f44e7ce5fc1823576b5ae723",
+  "compiler": {
+    "binary_sha256": "4ae092c0070131da58766f3083ba22ff52a0f4d57c8e5ccdd58c5bce8d482008",
+    "image": "ghcr.io/argotorg/solc@sha256:968cb5ba4b4ccec35d21f6a20e1c104606ee43844a6aec72611be8fb3ae237b8",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.8.30"
+  },
+  "contracts": [
+    "Ethereum_SpokePool"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "a0dc0af7cb7b91501017d7ec4feda19a693dd166d8838aa95fb91e93b71c7c08",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "across",
+  "protocol": "Across Protocol",
+  "source_backed": true,
+  "source_commit": "19e346a5415e2ebb18fafe590f76dc90f413d1b5",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "5171b9a68f826d3d62396e2c102c06ec63eb6606bc267773c7e8dcf480337630",
+  "source_repository": "https://github.com/across-protocol/contracts.git",
+  "source_selection_hash": "32259cab04cb263c8340ae46a4a4e6b09bfadf4412d4a578b94d8487e5da5997",
+  "split": "evaluation",
+  "test_contract": "AcrossSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "depositor": [
+        "SpokePool.depositV3"
+      ],
+      "eve": [],
+      "owner_setup": [
+        "Ethereum_SpokePool.initialize"
+      ],
+      "relayer": [
+        "SpokePool.fillRelay"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_exclusive_relayer_boundary",
+      "mechanism": "source SpokePool checks fill deadline/exclusive relayer and records terminal fill status before transferring output"
+    },
+    "callbacks": {
+      "destination_callback": "empty message path; no recipient callback selected",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp at fillRelay",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at depositV3"
+    },
+    "finality": {
+      "model": "SpokePool fill deadline, exclusivity boundary and terminal fill status",
+      "status": "deposit_and_fast_fill_boundary_tested_without_hub_root_or_optimistic_challenge_delay"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "deposit_nonce",
+        "source_escrow",
+        "destination_recipient_balance",
+        "fast_fill_balance",
+        "replay_status"
+      ],
+      "steps": [
+        "depositV3",
+        "source_escrow",
+        "relayer_approval",
+        "fillRelay",
+        "recipient_transfer"
+      ],
+      "test": "test_normal_source_backed_deposit_and_fast_fill"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys tokens, source/destination implementations and proxy storage for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys locked Ethereum_SpokePool implementations behind isolated immutable-implementation proxy storage",
+      "source_contracts": [
+        "Ethereum_SpokePool",
+        "SpokePool"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

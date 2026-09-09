@@ -1,0 +1,180 @@
+{
+  "admission_eligible": false,
+  "capabilities": {
+    "channel_actions": {
+      "checks": [
+        "adversarial reordering and FIFO are separate profile behaviors",
+        "pre-finality reorg removes only a pending, non-finalized message",
+        "reorg changes transaction count but not channel-transition count"
+      ],
+      "evidence": {
+        "fifo_delivery_order": [
+          1
+        ],
+        "reorg_action_sequence": [
+          "enqueue",
+          "enqueue",
+          "reorg"
+        ],
+        "reorg_channel_transition_count": 2,
+        "reorg_transaction_count": 3
+      },
+      "status": "pass"
+    },
+    "snapshot_restore": {
+      "checks": [
+        "restore returns a deep copy of source/destination/channel/action state",
+        "destination storage and ghost observer state survive restore",
+        "post-snapshot mutation is absent after restore"
+      ],
+      "evidence": {
+        "delivered_after_restore": 1,
+        "destination_storage_keys": [
+          "received:1"
+        ],
+        "observer_keys": [
+          "development-marker"
+        ],
+        "pending_after_restore": 0,
+        "restored_state_hash": "d85f92ed238e3257b91d3c164684200392eac6405125bbccb6fec80f37adc1f6",
+        "snapshot_state_hash": "d85f92ed238e3257b91d3c164684200392eac6405125bbccb6fec80f37adc1f6"
+      },
+      "status": "pass"
+    },
+    "symbolic_storage": {
+      "checks": [
+        "artifact storage symbol resolves to an explicit domain/state binding",
+        "concrete fixture storage is evaluated through the typed XLIR core",
+        "solver-neutral lowering preserves the same bytes32 symbol binding"
+      ],
+      "evidence": {
+        "binding_key": [
+          "sym.destination.received_payload",
+          "post",
+          "destination"
+        ],
+        "binding_scope": "grounded_fixture_storage_only",
+        "binding_value": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "concrete_evaluation": true,
+        "invariant_hash": "d504cce000d1b560c08b2e5c734ef8c73e789e0e22be7578349a5ec24a3e129d",
+        "lowered_ir_hash": "f12b7b900b976da46e2537536da4e26966bc88651223ea9f50fcb0c61051ed07",
+        "lowered_symbol_names": {
+          "sym.destination.received_payload|post|destination": "s_238d84efc2b90423"
+        },
+        "symbol_id": "sym.destination.received_payload"
+      },
+      "status": "pass"
+    },
+    "transaction_stepping": {
+      "checks": [
+        "enqueue and delivery consume exactly one external transaction each",
+        "channel transitions are separately indexed",
+        "delivery preserves the selected message identity and pending counts"
+      ],
+      "evidence": {
+        "action_log": [
+          {
+            "action": "enqueue",
+            "channel_transition_index": 1,
+            "message_nonce": 1,
+            "pending_after": 1,
+            "pending_before": 0,
+            "transaction_index": 1
+          },
+          {
+            "action": "enqueue",
+            "channel_transition_index": 2,
+            "message_nonce": 2,
+            "pending_after": 2,
+            "pending_before": 1,
+            "transaction_index": 2
+          },
+          {
+            "action": "deliver",
+            "channel_transition_index": 3,
+            "message_nonce": 2,
+            "pending_after": 1,
+            "pending_before": 2,
+            "transaction_index": 3
+          }
+        ],
+        "channel_transition_count": 3,
+        "transaction_count": 3
+      },
+      "status": "pass"
+    },
+    "witness_extraction": {
+      "checks": [
+        "only a complete SAT result is projected into a witness",
+        "witness contains initial-state and trace hashes plus indexed actions",
+        "native replay independently checks witness hash and action sequence within the fixture contract"
+      ],
+      "evidence": {
+        "action_count": 3,
+        "action_sequence": [
+          "enqueue",
+          "enqueue",
+          "deliver"
+        ],
+        "encoding_hash": "691b309c8fd1253c7455e58aea10bafafbe9595377b68cb0b83de8bbead7d31c",
+        "initial_state_hash": "87a4e6382b7f4a7850412394d7f9d3ce62e34900df13472cf8300abd8ab3fb57",
+        "native_replay_actions": 3,
+        "native_replay_status": "pass",
+        "symbolic_complete": true,
+        "symbolic_status": "sat",
+        "trace_hash": "b40b9cb7c19eff463880e9a9417bdc5d1d684cd91a5014e2a3ada499335fdd13",
+        "witness_id": "m00-02-development-witness"
+      },
+      "status": "pass"
+    }
+  },
+  "command": "python scripts/run_backend_feasibility_spike.py --check",
+  "direct_trace_comparable": false,
+  "evidence_scope": "development_contract_non_admission",
+  "fixture": {
+    "bounds": {
+      "max_channel_transitions": 6,
+      "max_pending": 2,
+      "max_transactions": 6
+    },
+    "destination_domain": "destination",
+    "message_count": 2,
+    "profile_hash": "3f98410ccd41c4dcc42ee319e58eb2bc153845f0c3ec59f2efedae65ce09f351",
+    "source_domain": "source"
+  },
+  "independent_evm": false,
+  "observed_at": "2026-09-09T06:55:18.056017Z",
+  "record_type": "development_backend_feasibility_spike",
+  "report_hash": "31d8c03643d3b6767afcf1927c15e49e5f04dcbf5888a92cbd6499fa1b4fd690",
+  "schema_version": 1,
+  "scope": "paired_fixture_g1_development_only",
+  "status": "pass",
+  "symbolic_engine": "z3-bounded-paired-v1",
+  "unsupported_features": [
+    {
+      "feature": "independent_evm_trace",
+      "reason": "paired fixture actions are not byte-for-byte EVM execution traces",
+      "status": "unsupported"
+    },
+    {
+      "feature": "cryptographic_preimage_validation",
+      "reason": "fixture payload commitments are identifiers, not cryptographic checks",
+      "status": "unsupported"
+    },
+    {
+      "feature": "revert_reason_and_failed_transaction_trace",
+      "reason": "fixture transition methods expose no EVM revert or gas trace",
+      "status": "unsupported"
+    },
+    {
+      "feature": "token_balance_conservation",
+      "reason": "fixture has no token ledger or balance accounting",
+      "status": "unsupported"
+    },
+    {
+      "feature": "proxy_and_contract_storage_layout",
+      "reason": "XLIR binding is grounded fixture storage only and is not source layout evidence",
+      "status": "unsupported"
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "artifact_manifest_sha256": "eba5e0b214f136e0427b1014855000996ff9d8ef4c49f833e9d3c2827b52cae8",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669",
+      "source_path": "contracts/Bridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b918f52672149215d2a66af648ebf332ceee92bce4e115cee58dc3c97803da5d",
+      "source_path": "contracts/ERC20Safe.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59",
+      "source_path": "contracts/handlers/ERC20Handler.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "48078674b03e95e7c673ecc864726f4f2ea4f74d6bc892cc1a5397cce048c98a",
+      "source_path": "contracts/handlers/HandlerHelpers.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "ff23f84b61f31863bf489eb91bbeddab51992a6f87455a9f28948fa0dc106d12",
+      "source_path": "contracts/interfaces/IDepositExecute.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "f6c25fb47e65397a625482fbcc9b7cafcc8d7eb4ca87be24a233de23ea585966",
+      "source_path": "contracts/interfaces/IERCHandler.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b0675a40584b56324696e448325e1a62802980bf38a271ee1aa6f91045af1575",
+      "source_path": "contracts/interfaces/IGenericHandler.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c5731cc91aae17c509dc5885eb91e3a6552b5f3db8b900734791d5fce39c944f",
+      "source_path": "contracts/utils/AccessControl.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "e807353800b4d9c262a5866c98ae7cfa6ffb6c47646cc63fd6b398b2613df17c",
+      "source_path": "contracts/utils/Pausable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "da462cbf0a89bbe71e533b918849c98ac630d7287e32e30a0a29a746b6a99820",
+      "source_path": "contracts/utils/SafeCast.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b16327863f1211230f1bd99dd7c51fbf2330354dc4968c0e310751d6a7fec2aa",
+      "source_path": "contracts/utils/SafeMath.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:2fe6baaada4141dfb52cb786c11e16b77f675ee103bb1d586a446fdd572c6c66",
+  "compiler_version": "0.8.11",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "fb699df30f18469bce6fe04a7bc5c9f5ab7354c987ffd9bff307fb514723eec5"
+    }
+  ],
+  "lineage_id": "chainbridge",
+  "manifest_sha256": "e726103ff04d043eef9c241bc028896747f288cf1bb113dc79d8ce96e8933c01",
+  "optimizer": true,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "fb892d92e71c5bfdb266bb4e37472c08b6a842a6a9c1e873e9dcbb8591944b2c",
+  "source_commit": "b929c980afcdffae10d61c7065a5655479638519",
+  "source_repository": "https://github.com/ChainSafe/chainbridge-solidity.git",
+  "source_selection_hash": "bbaa66be4fff2e02e8b1cc6baaa27a8d2a09abd6091fd3555e8900676bf1ff72",
+  "test_source": {
+    "path": "test/ChainBridgePairedHarness.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "a590375c94af4112a34382ff76c5aa298db1893794cf6a006f5a6c0b3e51abc4"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669",
+      "source_path": "contracts/Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/CentrifugeAsset.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3d59e4828bc41d76da6889323affb7fe7191fc8e5c73169a7b9cf447d0d48fa1",
+      "source_path": "contracts/CentrifugeAsset.sol"
+    },
+    {
+      "harness_path": "contracts/ERC1155Safe.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7a22c6d79d672982668f16b0ccfb8dc807a4e0a7ea8deaaa92d2524eae0a991c",
+      "source_path": "contracts/ERC1155Safe.sol"
+    },
+    {
+      "harness_path": "contracts/ERC20Safe.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b918f52672149215d2a66af648ebf332ceee92bce4e115cee58dc3c97803da5d",
+      "source_path": "contracts/ERC20Safe.sol"
+    },
+    {
+      "harness_path": "contracts/ERC721MinterBurnerPauser.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f25b7169d257cbe624c2587a60ee3a92e360682e0d9c725451414490162fa046",
+      "source_path": "contracts/ERC721MinterBurnerPauser.sol"
+    },
+    {
+      "harness_path": "contracts/ERC721Safe.sol",
+      "role": "upstream_harness_input",
+      "sha256": "abe28450c5c0bb5e40794f6fdb418d9083b24c435a527b39e75b024e7d976e44",
+      "source_path": "contracts/ERC721Safe.sol"
+    },
+    {
+      "harness_path": "contracts/Forwarder.sol",
+      "role": "upstream_harness_input",
+      "sha256": "192b9624ad202fb97abdc9e36d40768c865a46720eaff5f1af12f72c49a2285f",
+      "source_path": "contracts/Forwarder.sol"
+    },
+    {
+      "harness_path": "contracts/Migrations.sol",
+      "role": "upstream_harness_input",
+      "sha256": "21e22685fdbf1e6bba2648e7c01be5bce40e82b81f7dafbe5aa4978560175f11",
+      "source_path": "contracts/Migrations.sol"
+    },
+    {
+      "harness_path": "contracts/TestContracts.sol",
+      "role": "upstream_harness_input",
+      "sha256": "5acade07e14f6a5f8c1e186b7aa1a3972c5fca67041c9d4794801799e449e0de",
+      "source_path": "contracts/TestContracts.sol"
+    },
+    {
+      "harness_path": "contracts/handlers/ERC1155Handler.sol",
+      "role": "upstream_harness_input",
+      "sha256": "a6d0518e9117bff381db30a2d43cbe463cb11428e0de703254983604a1a4d8c2",
+      "source_path": "contracts/handlers/ERC1155Handler.sol"
+    },
+    {
+      "harness_path": "contracts/handlers/ERC20Handler.sol",
+      "role": "upstream_harness_input",
+      "sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59",
+      "source_path": "contracts/handlers/ERC20Handler.sol"
+    },
+    {
+      "harness_path": "contracts/handlers/ERC721Handler.sol",
+      "role": "upstream_harness_input",
+      "sha256": "230542ef64a38989f0ebabfee666045d4a5f0b499f365ffbd3f8641784c02289",
+      "source_path": "contracts/handlers/ERC721Handler.sol"
+    },
+    {
+      "harness_path": "contracts/handlers/GenericHandler.sol",
+      "role": "upstream_harness_input",
+      "sha256": "a5ddd0cf1d4b660fd2f6a347fe68355e04a5d020a460b3cc07a9ec15749e2f58",
+      "source_path": "contracts/handlers/GenericHandler.sol"
+    },
+    {
+      "harness_path": "contracts/handlers/HandlerHelpers.sol",
+      "role": "upstream_harness_input",
+      "sha256": "48078674b03e95e7c673ecc864726f4f2ea4f74d6bc892cc1a5397cce048c98a",
+      "source_path": "contracts/handlers/HandlerHelpers.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "536df8b6a11d19931b32e8552d2844a4f69dc78b24a0ca5bd256fc9883abddab",
+      "source_path": "contracts/interfaces/IBridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IDepositExecute.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ff23f84b61f31863bf489eb91bbeddab51992a6f87455a9f28948fa0dc106d12",
+      "source_path": "contracts/interfaces/IDepositExecute.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IERCHandler.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f6c25fb47e65397a625482fbcc9b7cafcc8d7eb4ca87be24a233de23ea585966",
+      "source_path": "contracts/interfaces/IERCHandler.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IGenericHandler.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b0675a40584b56324696e448325e1a62802980bf38a271ee1aa6f91045af1575",
+      "source_path": "contracts/interfaces/IGenericHandler.sol"
+    },
+    {
+      "harness_path": "contracts/utils/AccessControl.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c5731cc91aae17c509dc5885eb91e3a6552b5f3db8b900734791d5fce39c944f",
+      "source_path": "contracts/utils/AccessControl.sol"
+    },
+    {
+      "harness_path": "contracts/utils/Pausable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "e807353800b4d9c262a5866c98ae7cfa6ffb6c47646cc63fd6b398b2613df17c",
+      "source_path": "contracts/utils/Pausable.sol"
+    },
+    {
+      "harness_path": "contracts/utils/SafeCast.sol",
+      "role": "upstream_harness_input",
+      "sha256": "da462cbf0a89bbe71e533b918849c98ac630d7287e32e30a0a29a746b6a99820",
+      "source_path": "contracts/utils/SafeCast.sol"
+    },
+    {
+      "harness_path": "contracts/utils/SafeMath.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b16327863f1211230f1bd99dd7c51fbf2330354dc4968c0e310751d6a7fec2aa",
+      "source_path": "contracts/utils/SafeMath.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "admin": [
+        "Bridge.adminSetResource"
+      ],
+      "alice": [
+        "Bridge.deposit"
+      ],
+      "eve": [],
+      "relayer_1": [
+        "Bridge.voteProposal"
+      ],
+      "relayer_2": [
+        "Bridge.voteProposal"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_non_relayer_cannot_vote",
+      "mechanism": "relayer role membership and proposal vote bitmap"
+    },
+    "callbacks": {
+      "destination_callback": "Bridge.executeProposal -> ERC20Handler.executeProposal",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "proposal expiry uses locked Bridge _expiry",
+      "explicit_time_warp": false,
+      "source": "block.number at deposit/proposal creation"
+    },
+    "finality": {
+      "model": "m-of-n relayer threshold",
+      "status": "threshold_and_duplicate_vote_tested"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "deposit_nonce",
+        "threshold",
+        "resource_binding",
+        "token_conservation"
+      ],
+      "steps": [
+        "deposit",
+        "relayer_vote_1",
+        "relayer_vote_2",
+        "handler_execute"
+      ],
+      "test": "test_normal_cross_chain_lock_and_relay"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys bridge, handlers and tokens for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys two Bridge/handler pairs and configures resource IDs",
+      "source_contracts": [
+        "Bridge",
+        "ERC20Handler"
+      ]
+    }
+  }
+}

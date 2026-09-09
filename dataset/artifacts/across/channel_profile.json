@@ -1,0 +1,20 @@
+{
+  "channel_type": "intent_based_relayer_pool",
+  "topology": "hub_and_spoke",
+  "source_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "Polygon",
+    "Base"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "Polygon",
+    "Base"
+  ],
+  "message_passing": "uma_optimistic_oracle",
+  "settlement": "relayer_fill_and_root_bundle"
+}

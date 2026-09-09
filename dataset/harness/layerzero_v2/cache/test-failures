@@ -1,0 +1,1 @@
+{"version":1,"failures":[{"contract":"test/LayerZeroV2PairedHarness.t.sol:LayerZeroV2PairedHarnessTest","test":"test_revert_replay_packet_delivery"},{"contract":"test/LayerZeroV2PairedHarness.t.sol:LayerZeroV2PairedHarnessTest","test":"test_revert_tampered_payload_delivery"}]}

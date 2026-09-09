@@ -1,0 +1,122 @@
+{
+  "artifact_manifest_sha256": "8ab7d5cc01fd9bbf44c7fc3fe7a21531668850304c9f0cc3b86d9d6f2c2b58a7",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+      "source_path": "contracts/bridge/SynapseBridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "8e4b26ae11491eb480fde047d9cfb421cf6cf6c678fa5ef73b71aac34733122b",
+      "source_path": "contracts/bridge/interfaces/ISwap.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "8a26fca7dcd18f53e712ded1659671c985528c05b36b8ec87614f8242c4bec96",
+      "source_path": "contracts/bridge/interfaces/IWETH9.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:ba8da496fd063c7dddb2282f115b2a59c5deaf8f2ab06a4ca858304fedaeb5c9",
+  "compiler_version": "0.6.12",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/SynapseMockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "0e97d0b14be72cbfc83e4fcaf5b161bc6ee1b4f48848cf64173813efb8dc2a4d"
+    }
+  ],
+  "lineage_id": "synapse",
+  "manifest_sha256": "3cd22d7799866538e875f126ad151a9c5f0ffa8cf951fda8518f36a404405fd7",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "cab2a5e5d140dae2eefe0d26567b6595350bd668914da782e7d82ff68fab77be",
+  "source_commit": "60f1c25cf2f115911e11255f515e1450fe96100c",
+  "source_repository": "https://github.com/synapsecns/synapse-contracts.git",
+  "source_selection_hash": "99d1cee3c21379228a8e3cc80a304296b2aca08e0bc9a1ddbb6eb1d65cb20f72",
+  "test_source": {
+    "path": "test/SynapseSourceBackedHarnessTest.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "1989542aa124a6e9b068c5ca4ea02b5244a9b173a8f1839e07871796fe42276f"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/bridge/SynapseBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+      "source_path": "contracts/bridge/SynapseBridge.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/interfaces/ISwap.sol",
+      "role": "upstream_harness_input",
+      "sha256": "8e4b26ae11491eb480fde047d9cfb421cf6cf6c678fa5ef73b71aac34733122b",
+      "source_path": "contracts/bridge/interfaces/ISwap.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/interfaces/IWETH9.sol",
+      "role": "upstream_harness_input",
+      "sha256": "8a26fca7dcd18f53e712ded1659671c985528c05b36b8ec87614f8242c4bec96",
+      "source_path": "contracts/bridge/interfaces/IWETH9.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "admin_setup": [
+        "AccessControl.grantRole"
+      ],
+      "eve": [],
+      "node_group": [
+        "SynapseBridge.mint"
+      ],
+      "user": [
+        "SynapseBridge.deposit"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_unauthorized_node",
+      "mechanism": "source SynapseBridge checks NODEGROUP_ROLE before mint and records kappa before settlement"
+    },
+    "callbacks": {
+      "destination_callback": "IERC20Mintable.mint followed by SafeERC20 transfer; no application callback in selected source scope",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.number at node-group mint",
+      "explicit_time_warp": false,
+      "source": "Foundry block.number at deposit"
+    },
+    "finality": {
+      "model": "node-group role authorization plus one-time kappa execution record",
+      "status": "role_boundary_and_replay_protection_tested_without_external_consensus_delay"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "source_escrow",
+        "net_mint_amount",
+        "fee_accounting",
+        "replay_identity"
+      ],
+      "steps": [
+        "approve",
+        "deposit",
+        "node_group_role",
+        "mint",
+        "kappa_record"
+      ],
+      "test": "test_normal_source_backed_deposit_and_node_mint"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys both locked bridges and tokens for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the locked SynapseBridge source contract on isolated source and destination domains",
+      "source_contracts": [
+        "SynapseBridge"
+      ]
+    }
+  }
+}

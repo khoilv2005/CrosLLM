@@ -1,0 +1,20 @@
+{
+  "channel_type": "unified_liquidity_bridge",
+  "topology": "mesh",
+  "source_domains": [
+    "Ethereum",
+    "BNB Chain",
+    "Avalanche",
+    "Polygon",
+    "Arbitrum"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "BNB Chain",
+    "Avalanche",
+    "Polygon",
+    "Arbitrum"
+  ],
+  "message_passing": "layerzero_relayer_oracle",
+  "settlement": "instant_guaranteed_finality"
+}

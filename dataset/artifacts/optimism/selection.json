@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol"
+  ],
+  "document_paths": [
+    "LICENSE",
+    "README.md"
+  ],
+  "selected_paths": [
+    "LICENSE",
+    "README.md",
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol"
+  ],
+  "unresolved_imports": [
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:interfaces/L1/IOptimismPortal2.sol",
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:interfaces/L1/ISuperchainConfig.sol",
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:interfaces/L1/ISystemConfig.sol",
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:interfaces/universal/ISemver.sol",
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:src/libraries/Predeploys.sol",
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:src/universal/CrossDomainMessenger.sol",
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:src/universal/ProxyAdminOwnedBase.sol",
+    "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:src/universal/ReinitializableBase.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:@openzeppelin/contracts/proxy/utils/Initializable.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/IETHLockbox.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/IOptimismPortal2.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/IResourceMetering.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/ISuperchainConfig.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/ISystemConfig.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/dispute/IAnchorStateRegistry.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/dispute/IDisputeGame.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/dispute/IDisputeGameFactory.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/universal/ISemver.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/L1/ResourceMetering.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/dispute/lib/Types.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/Constants.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/EOA.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/Features.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/Hashing.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/SafeCall.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/Types.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/trie/SecureMerkleTrie.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/universal/ProxyAdminOwnedBase.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/universal/ReinitializableBase.sol",
+    "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/vendor/AddressAliasHelper.sol"
+  ],
+  "selection_hash": "3e9338307e1dbc3e769e56b92effa1b718df5079892a3f3c64d992a0b3c47f1a"
+}

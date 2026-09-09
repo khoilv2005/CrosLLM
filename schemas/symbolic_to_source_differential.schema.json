@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/symbolic_to_source_differential.schema.json",
+  "title": "CrossLLM development symbolic-to-source differential spike",
+  "description": "Structural correspondence only; never an independent EVM admission result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "lineage_id", "symbolic_engine",
+    "source_engine", "source_replay_report", "source_replay_report_hash",
+    "support_matrix_hash", "source_replay_status", "source_test_count", "case_count",
+    "cases", "unsupported_fixture_semantics", "differential_status",
+    "direct_trace_comparable", "independent_evaluator", "independent_property_validation",
+    "independent_trigger_validation", "reviewed_support_matrix", "admission_eligible",
+    "evidence_scope", "observed_at", "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "development_symbolic_to_source_differential_spike"},
+    "scope": {"const": "development_structural_correspondence_only"},
+    "lineage_id": {"const": "celer_cbridge"},
+    "symbolic_engine": {"const": "z3-bounded-paired-v1"},
+    "source_engine": {"const": "foundry-native-celer-development-harness"},
+    "source_replay_report": {"const": "dataset/reports/source_backed_replay.json"},
+    "source_replay_report_hash": {"$ref": "#/$defs/sha256"},
+    "support_matrix_hash": {"$ref": "#/$defs/sha256"},
+    "source_replay_status": {"const": "pass"},
+    "source_test_count": {"const": 3},
+    "case_count": {"const": 3},
+    "cases": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["case_id", "source_test", "source_steps", "symbolic", "fixture_projection", "direct_trace_comparable", "projection_status", "note"],
+        "properties": {
+          "case_id": {"type": "string", "minLength": 1},
+          "source_test": {"type": "string", "minLength": 1},
+          "source_steps": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "symbolic": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "complete", "reason", "encoding_hash", "actions"],
+            "properties": {
+              "status": {"type": "string"},
+              "complete": {"type": "boolean"},
+              "reason": {"type": "string"},
+              "encoding_hash": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+              "actions": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "fixture_projection": {"type": "object"},
+          "direct_trace_comparable": {"const": false},
+          "projection_status": {"enum": ["structural_only", "unsupported"]},
+          "note": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "unsupported_fixture_semantics": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "differential_status": {"const": "structural_only"},
+    "direct_trace_comparable": {"const": false},
+    "independent_evaluator": {"const": false},
+    "independent_property_validation": {"const": false},
+    "independent_trigger_validation": {"const": false},
+    "reviewed_support_matrix": {"const": false},
+    "admission_eligible": {"const": false},
+    "evidence_scope": {"const": "development_spike_non_admission"},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "report_hash": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

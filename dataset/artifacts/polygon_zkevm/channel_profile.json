@@ -1,0 +1,14 @@
+{
+  "channel_type": "agglayer_shared_bridge",
+  "topology": "hub_and_spoke_unified_exit_root",
+  "source_domains": [
+    "Ethereum",
+    "Polygon zkEVM"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "Polygon zkEVM"
+  ],
+  "message_passing": "global_exit_root_manager",
+  "settlement": "zk_snark_state_transition"
+}

@@ -1,0 +1,56 @@
+{
+  "lineage_id": "wormhole_evm_sdk",
+  "compiler": "solc",
+  "compiler_version": "0.8.30",
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:968cb5ba4b4ccec35d21f6a20e1c104606ee43844a6aec72611be8fb3ae237b8",
+  "compiler_binary_path": "/compiler/solc",
+  "compiler_binary_sha256": "4ae092c0070131da58766f3083ba22ff52a0f4d57c8e5ccdd58c5bce8d482008",
+  "dependency_closure": {
+    "roots": [
+      "lib"
+    ],
+    "file_count": 0,
+    "files": [],
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "dependency_root": null,
+  "dependency_mounts": [],
+  "dependency_remappings": [],
+  "source_selection": {
+    "schema_version": 1,
+    "entry_paths": [
+      "src/proxy/Proxy.sol"
+    ],
+    "document_paths": [
+      "LICENSE",
+      "README.md"
+    ],
+    "selected_paths": [
+      "LICENSE",
+      "README.md",
+      "src/proxy/Eip1967Implementation.sol",
+      "src/proxy/Proxy.sol"
+    ],
+    "unresolved_imports": [],
+    "selection_hash": "0cfbb065e77cefe8ba5869b6c357e8fd470ba4a5bf4e90ded069cfd975b8489e"
+  },
+  "build_framework": "foundry",
+  "docker_build_image": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+  "docker_network": "none",
+  "compiler_scratch": "read-only source bind; /tmp/foundry-cache and /tmp/foundry-out disposable; /compiler is a lineage-scoped disposable Docker volume",
+  "build_command": "forge inspect <Contract> [abi|storage|bytecode]",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "compiler_settings": {
+    "compiler": "solc",
+    "compiler_version": "0.8.30",
+    "compiler_image": "ghcr.io/argotorg/solc@sha256:968cb5ba4b4ccec35d21f6a20e1c104606ee43844a6aec72611be8fb3ae237b8",
+    "compiler_binary_sha256": "4ae092c0070131da58766f3083ba22ff52a0f4d57c8e5ccdd58c5bce8d482008",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "build_framework": "foundry"
+  },
+  "verification_status": "inspect_probe_only",
+  "verified": false,
+  "compiler_settings_sha256": "429575452f30083236a0223bd109841da34a51948c7292941c813d0ae40bb67d"
+}

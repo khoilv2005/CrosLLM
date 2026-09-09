@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/gateway/AxelarAmplifierGateway.sol"
+  ],
+  "document_paths": [
+    "LICENSE",
+    "README.md"
+  ],
+  "selected_paths": [
+    "LICENSE",
+    "README.md",
+    "contracts/gateway/AxelarAmplifierGateway.sol",
+    "contracts/gateway/BaseAmplifierGateway.sol",
+    "contracts/governance/BaseWeightedMultisig.sol",
+    "contracts/interfaces/IAxelarAmplifierGateway.sol",
+    "contracts/interfaces/IAxelarGateway.sol",
+    "contracts/interfaces/IBaseAmplifierGateway.sol",
+    "contracts/interfaces/IBaseWeightedMultisig.sol",
+    "contracts/interfaces/IContractIdentifier.sol",
+    "contracts/interfaces/IImplementation.sol",
+    "contracts/interfaces/IOwnable.sol",
+    "contracts/interfaces/IPausable.sol",
+    "contracts/interfaces/IUpgradable.sol",
+    "contracts/libs/ECDSA.sol",
+    "contracts/types/AmplifierGatewayTypes.sol",
+    "contracts/types/WeightedMultisigTypes.sol",
+    "contracts/upgradable/Implementation.sol",
+    "contracts/upgradable/Upgradable.sol",
+    "contracts/utils/Ownable.sol",
+    "contracts/utils/Pausable.sol"
+  ],
+  "unresolved_imports": [],
+  "selection_hash": "de05ada4e226668a5199504ae8921fff36d938f21ad0ab4a733294aec2f830c9"
+}

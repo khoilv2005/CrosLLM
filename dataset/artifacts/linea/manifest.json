@@ -1,0 +1,21 @@
+{
+  "artifact_count": 13,
+  "files": {
+    "abi/LineaRollup.json": "23f6a4171a7cd889331497990e946ee56d36d03fd3725f82717ea99edf1b60f9",
+    "build_info.json": "a52e84b872da26cc9b6d078b1f177c9304f1a34786d6084ecf4cb85188afdfa1",
+    "bytecode/LineaRollup.creation.hex": "f0ea81b4ca147081c6b8edcb5c1c29f86faae01abba059820e5179a1d959ae28",
+    "bytecode/LineaRollup.deployed.hex": "7e36678106d924a9bcfc3d8aac529021db149dd7cf85181ff51e0e9d10aba3d5",
+    "channel_profile.json": "2128b9b1130f39548449522be57ad9270f0ce3d52e922af1fbb1db3619fe08e0",
+    "deployment.json": "d2b7eb5407ecac84a6654600fdbdd2906c3c8c4e3c513f75fc53e97af0f316a0",
+    "license.json": "99d9aa017ac77b0f4328716183dba167fa8096011ab7cec772f61e046115e08c",
+    "normal_workflow.json": "7208d30b1945ddf1d4f6178ef4ad85e1953ab7f4f922d5aed4640447dd9e275b",
+    "scope.json": "0875ca36486806e073deff3548d37e4bc6ad4efc58f628272bf4654826c79ea2",
+    "selection.json": "ee6fa00be34c402c14b9710c2a8e3e033312dfaf0469a556878da0cf660bab6a",
+    "source_receipt.json": "522d799967537e4b802d378eaccda8bde65ca680e5c3b837be36fbe5b5503094",
+    "storage_layout/LineaRollup.json": "afc8e2a612ed71590bc9afd5902a20c17bdb1495e4150d2d9e686b3006122004",
+    "symbols.json": "c34109bc1798267c1c1f9ff897dd6e5ec482bae5063615e7320693b3011ab72d"
+  },
+  "lineage_id": "linea",
+  "protocol": "Linea",
+  "split": "evaluation"
+}

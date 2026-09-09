@@ -1,0 +1,921 @@
+{
+  "lineage_id": "chainbridge",
+  "protocol": "ChainBridge",
+  "contracts": {
+    "Bridge": {
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669",
+      "source_target": {
+        "contract_name": "Bridge",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 17
+      },
+      "function_count": 41,
+      "functions": [
+        "DEFAULT_ADMIN_ROLE",
+        "MAX_RELAYERS",
+        "RELAYER_ROLE",
+        "_depositCounts",
+        "_domainID",
+        "_expiry",
+        "_fee",
+        "_hasVotedOnProposal",
+        "_relayerThreshold",
+        "_resourceIDToHandlerAddress",
+        "_totalRelayers",
+        "adminAddRelayer",
+        "adminChangeFee",
+        "adminChangeRelayerThreshold",
+        "adminPauseTransfers",
+        "adminRemoveRelayer",
+        "adminSetBurnable",
+        "adminSetDepositNonce",
+        "adminSetForwarder",
+        "adminSetGenericResource",
+        "adminSetResource",
+        "adminUnpauseTransfers",
+        "adminWithdraw",
+        "cancelProposal",
+        "deposit",
+        "executeProposal",
+        "getProposal",
+        "getRoleAdmin",
+        "getRoleMember",
+        "getRoleMemberCount",
+        "getRoleMemberIndex",
+        "grantRole",
+        "hasRole",
+        "isRelayer",
+        "isValidForwarder",
+        "paused",
+        "renounceAdmin",
+        "renounceRole",
+        "revokeRole",
+        "transferFunds",
+        "voteProposal"
+      ],
+      "event_count": 11,
+      "events": [
+        "Deposit",
+        "FailedHandlerExecution",
+        "Paused",
+        "ProposalEvent",
+        "ProposalVote",
+        "RelayerAdded",
+        "RelayerRemoved",
+        "RelayerThresholdChanged",
+        "RoleGranted",
+        "RoleRevoked",
+        "Unpaused"
+      ],
+      "storage_slot_count": 10,
+      "storage_slots": [
+        "_paused",
+        "_roles",
+        "_domainID",
+        "_relayerThreshold",
+        "_fee",
+        "_expiry",
+        "_depositCounts",
+        "_resourceIDToHandlerAddress",
+        "isValidForwarder",
+        "_proposals"
+      ]
+    },
+    "ERC20Handler": {
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59",
+      "source_target": {
+        "contract_name": "ERC20Handler",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 14
+      },
+      "function_count": 10,
+      "functions": [
+        "_bridgeAddress",
+        "_burnList",
+        "_contractWhitelist",
+        "_resourceIDToTokenContractAddress",
+        "_tokenContractAddressToResourceID",
+        "deposit",
+        "executeProposal",
+        "setBurnable",
+        "setResource",
+        "withdraw"
+      ],
+      "event_count": 0,
+      "events": [],
+      "storage_slot_count": 4,
+      "storage_slots": [
+        "_resourceIDToTokenContractAddress",
+        "_tokenContractAddressToResourceID",
+        "_contractWhitelist",
+        "_burnList"
+      ]
+    }
+  },
+  "stable_symbols": [
+    {
+      "symbol_id": "abi_constructor.Bridge.e9faef36ea0884d819e4cbc05799b921cf2ca690ca2924c4f5b70d1f68050c18",
+      "contract": "Bridge",
+      "name": "constructor",
+      "signature": "constructor(uint8,address[],uint256,uint256,uint256)",
+      "kind": "abi_constructor",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_constructor.ERC20Handler.fac1491c59ffb6e58d6ca011368d5a8af0f203638105d3307eeab823999c42ff",
+      "contract": "ERC20Handler",
+      "name": "constructor",
+      "signature": "constructor(address)",
+      "kind": "abi_constructor",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.0c183420a9b78996d10fa021f0e668b4d20ff9799ce7dd407367c19ab3ef5ea3",
+      "contract": "Bridge",
+      "name": "RelayerAdded",
+      "signature": "RelayerAdded(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.20e3f2eb126dd5361ae5553d9da23e089f5da0cefd65255708cbfa3eb28b2f95",
+      "contract": "Bridge",
+      "name": "Deposit",
+      "signature": "Deposit(uint8,bytes32,uint64,address,bytes,bytes)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.363fbadc2d956702570334a6b259f7b9b9edc243af593b6b900cefe899f40c71",
+      "contract": "Bridge",
+      "name": "ProposalVote",
+      "signature": "ProposalVote(uint8,uint64,uint8,bytes32)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.749ed6ca0e323d47629322f41627cb255756f2f92480ca7b2a342e79c4bc5608",
+      "contract": "Bridge",
+      "name": "RoleGranted",
+      "signature": "RoleGranted(bytes32,address,address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.82ab653f6ea9baf59b7566b7f14e5af8bced1fd13193fe6f82b439c146ad5058",
+      "contract": "Bridge",
+      "name": "Paused",
+      "signature": "Paused(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.9419e85a6baf7747cef600f8337d95d3322765d8e105ebb23363d2a1f5486688",
+      "contract": "Bridge",
+      "name": "FailedHandlerExecution",
+      "signature": "FailedHandlerExecution(bytes)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.9a5dfb9e3f2ba368472b0d44503d471c4eb15ccaadf10fd58e8f138814fe39b4",
+      "contract": "Bridge",
+      "name": "RoleRevoked",
+      "signature": "RoleRevoked(bytes32,address,address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.ad8089900da454409601da902a8dc970fd1217d5fa250baa54a005f1a70cb465",
+      "contract": "Bridge",
+      "name": "ProposalEvent",
+      "signature": "ProposalEvent(uint8,uint64,uint8,bytes32)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.c68d8fcfca81fa9ea2f8b534eba4b25ba6545da8620db30f83e86a08a1ea7cb5",
+      "contract": "Bridge",
+      "name": "RelayerRemoved",
+      "signature": "RelayerRemoved(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.c89b686bfd055a88f517cdc60c110b198cf67e267218420f6fa46ac8f851be7f",
+      "contract": "Bridge",
+      "name": "Unpaused",
+      "signature": "Unpaused(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_event.Bridge.ed38228ac4b746f0dee9542c5e0e62bc5089d10be08044eaea537fe86372a24d",
+      "contract": "Bridge",
+      "name": "RelayerThresholdChanged",
+      "signature": "RelayerThresholdChanged(uint256)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.0d3c2c2c98c6938e7d7a70551099b7efd5c48a8a9e5a4520c19a8fdda7bfff8e",
+      "contract": "Bridge",
+      "name": "renounceAdmin",
+      "signature": "renounceAdmin(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.27cddb4181b57b2950814c8f351c6a1ead4e9cdf27a23609673befb5c034c49c",
+      "contract": "Bridge",
+      "name": "cancelProposal",
+      "signature": "cancelProposal(uint8,uint64,bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.2a34090dd1f26c2518f953b2dac16503b269d8eb067e8f6d4b0c5d08ec72fbae",
+      "contract": "Bridge",
+      "name": "adminSetDepositNonce",
+      "signature": "adminSetDepositNonce(uint8,uint64)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.2a68f1b166014816149023a8540b8636f216d7fd960ddc0af83d71cf65e90e50",
+      "contract": "Bridge",
+      "name": "getRoleMember",
+      "signature": "getRoleMember(bytes32,uint256)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.3a7a9df8818646eefda6c2ec46c260ed1b30324851b660bd486acde934ab03d2",
+      "contract": "Bridge",
+      "name": "isValidForwarder",
+      "signature": "isValidForwarder(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.3c4cef8b6983ccb6b3c7076a253c2b4ba1e75b4d723d7a7131bfb7c43b9caa85",
+      "contract": "Bridge",
+      "name": "_depositCounts",
+      "signature": "_depositCounts(uint8)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.3fa5995c8b05547d303dbf04c3863b17b2247b39a2c0da30d5e84c9898bcc00c",
+      "contract": "Bridge",
+      "name": "MAX_RELAYERS",
+      "signature": "MAX_RELAYERS()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.454871260b06b68b13394103e99b3ba8da2d8e186d65329f4dd9638b87bf487a",
+      "contract": "Bridge",
+      "name": "getRoleMemberIndex",
+      "signature": "getRoleMemberIndex(bytes32,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.475f7bcf86733a56f12af3862e07fa68401726dfd9cc55b4f0f4082d47d4997d",
+      "contract": "Bridge",
+      "name": "voteProposal",
+      "signature": "voteProposal(uint8,uint64,bytes32,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.4aa0d1cee787c385d6084656225d59b3a2b7c54e743eafa04934f7446e13d9ad",
+      "contract": "Bridge",
+      "name": "adminSetGenericResource",
+      "signature": "adminSetGenericResource(address,bytes32,address,bytes4,uint256,bytes4)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.5319ddd7904a8fad4d6358e7a3166fc831982c33571095784b283996516733b8",
+      "contract": "Bridge",
+      "name": "DEFAULT_ADMIN_ROLE",
+      "signature": "DEFAULT_ADMIN_ROLE()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.5e90c5e3c5c5a8a23ed69d71d0cc8dd3b187ceb9773621a85125388a4a8307b3",
+      "contract": "Bridge",
+      "name": "transferFunds",
+      "signature": "transferFunds(address[],uint256[])",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.63cb7e0c4e472a5522286272743c59714325d242789cb7f48d7e7bd6a76ccc9f",
+      "contract": "Bridge",
+      "name": "getRoleMemberCount",
+      "signature": "getRoleMemberCount(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.70423caaff861b5ef65ee981c59065d3ed7fcfd877f61f4bc3bea6b951236bf2",
+      "contract": "Bridge",
+      "name": "adminAddRelayer",
+      "signature": "adminAddRelayer(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.718e45700fe7f6212e75ed945cc16eb9de7e30bc4402bf2eacaaa686c30bc412",
+      "contract": "Bridge",
+      "name": "adminSetResource",
+      "signature": "adminSetResource(address,bytes32,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.71bfa81e570e95db763a4e0f178a6731c93bda2454caabfd30f9205867bfdcc2",
+      "contract": "Bridge",
+      "name": "adminWithdraw",
+      "signature": "adminWithdraw(address,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.81c6fbe9f35ff7b38aaa82f07dfe36e352ed9e72b5f9cfc2d31fc2ce5c446c2b",
+      "contract": "Bridge",
+      "name": "_expiry",
+      "signature": "_expiry()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.86a13eecb8220e9e9f198957bd241411ea30310fda2e7bd157aad4f767eb78eb",
+      "contract": "Bridge",
+      "name": "revokeRole",
+      "signature": "revokeRole(bytes32,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.884ed3457b4b9b8cb5a7af54075b3615777adaf82c3e1ef000d312adba680a00",
+      "contract": "Bridge",
+      "name": "isRelayer",
+      "signature": "isRelayer(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.8c5eb45229d02857c73dff9cd8d8de54e92c34cdb3c411c4558ec360e3adf90b",
+      "contract": "Bridge",
+      "name": "paused",
+      "signature": "paused()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.9301aaf29109dcb148a11a9eb4ca7a5289166af862553346f5899850627ebf65",
+      "contract": "Bridge",
+      "name": "adminChangeFee",
+      "signature": "adminChangeFee(uint256)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.93a1f1172e4129c602b8f826bce3a9a083d535c41a94c5a0ff84ee89acdd3838",
+      "contract": "Bridge",
+      "name": "deposit",
+      "signature": "deposit(uint8,bytes32,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.9dd8a2e3ee23241b030ccd04bc7da5a951061dc88f2ca58c720b52f101eadbfa",
+      "contract": "Bridge",
+      "name": "_totalRelayers",
+      "signature": "_totalRelayers()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.a0fc2883e47c4c32c9e2a9b74daecf69ca44edf7e6e96ade131fd34ad374a5a8",
+      "contract": "Bridge",
+      "name": "_fee",
+      "signature": "_fee()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.a20234cbe70257bab586e7ed11ee4f480e2ed9e67e99d8ba010805e9352643de",
+      "contract": "Bridge",
+      "name": "getProposal",
+      "signature": "getProposal(uint8,uint64,bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.a418b28e03225ad3d5a603f4d853700bb1e464dfdf35dbdd02aacb79d4d0e868",
+      "contract": "Bridge",
+      "name": "adminChangeRelayerThreshold",
+      "signature": "adminChangeRelayerThreshold(uint256)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.af4b89344ea59002213db3fb21d4d5b88e44edf28f9c83230b4a735246e2682f",
+      "contract": "Bridge",
+      "name": "getRoleAdmin",
+      "signature": "getRoleAdmin(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.b2d9a8e9de05dbdd8c961645b4a0b25e3d05f090d851553a0e5c35528dfed777",
+      "contract": "Bridge",
+      "name": "adminPauseTransfers",
+      "signature": "adminPauseTransfers()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.b946894920b89b7e584a26ea55a7220571e72a26639517ebf550b88170e34b6a",
+      "contract": "Bridge",
+      "name": "executeProposal",
+      "signature": "executeProposal(uint8,uint64,bytes,bytes32,bool)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.bc1b852f4acdc94dc0b2a9222a6693f97274b33ae7fc6f7521c43a53647aebe5",
+      "contract": "Bridge",
+      "name": "adminUnpauseTransfers",
+      "signature": "adminUnpauseTransfers()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.c4a9fc1d729cec39c139a6f2790a92b8b2d3ebaff5e0441e6d494679e7f2f628",
+      "contract": "Bridge",
+      "name": "adminRemoveRelayer",
+      "signature": "adminRemoveRelayer(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.c771764d854334748adc2581257a3e80f6345b9d280ed42a7db97e028ae1ecbd",
+      "contract": "Bridge",
+      "name": "hasRole",
+      "signature": "hasRole(bytes32,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.cc0616e30059c073a5fc0a81377cb330937925ac134c475f32841c205abeda1c",
+      "contract": "Bridge",
+      "name": "RELAYER_ROLE",
+      "signature": "RELAYER_ROLE()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.d0483ebcfbf95494d1b0a5b9d6083d6f8c4406907e4020c2a03690de2255437c",
+      "contract": "Bridge",
+      "name": "_relayerThreshold",
+      "signature": "_relayerThreshold()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.e0ee47cf58c4efbf7dccb5d0042b24a8cfe041e1212ac95d6ea1d7fd9b121167",
+      "contract": "Bridge",
+      "name": "_domainID",
+      "signature": "_domainID()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.e1abb0fb50e28f9312320ec1f7993ed17b034052355a936f9767a527f9e735ba",
+      "contract": "Bridge",
+      "name": "_resourceIDToHandlerAddress",
+      "signature": "_resourceIDToHandlerAddress(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.e4ad52190f4ad9bcdf0eb1ea2c095b4d1c28c1785362fce93236a84973ef6116",
+      "contract": "Bridge",
+      "name": "adminSetForwarder",
+      "signature": "adminSetForwarder(address,bool)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.eb61f72bffca38cffa64a95877efe8be1b2ba612e30053d1aaad8fc7599b8950",
+      "contract": "Bridge",
+      "name": "grantRole",
+      "signature": "grantRole(bytes32,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.ec3365d60a4f4379767c28ada9a3bb0e30dc49f3ee8386b9bc5ab04d4ec6c329",
+      "contract": "Bridge",
+      "name": "renounceRole",
+      "signature": "renounceRole(bytes32,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.fa57eb23d5a18373a41d68cc2c508c2163d4c7c906d64eb51a4972a6772ea632",
+      "contract": "Bridge",
+      "name": "_hasVotedOnProposal",
+      "signature": "_hasVotedOnProposal(uint72,bytes32,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.Bridge.fd6bd443e54200bdf3e6466dd76b85c54f8d8f00bd2346a92bb3f84271dff81c",
+      "contract": "Bridge",
+      "name": "adminSetBurnable",
+      "signature": "adminSetBurnable(address,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.02dec22b3b16727299dda3b694fc3588db647d6e4d3bddd1e955e0ce19957ef8",
+      "contract": "ERC20Handler",
+      "name": "setResource",
+      "signature": "setResource(bytes32,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.6330cb41d84a95885c4e71a623ee8a77ab025f3e9ba8fd297d8570756175046b",
+      "contract": "ERC20Handler",
+      "name": "_contractWhitelist",
+      "signature": "_contractWhitelist(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.6956071f6415a6d31373ed892681fc1ff99f530a487f6be885174d8415b21ca9",
+      "contract": "ERC20Handler",
+      "name": "_burnList",
+      "signature": "_burnList(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.6d3b204484e3981661442ab468b3744c1b6ce6b4bb20ebe5af18698d832aad38",
+      "contract": "ERC20Handler",
+      "name": "_tokenContractAddressToResourceID",
+      "signature": "_tokenContractAddressToResourceID(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.6ff71ec32bd9ea74981666b16f71740b8a5e8788e96c4acf9a0ff60094f50c1e",
+      "contract": "ERC20Handler",
+      "name": "deposit",
+      "signature": "deposit(bytes32,address,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.7f47776544277eb9089bf1475c543f8a5adf0580f145e0ef45b3adb1e6cf7a8c",
+      "contract": "ERC20Handler",
+      "name": "withdraw",
+      "signature": "withdraw(bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.ab2105d7c53cceea3431fae14b4fdf4a81df4841ec6adad0870667f6792aa091",
+      "contract": "ERC20Handler",
+      "name": "setBurnable",
+      "signature": "setBurnable(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.dbeec67e03f7a2f4205a4569b1a4db741fc1589cea02500f72e2955ae26dcb1b",
+      "contract": "ERC20Handler",
+      "name": "_resourceIDToTokenContractAddress",
+      "signature": "_resourceIDToTokenContractAddress(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.f591dd026c194d9e497e40225ee3130e2601a5de33d66964a57e7b820990a9d5",
+      "contract": "ERC20Handler",
+      "name": "executeProposal",
+      "signature": "executeProposal(bytes32,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "abi_function.ERC20Handler.f836120336576fffae1d0654a544ab8e8578237876d21b9a64179da1e43262f9",
+      "contract": "ERC20Handler",
+      "name": "_bridgeAddress",
+      "signature": "_bridgeAddress()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_0._paused",
+      "contract": "Bridge",
+      "name": "_paused",
+      "signature": "storage(0)",
+      "kind": "storage",
+      "type": "t_bool",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_1._roles",
+      "contract": "Bridge",
+      "name": "_roles",
+      "signature": "storage(1)",
+      "kind": "storage",
+      "type": "t_mapping(t_bytes32,t_struct(RoleData)1389_storage)",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_2._domainID",
+      "contract": "Bridge",
+      "name": "_domainID",
+      "signature": "storage(2)",
+      "kind": "storage",
+      "type": "t_uint8",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_2._expiry",
+      "contract": "Bridge",
+      "name": "_expiry",
+      "signature": "storage(2)",
+      "kind": "storage",
+      "type": "t_uint40",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_2._fee",
+      "contract": "Bridge",
+      "name": "_fee",
+      "signature": "storage(2)",
+      "kind": "storage",
+      "type": "t_uint128",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_2._relayerThreshold",
+      "contract": "Bridge",
+      "name": "_relayerThreshold",
+      "signature": "storage(2)",
+      "kind": "storage",
+      "type": "t_uint8",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_3._depositCounts",
+      "contract": "Bridge",
+      "name": "_depositCounts",
+      "signature": "storage(3)",
+      "kind": "storage",
+      "type": "t_mapping(t_uint8,t_uint64)",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_4._resourceIDToHandlerAddress",
+      "contract": "Bridge",
+      "name": "_resourceIDToHandlerAddress",
+      "signature": "storage(4)",
+      "kind": "storage",
+      "type": "t_mapping(t_bytes32,t_address)",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_5.isValidForwarder",
+      "contract": "Bridge",
+      "name": "isValidForwarder",
+      "signature": "storage(5)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_bool)",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.Bridge.slot_6._proposals",
+      "contract": "Bridge",
+      "name": "_proposals",
+      "signature": "storage(6)",
+      "kind": "storage",
+      "type": "t_mapping(t_uint72,t_mapping(t_bytes32,t_struct(Proposal)45_storage))",
+      "domain": "shared",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "1d0f3bbe323bf0c9fc723f02479e0bfc21090ef54afe89db5c49ec58b1439669"
+    },
+    {
+      "symbol_id": "storage.ERC20Handler.slot_0._resourceIDToTokenContractAddress",
+      "contract": "ERC20Handler",
+      "name": "_resourceIDToTokenContractAddress",
+      "signature": "storage(0)",
+      "kind": "storage",
+      "type": "t_mapping(t_bytes32,t_address)",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "storage.ERC20Handler.slot_1._tokenContractAddressToResourceID",
+      "contract": "ERC20Handler",
+      "name": "_tokenContractAddressToResourceID",
+      "signature": "storage(1)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_bytes32)",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "storage.ERC20Handler.slot_2._contractWhitelist",
+      "contract": "ERC20Handler",
+      "name": "_contractWhitelist",
+      "signature": "storage(2)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_bool)",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    },
+    {
+      "symbol_id": "storage.ERC20Handler.slot_3._burnList",
+      "contract": "ERC20Handler",
+      "name": "_burnList",
+      "signature": "storage(3)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_bool)",
+      "domain": "shared",
+      "source_path": "contracts/handlers/ERC20Handler.sol",
+      "source_file_sha256": "0c46eeea090dcfdc1e73f46ffee71de7003ba6c1ab6114a4196c616cfc55fb59"
+    }
+  ],
+  "stable_symbols_sha256": "ccf4c5c355cfbd3585d18879637efaeba1bb6b2db0d0c358f39c83cb052f50c5",
+  "domain_assignments": {
+    "Bridge": "shared",
+    "ERC20Handler": "shared"
+  },
+  "source_selection_hash": "bbaa66be4fff2e02e8b1cc6baaa27a8d2a09abd6091fd3555e8900676bf1ff72"
+}

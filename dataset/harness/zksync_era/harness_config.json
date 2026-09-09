@@ -1,0 +1,109 @@
+{
+  "artifact_manifest_sha256": "917464e0467f02a9e3dc4b49754ba39b9f61ba99333da957c498638824e552a4",
+  "compiler": {
+    "binary_sha256": "1dff82a3a2e7cab75d5f21607ae11cf53786bb6dbc85c581cef6d18520dd98d4",
+    "image": "ghcr.io/argotorg/solc@sha256:344fc82c3fa40931fa82c2943eed01dcd2ea954f985f7fa6021682450b05dbe9",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.8.28"
+  },
+  "contracts": [
+    "L1ERC20Bridge"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "ff2ef199a71005ecb0a866e4f18b5940e0b6ceb8ba70a0fc66ca92d4f81227a2",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "zksync_era",
+  "protocol": "zkSync Era",
+  "source_backed": true,
+  "source_commit": "ad5a4783a3f05b18049af62a2f31885ce4c70c3c",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "cb5b36d90460170889e0bd255e76fb235cc871db334f2467343354fadd3832f7",
+  "source_repository": "https://github.com/matter-labs/era-contracts.git",
+  "source_selection_hash": "1348d08a035f45537f512088ad1708af1927b57e0fab6e48e7958eea8544a59f",
+  "split": "evaluation",
+  "test_contract": "ZkSyncEraSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "asset_router": [
+        "IL1AssetRouter.depositLegacyErc20Bridge"
+      ],
+      "depositor": [
+        "L1ERC20Bridge.deposit"
+      ],
+      "eve": [],
+      "nullifier": [
+        "IL1Nullifier.finalizeDeposit"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_empty_and_eth_deposit",
+      "mechanism": "exact L1ERC20Bridge source enforces nonzero/non-ETH deposits, consumes AssetRouter allowance, records deposit amount, and forwards the Nullifier context"
+    },
+    "callbacks": {
+      "destination_callback": "L1ERC20Bridge.finalizeWithdrawal -> IL1Nullifier.finalizeDeposit boundary",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp at L1ERC20Bridge.finalizeWithdrawal",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at L1ERC20Bridge.deposit"
+    },
+    "finality": {
+      "model": "source deposit accounting plus forwarding of legacy withdrawal context to the configured L1 Nullifier",
+      "status": "deposit_escrow_and_finalize_forwarding_tested_without_L1_L2_message_proof_or_external_finality"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "original_caller",
+        "receiver",
+        "amount",
+        "router_escrow",
+        "allowance_consumed",
+        "finalize_context"
+      ],
+      "steps": [
+        "approve",
+        "L1ERC20Bridge.deposit",
+        "source_escrow",
+        "AssetRouter.depositLegacyErc20Bridge",
+        "deposit_record",
+        "L1ERC20Bridge.finalizeWithdrawal",
+        "Nullifier.finalizeDeposit"
+      ],
+      "test": "test_normal_source_backed_deposit_and_escrow"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys token, source implementation, proxy, AssetRouter probe and Nullifier probe for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys exact L1ERC20Bridge source behind an immutable-implementation proxy with isolated AssetRouter and Nullifier boundary doubles",
+      "source_contracts": [
+        "L1ERC20Bridge",
+        "ReentrancyGuard",
+        "L1ContractErrors",
+        "L2ContractHelper"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

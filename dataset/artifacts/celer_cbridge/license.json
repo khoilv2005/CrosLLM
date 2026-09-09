@@ -1,0 +1,10 @@
+{
+  "lineage_id": "celer_cbridge",
+  "protocol": "Celer cBridge",
+  "declared_license": "GPL-3.0",
+  "source_repository": "https://github.com/celer-network/cBridge-contracts.git",
+  "spdx_identifier": "GPL-3.0",
+  "commercial_use_restrictions": false,
+  "redistribution_permitted": null,
+  "license_review_status": "pending_component_review"
+}

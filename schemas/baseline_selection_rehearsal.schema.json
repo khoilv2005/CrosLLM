@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/baseline_selection_rehearsal.schema.json",
+  "title": "CrossLLM outcome-blind baseline subset rehearsal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "record_type", "scope", "input_manifest_sha256", "outcome_blind", "provider_calls", "admission_eligible", "baseline_subset", "sensitivity_subset", "backbones", "limitations", "report_hash"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "synthetic_m07_selection_rehearsal"},
+    "scope": {"const": "development_selection_rehearsal_only"},
+    "input_manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "outcome_blind": {"const": true},
+    "provider_calls": {"const": 0},
+    "admission_eligible": {"const": false},
+    "baseline_subset": {"type": "object"},
+    "sensitivity_subset": {"type": "object"},
+    "backbones": {"const": ["Qwen", "gpt-oss"]},
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "report_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

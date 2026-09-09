@@ -8,6 +8,7 @@ or exploit material.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import subprocess
 import sys
@@ -17,6 +18,23 @@ from pathlib import Path
 def run(*args: str, cwd: Path | None = None) -> str:
     completed = subprocess.run(args, cwd=cwd, text=True, check=True, capture_output=True)
     return completed.stdout.strip()
+
+
+def normalize_remote(value: str) -> str:
+    return value.strip().rstrip("/").removesuffix(".git").lower()
+
+
+def archive_sha256(repo: Path) -> str:
+    completed = subprocess.run(
+        ("git", "archive", "--format=tar", "HEAD"),
+        cwd=repo,
+        capture_output=True,
+        check=False,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.decode("utf-8", errors="replace").strip()
+        raise SystemExit(f"Unable to archive {repo}: {detail}")
+    return hashlib.sha256(completed.stdout).hexdigest()
 
 
 def main(destination: Path, requested_lineages: set[str] | None = None) -> int:
@@ -43,6 +61,12 @@ def main(destination: Path, requested_lineages: set[str] | None = None) -> int:
             actual = run("git", "rev-parse", "HEAD", cwd=target)
             if actual != item["commit"]:
                 raise SystemExit(f"Refusing to overwrite non-empty {target}")
+            remote = run("git", "remote", "get-url", "origin", cwd=target)
+            if normalize_remote(remote) != normalize_remote(item["repository"]):
+                raise SystemExit(
+                    f"Remote mismatch for {item['lineage_id']}: "
+                    f"{remote} != {item['repository']}"
+                )
         else:
             target.mkdir(exist_ok=True)
             run("git", "init", "-q", cwd=target)
@@ -52,8 +76,22 @@ def main(destination: Path, requested_lineages: set[str] | None = None) -> int:
         actual = run("git", "rev-parse", "HEAD", cwd=target)
         if actual != item["commit"]:
             raise SystemExit(f"Commit mismatch for {item['lineage_id']}: {actual}")
+        remote = run("git", "remote", "get-url", "origin", cwd=target)
+        if normalize_remote(remote) != normalize_remote(item["repository"]):
+            raise SystemExit(
+                f"Remote mismatch for {item['lineage_id']}: "
+                f"{remote} != {item['repository']}"
+            )
+        dirty = bool(run(
+            "git", "status", "--porcelain=v1", "--untracked-files=all", cwd=target
+        ))
         receipts_by_lineage[item["lineage_id"]] = {
-            "lineage_id": item["lineage_id"], "repository": item["repository"], "commit": actual
+            "lineage_id": item["lineage_id"],
+            "repository": item["repository"],
+            "commit": actual,
+            "remote": remote,
+            "dirty_worktree": dirty,
+            "source_archive_sha256": archive_sha256(target),
         }
     receipts = [receipts_by_lineage[key] for key in sorted(receipts_by_lineage)]
     receipt_path.write_text(

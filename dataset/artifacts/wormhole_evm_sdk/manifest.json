@@ -1,0 +1,21 @@
+{
+  "artifact_count": 13,
+  "files": {
+    "abi/Proxy.json": "f2eb2ba0a7b291f3b0a138e63fad4a4845c4fa251704257a58c9dbb8aa30441b",
+    "build_info.json": "83a11417407e2147fc2a94bac90ccd59a4dfa51730dcd971948a984c6a6cf918",
+    "bytecode/Proxy.creation.hex": "b5edd393f135d281b072a68cd444035d773d017f8f5f151b833afd33f36f439c",
+    "bytecode/Proxy.deployed.hex": "09af39316fdfd8d108202a7c55ad35203e220ef07efa0995d80329576d188157",
+    "channel_profile.json": "85bb141b5ee411b31035f3047df0d9510b6937eab6cdb5921ce60e157db7991e",
+    "deployment.json": "ef421279e69f6be9317d79f5a730e759e73559d1a5a093bf772be74d51baf398",
+    "license.json": "f8c489581456cd60e24f382364d195852f8effcf08a3a6a61a99a0d90622e490",
+    "normal_workflow.json": "72703cc6780438b034887cf33a825cbc7131f269ed0d6c1ae72efef8776d7592",
+    "scope.json": "3f651447332bd4f1357de1cd1d6c42b71a8e3e1a1a9a61950fdc81157db4930c",
+    "selection.json": "96792a13430447f73afe90e6bbe4b9d8f49769bf0841d62ad0b349ee02a14958",
+    "source_receipt.json": "9cdd2bd8d7126c61b62f3ab27e9cbcfb28430f64048317fefaa2f3b2b3109ae9",
+    "storage_layout/Proxy.json": "0680e1dbebc408a223fc35d2e734ce09c4d39e564062e5808fb9487b1aa0394c",
+    "symbols.json": "ffae09ffcf5798081571037dbb8014b00835300b56b7ead74927b98f153d0fc3"
+  },
+  "lineage_id": "wormhole_evm_sdk",
+  "protocol": "Wormhole",
+  "split": "evaluation"
+}

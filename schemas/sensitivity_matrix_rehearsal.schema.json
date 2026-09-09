@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/sensitivity_matrix_rehearsal.schema.json",
+  "title": "CrossLLM development sensitivity matrix rehearsal",
+  "description": "Prespecified M07.07 Cartesian matrix contract; no campaign outcomes are included.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "status", "matrix_id", "matrix_hash",
+    "cell_count", "dimensions", "eligibility_counts", "coverage", "admission_eligible",
+    "evidence_scope", "command", "observed_at", "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "development_sensitivity_matrix_rehearsal"},
+    "scope": {"const": "m07_07_planning_contract_only"},
+    "status": {"const": "pass"},
+    "matrix_id": {"const": "m07-sensitivity-v1"},
+    "matrix_hash": {"$ref": "#/$defs/sha256"},
+    "cell_count": {"const": 13824},
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "methods", "tracks", "proposal_prefixes", "transaction_bounds", "channel_bounds",
+        "solver_timeouts_seconds", "horizons_minutes", "channel_modes", "reorg_modes",
+        "challenge_timings", "attestation_profiles", "program_size_strata"
+      ],
+      "properties": {
+        "methods": {"const": ["X", "P"]},
+        "tracks": {"const": ["automatic"]},
+        "proposal_prefixes": {"const": [1, 2, 4, 8]},
+        "transaction_bounds": {"const": [2, 4, 6, 8]},
+        "channel_bounds": {"const": [[6, 1], [12, 2], [24, 4]]},
+        "solver_timeouts_seconds": {"const": [10, 30, 120]},
+        "horizons_minutes": {"const": [15, 60]},
+        "channel_modes": {"const": ["fifo", "reordering"]},
+        "reorg_modes": {"const": ["none", "bounded_pre_finality"]},
+        "challenge_timings": {"const": ["before", "at", "after"]},
+        "attestation_profiles": {"const": ["honest", "conditional"]},
+        "program_size_strata": {"const": ["small"]}
+      }
+    },
+    "eligibility_counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pending", "eligible", "unsupported"],
+      "properties": {
+        "pending": {"const": 13824},
+        "eligible": {"const": 0},
+        "unsupported": {"const": 0}
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "const": [
+        {"method": "X", "track": "automatic", "cell_count": 6912},
+        {"method": "P", "track": "automatic", "cell_count": 6912}
+      ]
+    },
+    "admission_eligible": {"const": false},
+    "evidence_scope": {"const": "development_planning_non_admission"},
+    "command": {"type": "string", "minLength": 1},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "report_hash": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

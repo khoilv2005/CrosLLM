@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/benchmark_admission.schema.json",
+  "title": "CrossLLM admitted evaluation row",
+  "description": "Additional evidence contract used with protocol_tool --mode admission.",
+  "type": "object",
+  "required": [
+    "admission_status",
+    "source_archive_sha256",
+    "artifact_manifest_sha256",
+    "deployment_config_sha256",
+    "paired_harness_sha256",
+    "trigger_validation_evidence_hash",
+    "admission_acceptance"
+  ],
+  "properties": {
+    "admission_status": {"const": "admitted"},
+    "source_archive_sha256": {"$ref": "#/$defs/sha256"},
+    "artifact_manifest_sha256": {"$ref": "#/$defs/sha256"},
+    "deployment_config_sha256": {"$ref": "#/$defs/sha256"},
+    "paired_harness_sha256": {"$ref": "#/$defs/sha256"},
+    "trigger_validation_evidence_hash": {"$ref": "#/$defs/sha256"},
+    "mutation_patch_sha256": {"$ref": "#/$defs/sha256"},
+    "negative_validation_evidence_hash": {"$ref": "#/$defs/sha256"},
+    "admission_acceptance": {
+      "type": "object",
+      "required": ["owner", "agent", "accepted_at", "evidence_refs"],
+      "properties": {
+        "owner": {"type": "string", "minLength": 1},
+        "agent": {"const": "codex"},
+        "accepted_at": {"type": "string", "minLength": 1},
+        "evidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "vulnerable"}}},
+      "then": {"required": ["mutation_patch_sha256"]}
+    },
+    {
+      "if": {"properties": {"status": {"enum": ["patched", "benign"]}}},
+      "then": {"required": ["negative_validation_evidence_hash"]}
+    }
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

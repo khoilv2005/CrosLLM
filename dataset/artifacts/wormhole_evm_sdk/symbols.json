@@ -1,0 +1,59 @@
+{
+  "lineage_id": "wormhole_evm_sdk",
+  "protocol": "Wormhole",
+  "contracts": {
+    "Proxy": {
+      "source_path": "src/proxy/Proxy.sol",
+      "source_file_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+      "source_target": {
+        "contract_name": "Proxy",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 10
+      },
+      "function_count": 0,
+      "functions": [],
+      "event_count": 0,
+      "events": [],
+      "storage_slot_count": 0,
+      "storage_slots": []
+    }
+  },
+  "stable_symbols": [
+    {
+      "symbol_id": "abi_constructor.Proxy.f2f7c410cf4f9c3569289fc0938f1fd2e049508c6b70274912af68418384ed6e",
+      "contract": "Proxy",
+      "name": "constructor",
+      "signature": "constructor(address,bytes)",
+      "kind": "abi_constructor",
+      "domain": "shared",
+      "source_path": "src/proxy/Proxy.sol",
+      "source_file_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7"
+    },
+    {
+      "symbol_id": "abi_error.Proxy.9a5c579e3d8e13abe456bdaaf1eafbcffa1f999bfcd18e9356fd26e4f9a31567",
+      "contract": "Proxy",
+      "name": "ProxyConstructionFailed",
+      "signature": "ProxyConstructionFailed(bytes)",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "src/proxy/Proxy.sol",
+      "source_file_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7"
+    },
+    {
+      "symbol_id": "abi_fallback.Proxy.072302870c1c914fed13668cd6ebc155a497b957c421e6544e893acddadbf22c",
+      "contract": "Proxy",
+      "name": "fallback",
+      "signature": "fallback()",
+      "kind": "abi_fallback",
+      "domain": "shared",
+      "source_path": "src/proxy/Proxy.sol",
+      "source_file_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7"
+    }
+  ],
+  "stable_symbols_sha256": "0491de7979d289390dc72314f45da05031bf77183b8486cdfedff4d1d8e7678b",
+  "domain_assignments": {
+    "Proxy": "shared"
+  },
+  "source_selection_hash": "0cfbb065e77cefe8ba5869b6c357e8fd470ba4a5bf4e90ded069cfd975b8489e"
+}

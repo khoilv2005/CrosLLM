@@ -1,0 +1,50 @@
+{
+  "storage": [
+    {
+      "astId": 2216,
+      "contract": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol:L2GatewayRouter",
+      "label": "counterpartGateway",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_address"
+    },
+    {
+      "astId": 2218,
+      "contract": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol:L2GatewayRouter",
+      "label": "router",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_address"
+    },
+    {
+      "astId": 1874,
+      "contract": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol:L2GatewayRouter",
+      "label": "l1TokenToGateway",
+      "offset": 0,
+      "slot": "2",
+      "type": "t_mapping(t_address,t_address)"
+    },
+    {
+      "astId": 1877,
+      "contract": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol:L2GatewayRouter",
+      "label": "defaultGateway",
+      "offset": 0,
+      "slot": "3",
+      "type": "t_address"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_mapping(t_address,t_address)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => address)",
+      "numberOfBytes": "32",
+      "value": "t_address"
+    }
+  }
+}

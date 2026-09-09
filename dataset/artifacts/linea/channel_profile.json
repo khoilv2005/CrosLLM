@@ -1,0 +1,12 @@
+{
+  "channel_type": "type2_zkevm_canonical_rollup",
+  "topology": "l1_l2_paired",
+  "source_domains": [
+    "Ethereum"
+  ],
+  "target_domains": [
+    "Linea"
+  ],
+  "message_passing": "l1_l2_message_service",
+  "settlement": "plonk_validity_proof"
+}

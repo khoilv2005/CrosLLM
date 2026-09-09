@@ -1,0 +1,4 @@
+method,value,known,total,missing,note
+P,,0,0,0,precision_NA_no_claims
+T0,,0,0,0,precision_NA_no_claims
+X,1.0,10,10,0,

@@ -1,0 +1,91 @@
+{
+  "lineage_id": "optimism",
+  "compiler": "solc",
+  "compiler_version": "0.8.15",
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:91d56ebfabd56ade7c1961eea005ed7b23cdb777422948abde2e1532d40877ea",
+  "compiler_binary_path": "/compiler/solc",
+  "compiler_binary_sha256": "527e32e6a251b3e15b1a68506df15bfe63920ef63b5a12185b884adb2b7fec2b",
+  "dependency_closure": {
+    "roots": [],
+    "file_count": 0,
+    "files": [],
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "dependency_root": null,
+  "dependency_mounts": [],
+  "dependency_remappings": [
+    {
+      "prefix": "@solady/",
+      "target": "/src/packages/contracts-bedrock/lib/solady/src/"
+    }
+  ],
+  "source_selection": {
+    "schema_version": 1,
+    "entry_paths": [
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol"
+    ],
+    "document_paths": [
+      "LICENSE",
+      "README.md"
+    ],
+    "selected_paths": [
+      "LICENSE",
+      "README.md",
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol"
+    ],
+    "unresolved_imports": [
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:interfaces/L1/IOptimismPortal2.sol",
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:interfaces/L1/ISuperchainConfig.sol",
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:interfaces/L1/ISystemConfig.sol",
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:interfaces/universal/ISemver.sol",
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:src/libraries/Predeploys.sol",
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:src/universal/CrossDomainMessenger.sol",
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:src/universal/ProxyAdminOwnedBase.sol",
+      "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol:src/universal/ReinitializableBase.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:@openzeppelin/contracts/proxy/utils/Initializable.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/IETHLockbox.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/IOptimismPortal2.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/IResourceMetering.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/ISuperchainConfig.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/L1/ISystemConfig.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/dispute/IAnchorStateRegistry.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/dispute/IDisputeGame.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/dispute/IDisputeGameFactory.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:interfaces/universal/ISemver.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/L1/ResourceMetering.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/dispute/lib/Types.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/Constants.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/EOA.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/Features.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/Hashing.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/SafeCall.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/Types.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/libraries/trie/SecureMerkleTrie.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/universal/ProxyAdminOwnedBase.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/universal/ReinitializableBase.sol",
+      "packages/contracts-bedrock/src/L1/OptimismPortal2.sol:src/vendor/AddressAliasHelper.sol"
+    ],
+    "selection_hash": "3e9338307e1dbc3e769e56b92effa1b718df5079892a3f3c64d992a0b3c47f1a"
+  },
+  "build_framework": "foundry",
+  "docker_build_image": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+  "docker_network": "none",
+  "compiler_scratch": "read-only source bind; /tmp/foundry-cache and /tmp/foundry-out disposable; /compiler is a lineage-scoped disposable Docker volume",
+  "build_command": "forge inspect <Contract> [abi|storage|bytecode]",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "compiler_settings": {
+    "compiler": "solc",
+    "compiler_version": "0.8.15",
+    "compiler_image": "ghcr.io/argotorg/solc@sha256:91d56ebfabd56ade7c1961eea005ed7b23cdb777422948abde2e1532d40877ea",
+    "compiler_binary_sha256": "527e32e6a251b3e15b1a68506df15bfe63920ef63b5a12185b884adb2b7fec2b",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "build_framework": "foundry"
+  },
+  "verification_status": "inspect_probe_only",
+  "verified": false,
+  "compiler_settings_sha256": "652e308a78247eac11f567ec0aa2f33284252e149d87a46f6eec35e1c8fbaf67"
+}

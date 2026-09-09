@@ -1,0 +1,27 @@
+{
+  "archive_backend": "host",
+  "archive_command": "git archive --format=tar HEAD",
+  "archive_format": "tar",
+  "artifact_admission_status": "source_pinned_and_built",
+  "canonical_environment": "resolved from private source cache; inspect runs in pinned Docker",
+  "compiler_binary_sha256": null,
+  "dependency_closure": {
+    "file_count": 0,
+    "files": [],
+    "roots": [],
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "dependency_mounts": [],
+  "dependency_remappings": [],
+  "dependency_root": null,
+  "dirty_worktree": false,
+  "harness_status": "source_backed_development",
+  "host_id": "axelar_gmp_gateway",
+  "inspect_network": "none",
+  "lineage_id": "axelar_gmp",
+  "pinned_status": "source_pinned",
+  "source_archive_sha256": "2c034cf04b955828f92d7c18cccdd3896c9dee80d37121549f51978d0573ff57",
+  "source_commit": "30196ca7cb9479fd5f79f0668523bd2a488093ed",
+  "source_repo": "https://github.com/axelarnetwork/axelar-gmp-sdk-solidity.git",
+  "source_selection_hash": "de05ada4e226668a5199504ae8921fff36d938f21ad0ab4a733294aec2f830c9"
+}

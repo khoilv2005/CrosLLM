@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/AgglayerBridge.sol"
+  ],
+  "document_paths": [],
+  "selected_paths": [
+    "contracts/AgglayerBridge.sol",
+    "contracts/interfaces/IAgglayerBridge.sol",
+    "contracts/interfaces/IBaseLegacyAgglayerGER.sol",
+    "contracts/interfaces/IBridgeMessageReceiver.sol",
+    "contracts/interfaces/IBytecodeStorer.sol",
+    "contracts/interfaces/IEmergencyManager.sol",
+    "contracts/interfaces/IProxyAdmin.sol",
+    "contracts/interfaces/ITokenWrappedBridgeUpgradeable.sol",
+    "contracts/interfaces/IVersion.sol",
+    "contracts/lib/BridgeLib.sol",
+    "contracts/lib/DepositContractBase.sol",
+    "contracts/lib/DepositContractV2.sol",
+    "contracts/lib/EmergencyManager.sol",
+    "contracts/lib/GlobalExitRootLib.sol",
+    "contracts/lib/Hashes.sol",
+    "contracts/lib/TokenWrappedBridgeUpgradeable.sol"
+  ],
+  "unresolved_imports": [
+    "contracts/AgglayerBridge.sol:@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+    "contracts/AgglayerBridge.sol:@openzeppelin/contracts5/proxy/ERC1967/ERC1967Utils.sol",
+    "contracts/interfaces/ITokenWrappedBridgeUpgradeable.sol:@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/interfaces/ITokenWrappedBridgeUpgradeable.sol:@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+    "contracts/interfaces/ITokenWrappedBridgeUpgradeable.sol:@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol",
+    "contracts/lib/BridgeLib.sol:@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+    "contracts/lib/DepositContractV2.sol:@openzeppelin/contracts-upgradeable4/security/ReentrancyGuardUpgradeable.sol",
+    "contracts/lib/TokenWrappedBridgeUpgradeable.sol:@openzeppelin/contracts-upgradeable5/proxy/utils/Initializable.sol",
+    "contracts/lib/TokenWrappedBridgeUpgradeable.sol:@openzeppelin/contracts-upgradeable5/token/ERC20/ERC20Upgradeable.sol",
+    "contracts/lib/TokenWrappedBridgeUpgradeable.sol:@openzeppelin/contracts-upgradeable5/token/ERC20/extensions/ERC20PermitUpgradeable.sol"
+  ],
+  "selection_hash": "fb5186e7f90f0f252afe51b147fa5644218c3389c4225a6a5c0e847d1a1c7831"
+}

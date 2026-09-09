@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/spoke-pools/Ethereum_SpokePool.sol"
+  ],
+  "document_paths": [
+    "LICENSE",
+    "README.md"
+  ],
+  "selected_paths": [
+    "LICENSE",
+    "README.md",
+    "contracts/external/interfaces/IAcrossV5Executor.sol",
+    "contracts/external/interfaces/IAcrossV5ExecutorAdapter.sol",
+    "contracts/external/interfaces/IGateway.sol",
+    "contracts/external/interfaces/WETH9Interface.sol",
+    "contracts/interfaces/ERC7683.sol",
+    "contracts/interfaces/HubPoolInterface.sol",
+    "contracts/interfaces/IOFT.sol",
+    "contracts/interfaces/SpokePoolInterface.sol",
+    "contracts/interfaces/SpokePoolMessageHandler.sol",
+    "contracts/interfaces/V3SpokePoolInterface.sol",
+    "contracts/interfaces/V5SpokePoolInterface.sol",
+    "contracts/libraries/AddressConverters.sol",
+    "contracts/libraries/MerkleLib.sol",
+    "contracts/libraries/OFTTransportAdapter.sol",
+    "contracts/libraries/SafeTransferERC20.sol",
+    "contracts/spoke-pools/Ethereum_SpokePool.sol",
+    "contracts/spoke-pools/SpokePool.sol",
+    "contracts/upgradeable/AddressLibUpgradeable.sol",
+    "contracts/upgradeable/EIP712CrossChainUpgradeable.sol",
+    "contracts/upgradeable/MultiCallerUpgradeable.sol"
+  ],
+  "unresolved_imports": [
+    "contracts/interfaces/HubPoolInterface.sol:@openzeppelin/contracts-v4/token/ERC20/IERC20.sol",
+    "contracts/libraries/MerkleLib.sol:@openzeppelin/contracts-v4/utils/cryptography/MerkleProof.sol",
+    "contracts/libraries/OFTTransportAdapter.sol:@openzeppelin/contracts-v4/token/ERC20/IERC20.sol",
+    "contracts/libraries/OFTTransportAdapter.sol:@openzeppelin/contracts-v4/token/ERC20/utils/SafeERC20.sol",
+    "contracts/libraries/SafeTransferERC20.sol:@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/libraries/SafeTransferERC20.sol:@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+    "contracts/spoke-pools/Ethereum_SpokePool.sol:@openzeppelin/contracts-upgradeable-v4/access/OwnableUpgradeable.sol",
+    "contracts/spoke-pools/SpokePool.sol:@openzeppelin/contracts-upgradeable-v4/proxy/utils/UUPSUpgradeable.sol",
+    "contracts/spoke-pools/SpokePool.sol:@openzeppelin/contracts-upgradeable-v4/security/ReentrancyGuardUpgradeable.sol",
+    "contracts/spoke-pools/SpokePool.sol:@openzeppelin/contracts-upgradeable-v4/token/ERC20/IERC20Upgradeable.sol",
+    "contracts/spoke-pools/SpokePool.sol:@openzeppelin/contracts-upgradeable-v4/token/ERC20/utils/SafeERC20Upgradeable.sol",
+    "contracts/spoke-pools/SpokePool.sol:@openzeppelin/contracts-v4/utils/cryptography/SignatureChecker.sol",
+    "contracts/spoke-pools/SpokePool.sol:@openzeppelin/contracts-v4/utils/math/SignedMath.sol",
+    "contracts/upgradeable/EIP712CrossChainUpgradeable.sol:@openzeppelin/contracts-upgradeable-v4/proxy/utils/Initializable.sol",
+    "contracts/upgradeable/EIP712CrossChainUpgradeable.sol:@openzeppelin/contracts-upgradeable-v4/utils/cryptography/ECDSAUpgradeable.sol"
+  ],
+  "selection_hash": "32259cab04cb263c8340ae46a4a4e6b09bfadf4412d4a578b94d8487e5da5997"
+}

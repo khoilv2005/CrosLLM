@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/CBridge.sol"
+  ],
+  "document_paths": [
+    "LICENSE",
+    "README.md"
+  ],
+  "selected_paths": [
+    "LICENSE",
+    "README.md",
+    "contracts/CBridge.sol"
+  ],
+  "unresolved_imports": [
+    "contracts/CBridge.sol:@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/CBridge.sol:@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
+  ],
+  "selection_hash": "4ea61a786a5f7b23f263eaae37c20da74cd67fc91d8e3f67664b270002958426"
+}

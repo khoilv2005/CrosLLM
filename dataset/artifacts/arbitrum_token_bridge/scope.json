@@ -1,0 +1,16 @@
+{
+  "lineage_id": "arbitrum_token_bridge",
+  "protocol": "Arbitrum Token Bridge",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "L1GatewayRouter",
+    "L2GatewayRouter"
+  ],
+  "entry_points": {
+    "L1GatewayRouter": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+    "L2GatewayRouter": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol"
+  },
+  "channel_type": "rollup_canonical_token_bridge",
+  "topology": "l1_l2_paired",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

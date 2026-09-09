@@ -1,0 +1,10 @@
+{
+  "lineage_id": "arbitrum_token_bridge",
+  "protocol": "Arbitrum Token Bridge",
+  "declared_license": "Apache-2.0",
+  "source_repository": "https://github.com/OffchainLabs/token-bridge-contracts.git",
+  "spdx_identifier": "Apache-2.0",
+  "commercial_use_restrictions": false,
+  "redistribution_permitted": null,
+  "license_review_status": "pending_component_review"
+}

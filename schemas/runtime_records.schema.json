@@ -93,9 +93,42 @@
       "properties": {
         "schema_version": {"const": 1}, "witness_id": {"$ref": "#/$defs/id"},
         "query_id": {"$ref": "#/$defs/id"}, "initial_state_hash": {"$ref": "#/$defs/sha256"},
-        "trace_hash": {"$ref": "#/$defs/sha256"}, "actions": {"type": "array"},
+        "trace_hash": {"$ref": "#/$defs/sha256"}, "actions": {"type": "array", "items": {"$ref": "#/$defs/witness_action"}},
+        "domains": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "created_at": {"$ref": "#/$defs/timestamp"}, "proof_objects": {"type": "object"},
         "native_replay_status": {"enum": ["pass", "fail", "unknown", "unsupported"]},
-        "independent_replay_status": {"enum": ["pass", "fail", "unknown", "unsupported"]}
+        "independent_replay_status": {"enum": ["pass", "fail", "unknown", "unsupported"]},
+        "security_relevance": {"enum": ["unassessed", "relevant", "irrelevant", "unknown"]},
+        "allowed_capabilities": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+      },
+      "additionalProperties": false
+    },
+    "witness_action": {
+      "type": "object",
+      "required": ["action", "message", "transaction_index", "channel_transition_index", "pending_before", "pending_after"],
+      "properties": {
+        "action": {"enum": ["enqueue", "deliver", "reorg"]},
+        "message": {"$ref": "#/$defs/witness_message"},
+        "transaction_index": {"type": "integer", "minimum": 0},
+        "channel_transition_index": {"type": "integer", "minimum": 0},
+        "pending_before": {"type": "integer", "minimum": 0},
+        "pending_after": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "witness_message": {
+      "type": "object",
+      "required": ["source_domain", "destination_domain", "emitter", "recipient", "nonce", "payload_commitment"],
+      "properties": {
+        "source_domain": {"type": "string", "minLength": 1},
+        "destination_domain": {"type": "string", "minLength": 1},
+        "emitter": {"type": "string", "minLength": 1},
+        "recipient": {"type": "string", "minLength": 1},
+        "nonce": {"type": "integer", "minimum": 0},
+        "payload_commitment": {"type": "string", "minLength": 1},
+        "intent_id": {"type": ["string", "null"], "minLength": 1},
+        "attestation": {"type": ["string", "null"], "minLength": 1},
+        "attestor": {"type": ["string", "null"], "minLength": 1}
       },
       "additionalProperties": false
     },
@@ -141,9 +174,19 @@
       "type": "object", "required": ["schema_version", "cpu_core_seconds", "wall_seconds"],
       "properties": {
         "schema_version": {"const": 1}, "cpu_core_seconds": {"type": "number", "minimum": 0},
-        "solver_seconds": {"type": "number", "minimum": 0}, "memory_high_water_bytes": {"type": "integer", "minimum": 0},
+        "solver_seconds": {"type": "number", "minimum": 0}, "memory_high_water_bytes": {"type": ["integer", "null"], "minimum": 0},
         "wall_seconds": {"type": "number", "minimum": 0}, "input_tokens": {"type": ["integer", "null"], "minimum": 0},
-        "generated_tokens": {"type": ["integer", "null"], "minimum": 0}, "missing_field_reasons": {"type": "object"}
+        "generated_tokens": {"type": ["integer", "null"], "minimum": 0},
+        "cost_usd": {"type": ["number", "null"], "minimum": 0},
+        "phase": {"enum": ["method_horizon", "preprocessing", "adjudication", "calibration"]},
+        "campaign_id": {"type": ["string", "null"], "minLength": 1},
+        "attempt_id": {"type": ["string", "null"], "minLength": 1},
+        "worker_id": {"type": ["string", "null"], "minLength": 1},
+        "queue_seconds": {"type": "number", "minimum": 0},
+        "throttled_seconds": {"type": "number", "minimum": 0},
+        "throttle_count": {"type": "integer", "minimum": 0},
+        "record_count": {"type": "integer", "minimum": 0},
+        "missing_field_reasons": {"type": "object"}
       },
       "additionalProperties": false
     },

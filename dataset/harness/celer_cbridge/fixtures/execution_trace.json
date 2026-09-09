@@ -1,0 +1,8 @@
+{
+  "lineage_id": "celer_cbridge",
+  "protocol": "Celer cBridge",
+  "test_suite": "CBridgePairedHarnessTest",
+  "execution_engine": "Foundry EVM in pinned Docker image",
+  "status": "PASS",
+  "evidence_scope": "generated_development_harness_smoke_only"
+}

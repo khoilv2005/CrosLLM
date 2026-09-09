@@ -1,0 +1,18 @@
+{
+  "channel_type": "cross_chain_liquidity_and_messaging",
+  "topology": "any_to_any",
+  "source_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "Avalanche"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "Avalanche"
+  ],
+  "message_passing": "validator_attestation_kappa",
+  "settlement": "node_group_signature"
+}

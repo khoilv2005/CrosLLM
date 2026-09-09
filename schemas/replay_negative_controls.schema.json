@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/replay_negative_controls.schema.json",
+  "title": "CrossLLM development replay negative controls",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "case_ids", "cases", "case_count",
+    "passed_count", "all_passed", "source_mutation_report_sha256", "source_mutation_report",
+    "source_backed", "independent_property_validation", "independent_trigger_validation",
+    "admission_eligible", "evidence_scope", "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "replay_negative_control_report"},
+    "scope": {"const": "development_replay_boundary_controls"},
+    "case_ids": {"const": ["wrong_property", "altered_witness", "infeasible_signature", "wrong_initial_state", "callback_ordering", "patched_control"]},
+    "cases": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"$ref": "#/$defs/case"}},
+    "case_count": {"const": 6},
+    "passed_count": {"const": 6},
+    "all_passed": {"const": true},
+    "source_mutation_report_sha256": {"$ref": "#/$defs/sha256"},
+    "source_mutation_report": {"type": "string", "minLength": 1},
+    "source_backed": {"const": true},
+    "independent_property_validation": {"const": false},
+    "independent_trigger_validation": {"const": false},
+    "admission_eligible": {"const": false},
+    "evidence_scope": {"const": "development_replay_boundary_controls"},
+    "report_hash": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["case_id", "control_kind", "expected_outcome", "observed_status", "observed_reason", "passed", "evidence_hash"],
+      "properties": {
+        "case_id": {"enum": ["wrong_property", "altered_witness", "infeasible_signature", "wrong_initial_state", "callback_ordering", "patched_control"]},
+        "control_kind": {"type": "string", "minLength": 1},
+        "expected_outcome": {"type": "string", "minLength": 1},
+        "observed_status": {"type": "string", "minLength": 1},
+        "observed_reason": {"type": "string", "minLength": 1},
+        "passed": {"const": true},
+        "evidence_hash": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]}
+      }
+    }
+  }
+}

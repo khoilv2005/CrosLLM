@@ -1,0 +1,281 @@
+{
+  "storage": [
+    {
+      "astId": 138,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "_initialized",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_uint8"
+    },
+    {
+      "astId": 141,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "_initializing",
+      "offset": 1,
+      "slot": "0",
+      "type": "t_bool"
+    },
+    {
+      "astId": 882,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 10,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "_owner",
+      "offset": 0,
+      "slot": "51",
+      "type": "t_address"
+    },
+    {
+      "astId": 130,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "52",
+      "type": "t_array(t_uint256)49_storage"
+    },
+    {
+      "astId": 321,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "_paused",
+      "offset": 0,
+      "slot": "101",
+      "type": "t_bool"
+    },
+    {
+      "astId": 426,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "102",
+      "type": "t_array(t_uint256)49_storage"
+    },
+    {
+      "astId": 441,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "_status",
+      "offset": 0,
+      "slot": "151",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 510,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "152",
+      "type": "t_array(t_uint256)49_storage"
+    },
+    {
+      "astId": 2165,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "xDomainMessageSender",
+      "offset": 0,
+      "slot": "201",
+      "type": "t_address"
+    },
+    {
+      "astId": 2168,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__counterpart",
+      "offset": 0,
+      "slot": "202",
+      "type": "t_address"
+    },
+    {
+      "astId": 2171,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "feeVault",
+      "offset": 0,
+      "slot": "203",
+      "type": "t_address"
+    },
+    {
+      "astId": 2174,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__rateLimiter",
+      "offset": 0,
+      "slot": "204",
+      "type": "t_address"
+    },
+    {
+      "astId": 2179,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "205",
+      "type": "t_array(t_uint256)46_storage"
+    },
+    {
+      "astId": 977,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "messageSendTimestamp",
+      "offset": 0,
+      "slot": "251",
+      "type": "t_mapping(t_bytes32,t_uint256)"
+    },
+    {
+      "astId": 982,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "isL2MessageExecuted",
+      "offset": 0,
+      "slot": "252",
+      "type": "t_mapping(t_bytes32,t_bool)"
+    },
+    {
+      "astId": 987,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__isL1MessageDropped",
+      "offset": 0,
+      "slot": "253",
+      "type": "t_mapping(t_bytes32,t_bool)"
+    },
+    {
+      "astId": 990,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__rollup",
+      "offset": 0,
+      "slot": "254",
+      "type": "t_address"
+    },
+    {
+      "astId": 993,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__messageQueue",
+      "offset": 0,
+      "slot": "255",
+      "type": "t_address"
+    },
+    {
+      "astId": 996,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "__maxReplayTimes",
+      "offset": 0,
+      "slot": "256",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 1002,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "replayStates",
+      "offset": 0,
+      "slot": "257",
+      "type": "t_mapping(t_bytes32,t_struct(ReplayState)972_storage)"
+    },
+    {
+      "astId": 1007,
+      "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+      "label": "prevReplayIndex",
+      "offset": 0,
+      "slot": "258",
+      "type": "t_mapping(t_uint256,t_uint256)"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_array(t_uint256)46_storage": {
+      "encoding": "inplace",
+      "label": "uint256[46]",
+      "numberOfBytes": "1472",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)49_storage": {
+      "encoding": "inplace",
+      "label": "uint256[49]",
+      "numberOfBytes": "1568",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)50_storage": {
+      "encoding": "inplace",
+      "label": "uint256[50]",
+      "numberOfBytes": "1600",
+      "base": "t_uint256"
+    },
+    "t_bool": {
+      "encoding": "inplace",
+      "label": "bool",
+      "numberOfBytes": "1"
+    },
+    "t_bytes32": {
+      "encoding": "inplace",
+      "label": "bytes32",
+      "numberOfBytes": "32"
+    },
+    "t_mapping(t_bytes32,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_mapping(t_bytes32,t_struct(ReplayState)972_storage)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => struct L1ScrollMessenger.ReplayState)",
+      "numberOfBytes": "32",
+      "value": "t_struct(ReplayState)972_storage"
+    },
+    "t_mapping(t_bytes32,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_uint256,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_struct(ReplayState)972_storage": {
+      "encoding": "inplace",
+      "label": "struct L1ScrollMessenger.ReplayState",
+      "numberOfBytes": "32",
+      "members": [
+        {
+          "astId": 969,
+          "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+          "label": "times",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_uint128"
+        },
+        {
+          "astId": 971,
+          "contract": "src/L1/L1ScrollMessenger.sol:L1ScrollMessenger",
+          "label": "lastIndex",
+          "offset": 16,
+          "slot": "0",
+          "type": "t_uint128"
+        }
+      ]
+    },
+    "t_uint128": {
+      "encoding": "inplace",
+      "label": "uint128",
+      "numberOfBytes": "16"
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    },
+    "t_uint8": {
+      "encoding": "inplace",
+      "label": "uint8",
+      "numberOfBytes": "1"
+    }
+  }
+}

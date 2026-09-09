@@ -1,0 +1,132 @@
+{
+  "compiler_source": "Foundry SVM runtime download; compiler is not embedded in the image",
+  "harnesses": [
+    {
+      "exit_code": 0,
+      "lineage": "across",
+      "output_sha256": "d03be05751286df8c692c17960eabb2f33e95f494ab6218bdb8fc4fe14a84458",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "arbitrum_token_bridge",
+      "output_sha256": "4dcb32903828e7ebc0e17aa804ef73bcf60a2f60aba1d5ea283261ee630f177a",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "axelar_gmp",
+      "output_sha256": "67feae3d72ee4181b7aec52955649b60b57e0dff3ff430bd5af8aeeb745c192e",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "celer_cbridge",
+      "output_sha256": "18cd40352c13719882f13828672f08123b1fb60e09ef4cea606933f672e0d028",
+      "solc_version": "0.8.4",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "chainbridge",
+      "output_sha256": "b49741e8082eeb4b6a37626c4d62e5fc8498d54e9fe27f414ea79d37c821d520",
+      "solc_version": "0.8.11",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "hop",
+      "output_sha256": "0d90b2c4ed7eaec26c090e1702abda18327cdca001d50bbb2c95059fd154cc64",
+      "solc_version": "0.6.12",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "hyperlane",
+      "output_sha256": "2fe3b905964483d47e95673e388bfb3550098a8788b6a4ff05bae72d90d2f2f9",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "layerzero_v2",
+      "output_sha256": "465d28a1e6789cb04f31905ff91e586482e2532b47d8b9bf1e58ef1f5369c50a",
+      "solc_version": "0.8.24",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "linea",
+      "output_sha256": "814da12f14566c0c5652a30390f3ff7836fc39f1700e50ed5400849966d4865a",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "mutation_tests",
+      "output_sha256": "d4693700c015be714b4968029413200817e9aa55c34b4ae57c860cbd7f17c172",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "optimism",
+      "output_sha256": "d79c65a1126e4881cb44041a193f16227f9bbc6c6e29bf96ca03f63fbe0622a9",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "polygon_zkevm",
+      "output_sha256": "735cdbcdd93cdc84e9e9223358e817b2372ca093246595a29eb29ff17040a1d2",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "scroll",
+      "output_sha256": "814da12f14566c0c5652a30390f3ff7836fc39f1700e50ed5400849966d4865a",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "stargate",
+      "output_sha256": "d79c65a1126e4881cb44041a193f16227f9bbc6c6e29bf96ca03f63fbe0622a9",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "synapse",
+      "output_sha256": "38ca9d633ea958dc821d11fadcde1498016ac24240baf09621b2772cb362e5e1",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "wormhole_evm_sdk",
+      "output_sha256": "814da12f14566c0c5652a30390f3ff7836fc39f1700e50ed5400849966d4865a",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    },
+    {
+      "exit_code": 0,
+      "lineage": "zksync_era",
+      "output_sha256": "e0719a47823304e7cf1db3a8985a8f0fc1dcbe80c2250eb9bc07b4116f9b66a3",
+      "solc_version": "0.8.20",
+      "status": "pass"
+    }
+  ],
+  "image": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+  "mount_mode": "read_only",
+  "network_mode": "bridge_for_svm_compiler_download",
+  "probe_date": "2026-09-08",
+  "report_hash": "2190b3fe1b20a13dbadafbbefc294ed65fa70c3004777aec06edaecc2444d809",
+  "schema_version": 1,
+  "scope": "generated_foundry_harness_smoke_only",
+  "source_admission": "not_proven"
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/uln302/SendUln302.sol"
+  ],
+  "document_paths": [
+    "README.md"
+  ],
+  "selected_paths": [
+    "README.md",
+    "packages/layerzero-v2/evm/messagelib/contracts/MessageLibBase.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBase.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBaseE2.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/interfaces/ILayerZeroExecutor.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/interfaces/ILayerZeroTreasury.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/libs/SafeCall.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/SendUlnBase.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/UlnBase.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/interfaces/ILayerZeroDVN.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/libs/DVNOptions.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/libs/UlnOptions.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/uln302/SendUln302.sol"
+  ],
+  "unresolved_imports": [
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBase.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/libs/Transfer.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBase.sol:@openzeppelin/contracts/access/Ownable.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBaseE2.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ILayerZeroEndpointV2.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBaseE2.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/IMessageLib.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBaseE2.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ISendLib.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBaseE2.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/libs/Transfer.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBaseE2.sol:@openzeppelin/contracts/utils/introspection/ERC165.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/SendLibBaseE2.sol:@openzeppelin/contracts/utils/introspection/IERC165.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/SendUlnBase.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ISendLib.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/SendUlnBase.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/messagelib/libs/PacketV1Codec.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/UlnBase.sol:@openzeppelin/contracts/access/Ownable.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/libs/DVNOptions.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/libs/CalldataBytesLib.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/libs/DVNOptions.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/messagelib/libs/BitMaps.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/libs/DVNOptions.sol:solidity-bytes-utils/contracts/BytesLib.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/libs/UlnOptions.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/messagelib/libs/ExecutorOptions.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/libs/UlnOptions.sol:@openzeppelin/contracts/utils/math/SafeCast.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/uln302/SendUln302.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/IMessageLibManager.sol",
+    "packages/layerzero-v2/evm/messagelib/contracts/uln/uln302/SendUln302.sol:@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ISendLib.sol"
+  ],
+  "selection_hash": "fa9dcba06d6c66737e8e70f2a8d65f00ccfa2453187aca27012af4e85622e090"
+}

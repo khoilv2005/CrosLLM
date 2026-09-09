@@ -1,0 +1,114 @@
+{
+  "admission_eligible": false,
+  "events_path": "E:\\School\\UIT\\CROSS LLM\\dataset\\reports\\m08_development_runtime.events.jsonl",
+  "events_sha256": "37983eebfb18dbf6937e3384ff216e1ad0631eff4a78fa7dabf869eb14c232f6",
+  "fake_provider_only": true,
+  "fault_events_path": "E:\\School\\UIT\\CROSS LLM\\dataset\\reports\\m08_development_fault.events.jsonl",
+  "fault_events_sha256": "75df8de9b0a82d043e5dd2549da46f1da7fa74e7f778bcc467048ca983d15701",
+  "limitations": [
+    "all provider responses are in-process synthetic fixtures",
+    "faults are callback injections and do not claim OS-level kill or disk-full reproduction",
+    "independent EVM replay remains unknown in the dry-run and security relevance remains unassessed",
+    "the artifact is development evidence only and has no evaluation admission or reviewer sign-off"
+  ],
+  "ollama_cloud_calls": 0,
+  "record_type": "development_m08_runtime_rehearsal",
+  "report_hash": "0b5fdbceb4a2582e914230241ea915ad92a3af40ec5fc1aa307859f84b90f8c5",
+  "schema_version": 1,
+  "scope": "development_offline_runtime_rehearsal_only",
+  "summary": {
+    "event_count": 58,
+    "fault_event_count": 12,
+    "fault_scenarios": [
+      {
+        "campaign_id": "worker_crash",
+        "error": null,
+        "resume_count": 1,
+        "status": "completed",
+        "terminal": true
+      },
+      {
+        "campaign_id": "timeout",
+        "error": "injected campaign deadline",
+        "resume_count": 0,
+        "status": "timeout",
+        "terminal": true
+      },
+      {
+        "campaign_id": "corrupted_blob",
+        "error": "injected corrupted evidence blob",
+        "resume_count": 0,
+        "status": "tool_failure",
+        "terminal": true
+      },
+      {
+        "campaign_id": "disk_full",
+        "error": "injected disk-full export failure",
+        "resume_count": 0,
+        "status": "tool_failure",
+        "terminal": true
+      },
+      {
+        "campaign_id": "provider_failure",
+        "error": "injected provider outage",
+        "resume_count": 0,
+        "status": "provider_failure",
+        "terminal": true
+      }
+    ],
+    "fault_telemetry_count": 6,
+    "independent_replay_status": "unknown",
+    "method_event_count": 54,
+    "method_tracks": {
+      "P": {
+        "candidate_count": 8,
+        "provider_call_count": 8,
+        "slot_count": 8,
+        "template_hash": "a7d68a35653286d2ebf5575d86816bb27dade3add4ac34df840216f8a2776d7e"
+      },
+      "T0": {
+        "candidate_count": 8,
+        "provider_call_count": 8,
+        "slot_count": 8,
+        "template_hash": "a7d68a35653286d2ebf5575d86816bb27dade3add4ac34df840216f8a2776d7e"
+      },
+      "X": {
+        "candidate_count": 8,
+        "provider_call_count": 8,
+        "slot_count": 8,
+        "template_hash": "a7d68a35653286d2ebf5575d86816bb27dade3add4ac34df840216f8a2776d7e"
+      },
+      "shared_request_hash": "62b57747407b2ffd85328f761ea8ee6ce68b71619ddb39867336946c23ce8afb"
+    },
+    "native_replay_status": "pass",
+    "proposal_compiled": true,
+    "replay_assessment_reasons": [
+      "independent_replay_unknown",
+      "security_relevance_unassessed"
+    ],
+    "replay_assessment_status": "pending",
+    "resumed_same_attempt": true,
+    "search_status": "sat",
+    "smt_status": "sat",
+    "symbolic_search_status": "sat",
+    "telemetry": {
+      "cost_usd": null,
+      "cpu_core_seconds": 0.1,
+      "generated_tokens": null,
+      "input_tokens": null,
+      "memory_high_water_bytes": null,
+      "missing_field_reasons": {
+        "input_tokens": "dry_run_no_provider"
+      },
+      "phase": "method_horizon",
+      "queue_seconds": 0.0,
+      "record_count": 1,
+      "schema_version": 1,
+      "solver_seconds": 0.02,
+      "throttle_count": 0,
+      "throttled_seconds": 0.0,
+      "wall_seconds": 0.2
+    }
+  },
+  "synthetic_provider_calls": 24
+}

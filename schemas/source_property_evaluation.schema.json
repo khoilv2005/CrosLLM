@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/source_property_evaluation.schema.json",
+  "title": "CrossLLM independent source-property evaluation result",
+  "description": "Concrete evaluator result; security relevance remains unassessed until adjudication.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "evaluator_spec_hash", "property_hash", "observation_hash",
+    "trace_hash", "status", "property_holds", "security_relevance", "reason"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "evaluator_spec_hash": {"$ref": "#/$defs/sha256"},
+    "property_hash": {"$ref": "#/$defs/sha256"},
+    "observation_hash": {"$ref": "#/$defs/sha256"},
+    "trace_hash": {"$ref": "#/$defs/sha256"},
+    "status": {"enum": ["pass", "fail", "unknown", "unsupported"]},
+    "property_holds": {"type": ["boolean", "null"]},
+    "security_relevance": {"enum": ["unassessed", "relevant", "irrelevant", "unknown"]},
+    "reason": {"type": ["string", "null"]}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

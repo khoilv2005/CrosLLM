@@ -1,0 +1,8 @@
+{
+  "lineage_id": "across",
+  "protocol": "Across Protocol",
+  "test_suite": "AcrossSourceBackedHarnessTest",
+  "execution_engine": "Foundry EVM in pinned Docker image",
+  "status": "PASS",
+  "evidence_scope": "source_backed_development_probe_only"
+}

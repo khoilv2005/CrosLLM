@@ -1,0 +1,338 @@
+{
+  "artifact_manifest_sha256": "917464e0467f02a9e3dc4b49754ba39b9f61ba99333da957c498638824e552a4",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+      "source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "7627ecf4b7b3b1987133a79440b0973a428a029ac0a32d3a3f86c4d97907fad5",
+      "source_path": "l1-contracts/contracts/bridge/asset-router/IAssetRouterBase.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "a417b6aac6d798a47f0122c3a1d03f8480c33d9406d3cb7e95bdef117e1e4b53",
+      "source_path": "l1-contracts/contracts/bridge/asset-router/IL1AssetRouter.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "f91a09d94811af6feea07a136538a25d3e399b1424a34d973e402212ab381987",
+      "source_path": "l1-contracts/contracts/bridge/interfaces/IL1AssetDeploymentTracker.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "9c29a61fde66d3a9abb81db80070bd23de2ba2964e150e3834858b70e9c980c5",
+      "source_path": "l1-contracts/contracts/bridge/interfaces/IL1ERC20Bridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "eb061ea8f7c5bd37ea960e367a0b8253ffea20f1f2260b19c94a1c2c5ca7b119",
+      "source_path": "l1-contracts/contracts/bridge/interfaces/IL1Nullifier.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "8f493b213a991cb29cdc5dae4062530ab603eea7b7d7af59a0c67ff36b7e4b03",
+      "source_path": "l1-contracts/contracts/bridge/interfaces/IL1SharedBridgeLegacy.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "317516834afe60185d9f10db0844361914d3e6df74881c13cb1a374e8ed85fed",
+      "source_path": "l1-contracts/contracts/bridge/ntv/IL1NativeTokenVault.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c5d568d7c558b469a8395368954da45768bacf3caf690e0c0e615befc675a5f5",
+      "source_path": "l1-contracts/contracts/bridge/ntv/INativeTokenVault.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "2683d09ce6093e791e048c97b31e74dd3af1aba718d595fe08c575ab672bc163",
+      "source_path": "l1-contracts/contracts/bridgehub/IBridgehub.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "e06ee8276549505df3b1f82385542bf76d61feeb5e5709e2f3bbc4091f6db1cb",
+      "source_path": "l1-contracts/contracts/bridgehub/ICTMDeploymentTracker.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "ed264c571a66fed93664f6a722c6fa2d716a8c8d991333dab26cb652c72bfb3b",
+      "source_path": "l1-contracts/contracts/bridgehub/IMessageRoot.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "3f595ca032a2c8447a59e6b6a096e3967b043e1dd5a3b7bd2d615e57d979a000",
+      "source_path": "l1-contracts/contracts/common/Config.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "f7ce23016b70285d39ceca2edceca2206ed01f4d4bbba532c4bff1c965704ba1",
+      "source_path": "l1-contracts/contracts/common/L1ContractErrors.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "7651012f0ac20f0ee933de65e728a44aef703b1a89d02f077656b00992f5aabf",
+      "source_path": "l1-contracts/contracts/common/Messaging.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "6953fd773447e07aeae7f1c8e160ecf6dec9baabd93d498e08a9d6eae75012f6",
+      "source_path": "l1-contracts/contracts/common/ReentrancyGuard.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "954b2f5df1991a3f145a5d6253eb5e1342477af857e4b3295bcfed09d008de3a",
+      "source_path": "l1-contracts/contracts/common/interfaces/IL2InteropRootStorage.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c9cfbcb2a9a33c1b5e2d9dfd3a342a14c6f2642494fcbc392e3549b64b76c17e",
+      "source_path": "l1-contracts/contracts/common/l2-helpers/IL2ToL1Messenger.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "2572ae3b9d96f26953d59ef3cd0209810f16e72d0ca2adeb091c2e93b68b00ce",
+      "source_path": "l1-contracts/contracts/common/l2-helpers/L2ContractAddresses.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "2a39e0235b11c4c58d2510df0fafde3df6b31e34715a53db89a0c5d13245f1b0",
+      "source_path": "l1-contracts/contracts/common/l2-helpers/L2ContractHelper.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "1fe0db5e31b4de49ad41c98302a654365278c9da707e2c8f95df97b06596b584",
+      "source_path": "l1-contracts/contracts/common/libraries/UncheckedMath.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "91030c18f0e9e14afa6f6efc330f7353477be78fc64639d123d87689c670b6eb",
+      "source_path": "l1-contracts/contracts/state-transition/chain-interfaces/IMessageVerification.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:344fc82c3fa40931fa82c2943eed01dcd2ea954f985f7fa6021682450b05dbe9",
+  "compiler_version": "0.8.28",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "381a7a56eb70f3f091fbf90d063e48473a68672fb6f92d7b0111d663e5e78602"
+    }
+  ],
+  "lineage_id": "zksync_era",
+  "manifest_sha256": "d8a981b2689953008debade8f923783120e87df8ce032219b11ad7d2fe7b5699",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "506787b705b0f80fed3131199309fc0a0573ca5209027622e51fca34a3e794a9",
+  "source_commit": "ad5a4783a3f05b18049af62a2f31885ce4c70c3c",
+  "source_repository": "https://github.com/matter-labs/era-contracts.git",
+  "source_selection_hash": "1348d08a035f45537f512088ad1708af1927b57e0fab6e48e7958eea8544a59f",
+  "test_source": {
+    "path": "test/ZkSyncEraSourceBackedHarnessTest.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "a0ae56556e9e365c40e8fa25e71fccc23dd87c7a1298aa886c5f8870a04bfd4d"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+      "source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/asset-router/IAssetRouterBase.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7627ecf4b7b3b1987133a79440b0973a428a029ac0a32d3a3f86c4d97907fad5",
+      "source_path": "l1-contracts/contracts/bridge/asset-router/IAssetRouterBase.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/asset-router/IL1AssetRouter.sol",
+      "role": "upstream_harness_input",
+      "sha256": "a417b6aac6d798a47f0122c3a1d03f8480c33d9406d3cb7e95bdef117e1e4b53",
+      "source_path": "l1-contracts/contracts/bridge/asset-router/IL1AssetRouter.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/interfaces/IL1AssetDeploymentTracker.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f91a09d94811af6feea07a136538a25d3e399b1424a34d973e402212ab381987",
+      "source_path": "l1-contracts/contracts/bridge/interfaces/IL1AssetDeploymentTracker.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/interfaces/IL1ERC20Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "9c29a61fde66d3a9abb81db80070bd23de2ba2964e150e3834858b70e9c980c5",
+      "source_path": "l1-contracts/contracts/bridge/interfaces/IL1ERC20Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/interfaces/IL1Nullifier.sol",
+      "role": "upstream_harness_input",
+      "sha256": "eb061ea8f7c5bd37ea960e367a0b8253ffea20f1f2260b19c94a1c2c5ca7b119",
+      "source_path": "l1-contracts/contracts/bridge/interfaces/IL1Nullifier.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/interfaces/IL1SharedBridgeLegacy.sol",
+      "role": "upstream_harness_input",
+      "sha256": "8f493b213a991cb29cdc5dae4062530ab603eea7b7d7af59a0c67ff36b7e4b03",
+      "source_path": "l1-contracts/contracts/bridge/interfaces/IL1SharedBridgeLegacy.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/ntv/IL1NativeTokenVault.sol",
+      "role": "upstream_harness_input",
+      "sha256": "317516834afe60185d9f10db0844361914d3e6df74881c13cb1a374e8ed85fed",
+      "source_path": "l1-contracts/contracts/bridge/ntv/IL1NativeTokenVault.sol"
+    },
+    {
+      "harness_path": "contracts/bridge/ntv/INativeTokenVault.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c5d568d7c558b469a8395368954da45768bacf3caf690e0c0e615befc675a5f5",
+      "source_path": "l1-contracts/contracts/bridge/ntv/INativeTokenVault.sol"
+    },
+    {
+      "harness_path": "contracts/bridgehub/IBridgehub.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2683d09ce6093e791e048c97b31e74dd3af1aba718d595fe08c575ab672bc163",
+      "source_path": "l1-contracts/contracts/bridgehub/IBridgehub.sol"
+    },
+    {
+      "harness_path": "contracts/bridgehub/ICTMDeploymentTracker.sol",
+      "role": "upstream_harness_input",
+      "sha256": "e06ee8276549505df3b1f82385542bf76d61feeb5e5709e2f3bbc4091f6db1cb",
+      "source_path": "l1-contracts/contracts/bridgehub/ICTMDeploymentTracker.sol"
+    },
+    {
+      "harness_path": "contracts/bridgehub/IMessageRoot.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ed264c571a66fed93664f6a722c6fa2d716a8c8d991333dab26cb652c72bfb3b",
+      "source_path": "l1-contracts/contracts/bridgehub/IMessageRoot.sol"
+    },
+    {
+      "harness_path": "contracts/common/Config.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3f595ca032a2c8447a59e6b6a096e3967b043e1dd5a3b7bd2d615e57d979a000",
+      "source_path": "l1-contracts/contracts/common/Config.sol"
+    },
+    {
+      "harness_path": "contracts/common/L1ContractErrors.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f7ce23016b70285d39ceca2edceca2206ed01f4d4bbba532c4bff1c965704ba1",
+      "source_path": "l1-contracts/contracts/common/L1ContractErrors.sol"
+    },
+    {
+      "harness_path": "contracts/common/Messaging.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7651012f0ac20f0ee933de65e728a44aef703b1a89d02f077656b00992f5aabf",
+      "source_path": "l1-contracts/contracts/common/Messaging.sol"
+    },
+    {
+      "harness_path": "contracts/common/ReentrancyGuard.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6953fd773447e07aeae7f1c8e160ecf6dec9baabd93d498e08a9d6eae75012f6",
+      "source_path": "l1-contracts/contracts/common/ReentrancyGuard.sol"
+    },
+    {
+      "harness_path": "contracts/common/interfaces/IL2InteropRootStorage.sol",
+      "role": "upstream_harness_input",
+      "sha256": "954b2f5df1991a3f145a5d6253eb5e1342477af857e4b3295bcfed09d008de3a",
+      "source_path": "l1-contracts/contracts/common/interfaces/IL2InteropRootStorage.sol"
+    },
+    {
+      "harness_path": "contracts/common/l2-helpers/IL2ToL1Messenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c9cfbcb2a9a33c1b5e2d9dfd3a342a14c6f2642494fcbc392e3549b64b76c17e",
+      "source_path": "l1-contracts/contracts/common/l2-helpers/IL2ToL1Messenger.sol"
+    },
+    {
+      "harness_path": "contracts/common/l2-helpers/L2ContractAddresses.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2572ae3b9d96f26953d59ef3cd0209810f16e72d0ca2adeb091c2e93b68b00ce",
+      "source_path": "l1-contracts/contracts/common/l2-helpers/L2ContractAddresses.sol"
+    },
+    {
+      "harness_path": "contracts/common/l2-helpers/L2ContractHelper.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2a39e0235b11c4c58d2510df0fafde3df6b31e34715a53db89a0c5d13245f1b0",
+      "source_path": "l1-contracts/contracts/common/l2-helpers/L2ContractHelper.sol"
+    },
+    {
+      "harness_path": "contracts/common/libraries/UncheckedMath.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1fe0db5e31b4de49ad41c98302a654365278c9da707e2c8f95df97b06596b584",
+      "source_path": "l1-contracts/contracts/common/libraries/UncheckedMath.sol"
+    },
+    {
+      "harness_path": "contracts/state-transition/chain-interfaces/IMessageVerification.sol",
+      "role": "upstream_harness_input",
+      "sha256": "91030c18f0e9e14afa6f6efc330f7353477be78fc64639d123d87689c670b6eb",
+      "source_path": "l1-contracts/contracts/state-transition/chain-interfaces/IMessageVerification.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "asset_router": [
+        "IL1AssetRouter.depositLegacyErc20Bridge"
+      ],
+      "depositor": [
+        "L1ERC20Bridge.deposit"
+      ],
+      "eve": [],
+      "nullifier": [
+        "IL1Nullifier.finalizeDeposit"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_empty_and_eth_deposit",
+      "mechanism": "exact L1ERC20Bridge source enforces nonzero/non-ETH deposits, consumes AssetRouter allowance, records deposit amount, and forwards the Nullifier context"
+    },
+    "callbacks": {
+      "destination_callback": "L1ERC20Bridge.finalizeWithdrawal -> IL1Nullifier.finalizeDeposit boundary",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp at L1ERC20Bridge.finalizeWithdrawal",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at L1ERC20Bridge.deposit"
+    },
+    "finality": {
+      "model": "source deposit accounting plus forwarding of legacy withdrawal context to the configured L1 Nullifier",
+      "status": "deposit_escrow_and_finalize_forwarding_tested_without_L1_L2_message_proof_or_external_finality"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "original_caller",
+        "receiver",
+        "amount",
+        "router_escrow",
+        "allowance_consumed",
+        "finalize_context"
+      ],
+      "steps": [
+        "approve",
+        "L1ERC20Bridge.deposit",
+        "source_escrow",
+        "AssetRouter.depositLegacyErc20Bridge",
+        "deposit_record",
+        "L1ERC20Bridge.finalizeWithdrawal",
+        "Nullifier.finalizeDeposit"
+      ],
+      "test": "test_normal_source_backed_deposit_and_escrow"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys token, source implementation, proxy, AssetRouter probe and Nullifier probe for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys exact L1ERC20Bridge source behind an immutable-implementation proxy with isolated AssetRouter and Nullifier boundary doubles",
+      "source_contracts": [
+        "L1ERC20Bridge",
+        "ReentrancyGuard",
+        "L1ContractErrors",
+        "L2ContractHelper"
+      ]
+    }
+  }
+}

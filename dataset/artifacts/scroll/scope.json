@@ -1,0 +1,16 @@
+{
+  "lineage_id": "scroll",
+  "protocol": "Scroll",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "L1ScrollMessenger",
+    "L2ScrollMessenger"
+  ],
+  "entry_points": {
+    "L1ScrollMessenger": "src/L1/L1ScrollMessenger.sol",
+    "L2ScrollMessenger": "src/L2/L2ScrollMessenger.sol"
+  },
+  "channel_type": "zk_rollup_cross_domain_messenger",
+  "topology": "l1_l2_paired",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

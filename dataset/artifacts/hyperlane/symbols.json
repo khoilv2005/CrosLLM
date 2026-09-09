@@ -1,0 +1,566 @@
+{
+  "lineage_id": "hyperlane",
+  "protocol": "Hyperlane",
+  "contracts": {
+    "Mailbox": {
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+      "source_target": {
+        "contract_name": "Mailbox",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 19
+      },
+      "function_count": 27,
+      "functions": [
+        "PACKAGE_VERSION",
+        "VERSION",
+        "defaultHook",
+        "defaultIsm",
+        "delivered",
+        "deployedBlock",
+        "dispatch",
+        "initialize",
+        "latestDispatchedId",
+        "localDomain",
+        "nonce",
+        "owner",
+        "process",
+        "processedAt",
+        "processor",
+        "quoteDispatch",
+        "recipientIsm",
+        "renounceOwnership",
+        "requiredHook",
+        "setDefaultHook",
+        "setDefaultIsm",
+        "setRequiredHook",
+        "transferOwnership"
+      ],
+      "event_count": 9,
+      "events": [
+        "DefaultHookSet",
+        "DefaultIsmSet",
+        "Dispatch",
+        "DispatchId",
+        "Initialized",
+        "OwnershipTransferred",
+        "Process",
+        "ProcessId",
+        "RequiredHookSet"
+      ],
+      "storage_slot_count": 11,
+      "storage_slots": [
+        "_initialized",
+        "_initializing",
+        "__gap",
+        "_owner",
+        "__gap",
+        "nonce",
+        "latestDispatchedId",
+        "defaultIsm",
+        "defaultHook",
+        "requiredHook",
+        "deliveries"
+      ]
+    }
+  },
+  "stable_symbols": [
+    {
+      "symbol_id": "abi_constructor.Mailbox.4d19ea7cc95251da61a95971c83c6a6d14a028b201e19d7b90b28fe50f60a0eb",
+      "contract": "Mailbox",
+      "name": "constructor",
+      "signature": "constructor(uint32)",
+      "kind": "abi_constructor",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_event.Mailbox.0ef0edff71d7f0cc543652e0a65c9059b640c434e2408660da09cebaa3f49284",
+      "contract": "Mailbox",
+      "name": "RequiredHookSet",
+      "signature": "RequiredHookSet(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_event.Mailbox.121fdb1666125a5e5e8a8efdab8f6563da9352906f8d17235b77eb79ce9843c8",
+      "contract": "Mailbox",
+      "name": "ProcessId",
+      "signature": "ProcessId(bytes32)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_event.Mailbox.23faab0fc80e9ba85f8ca634f0383a2824ade1ee6ff1aa204e9dc62ba94cb6b6",
+      "contract": "Mailbox",
+      "name": "DefaultIsmSet",
+      "signature": "DefaultIsmSet(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_event.Mailbox.a70aac15de982807f538e645a5719475fda56588b435982a0b0e95990a3f3bf0",
+      "contract": "Mailbox",
+      "name": "Dispatch",
+      "signature": "Dispatch(address,uint32,bytes32,bytes)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_event.Mailbox.b2e53913648e5e09c503421d8c7aecf658862d1174a2ff2feb5de43f312b2c51",
+      "contract": "Mailbox",
+      "name": "Process",
+      "signature": "Process(uint32,bytes32,address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_event.Mailbox.bdd0c5212d4fff8e3393f2cbe2baae4c48daed2118db4a060baf2080248c1533",
+      "contract": "Mailbox",
+      "name": "DispatchId",
+      "signature": "DispatchId(bytes32)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_event.Mailbox.c07f9e5d6a5111c488580a1bb84b54b9f8b0c2180f90cc4f66560bf93eeb5067",
+      "contract": "Mailbox",
+      "name": "DefaultHookSet",
+      "signature": "DefaultHookSet(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_event.Mailbox.d8c967758998f528e18e567b468ec0d40a108a6d846cb56b56bcbce8038461fb",
+      "contract": "Mailbox",
+      "name": "Initialized",
+      "signature": "Initialized(uint8)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_event.Mailbox.ff64e72124c2719166b3db77df8d43bc03b4bf957093b42a6bc0267cd0c2a7a8",
+      "contract": "Mailbox",
+      "name": "OwnershipTransferred",
+      "signature": "OwnershipTransferred(address,address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.033ccecb1dc2656fe2e9981704f713c3742b8e230648b6699cc41d63e7ae0f93",
+      "contract": "Mailbox",
+      "name": "localDomain",
+      "signature": "localDomain()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.07492a2cca6508ae411f6953867d215bd301bbd563d11e57d390260dad62c03a",
+      "contract": "Mailbox",
+      "name": "quoteDispatch",
+      "signature": "quoteDispatch(uint32,bytes32,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.0f94af1b5ce71a0763ae45e097cf1c16452f6dfd2d79e9330e593b99162ca0d7",
+      "contract": "Mailbox",
+      "name": "latestDispatchedId",
+      "signature": "latestDispatchedId()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.12f2047df647508feaed61bea412ca61e8364adf6f9ba6d4892cd72079e26e3c",
+      "contract": "Mailbox",
+      "name": "PACKAGE_VERSION",
+      "signature": "PACKAGE_VERSION()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.183470af763d303290a9d66bbae13aa9eeed91acfbc85ecd9c18a387be3dd236",
+      "contract": "Mailbox",
+      "name": "defaultHook",
+      "signature": "defaultHook()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.1a11283acdc080b719fb49dae087c88c94579165310222e49c25102091dbd66f",
+      "contract": "Mailbox",
+      "name": "processor",
+      "signature": "processor(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.2c4482be75b56139cb9107a9392b3f7cb24772cf1593f025644d977b941271cf",
+      "contract": "Mailbox",
+      "name": "setDefaultHook",
+      "signature": "setDefaultHook(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.3114ec4261ab2e42f7d8765b5b632d9ade12bdc670295edb37a4eb46c2080373",
+      "contract": "Mailbox",
+      "name": "deployedBlock",
+      "signature": "deployedBlock()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.329b5d357ac11050ab3c61ad17c4aa7341b05e3fa3067419be92a5bd2f4a6274",
+      "contract": "Mailbox",
+      "name": "defaultIsm",
+      "signature": "defaultIsm()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.3c57f47ceeedd5b2f49875af0de09366dc53a6b55969c8aa490f6b66719b9bbf",
+      "contract": "Mailbox",
+      "name": "processedAt",
+      "signature": "processedAt(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.5365070847233bf94852ec297431cb9b509c869e9cd6fa79ee60799d23647f93",
+      "contract": "Mailbox",
+      "name": "owner",
+      "signature": "owner()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.5d64eb8cb209ddc7ccb4fb440937f076c7260d679fce587d5effaf377609905a",
+      "contract": "Mailbox",
+      "name": "setDefaultIsm",
+      "signature": "setDefaultIsm(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.71835e44967ab8bcb7d37d1b4aa45ad685495d21d35f9c8865219e2edf7241f5",
+      "contract": "Mailbox",
+      "name": "requiredHook",
+      "signature": "requiredHook()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.748bb626c62ad30716f5840b2783681cc60a50602bba2cdf56f7f43c7ef43ad0",
+      "contract": "Mailbox",
+      "name": "dispatch",
+      "signature": "dispatch(uint32,bytes32,bytes,bytes,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.7a930637ab6f3d7f1dad96d58af501755ddcc8c583bcede24c9364160f3f3ce7",
+      "contract": "Mailbox",
+      "name": "quoteDispatch",
+      "signature": "quoteDispatch(uint32,bytes32,bytes,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.853070142380dcdf94d39d9800350d5f59e862ebf04a54b77775c396d6a05ebd",
+      "contract": "Mailbox",
+      "name": "quoteDispatch",
+      "signature": "quoteDispatch(uint32,bytes32,bytes,bytes,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.9546724cd3d92ddc997a4528460558e473ff8f391cc81fde805e5431ba13a58d",
+      "contract": "Mailbox",
+      "name": "recipientIsm",
+      "signature": "recipientIsm(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.956f77b044c185194107ca0af59a475e3109d9e0ab4ab3f2b0e08744eb428102",
+      "contract": "Mailbox",
+      "name": "dispatch",
+      "signature": "dispatch(uint32,bytes32,bytes,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.97d142bc4fdb9d53d5bb50c1905e9f2064c2f2d58723d1da29b1a881c29820a2",
+      "contract": "Mailbox",
+      "name": "dispatch",
+      "signature": "dispatch(uint32,bytes32,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.af5010053e5ba6cf581310b2ccf8f3dd254b0a6e1c8441b5b2fc41e2888e459d",
+      "contract": "Mailbox",
+      "name": "delivered",
+      "signature": "delivered(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.b2f584f0786e3615d4b813072019ffd9e2b2d48512567ba86041d0c62aea9b69",
+      "contract": "Mailbox",
+      "name": "nonce",
+      "signature": "nonce()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.c201b9ca71b72a3640eec138f5948492e82145ee48cd43534703dc879eed8adb",
+      "contract": "Mailbox",
+      "name": "process",
+      "signature": "process(bytes,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.c56db28e8772801d125fdd31156b75091c51219053159d9b1ec159559bb1e1ec",
+      "contract": "Mailbox",
+      "name": "VERSION",
+      "signature": "VERSION()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.d0e4e20809b417486ff8dc831eb05173dd9fb382a27fed2d70aed73335083d19",
+      "contract": "Mailbox",
+      "name": "renounceOwnership",
+      "signature": "renounceOwnership()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.dc786c7d0d36238147f12c2937b824dce384c1d715390b808751334f7765beb8",
+      "contract": "Mailbox",
+      "name": "transferOwnership",
+      "signature": "transferOwnership(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.e8fc490513c3927e07218dd9f0668ca9de34494fab1173c24ce635f75f27a830",
+      "contract": "Mailbox",
+      "name": "setRequiredHook",
+      "signature": "setRequiredHook(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "abi_function.Mailbox.f440ac3711ba6bae952fc6f2a3a2558e956357eedf9de59c4cfcda5b7ecdec73",
+      "contract": "Mailbox",
+      "name": "initialize",
+      "signature": "initialize(address,address,address,address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_0._initialized",
+      "contract": "Mailbox",
+      "name": "_initialized",
+      "signature": "storage(0)",
+      "kind": "storage",
+      "type": "t_uint8",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_0._initializing",
+      "contract": "Mailbox",
+      "name": "_initializing",
+      "signature": "storage(0)",
+      "kind": "storage",
+      "type": "t_bool",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_1.__gap",
+      "contract": "Mailbox",
+      "name": "__gap",
+      "signature": "storage(1)",
+      "kind": "storage",
+      "type": "t_array(t_uint256)50_storage",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_101.nonce",
+      "contract": "Mailbox",
+      "name": "nonce",
+      "signature": "storage(101)",
+      "kind": "storage",
+      "type": "t_uint32",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_102.latestDispatchedId",
+      "contract": "Mailbox",
+      "name": "latestDispatchedId",
+      "signature": "storage(102)",
+      "kind": "storage",
+      "type": "t_bytes32",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_103.defaultIsm",
+      "contract": "Mailbox",
+      "name": "defaultIsm",
+      "signature": "storage(103)",
+      "kind": "storage",
+      "type": "t_contract(IInterchainSecurityModule)746",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_104.defaultHook",
+      "contract": "Mailbox",
+      "name": "defaultHook",
+      "signature": "storage(104)",
+      "kind": "storage",
+      "type": "t_contract(IPostDispatchHook)999",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_105.requiredHook",
+      "contract": "Mailbox",
+      "name": "requiredHook",
+      "signature": "storage(105)",
+      "kind": "storage",
+      "type": "t_contract(IPostDispatchHook)999",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_106.deliveries",
+      "contract": "Mailbox",
+      "name": "deliveries",
+      "signature": "storage(106)",
+      "kind": "storage",
+      "type": "t_mapping(t_bytes32,t_struct(Delivery)63_storage)",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_51._owner",
+      "contract": "Mailbox",
+      "name": "_owner",
+      "signature": "storage(51)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    },
+    {
+      "symbol_id": "storage.Mailbox.slot_52.__gap",
+      "contract": "Mailbox",
+      "name": "__gap",
+      "signature": "storage(52)",
+      "kind": "storage",
+      "type": "t_array(t_uint256)49_storage",
+      "domain": "shared",
+      "source_path": "contracts/Mailbox.sol",
+      "source_file_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b"
+    }
+  ],
+  "stable_symbols_sha256": "4a417b75f3f4456124b347e07dd8195242a6ac4be34e4f53c8d89742cf665c93",
+  "domain_assignments": {
+    "Mailbox": "shared"
+  },
+  "source_selection_hash": "863c914bd986840868bb75ccf28bc300a7257aa655709aad9e2fa7bb7388e459"
+}

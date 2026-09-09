@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": 1,
+  "scope": "source_backed_development_mutation_probe_only",
+  "lineage": "celer_cbridge",
+  "source_path": "contracts/CBridge.sol",
+  "contract_name": "CBridge",
+  "rows": [
+    {
+      "operator_id": "OP_REPLAY_NONCE_REMOVAL",
+      "property_family": "replay",
+      "patch_anchor": "        require(transfers[transferId].status == TransferStatus.Null, \"transfer exists\");",
+      "patch_replacement": "",
+      "patch_description": "Remove the exact transfer-identity uniqueness guard from the locked CBridge source.",
+      "control_test": "test_replay_nonce_control",
+      "mutant_test": "test_replay_nonce_mutant",
+      "trigger": "submit the same valid transfer twice",
+      "control_expectation": "the second transfer reverts with transfer exists",
+      "mutant_expectation": "the second transfer succeeds and the bridge receives the amount twice"
+    },
+    {
+      "operator_id": "OP_FINALITY_WINDOW_TRUNCATION",
+      "property_family": "finality",
+      "patch_anchor": "        require(t.timelock <= block.timestamp, \"timelock not yet passed\");",
+      "patch_replacement": "",
+      "patch_description": "Remove the exact timelock check from the locked CBridge refund path.",
+      "control_test": "test_finality_window_control",
+      "mutant_test": "test_finality_window_mutant",
+      "trigger": "refund a valid transfer before its timelock",
+      "control_expectation": "the early refund reverts with timelock not yet passed",
+      "mutant_expectation": "the early refund succeeds and marks the transfer refunded"
+    }
+  ]
+}

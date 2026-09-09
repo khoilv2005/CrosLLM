@@ -1,0 +1,20 @@
+{
+  "channel_type": "modular_messaging",
+  "topology": "any_to_any",
+  "source_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "Polygon",
+    "Base"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "Arbitrum",
+    "Optimism",
+    "Polygon",
+    "Base"
+  ],
+  "message_passing": "interchain_security_module",
+  "settlement": "ism_verification_dispatch"
+}

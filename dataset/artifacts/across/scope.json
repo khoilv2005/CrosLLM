@@ -1,0 +1,14 @@
+{
+  "lineage_id": "across",
+  "protocol": "Across Protocol",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "Ethereum_SpokePool"
+  ],
+  "entry_points": {
+    "Ethereum_SpokePool": "contracts/spoke-pools/Ethereum_SpokePool.sol"
+  },
+  "channel_type": "intent_based_relayer_pool",
+  "topology": "hub_and_spoke",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

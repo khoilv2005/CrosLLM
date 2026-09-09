@@ -1,0 +1,452 @@
+{
+  "acceptance_agent": null,
+  "acceptance_owner": null,
+  "acceptance_status": "draft",
+  "accepted_at": null,
+  "admission_eligible": false,
+  "artifact_manifest_sha256": "63a3244193932494e455e1692da36e7a5244f0852381458df54a1411248cf4e1",
+  "bytecode_opcode_scan": {
+    "bytecode_path": "dataset/harness/layerzero_v2/out/EndpointV2.sol/EndpointV2.json",
+    "bytecode_sha256": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+    "scan_hash": "3f730124005998c58c7e42a762d9f95c68aa94aee6fc0b61571a0b73b7359ec4",
+    "unique_opcodes": [
+      "0x22",
+      "0xa1",
+      "0xa2",
+      "0xa3",
+      "0xa4",
+      "0xa9",
+      "0xba",
+      "0xc2",
+      "0xdd",
+      "0xe0",
+      "0xf6",
+      "ADD",
+      "ADDMOD",
+      "ADDRESS",
+      "AND",
+      "CALL",
+      "CALLDATACOPY",
+      "CALLDATASIZE",
+      "CALLER",
+      "CALLVALUE",
+      "CODESIZE",
+      "COINBASE",
+      "DIV",
+      "DUP1",
+      "DUP10",
+      "DUP11",
+      "DUP12",
+      "DUP13",
+      "DUP14",
+      "DUP15",
+      "DUP16",
+      "DUP2",
+      "DUP3",
+      "DUP4",
+      "DUP5",
+      "DUP6",
+      "DUP7",
+      "DUP8",
+      "DUP9",
+      "EQ",
+      "EXTCODECOPY",
+      "EXTCODEHASH",
+      "GAS",
+      "GT",
+      "INVALID",
+      "ISZERO",
+      "JUMP",
+      "JUMPDEST",
+      "JUMPI",
+      "LT",
+      "MLOAD",
+      "MSTORE",
+      "MUL",
+      "NOT",
+      "NUMBER",
+      "OR",
+      "PC",
+      "POP",
+      "PUSH0",
+      "PUSH1",
+      "PUSH10",
+      "PUSH2",
+      "PUSH3",
+      "PUSH31",
+      "PUSH32",
+      "PUSH4",
+      "PUSH5",
+      "PUSH6",
+      "PUSH8",
+      "RETURN",
+      "RETURNDATACOPY",
+      "RETURNDATASIZE",
+      "REVERT",
+      "SGT",
+      "SHA3",
+      "SHL",
+      "SHR",
+      "SLOAD",
+      "SLT",
+      "SSTORE",
+      "STATICCALL",
+      "STOP",
+      "SUB",
+      "SWAP1",
+      "SWAP10",
+      "SWAP11",
+      "SWAP12",
+      "SWAP13",
+      "SWAP14",
+      "SWAP2",
+      "SWAP3",
+      "SWAP4",
+      "SWAP5",
+      "SWAP6",
+      "SWAP7",
+      "SWAP8",
+      "SWAP9",
+      "XOR"
+    ]
+  },
+  "evidence_scope": "source_backed_development_host_draft",
+  "independent_differential_required": true,
+  "independent_validation_required": false,
+  "lineage_id": "layerzero_v2",
+  "matrix": {
+    "acceptance_agent": null,
+    "acceptance_owner": null,
+    "acceptance_status": "draft",
+    "accepted_at": null,
+    "engine": "foundry-evm",
+    "engine_revision": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+    "entries": [
+      {
+        "category": "crypto",
+        "condition": null,
+        "evidence_hash": "9a98cafb9aa071bdd70e048fdba2bc8cc69e98f499fb31feaa2f7d821104f8f6",
+        "feature": "ecdsa_recover",
+        "note": "not independently probed for the locked layerzero_v2 source",
+        "status": "unknown"
+      },
+      {
+        "category": "crypto",
+        "condition": null,
+        "evidence_hash": "9a98cafb9aa071bdd70e048fdba2bc8cc69e98f499fb31feaa2f7d821104f8f6",
+        "feature": "keccak256",
+        "note": "keccak256 was not observed in the locked layerzero_v2 source; no host support claim",
+        "status": "unknown"
+      },
+      {
+        "category": "crypto",
+        "condition": null,
+        "evidence_hash": "9a98cafb9aa071bdd70e048fdba2bc8cc69e98f499fb31feaa2f7d821104f8f6",
+        "feature": "ripemd160",
+        "note": "not independently probed for the locked layerzero_v2 source",
+        "status": "unknown"
+      },
+      {
+        "category": "crypto",
+        "condition": null,
+        "evidence_hash": "9a98cafb9aa071bdd70e048fdba2bc8cc69e98f499fb31feaa2f7d821104f8f6",
+        "feature": "sha256",
+        "note": "not independently probed for the locked layerzero_v2 source",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "CALL",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "CALLDATACOPY",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "CALLDATASIZE",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "CALLER",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "CALLVALUE",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "CHAINID",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "CREATE",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "CREATE2",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "DELEGATECALL",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "EXTCODEHASH",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "PUSH0",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "RETURNDATACOPY",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "RETURNDATASIZE",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "SELFBALANCE",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "SELFDESTRUCT",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "SHA3",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "SLOAD",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "SSTORE",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "STATICCALL",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "TIMESTAMP",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "blake2f@0x09",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "bn128_add@0x06",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "bn128_mul@0x07",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "bn128_pairing@0x08",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "ecrecover@0x01",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "identity@0x04",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "modexp@0x05",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "point_evaluation@0x0a",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "ripemd160@0x03",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "0e362becd161a090342e8a519c6b6526d307e2ed1309d6821e52110c0cd06997",
+        "feature": "sha256@0x02",
+        "note": "no precompile call site is admitted by the layerzero_v2 development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "proxy",
+        "condition": "beacon and resolved implementation hashes must be pinned",
+        "evidence_hash": "63a3244193932494e455e1692da36e7a5244f0852381458df54a1411248cf4e1",
+        "feature": "beacon",
+        "note": null,
+        "status": "conditional"
+      },
+      {
+        "category": "proxy",
+        "condition": "facet table and selector map must be pinned",
+        "evidence_hash": "63a3244193932494e455e1692da36e7a5244f0852381458df54a1411248cf4e1",
+        "feature": "diamond",
+        "note": null,
+        "status": "conditional"
+      },
+      {
+        "category": "proxy",
+        "condition": "implementation bytecode, slot and initialization configuration must be pinned",
+        "evidence_hash": "63a3244193932494e455e1692da36e7a5244f0852381458df54a1411248cf4e1",
+        "feature": "eip1967",
+        "note": null,
+        "status": "conditional"
+      },
+      {
+        "category": "proxy",
+        "condition": null,
+        "evidence_hash": "63a3244193932494e455e1692da36e7a5244f0852381458df54a1411248cf4e1",
+        "feature": "none",
+        "note": "deployment metadata declares all selected targets non-proxy with no initializer",
+        "status": "supported"
+      },
+      {
+        "category": "proxy",
+        "condition": "implementation/admin/configuration hashes must be pinned",
+        "evidence_hash": "63a3244193932494e455e1692da36e7a5244f0852381458df54a1411248cf4e1",
+        "feature": "transparent",
+        "note": null,
+        "status": "conditional"
+      }
+    ],
+    "matrix_hash": "ad2873e93f5a88082afe1a8524e47d3bf139f2cef2655fa94cbc3b5c79de9736",
+    "matrix_id": "layerzero-v2-foundry-development-v1",
+    "schema_version": 1
+  },
+  "profile_sha256": "76fabcc2a5cea86e7cbc0926398c635b6a2983bcecf53447056ca67566c56738",
+  "record_type": "evm_execution_support_matrix",
+  "report_hash": "b03a0ddae3be0047fe449ca276c0bee8cacc7998cf710d611fce9c51e1c4e413",
+  "schema_version": 1,
+  "scope": "source_backed_development_host_draft",
+  "source_backed": true,
+  "source_commit": "9c741e7f9790639537b1710a203bcdfd73b0b9ac",
+  "source_file_sha256": "9a98cafb9aa071bdd70e048fdba2bc8cc69e98f499fb31feaa2f7d821104f8f6",
+  "source_manifest_sha256": "4102477133e1416cbd15d1487bf905477e3aa1adcbce1219f846e90b9b86b888",
+  "source_repository": "https://github.com/LayerZero-Labs/LayerZero-v2.git"
+}

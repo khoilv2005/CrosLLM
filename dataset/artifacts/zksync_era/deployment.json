@@ -1,0 +1,49 @@
+{
+  "lineage_id": "zksync_era",
+  "protocol": "zkSync Era",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "L1ERC20Bridge": {
+      "contract_name": "L1ERC20Bridge",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+      "source_target": {
+        "contract_name": "L1ERC20Bridge",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 24
+      },
+      "abi_path": "abi/L1ERC20Bridge.json",
+      "abi_sha256": "3152039b10778586677d2ae34aa80eda085a091692d7bf8f187aa0c43591d0ca",
+      "creation_bytecode_path": "bytecode/L1ERC20Bridge.creation.hex",
+      "creation_bytecode_sha256": "469d3288c20dcc61cb9724ef1920211e4d61f9d6cb17dd9c6404f6bc3201ca56",
+      "deployed_bytecode_path": "bytecode/L1ERC20Bridge.deployed.hex",
+      "deployed_bytecode_sha256": "ce155a9b10add75d372b3f5b5ec47646919baec100c93bd86979e66fa93cde36",
+      "storage_layout_path": "storage_layout/L1ERC20Bridge.json",
+      "storage_layout_sha256": "7d34a646ff9575c2bfc1c13c39f1c89f6396d70cc4c329bcf944b36c65aeb055",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": "initialize",
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": true,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

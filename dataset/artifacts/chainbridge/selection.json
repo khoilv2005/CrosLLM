@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/Bridge.sol",
+    "contracts/handlers/ERC20Handler.sol"
+  ],
+  "document_paths": [
+    "LICENSE",
+    "README.md"
+  ],
+  "selected_paths": [
+    "LICENSE",
+    "README.md",
+    "contracts/Bridge.sol",
+    "contracts/ERC20Safe.sol",
+    "contracts/handlers/ERC20Handler.sol",
+    "contracts/handlers/HandlerHelpers.sol",
+    "contracts/interfaces/IDepositExecute.sol",
+    "contracts/interfaces/IERCHandler.sol",
+    "contracts/interfaces/IGenericHandler.sol",
+    "contracts/utils/AccessControl.sol",
+    "contracts/utils/Pausable.sol",
+    "contracts/utils/SafeCast.sol",
+    "contracts/utils/SafeMath.sol"
+  ],
+  "unresolved_imports": [
+    "contracts/ERC20Safe.sol:@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/ERC20Safe.sol:@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol",
+    "contracts/ERC20Safe.sol:@openzeppelin/contracts/token/ERC20/presets/ERC20PresetMinterPauser.sol",
+    "contracts/ERC20Safe.sol:@openzeppelin/contracts/utils/math/SafeMath.sol",
+    "contracts/utils/AccessControl.sol:@openzeppelin/contracts/utils/Address.sol",
+    "contracts/utils/AccessControl.sol:@openzeppelin/contracts/utils/Context.sol",
+    "contracts/utils/AccessControl.sol:@openzeppelin/contracts/utils/structs/EnumerableSet.sol"
+  ],
+  "selection_hash": "bbaa66be4fff2e02e8b1cc6baaa27a8d2a09abd6091fd3555e8900676bf1ff72"
+}

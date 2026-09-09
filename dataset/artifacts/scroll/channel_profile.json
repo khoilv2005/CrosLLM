@@ -1,0 +1,12 @@
+{
+  "channel_type": "zk_rollup_cross_domain_messenger",
+  "topology": "l1_l2_paired",
+  "source_domains": [
+    "Ethereum"
+  ],
+  "target_domains": [
+    "Scroll"
+  ],
+  "message_passing": "l1_message_queue_and_relay",
+  "settlement": "halo2_validity_proof"
+}

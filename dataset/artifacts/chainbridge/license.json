@@ -1,0 +1,10 @@
+{
+  "lineage_id": "chainbridge",
+  "protocol": "ChainBridge",
+  "declared_license": "LGPL-3.0-only",
+  "source_repository": "https://github.com/ChainSafe/chainbridge-solidity.git",
+  "spdx_identifier": "LGPL-3.0-only",
+  "commercial_use_restrictions": false,
+  "redistribution_permitted": null,
+  "license_review_status": "pending_component_review"
+}

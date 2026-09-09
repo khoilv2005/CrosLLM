@@ -21,6 +21,15 @@ REQUIRED = ('instance_id','lineage_id','protocol_name','version_id','split','coh
             'trigger_validation_status','native_evm_scope')
 FAMILIES = {'input_validation','logic','quorum','replay','finality','message_handling'}
 COHORTS = {'historical', 'sealed', 'negative', 'prospective', 'adaptation'}
+FINAL_POSITIVE_COUNT = 120
+FINAL_CONTROL_COUNT = 120
+FINAL_LINEAGE_COUNT = 12
+FINAL_INSTANCES_PER_LINEAGE = 10
+FINAL_INSTANCES_PER_FAMILY = 20
+ADMISSION_HASH_FIELDS = (
+    'source_archive_sha256', 'artifact_manifest_sha256', 'deployment_config_sha256',
+    'paired_harness_sha256', 'trigger_validation_evidence_hash',
+)
 PLACEHOLDER_VALUES = {
     'replace', 'ACTUAL_HASH', 'replace_with_immutable_commit',
     'ASSIGN_STABLE_ID', 'ACTUAL_PROTOCOL', 'EXACT_VERSION',
@@ -73,7 +82,7 @@ def forbidden_nested_paths(value: Any, path: str = '') -> list[str]:
     return []
 
 def validate(rows: list[dict[str, Any]], mode: str = 'starter') -> tuple[list[str], list[str]]:
-    if mode not in {'starter', 'evaluation'}:
+    if mode not in {'starter', 'evaluation', 'admission', 'final'}:
         raise ValueError(f'unknown validation mode {mode!r}')
     errors: list[str] = []
     warnings: list[str] = []
@@ -140,23 +149,145 @@ def validate(rows: list[dict[str, Any]], mode: str = 'starter') -> tuple[list[st
         for key, value in row.items():
             if isinstance(value, str) and value in PLACEHOLDER_VALUES:
                 errors.append(f'{ident}: placeholder value in {key}')
-        if mode == 'evaluation' and row.get('cohort') not in {'sealed', 'negative'}:
+        if mode in {'evaluation', 'admission'} and row.get('cohort') not in {'sealed', 'negative'}:
             errors.append(f'{ident}: evaluation mode requires sealed or negative cohort')
-        if mode == 'evaluation' and row.get('split') != 'evaluation':
+        if mode in {'evaluation', 'admission'} and row.get('split') != 'evaluation':
             errors.append(f'{ident}: evaluation mode requires evaluation split')
+        if mode in {'admission', 'final'}:
+            errors.extend(admission_row_errors(row, ident))
     for lineage, values in splits.items():
         if len(values) > 1:
             errors.append(f'{lineage}: development/evaluation lineage leakage')
     eval_lineages = {r.get('lineage_id') for r in rows if r.get('split') == 'evaluation'}
     if len(eval_lineages) < 12:
         warnings.append(f'Only {len(eval_lineages)} evaluation lineages; planning target is at least 12')
-    if mode == 'evaluation':
+    if mode in {'evaluation', 'admission', 'final'}:
         for digest, ident in hashes.items():
             duplicates = [r.get('instance_id') for r in rows
                           if r.get('artifact_pack_sha256') == digest]
             if len(duplicates) > 1:
                 errors.append(f'{ident}: duplicate artifact content in evaluation rows {duplicates}')
+    if mode == 'final':
+        errors.extend(final_manifest_errors(rows))
     return errors, warnings
+
+
+def final_manifest_errors(rows: list[dict[str, Any]]) -> list[str]:
+    """Validate the complete registered evaluation design.
+
+    ``evaluation`` mode intentionally validates a proposed public manifest's
+    row shape. ``final`` is stricter: it requires the complete 120/120 paired
+    design, balanced family/lineage denominators, and admission evidence on
+    every row. No count is inferred from a commitment receipt or a filename.
+    """
+    errors: list[str] = []
+    if len(rows) != FINAL_POSITIVE_COUNT + FINAL_CONTROL_COUNT:
+        errors.append(
+            f'final manifest must contain {FINAL_POSITIVE_COUNT + FINAL_CONTROL_COUNT} rows; '
+            f'found {len(rows)}'
+        )
+
+    positives = [row for row in rows if row.get('status') == 'vulnerable' and row.get('cohort') == 'sealed']
+    controls = [
+        row for row in rows
+        if row.get('status') in {'patched', 'benign'} and row.get('cohort') == 'negative'
+    ]
+    if len(positives) != FINAL_POSITIVE_COUNT:
+        errors.append(f'final manifest must contain {FINAL_POSITIVE_COUNT} sealed positives; found {len(positives)}')
+    if len(controls) != FINAL_CONTROL_COUNT:
+        errors.append(f'final manifest must contain {FINAL_CONTROL_COUNT} matched controls; found {len(controls)}')
+
+    lineages = {row.get('lineage_id') for row in rows if isinstance(row.get('lineage_id'), str)}
+    if len(lineages) != FINAL_LINEAGE_COUNT:
+        errors.append(f'final manifest must contain exactly {FINAL_LINEAGE_COUNT} evaluation lineages; found {len(lineages)}')
+
+    for label, group in (('positive', positives), ('control', controls)):
+        by_lineage = collections.Counter(row.get('lineage_id') for row in group)
+        bad_lineages = sorted(
+            f'{lineage}={count}'
+            for lineage, count in by_lineage.items()
+            if count != FINAL_INSTANCES_PER_LINEAGE
+        )
+        if bad_lineages or len(by_lineage) != FINAL_LINEAGE_COUNT:
+            errors.append(
+                f'final {label} denominator must be {FINAL_INSTANCES_PER_LINEAGE} per lineage: '
+                + (', '.join(bad_lineages) if bad_lineages else 'lineage set is incomplete')
+            )
+
+        by_family = collections.Counter(row.get('property_family') for row in group)
+        bad_families = sorted(
+            f'{family}={count}'
+            for family, count in by_family.items()
+            if count != FINAL_INSTANCES_PER_FAMILY
+        )
+        if set(by_family) != FAMILIES or bad_families:
+            errors.append(
+                f'final {label} family denominator must be {FINAL_INSTANCES_PER_FAMILY} for each family: '
+                + (', '.join(bad_families) if bad_families else 'family set is incomplete')
+            )
+
+        family_lineages: dict[str, set[str]] = collections.defaultdict(set)
+        for row in group:
+            family_lineages[str(row.get('property_family'))].add(str(row.get('lineage_id')))
+        underrepresented = sorted(
+            f'{family}={len(family_lineages.get(family, set()))}'
+            for family in FAMILIES
+            if len(family_lineages.get(family, set())) < 4
+        )
+        if underrepresented:
+            errors.append('final family coverage needs at least four lineages: ' + ', '.join(underrepresented))
+
+    by_id = {row.get('instance_id'): row for row in rows}
+    for row in positives:
+        ident = str(row.get('instance_id', '<missing>'))
+        paired_id = row.get('paired_instance_id')
+        paired = by_id.get(paired_id)
+        if not isinstance(paired, dict):
+            continue
+        if paired.get('status') == 'vulnerable' or paired.get('cohort') != 'negative':
+            errors.append(f'{ident}: final positive must pair with a negative control')
+        if paired.get('property_family') != row.get('property_family'):
+            errors.append(f'{ident}: final pair must preserve property_family')
+        if paired.get('artifact_pack_sha256') == row.get('artifact_pack_sha256'):
+            errors.append(f'{ident}: final positive/control pair must have distinct artifact packs')
+    return errors
+
+
+def admission_row_errors(row: dict[str, Any], ident: str) -> list[str]:
+    """Require private evidence and explicit owner/agent acceptance.
+
+    Structural evaluation validation intentionally remains useful for proposed
+    manifests. This stricter mode is the only validator mode that can accept a
+    row as an admitted evaluation case, and it never infers evidence from the
+    public artifact-pack hash. The workspace intentionally has no second
+    reviewer; ``admission_acceptance`` records the project owner decision and
+    Codex's implementation self-check instead.
+    """
+    errors: list[str] = []
+    if row.get('admission_status') != 'admitted':
+        errors.append(f'{ident}: admission_status must be admitted')
+    for field in ADMISSION_HASH_FIELDS:
+        if not HEX64.fullmatch(str(row.get(field, ''))):
+            errors.append(f'{ident}: {field} must be an actual 64-hex SHA256 in admission mode')
+    if row.get('status') == 'vulnerable':
+        if not HEX64.fullmatch(str(row.get('mutation_patch_sha256', ''))):
+            errors.append(f'{ident}: vulnerable admission needs mutation_patch_sha256')
+    elif row.get('status') in {'patched', 'benign'}:
+        if not HEX64.fullmatch(str(row.get('negative_validation_evidence_hash', ''))):
+            errors.append(f'{ident}: negative admission needs negative_validation_evidence_hash')
+    acceptance = row.get('admission_acceptance')
+    if not isinstance(acceptance, dict):
+        errors.append(f'{ident}: admission_acceptance record is required')
+    else:
+        if not isinstance(acceptance.get('owner'), str) or not acceptance['owner']:
+            errors.append(f'{ident}: admission_acceptance.owner is required')
+        if acceptance.get('agent') != 'codex':
+            errors.append(f'{ident}: admission_acceptance.agent must be codex')
+        if not isinstance(acceptance.get('accepted_at'), str) or not acceptance['accepted_at']:
+            errors.append(f'{ident}: admission_acceptance.accepted_at is required')
+        if not isinstance(acceptance.get('evidence_refs'), list) or not acceptance['evidence_refs']:
+            errors.append(f'{ident}: admission_acceptance.evidence_refs must be non-empty')
+    return errors
 
 def inventory(rows: list[dict[str, Any]]) -> dict[str, Any]:
     out: dict[str, Any] = {'instances':len(rows),
@@ -204,18 +335,23 @@ def main() -> int:
         p = sub.add_parser(name);p.add_argument('--manifest',type=Path,required=True)
         p.add_argument('--out',type=Path)
         if name == 'validate':
-            p.add_argument('--mode', choices=('starter', 'evaluation'), default='starter')
-            p.add_argument('--schema', type=Path,
-                           default=Path(__file__).resolve().parents[1] / 'schemas' / 'benchmark_manifest.schema.json')
+            p.add_argument('--mode', choices=('starter', 'evaluation', 'admission', 'final'), default='starter')
+            p.add_argument('--schema', type=Path, default=None,
+                           help='optional schema override; admission mode uses benchmark_admission.schema.json by default')
     args = ap.parse_args()
     try:
         if args.command == 'plan':
             result = plan(json.loads(args.config.read_text(encoding='utf-8')))
             print(json.dumps(result,indent=2));return 0
         rows = load_jsonl(args.manifest)
-        errors,warnings = validate(rows, getattr(args, 'mode', 'starter'))
+        mode = getattr(args, 'mode', 'starter')
+        errors,warnings = validate(rows, mode)
         if args.command == 'validate':
-            errors.extend(schema_errors(rows, args.schema))
+            schema_path = args.schema or (
+                Path(__file__).resolve().parents[1] / 'schemas' /
+                ('benchmark_admission.schema.json' if mode in {'admission', 'final'} else 'benchmark_manifest.schema.json')
+            )
+            errors.extend(schema_errors(rows, schema_path))
         for item in warnings:print('WARNING: '+item,file=sys.stderr)
         for item in errors:print('ERROR: '+item,file=sys.stderr)
         if errors:return 2

@@ -1,0 +1,205 @@
+{
+  "storage": [
+    {
+      "astId": 138,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "_initialized",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_uint8"
+    },
+    {
+      "astId": 141,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "_initializing",
+      "offset": 1,
+      "slot": "0",
+      "type": "t_bool"
+    },
+    {
+      "astId": 882,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 10,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "_owner",
+      "offset": 0,
+      "slot": "51",
+      "type": "t_address"
+    },
+    {
+      "astId": 130,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "52",
+      "type": "t_array(t_uint256)49_storage"
+    },
+    {
+      "astId": 321,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "_paused",
+      "offset": 0,
+      "slot": "101",
+      "type": "t_bool"
+    },
+    {
+      "astId": 426,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "102",
+      "type": "t_array(t_uint256)49_storage"
+    },
+    {
+      "astId": 441,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "_status",
+      "offset": 0,
+      "slot": "151",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 510,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "152",
+      "type": "t_array(t_uint256)49_storage"
+    },
+    {
+      "astId": 1436,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "xDomainMessageSender",
+      "offset": 0,
+      "slot": "201",
+      "type": "t_address"
+    },
+    {
+      "astId": 1439,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "__counterpart",
+      "offset": 0,
+      "slot": "202",
+      "type": "t_address"
+    },
+    {
+      "astId": 1442,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "feeVault",
+      "offset": 0,
+      "slot": "203",
+      "type": "t_address"
+    },
+    {
+      "astId": 1445,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "__rateLimiter",
+      "offset": 0,
+      "slot": "204",
+      "type": "t_address"
+    },
+    {
+      "astId": 1450,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "205",
+      "type": "t_array(t_uint256)46_storage"
+    },
+    {
+      "astId": 940,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "messageSendTimestamp",
+      "offset": 0,
+      "slot": "251",
+      "type": "t_mapping(t_bytes32,t_uint256)"
+    },
+    {
+      "astId": 945,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "isL1MessageExecuted",
+      "offset": 0,
+      "slot": "252",
+      "type": "t_mapping(t_bytes32,t_bool)"
+    },
+    {
+      "astId": 950,
+      "contract": "src/L2/L2ScrollMessenger.sol:L2ScrollMessenger",
+      "label": "__used",
+      "offset": 0,
+      "slot": "253",
+      "type": "t_array(t_uint256)2_storage"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_array(t_uint256)2_storage": {
+      "encoding": "inplace",
+      "label": "uint256[2]",
+      "numberOfBytes": "64",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)46_storage": {
+      "encoding": "inplace",
+      "label": "uint256[46]",
+      "numberOfBytes": "1472",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)49_storage": {
+      "encoding": "inplace",
+      "label": "uint256[49]",
+      "numberOfBytes": "1568",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)50_storage": {
+      "encoding": "inplace",
+      "label": "uint256[50]",
+      "numberOfBytes": "1600",
+      "base": "t_uint256"
+    },
+    "t_bool": {
+      "encoding": "inplace",
+      "label": "bool",
+      "numberOfBytes": "1"
+    },
+    "t_bytes32": {
+      "encoding": "inplace",
+      "label": "bytes32",
+      "numberOfBytes": "32"
+    },
+    "t_mapping(t_bytes32,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_mapping(t_bytes32,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    },
+    "t_uint8": {
+      "encoding": "inplace",
+      "label": "uint8",
+      "numberOfBytes": "1"
+    }
+  }
+}

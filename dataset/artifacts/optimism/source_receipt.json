@@ -1,0 +1,32 @@
+{
+  "archive_backend": "host",
+  "archive_command": "git archive --format=tar HEAD",
+  "archive_format": "tar",
+  "artifact_admission_status": "source_pinned_and_built",
+  "canonical_environment": "resolved from private source cache; inspect runs in pinned Docker",
+  "compiler_binary_sha256": null,
+  "dependency_closure": {
+    "file_count": 0,
+    "files": [],
+    "roots": [],
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "dependency_mounts": [],
+  "dependency_remappings": [
+    {
+      "prefix": "@solady/",
+      "target": "/src/packages/contracts-bedrock/lib/solady/src/"
+    }
+  ],
+  "dependency_root": null,
+  "dirty_worktree": false,
+  "harness_status": "source_backed_development",
+  "host_id": "optimism_bedrock",
+  "inspect_network": "none",
+  "lineage_id": "optimism",
+  "pinned_status": "source_pinned",
+  "source_archive_sha256": "0dde9b7a7062b6482f26ffa1374b989fca2db64106be73cafb7fac435c22ff86",
+  "source_commit": "392b395e8c7618a939e34174b6c9cea7eee5df0e",
+  "source_repo": "https://github.com/ethereum-optimism/optimism.git",
+  "source_selection_hash": "3e9338307e1dbc3e769e56b92effa1b718df5079892a3f3c64d992a0b3c47f1a"
+}

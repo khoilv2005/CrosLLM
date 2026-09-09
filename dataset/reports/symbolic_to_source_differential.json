@@ -1,0 +1,123 @@
+{
+  "admission_eligible": false,
+  "case_count": 3,
+  "cases": [
+    {
+      "case_id": "normal_confirm",
+      "direct_trace_comparable": false,
+      "fixture_projection": {
+        "channel_bound": 4,
+        "delivered_after": 1,
+        "destination_domain": "DomainB",
+        "destination_received_key": "received:0",
+        "pending_after": 0,
+        "source_committed_after": 1,
+        "source_domain": "DomainA",
+        "transaction_bound": 4
+      },
+      "note": "Fixture enqueue/deliver corresponds to the source workflow at the protocol-step level; token balances and hashlock execution are not represented by the fixture.",
+      "projection_status": "structural_only",
+      "source_steps": [
+        "approve",
+        "transferOut",
+        "transferIn",
+        "confirm"
+      ],
+      "source_test": "test_normal_cross_chain_transfer_and_confirm",
+      "symbolic": {
+        "actions": [
+          "enqueue",
+          "deliver"
+        ],
+        "complete": true,
+        "encoding_hash": "28fb291e295666c95dfe4b644f4af501acc91fcab0c784942271e1b8e550de14",
+        "reason": "symbolic_model_replayed",
+        "status": "sat"
+      }
+    },
+    {
+      "case_id": "timeout_refund",
+      "direct_trace_comparable": false,
+      "fixture_projection": {
+        "destination_domain": "DomainB",
+        "finality_depth": 1,
+        "pending_after": 0,
+        "reorg_profile": "pre_finality_only",
+        "source_committed_after": 0,
+        "source_domain": "DomainA"
+      },
+      "note": "Fixture reorg is the bounded channel analogue of removing an unfinalized transfer; timelock arithmetic and token refund are source-only behavior.",
+      "projection_status": "structural_only",
+      "source_steps": [
+        "approve",
+        "transferOut",
+        "warp_after_timelock",
+        "refund"
+      ],
+      "source_test": "test_transfer_timeout_and_refund",
+      "symbolic": {
+        "actions": [
+          "enqueue",
+          "reorg"
+        ],
+        "complete": true,
+        "encoding_hash": "3e5bbb8dad016673db42b31c93b02796cb3bde8b243cf629d986570f184cc4c1",
+        "reason": "symbolic_model_replayed",
+        "status": "sat"
+      }
+    },
+    {
+      "case_id": "invalid_preimage_revert",
+      "direct_trace_comparable": false,
+      "fixture_projection": {
+        "unsupported": [
+          "hashlock_validation",
+          "revert_reason",
+          "failed_transaction_trace"
+        ]
+      },
+      "note": "The source-backed negative test is retained as a boundary case; no fixture SAT/UNSAT claim is emitted.",
+      "projection_status": "unsupported",
+      "source_steps": [
+        "approve",
+        "transferOut",
+        "confirm_wrong_preimage"
+      ],
+      "source_test": "test_revert_confirm_incorrect_preimage",
+      "symbolic": {
+        "actions": [],
+        "complete": false,
+        "encoding_hash": null,
+        "reason": "fixture does not model cryptographic preimage validation or revert traces",
+        "status": "unsupported"
+      }
+    }
+  ],
+  "differential_status": "structural_only",
+  "direct_trace_comparable": false,
+  "evidence_scope": "development_spike_non_admission",
+  "independent_evaluator": false,
+  "independent_property_validation": false,
+  "independent_trigger_validation": false,
+  "lineage_id": "celer_cbridge",
+  "observed_at": "2026-09-09T10:12:12.411783Z",
+  "record_type": "development_symbolic_to_source_differential_spike",
+  "report_hash": "a10a4da4d28c8a2b772207ab6103ef3e8eba57c09e2ed969b407cffb39aa7240",
+  "reviewed_support_matrix": false,
+  "schema_version": 1,
+  "scope": "development_structural_correspondence_only",
+  "source_engine": "foundry-native-celer-development-harness",
+  "source_replay_report": "dataset/reports/source_backed_replay.json",
+  "source_replay_report_hash": "f7e60d8eff411a239cac947fd43c28714185a40a5735feb64b6d0f914a8598e6",
+  "source_replay_status": "pass",
+  "source_test_count": 3,
+  "support_matrix_hash": "d421c445208289c4cfa110a198d08b7b9b4911f3ef63804ec81d8ed9f6b76e53",
+  "symbolic_engine": "z3-bounded-paired-v1",
+  "unsupported_fixture_semantics": [
+    "cryptographic_preimage_validation",
+    "revert_reason_and_failed_transaction_trace",
+    "token_balance_conservation",
+    "timelock_arithmetic",
+    "source_contract_storage_layout"
+  ]
+}

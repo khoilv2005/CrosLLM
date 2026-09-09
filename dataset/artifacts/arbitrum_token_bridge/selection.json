@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+    "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol"
+  ],
+  "document_paths": [
+    "LICENSE",
+    "README.md"
+  ],
+  "selected_paths": [
+    "LICENSE",
+    "README.md",
+    "contracts/tokenbridge/arbitrum/L2ArbitrumMessenger.sol",
+    "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+    "contracts/tokenbridge/ethereum/ICustomToken.sol",
+    "contracts/tokenbridge/ethereum/L1ArbitrumMessenger.sol",
+    "contracts/tokenbridge/ethereum/gateway/IL1ArbitrumGateway.sol",
+    "contracts/tokenbridge/ethereum/gateway/IL1GatewayRouter.sol",
+    "contracts/tokenbridge/ethereum/gateway/IYbbGateway.sol",
+    "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+    "contracts/tokenbridge/libraries/AddressAliasHelper.sol",
+    "contracts/tokenbridge/libraries/ERC165.sol",
+    "contracts/tokenbridge/libraries/IERC165.sol",
+    "contracts/tokenbridge/libraries/ProxyUtil.sol",
+    "contracts/tokenbridge/libraries/Whitelist.sol",
+    "contracts/tokenbridge/libraries/gateway/GatewayMessageHandler.sol",
+    "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol",
+    "contracts/tokenbridge/libraries/gateway/IGatewayRouter.sol",
+    "contracts/tokenbridge/libraries/gateway/ITokenGateway.sol",
+    "contracts/tokenbridge/libraries/gateway/TokenGateway.sol"
+  ],
+  "unresolved_imports": [
+    "contracts/tokenbridge/arbitrum/L2ArbitrumMessenger.sol:@arbitrum/nitro-contracts/src/precompiles/ArbSys.sol",
+    "contracts/tokenbridge/ethereum/L1ArbitrumMessenger.sol:@arbitrum/nitro-contracts/src/bridge/IInbox.sol",
+    "contracts/tokenbridge/ethereum/L1ArbitrumMessenger.sol:@arbitrum/nitro-contracts/src/bridge/IOutbox.sol",
+    "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol:@openzeppelin/contracts/utils/Address.sol",
+    "contracts/tokenbridge/libraries/gateway/IGatewayRouter.sol:@openzeppelin/contracts/utils/Address.sol",
+    "contracts/tokenbridge/libraries/gateway/TokenGateway.sol:@openzeppelin/contracts/utils/Address.sol"
+  ],
+  "selection_hash": "54608513b6cab3111b36d40f1fa1e3eca3247f8387e4aa5b16b3e40824afed17"
+}

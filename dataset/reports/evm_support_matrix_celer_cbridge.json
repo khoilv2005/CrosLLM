@@ -1,0 +1,439 @@
+{
+  "acceptance_agent": null,
+  "acceptance_owner": null,
+  "acceptance_status": "draft",
+  "accepted_at": null,
+  "admission_eligible": false,
+  "artifact_manifest_sha256": "edb1d13f2cd8cf6ddca6907f8dc4e9d40537b24d778510c34d95bd0423181041",
+  "bytecode_opcode_scan": {
+    "bytecode_path": "dataset/artifacts/celer_cbridge/bytecode/CBridge.deployed.hex",
+    "bytecode_sha256": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+    "scan_hash": "97545b5ab62cb6c737d21b9a44a30c8858b986310ab18a67e22d24339ffa10fe",
+    "unique_opcodes": [
+      "0x0d",
+      "0x22",
+      "0x2c",
+      "0xa1",
+      "0xa2",
+      "0xad",
+      "0xce",
+      "0xd2",
+      "0xdd",
+      "0xec",
+      "0xef",
+      "ADD",
+      "ADDRESS",
+      "AND",
+      "CALL",
+      "CALLDATACOPY",
+      "CALLDATASIZE",
+      "CALLER",
+      "CALLVALUE",
+      "CHAINID",
+      "DIV",
+      "DUP1",
+      "DUP10",
+      "DUP11",
+      "DUP13",
+      "DUP2",
+      "DUP3",
+      "DUP4",
+      "DUP5",
+      "DUP6",
+      "DUP7",
+      "DUP8",
+      "DUP9",
+      "EQ",
+      "EXTCODECOPY",
+      "EXTCODEHASH",
+      "GAS",
+      "GT",
+      "INVALID",
+      "ISZERO",
+      "JUMP",
+      "JUMPDEST",
+      "JUMPI",
+      "LT",
+      "MLOAD",
+      "MSTORE",
+      "MUL",
+      "NOT",
+      "OR",
+      "POP",
+      "PUSH1",
+      "PUSH12",
+      "PUSH18",
+      "PUSH2",
+      "PUSH28",
+      "PUSH3",
+      "PUSH30",
+      "PUSH32",
+      "PUSH4",
+      "PUSH5",
+      "PUSH8",
+      "PUSH9",
+      "RETURN",
+      "RETURNDATACOPY",
+      "REVERT",
+      "SELFBALANCE",
+      "SHA3",
+      "SHL",
+      "SHR",
+      "SLOAD",
+      "SLT",
+      "SSTORE",
+      "STOP",
+      "SUB",
+      "SWAP1",
+      "SWAP15",
+      "SWAP2",
+      "SWAP3",
+      "SWAP4",
+      "SWAP5",
+      "SWAP6",
+      "SWAP7",
+      "SWAP8",
+      "SWAP9",
+      "TIMESTAMP"
+    ]
+  },
+  "evidence_scope": "source_backed_development_host_draft",
+  "independent_differential_required": true,
+  "independent_validation_required": false,
+  "lineage_id": "celer_cbridge",
+  "matrix": {
+    "acceptance_agent": null,
+    "acceptance_owner": null,
+    "acceptance_status": "draft",
+    "accepted_at": null,
+    "engine": "foundry-evm",
+    "engine_revision": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+    "entries": [
+      {
+        "category": "crypto",
+        "condition": null,
+        "evidence_hash": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2",
+        "feature": "ecdsa_recover",
+        "note": "not used by the locked CBridge source; no host support claim",
+        "status": "unknown"
+      },
+      {
+        "category": "crypto",
+        "condition": null,
+        "evidence_hash": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2",
+        "feature": "keccak256",
+        "note": "source-level hashlock and transfer-id derivations use keccak256",
+        "status": "supported"
+      },
+      {
+        "category": "crypto",
+        "condition": null,
+        "evidence_hash": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2",
+        "feature": "ripemd160",
+        "note": "not used by the locked CBridge source; no host support claim",
+        "status": "unknown"
+      },
+      {
+        "category": "crypto",
+        "condition": null,
+        "evidence_hash": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2",
+        "feature": "sha256",
+        "note": "not used by the locked CBridge source; no host support claim",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "CALL",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "CALLDATACOPY",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "CALLDATASIZE",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "CALLER",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "CALLVALUE",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "CHAINID",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "CREATE",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "CREATE2",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "DELEGATECALL",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "EXTCODEHASH",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "PUSH0",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "RETURNDATACOPY",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "RETURNDATASIZE",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "SELFBALANCE",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "SELFDESTRUCT",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "SHA3",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "SLOAD",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "SSTORE",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "STATICCALL",
+        "note": "not observed in the locked deployed bytecode; no support claim is admitted without a dedicated probe",
+        "status": "unknown"
+      },
+      {
+        "category": "opcode",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "TIMESTAMP",
+        "note": "opcode is present in the locked deployed bytecode; native Foundry replay executes the host artifact",
+        "status": "supported"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "blake2f@0x09",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "bn128_add@0x06",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "bn128_mul@0x07",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "bn128_pairing@0x08",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "ecrecover@0x01",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "identity@0x04",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "modexp@0x05",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "point_evaluation@0x0a",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "ripemd160@0x03",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "precompile",
+        "condition": null,
+        "evidence_hash": "3882a177a7e1e767b7f37c2b8f8dd0112f26f356e3e12b0b509330a327d0cc17",
+        "feature": "sha256@0x02",
+        "note": "no precompile call site is admitted by the Celer development source/bytecode probe",
+        "status": "unknown"
+      },
+      {
+        "category": "proxy",
+        "condition": "beacon and resolved implementation hashes must be pinned",
+        "evidence_hash": "edb1d13f2cd8cf6ddca6907f8dc4e9d40537b24d778510c34d95bd0423181041",
+        "feature": "beacon",
+        "note": null,
+        "status": "conditional"
+      },
+      {
+        "category": "proxy",
+        "condition": "facet table and selector map must be pinned",
+        "evidence_hash": "edb1d13f2cd8cf6ddca6907f8dc4e9d40537b24d778510c34d95bd0423181041",
+        "feature": "diamond",
+        "note": null,
+        "status": "conditional"
+      },
+      {
+        "category": "proxy",
+        "condition": "implementation bytecode, slot and initialization configuration must be pinned",
+        "evidence_hash": "edb1d13f2cd8cf6ddca6907f8dc4e9d40537b24d778510c34d95bd0423181041",
+        "feature": "eip1967",
+        "note": null,
+        "status": "conditional"
+      },
+      {
+        "category": "proxy",
+        "condition": null,
+        "evidence_hash": "edb1d13f2cd8cf6ddca6907f8dc4e9d40537b24d778510c34d95bd0423181041",
+        "feature": "none",
+        "note": "deployment metadata declares is_proxy=false and has no initializer",
+        "status": "supported"
+      },
+      {
+        "category": "proxy",
+        "condition": "implementation/admin/configuration hashes must be pinned",
+        "evidence_hash": "edb1d13f2cd8cf6ddca6907f8dc4e9d40537b24d778510c34d95bd0423181041",
+        "feature": "transparent",
+        "note": null,
+        "status": "conditional"
+      }
+    ],
+    "matrix_hash": "d421c445208289c4cfa110a198d08b7b9b4911f3ef63804ec81d8ed9f6b76e53",
+    "matrix_id": "celer-cbridge-foundry-development-v1",
+    "schema_version": 1
+  },
+  "profile_sha256": "a16287f69389e08c55ea16517d022574c8107e94192bdaeb5b5ff7c85bc57f51",
+  "record_type": "evm_execution_support_matrix",
+  "report_hash": "9cc075cea213f07b24a9f09ffcdbdffe39f027686f946cd562686677d5a2b5ec",
+  "schema_version": 1,
+  "scope": "source_backed_development_host_draft",
+  "source_backed": true,
+  "source_commit": "d1a097be65b3c9f0f89fabacc988de68770caa18",
+  "source_file_sha256": "851d8610f4a6f90f973227c5c75ceb902eb8a4f3ff20dc775e21cb303fa0f6d2",
+  "source_manifest_sha256": "7fb9f9f96ae29f96b210237f21e5aa7b69b33c378a15d40e259c219b8b5cea04",
+  "source_repository": "https://github.com/celer-network/cBridge-contracts.git"
+}

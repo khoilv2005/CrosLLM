@@ -1,0 +1,18 @@
+[profile.default]
+src = "contracts"
+test = "test"
+out = "out"
+solc_version = "0.8.15"
+optimizer = true
+optimizer_runs = 999999
+evm_version = "cancun"
+remappings = [
+    "forge-std/=lib/forge-std/src/",
+    "src/=contracts/packages/contracts-bedrock/src/",
+    "interfaces/=contracts/packages/contracts-bedrock/interfaces/",
+    "@solady/=contracts/packages/contracts-bedrock/lib/solady/src/",
+    "@rari-capital/solmate/=contracts/packages/contracts-bedrock/lib/solmate/",
+    "scripts/=contracts/packages/contracts-bedrock/scripts/",
+    "@openzeppelin/contracts/=contracts/packages/contracts-bedrock/lib/openzeppelin-contracts/contracts/",
+    "@openzeppelin/contracts-upgradeable/=contracts/packages/contracts-bedrock/lib/openzeppelin-contracts-upgradeable/contracts/"
+]

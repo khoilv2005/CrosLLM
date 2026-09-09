@@ -1,0 +1,49 @@
+{
+  "lineage_id": "linea",
+  "protocol": "Linea",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "LineaRollup": {
+      "contract_name": "LineaRollup",
+      "source_path": "contracts/LineaRollup.sol",
+      "source_file_sha256": "bed29bc4e9873129c7a68b4a515e83906125440d349128084ab2902fc9c34a3f",
+      "source_target": {
+        "contract_name": "LineaRollup",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 15
+      },
+      "abi_path": "abi/LineaRollup.json",
+      "abi_sha256": "23f6a4171a7cd889331497990e946ee56d36d03fd3725f82717ea99edf1b60f9",
+      "creation_bytecode_path": "bytecode/LineaRollup.creation.hex",
+      "creation_bytecode_sha256": "f0ea81b4ca147081c6b8edcb5c1c29f86faae01abba059820e5179a1d959ae28",
+      "deployed_bytecode_path": "bytecode/LineaRollup.deployed.hex",
+      "deployed_bytecode_sha256": "7e36678106d924a9bcfc3d8aac529021db149dd7cf85181ff51e0e9d10aba3d5",
+      "storage_layout_path": "storage_layout/LineaRollup.json",
+      "storage_layout_sha256": "afc8e2a612ed71590bc9afd5902a20c17bdb1495e4150d2d9e686b3006122004",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": "initialize",
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": true,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

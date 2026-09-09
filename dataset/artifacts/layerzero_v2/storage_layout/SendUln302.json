@@ -1,0 +1,198 @@
+{
+  "storage": [
+    {
+      "astId": 7,
+      "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+      "label": "_owner",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_address"
+    },
+    {
+      "astId": 6753,
+      "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+      "label": "ulnConfigs",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_mapping(t_address,t_mapping(t_uint32,t_struct(UlnConfig)6702_storage))"
+    },
+    {
+      "astId": 4942,
+      "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+      "label": "treasuryNativeFeeCap",
+      "offset": 0,
+      "slot": "2",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 4944,
+      "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+      "label": "treasury",
+      "offset": 0,
+      "slot": "3",
+      "type": "t_address"
+    },
+    {
+      "astId": 4951,
+      "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+      "label": "executorConfigs",
+      "offset": 0,
+      "slot": "4",
+      "type": "t_mapping(t_address,t_mapping(t_uint32,t_struct(ExecutorConfig)4921_storage))"
+    },
+    {
+      "astId": 4955,
+      "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+      "label": "fees",
+      "offset": 0,
+      "slot": "5",
+      "type": "t_mapping(t_address,t_uint256)"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_array(t_address)dyn_storage": {
+      "encoding": "dynamic_array",
+      "label": "address[]",
+      "numberOfBytes": "32",
+      "base": "t_address"
+    },
+    "t_mapping(t_address,t_mapping(t_uint32,t_struct(ExecutorConfig)4921_storage))": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => mapping(uint32 => struct ExecutorConfig))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint32,t_struct(ExecutorConfig)4921_storage)"
+    },
+    "t_mapping(t_address,t_mapping(t_uint32,t_struct(UlnConfig)6702_storage))": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => mapping(uint32 => struct UlnConfig))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint32,t_struct(UlnConfig)6702_storage)"
+    },
+    "t_mapping(t_address,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_uint32,t_struct(ExecutorConfig)4921_storage)": {
+      "encoding": "mapping",
+      "key": "t_uint32",
+      "label": "mapping(uint32 => struct ExecutorConfig)",
+      "numberOfBytes": "32",
+      "value": "t_struct(ExecutorConfig)4921_storage"
+    },
+    "t_mapping(t_uint32,t_struct(UlnConfig)6702_storage)": {
+      "encoding": "mapping",
+      "key": "t_uint32",
+      "label": "mapping(uint32 => struct UlnConfig)",
+      "numberOfBytes": "32",
+      "value": "t_struct(UlnConfig)6702_storage"
+    },
+    "t_struct(ExecutorConfig)4921_storage": {
+      "encoding": "inplace",
+      "label": "struct ExecutorConfig",
+      "numberOfBytes": "32",
+      "members": [
+        {
+          "astId": 4918,
+          "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+          "label": "maxMessageSize",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_uint32"
+        },
+        {
+          "astId": 4920,
+          "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+          "label": "executor",
+          "offset": 4,
+          "slot": "0",
+          "type": "t_address"
+        }
+      ]
+    },
+    "t_struct(UlnConfig)6702_storage": {
+      "encoding": "inplace",
+      "label": "struct UlnConfig",
+      "numberOfBytes": "96",
+      "members": [
+        {
+          "astId": 6689,
+          "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+          "label": "confirmations",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_uint64"
+        },
+        {
+          "astId": 6691,
+          "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+          "label": "requiredDVNCount",
+          "offset": 8,
+          "slot": "0",
+          "type": "t_uint8"
+        },
+        {
+          "astId": 6693,
+          "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+          "label": "optionalDVNCount",
+          "offset": 9,
+          "slot": "0",
+          "type": "t_uint8"
+        },
+        {
+          "astId": 6695,
+          "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+          "label": "optionalDVNThreshold",
+          "offset": 10,
+          "slot": "0",
+          "type": "t_uint8"
+        },
+        {
+          "astId": 6698,
+          "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+          "label": "requiredDVNs",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_array(t_address)dyn_storage"
+        },
+        {
+          "astId": 6701,
+          "contract": "contracts/uln/uln302/SendUln302.sol:SendUln302",
+          "label": "optionalDVNs",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_array(t_address)dyn_storage"
+        }
+      ]
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    },
+    "t_uint32": {
+      "encoding": "inplace",
+      "label": "uint32",
+      "numberOfBytes": "4"
+    },
+    "t_uint64": {
+      "encoding": "inplace",
+      "label": "uint64",
+      "numberOfBytes": "8"
+    },
+    "t_uint8": {
+      "encoding": "inplace",
+      "label": "uint8",
+      "numberOfBytes": "1"
+    }
+  }
+}

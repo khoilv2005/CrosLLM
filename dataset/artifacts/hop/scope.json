@@ -1,0 +1,16 @@
+{
+  "lineage_id": "hop",
+  "protocol": "Hop Protocol",
+  "split": "development",
+  "in_scope_contracts": [
+    "L1_Bridge",
+    "L2_Bridge"
+  ],
+  "entry_points": {
+    "L1_Bridge": "contracts/test/Mock_L1_Bridge.sol",
+    "L2_Bridge": "contracts/test/Mock_L2_Bridge.sol"
+  },
+  "channel_type": "liquidity_bridge",
+  "topology": "hub_and_spoke",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

@@ -1,0 +1,222 @@
+{
+  "admission_eligible": false,
+  "backbones": [
+    "Qwen",
+    "gpt-oss"
+  ],
+  "baseline_subset": {
+    "common_supported_record_ids": [],
+    "counts": {
+      "family": {
+        "finality": 8,
+        "input_validation": 8,
+        "logic": 8,
+        "message_handling": 8,
+        "quorum": 8,
+        "replay": 8
+      },
+      "ground_truth": {
+        "negative": 24,
+        "positive": 24
+      },
+      "lineage": {
+        "across": 4,
+        "arbitrum_token_bridge": 4,
+        "axelar_gmp": 4,
+        "hyperlane": 4,
+        "linea": 4,
+        "optimism": 4,
+        "polygon_zkevm": 4,
+        "scroll": 4,
+        "stargate": 4,
+        "synapse": 4,
+        "wormhole_evm_sdk": 4,
+        "zksync_era": 4
+      },
+      "registered_cohort": {
+        "negative": 24,
+        "sealed": 24
+      }
+    },
+    "criteria": {
+      "balance_fields": [
+        "registered_cohort"
+      ],
+      "family_field": "family",
+      "lineage_field": "lineage_id",
+      "min_families": 6,
+      "min_lineages": 12,
+      "negative_label": "negative",
+      "positive_label": "positive",
+      "record_id_field": "instance_id",
+      "required_methods": [],
+      "support_field": null,
+      "truth_field": "ground_truth"
+    },
+    "operational_coverage": {
+      "common_supported_count": 0,
+      "common_supported_record_ids": [],
+      "denominator": 48,
+      "methods": {},
+      "outcomes_used": false
+    },
+    "population_hash": "21916d72f7b82a0555cffc57c53abfc0173de8a6aefcf4736edf0e6d3392c52f",
+    "record_ids": [
+      "eval_across_ctrl_09",
+      "eval_across_mut_01",
+      "eval_across_mut_06",
+      "eval_across_mut_09",
+      "eval_arbitrum_token_bridge_ctrl_03",
+      "eval_arbitrum_token_bridge_ctrl_06",
+      "eval_arbitrum_token_bridge_mut_01",
+      "eval_arbitrum_token_bridge_mut_10",
+      "eval_axelar_gmp_ctrl_05",
+      "eval_axelar_gmp_ctrl_07",
+      "eval_axelar_gmp_mut_04",
+      "eval_axelar_gmp_mut_10",
+      "eval_hyperlane_ctrl_01",
+      "eval_hyperlane_ctrl_10",
+      "eval_hyperlane_mut_01",
+      "eval_hyperlane_mut_09",
+      "eval_linea_ctrl_04",
+      "eval_linea_ctrl_06",
+      "eval_linea_ctrl_09",
+      "eval_linea_mut_01",
+      "eval_optimism_ctrl_09",
+      "eval_optimism_mut_02",
+      "eval_optimism_mut_04",
+      "eval_optimism_mut_07",
+      "eval_polygon_zkevm_ctrl_03",
+      "eval_polygon_zkevm_ctrl_05",
+      "eval_polygon_zkevm_mut_08",
+      "eval_polygon_zkevm_mut_09",
+      "eval_scroll_ctrl_08",
+      "eval_scroll_mut_01",
+      "eval_scroll_mut_08",
+      "eval_scroll_mut_10",
+      "eval_stargate_ctrl_01",
+      "eval_stargate_ctrl_05",
+      "eval_stargate_ctrl_08",
+      "eval_stargate_mut_03",
+      "eval_synapse_ctrl_03",
+      "eval_synapse_ctrl_06",
+      "eval_synapse_mut_06",
+      "eval_synapse_mut_10",
+      "eval_wormhole_evm_sdk_ctrl_03",
+      "eval_wormhole_evm_sdk_ctrl_09",
+      "eval_wormhole_evm_sdk_ctrl_10",
+      "eval_wormhole_evm_sdk_mut_07",
+      "eval_zksync_era_ctrl_09",
+      "eval_zksync_era_ctrl_10",
+      "eval_zksync_era_mut_08",
+      "eval_zksync_era_mut_10"
+    ],
+    "schema_version": 1,
+    "seed": 20260909,
+    "selection_hash": "24d28d302e8038ff55f79ea48ee1635800c873b3fb3813570bbc0e19dc5e6af3",
+    "selection_id": "subset-24d28d302e8038ff",
+    "target_size": 48
+  },
+  "input_manifest_sha256": "09cd0f8dae7488ea8c2e5628cccd848ecbaaa9c0cad3f785084fa5220fdf076f",
+  "limitations": [
+    "public manifest rows are structural development fixtures, not admitted benchmark cases",
+    "cohort-to-ground-truth mapping is registered construction metadata, not a model outcome",
+    "no method support was assumed and no provider calls were executed",
+    "selection has no independent reviewer sign-off and cannot unlock evaluation"
+  ],
+  "outcome_blind": true,
+  "provider_calls": 0,
+  "record_type": "synthetic_m07_selection_rehearsal",
+  "report_hash": "ee9925dadf8153151f3b3d73c2b03747c39f004ea38c420ef470352e68c5ed4a",
+  "schema_version": 1,
+  "scope": "development_selection_rehearsal_only",
+  "sensitivity_subset": {
+    "common_supported_record_ids": [],
+    "counts": {
+      "family": {
+        "finality": 4,
+        "input_validation": 4,
+        "logic": 4,
+        "message_handling": 4,
+        "quorum": 4,
+        "replay": 4
+      },
+      "ground_truth": {
+        "negative": 12,
+        "positive": 12
+      },
+      "lineage": {
+        "across": 2,
+        "arbitrum_token_bridge": 2,
+        "axelar_gmp": 2,
+        "hyperlane": 2,
+        "linea": 2,
+        "optimism": 2,
+        "polygon_zkevm": 2,
+        "scroll": 2,
+        "stargate": 2,
+        "synapse": 2,
+        "wormhole_evm_sdk": 2,
+        "zksync_era": 2
+      },
+      "registered_cohort": {
+        "negative": 12,
+        "sealed": 12
+      }
+    },
+    "criteria": {
+      "balance_fields": [
+        "registered_cohort"
+      ],
+      "family_field": "family",
+      "lineage_field": "lineage_id",
+      "min_families": 6,
+      "min_lineages": 8,
+      "negative_label": "negative",
+      "positive_label": "positive",
+      "record_id_field": "instance_id",
+      "required_methods": [],
+      "support_field": null,
+      "truth_field": "ground_truth"
+    },
+    "operational_coverage": {
+      "common_supported_count": 0,
+      "common_supported_record_ids": [],
+      "denominator": 24,
+      "methods": {},
+      "outcomes_used": false
+    },
+    "population_hash": "21916d72f7b82a0555cffc57c53abfc0173de8a6aefcf4736edf0e6d3392c52f",
+    "record_ids": [
+      "eval_across_mut_02",
+      "eval_across_mut_08",
+      "eval_arbitrum_token_bridge_ctrl_03",
+      "eval_arbitrum_token_bridge_mut_07",
+      "eval_axelar_gmp_ctrl_05",
+      "eval_axelar_gmp_ctrl_09",
+      "eval_hyperlane_ctrl_04",
+      "eval_hyperlane_ctrl_07",
+      "eval_linea_ctrl_06",
+      "eval_linea_mut_10",
+      "eval_optimism_ctrl_02",
+      "eval_optimism_ctrl_10",
+      "eval_polygon_zkevm_mut_01",
+      "eval_polygon_zkevm_mut_09",
+      "eval_scroll_ctrl_05",
+      "eval_scroll_mut_05",
+      "eval_stargate_ctrl_02",
+      "eval_stargate_mut_10",
+      "eval_synapse_ctrl_10",
+      "eval_synapse_mut_04",
+      "eval_wormhole_evm_sdk_mut_04",
+      "eval_wormhole_evm_sdk_mut_09",
+      "eval_zksync_era_ctrl_09",
+      "eval_zksync_era_mut_07"
+    ],
+    "schema_version": 1,
+    "seed": 20260910,
+    "selection_hash": "6ee6a607f22b4bbaa3379e094f52fceb1d817fa8afd6328eef516d541f31d0c7",
+    "selection_id": "subset-6ee6a607f22b4bba",
+    "target_size": 24
+  }
+}

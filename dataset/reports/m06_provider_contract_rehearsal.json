@@ -1,0 +1,161 @@
+{
+  "admission_eligible": false,
+  "all_passed": true,
+  "case_count": 9,
+  "case_ids": [
+    "success_raw_capture",
+    "malformed_missing_partial",
+    "retry_429_5xx_timeout",
+    "cancellation_and_deadline",
+    "archive_hash_round_trip",
+    "ordered_slot_statuses",
+    "budget_and_tokenizer_boundaries",
+    "four_family_preflight_boundary",
+    "x_p_t0_shared_call_boundary"
+  ],
+  "cases": [
+    {
+      "assertions": {
+        "finish_reason_captured": true,
+        "http_metadata_captured": true,
+        "ok": true,
+        "one_attempt": true,
+        "request_bytes_captured": true,
+        "request_hash_bound": true,
+        "response_bytes_captured": true,
+        "response_hash_bound": true,
+        "server_model_captured": true,
+        "usage_captured": true
+      },
+      "case_id": "success_raw_capture",
+      "evidence_sha256": "e84074e2ff15e1544f99b51c7f3954c4e8f301484acae32452b254ad39d7f3be",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "all_raw_responses_captured": true,
+        "malformed_is_explicit": true,
+        "missing_content_is_explicit": true,
+        "partial_is_preserved": true
+      },
+      "case_id": "malformed_missing_partial",
+      "evidence_sha256": "1079e06755e43b9414e14d6c09bb8f3d89f527a4dca15095d88265dc98635c17",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "backoff_2_10": true,
+        "last_raw_response_preserved": true,
+        "retryable_statuses_retried": true,
+        "terminal_transport_failure": true,
+        "two_retries_max": true
+      },
+      "case_id": "retry_429_5xx_timeout",
+      "evidence_sha256": "8c75b5f3349d6690701dfeeb129d620ba5446c34bbd74e2550abb9112063fd5f",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "cancelled_before_call": true,
+        "cancelled_makes_no_request": true,
+        "deadline_before_call": true,
+        "deadline_makes_no_request": true
+      },
+      "case_id": "cancellation_and_deadline",
+      "evidence_sha256": "6295645128c4842d131198a38c67ad16611991bdfdf892377a3b5916a948e783",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "archive_miss_is_explicit": true,
+        "raw_response_round_trip": true,
+        "replay_attempt_is_one": true,
+        "request_hash_addressed": true,
+        "round_trip_ok": true,
+        "temporary_file_cleaned": true
+      },
+      "case_id": "archive_hash_round_trip",
+      "evidence_sha256": "440ef394d7afbf5e34c6c835fe7f546ef12bff1c02fb3e3e6067d34af152f31c",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "all_slots_terminal": true,
+        "duplicate_is_not_candidate": true,
+        "exactly_eight_requests": true,
+        "fixed_order_preserved": true,
+        "no_quality_retry": true,
+        "provider_failures_consume_slots": true
+      },
+      "case_id": "ordered_slot_statuses",
+      "evidence_sha256": "b2a68568d638f55c23f1ee63a5b94172d4b0b9fb29e3cb2810717e8327137207",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "budget_ledger_has_eight_checks": true,
+        "eight_requests_consumed": true,
+        "identified_encoder_counts_exact_fixture": true,
+        "identified_measurement_passes": true,
+        "missing_generated_is_unknown": true,
+        "native_input_cap_rejects": true,
+        "no_word_fallback": true,
+        "unknown_native_usage_is_explicit": true
+      },
+      "case_id": "budget_and_tokenizer_boundaries",
+      "evidence_sha256": "cb0bfb0419e13cf716e3da7328cc8b44ac86ba8938ee4b975dc0e42a2762dee1",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "all_four_families_present": true,
+        "missing_identity_is_explicit": true,
+        "one_probe_per_family": true,
+        "panel_not_overclaimed_ready": true,
+        "requested_models_used": true,
+        "response_models_captured": true
+      },
+      "case_id": "four_family_preflight_boundary",
+      "evidence_sha256": "02605cb21adbf4f67fb8181ea503a614eec0093cf1d10a48890f1d2905b1b444",
+      "passed": true
+    },
+    {
+      "assertions": {
+        "all_tracks_exercised": true,
+        "eight_slots_each": true,
+        "no_memory_tools_retrieval": true,
+        "same_call_cap": true,
+        "same_prompt_settings_and_pack": true,
+        "usage_checks_present": true,
+        "usage_within_caps": true
+      },
+      "case_id": "x_p_t0_shared_call_boundary",
+      "evidence_sha256": "6de31fe414991394ace67727d0673dd84fc208ccd91901cc2c3e12812927b163",
+      "passed": true
+    }
+  ],
+  "endpoint_policy": "https://ollama.com/api/chat",
+  "fake_server_only": true,
+  "hash_inputs": {
+    "src/crossllm/methods/proposal.py": "4673a0adf9fdb4dfd669f7c97f3493f1b0c14576820c6898864803b6a7b52341",
+    "src/crossllm/methods/runner.py": "dd45ef552f01fd485b6c137bb14e298942f4c78fe8eb58343c5de83ee867f1fd",
+    "src/crossllm/providers/budget.py": "4ea629914add2308cc0b2d9f603353b461b73ca5bc7461e4607de4d1afe587ad",
+    "src/crossllm/providers/ollama.py": "284b427f26ac9c8e767dd685629054012db8799d93eebd74c2022837fae891ef",
+    "src/crossllm/providers/preflight.py": "c29163458f9d8bfd858b060ad9e9b084307762d68fa766bdffb381dae683989e",
+    "src/crossllm/providers/tokenizer.py": "b5df0a0b1cc3f93742d0209d98899ceeba5e88c8c6605c1d006fbf3ebde4c31c"
+  },
+  "limitations": [
+    "no Ollama Cloud calls were executed",
+    "fake transport responses are synthetic fixtures, not model outcomes",
+    "preflight readiness remains false without served-weight digest and effective settings",
+    "the report cannot establish quota, catalog/license evidence, checkpoint identity, or provider availability",
+    "the rehearsal is development evidence only and has no independent reviewer"
+  ],
+  "ollama_cloud_calls": 0,
+  "passed_count": 9,
+  "record_type": "synthetic_m06_provider_contract_rehearsal",
+  "report_hash": "fb0e5ba7effa36671a2ea1fa09e9e79ae21b61aa2cf1bd5121b1d76dd4c83917",
+  "schema_version": 1,
+  "scope": "development_provider_contract_rehearsal_only",
+  "synthetic_transport_calls": 53
+}

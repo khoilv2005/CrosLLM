@@ -1,0 +1,101 @@
+{
+  "artifact_manifest_sha256": "5560e798dcb9747c66acbcf0ff70e324d27cc79f64b007732e5e28c210b18fc7",
+  "compiler": {
+    "binary_sha256": "4ae092c0070131da58766f3083ba22ff52a0f4d57c8e5ccdd58c5bce8d482008",
+    "image": "ghcr.io/argotorg/solc@sha256:968cb5ba4b4ccec35d21f6a20e1c104606ee43844a6aec72611be8fb3ae237b8",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.8.30"
+  },
+  "contracts": [
+    "Proxy"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "3fea02dc50da587500adc21a62788477d0155e2667ddf4f108212fa5184399af",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "wormhole_evm_sdk",
+  "protocol": "Wormhole",
+  "source_backed": true,
+  "source_commit": "2cb855ea9d0a6c28470620a6d37c04d0496ea919",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "7014b03c97219468fbeff87a39e61c22b7d5a7d3d413e0291990387a58001b10",
+  "source_repository": "https://github.com/wormhole-foundation/wormhole-solidity-sdk.git",
+  "source_selection_hash": "0cfbb065e77cefe8ba5869b6c357e8fd470ba4a5bf4e90ded069cfd975b8489e",
+  "split": "evaluation",
+  "test_contract": "WormholeProxySourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "application": [
+        "Proxy.fallback -> logic.setValue"
+      ],
+      "deployer": [
+        "Proxy.constructor"
+      ],
+      "eve": [],
+      "logic": [
+        "implementationState"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_when_logic_lacks_checked_upgrade",
+      "mechanism": "proxy constructor delegates checkedUpgrade to the supplied logic contract"
+    },
+    "callbacks": {
+      "destination_callback": "fallback delegatecall to the configured logic contract",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "EVM block.number at delegated state update",
+      "explicit_time_warp": false,
+      "source": "EVM block.number at proxy deployment"
+    },
+    "finality": {
+      "model": "proxy initialization flag and EIP-1967 implementation slot",
+      "status": "initialization_and_delegation_boundary_tested"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "implementation_state",
+        "initialized_guard",
+        "delegated_storage"
+      ],
+      "steps": [
+        "proxy_constructor",
+        "checkedUpgrade",
+        "fallback_delegatecall",
+        "state_read_write"
+      ],
+      "test": "test_proxy_initialization_and_delegation"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp deploys a fresh logic and proxy pair for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the locked EIP-1967 Proxy with an isolated logic contract",
+      "source_contracts": [
+        "Proxy",
+        "implementationState"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

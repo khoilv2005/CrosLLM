@@ -1,0 +1,112 @@
+{
+  "artifact_manifest_sha256": "f331f26beab8ba5bc79efecc2cae20948d696ece43a8e5d60605253a2a902dae",
+  "compiler": {
+    "binary_sha256": "19499cc8e2b83f4aa794c872f0b1523f38e121144f8bb853ef8618417e0a6bf2",
+    "image": "ghcr.io/argotorg/solc@sha256:9269c273c337f3ea3b41e04909fa4ea0692e830c4b94dd99c109819c84ea16b4",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.7.6"
+  },
+  "contracts": [
+    "Bridge",
+    "Pool",
+    "Router"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "94b2b7eb54030f03b9aa09112205da5c929b459c03cf6e2d88aa8a7994104b82",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "stargate",
+  "protocol": "Stargate Finance",
+  "source_backed": true,
+  "source_commit": "c4212c2ee76997b1099ee9b34da0f1ed32dcf9c4",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "021d89e6393e5466cf983d7ad123ab5b86888078e7ed4af36083984da6c2f9ec",
+  "source_repository": "https://github.com/stargate-protocol/stargate.git",
+  "source_selection_hash": "3a2eb754f88b6238f3f6a3896678607cbd6967a6eb8eb42c796fe519cb5981bd",
+  "split": "evaluation",
+  "test_contract": "StargateSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "endpoint": [
+        "Bridge.lzReceive"
+      ],
+      "eve": [],
+      "liquidity_provider": [
+        "Router.addLiquidity"
+      ],
+      "router_operator": [
+        "Router.callDelta",
+        "Router.sendCredits"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_direct_lz_receive",
+      "mechanism": "source Bridge requires the configured endpoint and destination Bridge checks the registered source address"
+    },
+    "callbacks": {
+      "destination_callback": "Bridge.lzReceive -> Router.creditChainPath -> Pool.creditChainPath",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.number at endpoint delivery",
+      "explicit_time_warp": false,
+      "source": "Foundry block.number at addLiquidity/sendCredits"
+    },
+    "finality": {
+      "model": "LayerZero endpoint identity plus configured source-bridge binding for credit delivery",
+      "status": "liquidity_credit_and_endpoint_binding_tested_without_external_message_finality_delay"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "source_pool_escrow",
+        "lp_mint",
+        "outbound_nonce",
+        "source_bridge_binding",
+        "destination_credit"
+      ],
+      "steps": [
+        "approve",
+        "addLiquidity",
+        "callDelta",
+        "sendCredits",
+        "endpoint_deliver",
+        "lzReceive",
+        "credit_chain_path"
+      ],
+      "test": "test_normal_source_backed_liquidity_credit_delivery"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys endpoint, routers, factories, bridges, pools and tokens for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys locked Router/Factory/Bridge/Pool pairs on isolated source and destination domains",
+      "source_contracts": [
+        "Router",
+        "Factory",
+        "Bridge",
+        "Pool",
+        "LPTokenERC20"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

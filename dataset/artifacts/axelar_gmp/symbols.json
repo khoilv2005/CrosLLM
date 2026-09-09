@@ -1,0 +1,754 @@
+{
+  "lineage_id": "axelar_gmp",
+  "protocol": "Axelar GMP",
+  "contracts": {
+    "AxelarAmplifierGateway": {
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0",
+      "source_target": {
+        "contract_name": "AxelarAmplifierGateway",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 21
+      },
+      "function_count": 33,
+      "functions": [
+        "acceptOwnership",
+        "approveMessages",
+        "callContract",
+        "contractId",
+        "domainSeparator",
+        "epoch",
+        "epochBySignersHash",
+        "implementation",
+        "isCommandExecuted",
+        "isContractCallApproved",
+        "isMessageApproved",
+        "isMessageExecuted",
+        "lastRotationTimestamp",
+        "messageHashToSign",
+        "messageToCommandId",
+        "minimumRotationDelay",
+        "operator",
+        "owner",
+        "paused",
+        "pendingOwner",
+        "previousSignersRetention",
+        "proposeOwnership",
+        "rotateSigners",
+        "setPauseStatus",
+        "setup",
+        "signersHashByEpoch",
+        "timeSinceRotation",
+        "transferOperatorship",
+        "transferOwnership",
+        "upgrade",
+        "validateContractCall",
+        "validateMessage",
+        "validateProof"
+      ],
+      "event_count": 10,
+      "events": [
+        "ContractCall",
+        "MessageApproved",
+        "MessageExecuted",
+        "OperatorshipTransferred",
+        "OwnershipTransferStarted",
+        "OwnershipTransferred",
+        "Paused",
+        "SignersRotated",
+        "Unpaused",
+        "Upgraded"
+      ],
+      "storage_slot_count": 0,
+      "storage_slots": []
+    }
+  },
+  "stable_symbols": [
+    {
+      "symbol_id": "abi_constructor.AxelarAmplifierGateway.56f57b8687159a67d88371d5bb34077e17d104fd3a7180a55b72a4b0d220e06a",
+      "contract": "AxelarAmplifierGateway",
+      "name": "constructor",
+      "signature": "constructor(uint256,bytes32,uint256)",
+      "kind": "abi_constructor",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.08c80e63b7bb80ee50544ce7f288c3e613e8085f0ca83b51d00bc6c044cd943e",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidThreshold",
+      "signature": "InvalidThreshold()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.0f2c9f0e13c969b5a64cb07d4521517b0f981b271395cacb41c42b4799c70d29",
+      "contract": "AxelarAmplifierGateway",
+      "name": "NotOwner",
+      "signature": "NotOwner()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.12086a5e008081337986ae4f666e4c47f5beccc7dd5b56721829037e8617da4c",
+      "contract": "AxelarAmplifierGateway",
+      "name": "RedundantSignaturesProvided",
+      "signature": "RedundantSignaturesProvided(uint256,uint256)",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.1e2ac99a8855e6865a84948fcddab0c591364af8456e8fcec2b68ed0fe3817cb",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidImplementation",
+      "signature": "InvalidImplementation()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.36048dd53b93ddcf19e38e739a8495d06c864bae0a9ce3f209fecabf761fbb12",
+      "contract": "AxelarAmplifierGateway",
+      "name": "MalformedSignatures",
+      "signature": "MalformedSignatures()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.36270248d71c62c0dee5a2a1d4021d00b9501148308e470c65c3f7844fee7ca5",
+      "contract": "AxelarAmplifierGateway",
+      "name": "NotPaused",
+      "signature": "NotPaused()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.3b674ab710e8a7cf39a8ed62f2257d76d353fac7453bee89867a9bdf8cebc631",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidMessages",
+      "signature": "InvalidMessages()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.455991c7679edf3b2837a472e9660ead97bdda0dc13b01d0e7192a2bf7dd09c4",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidSignature",
+      "signature": "InvalidSignature()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.535d1064778d5516331761fb77256849fbc67eb68e77ea3cad9833f711faf43b",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidSender",
+      "signature": "InvalidSender(address)",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.555d951e33f9f5eaea4cc98350f2296c40ac26853e112e8945140b849628f10a",
+      "contract": "AxelarAmplifierGateway",
+      "name": "Pause",
+      "signature": "Pause()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.5977107453ec9564732e4abbcbaed0f83e9a927e40db303a86ab2be71993554c",
+      "contract": "AxelarAmplifierGateway",
+      "name": "DuplicateSigners",
+      "signature": "DuplicateSigners(bytes32)",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.5d6267a99259712a8909c34dddd70280a646affa098a0cc07d4156f23462f9b2",
+      "contract": "AxelarAmplifierGateway",
+      "name": "LowSignaturesWeight",
+      "signature": "LowSignaturesWeight()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.7656cced29d8463a1ecb9e449113158b8522fb9cbea609f11d4e37a56309c37b",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidV",
+      "signature": "InvalidV()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.76b65163695297c891387fcb232bb12c9cd67ce135f6cbda5e3a0c263b02ad86",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidCodeHash",
+      "signature": "InvalidCodeHash()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.8b936368aeb8f06f9aaf8270002c7bb948423e75abd66f9a640aa9d4c879accd",
+      "contract": "AxelarAmplifierGateway",
+      "name": "SetupFailed",
+      "signature": "SetupFailed()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.935f7a9f3e3242d22642b1e6e1d2deb051b13152cee68ff567f3881eb106a3e4",
+      "contract": "AxelarAmplifierGateway",
+      "name": "NotLatestSigners",
+      "signature": "NotLatestSigners()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.a0b874a6df9e57b75ff3ec2725b33338c9195427fd56981c58681655b7762a36",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidWeights",
+      "signature": "InvalidWeights()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.b91ab8d0505dc7e07a04860d99a65a81533a6bb380a6c610b74298d1524a11d0",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidS",
+      "signature": "InvalidS()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.bd70136181b89397aef04b60704aa8f61a3aa86954186250042f45f6ad19c168",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidOwner",
+      "signature": "InvalidOwner()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.c0dac296392de14f97a071e39c600f06998fd5643f695ee34a0e18dce7f9017c",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidSignatureLength",
+      "signature": "InvalidSignatureLength()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.c3c057e255483ffdb836ad0cc0cad5c17eab1d3f228211a0966d2f834eb86194",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidOwnerAddress",
+      "signature": "InvalidOwnerAddress()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.d0de88aea79d167e73b359334b847e5f569e1368dc73eeef55c0925b685ad1bb",
+      "contract": "AxelarAmplifierGateway",
+      "name": "NotProxy",
+      "signature": "NotProxy()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.e992c99110f9fbc26f0e3279999325615443f10e1ec8a58a9f8833a99605a109",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InsufficientRotationDelay",
+      "signature": "InsufficientRotationDelay(uint256,uint256,uint256)",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_error.AxelarAmplifierGateway.feb10278112f20a7d710254d3be3f1b58e0d000252ea5356bb276ce57414d142",
+      "contract": "AxelarAmplifierGateway",
+      "name": "InvalidSigners",
+      "signature": "InvalidSigners()",
+      "kind": "abi_error",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.0376bc2f322afa3327896d47a43782d3d949e6fc4532824c8fb14bc8773a316b",
+      "contract": "AxelarAmplifierGateway",
+      "name": "Upgraded",
+      "signature": "Upgraded(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.517719a1033ba434f06ba1df83055289e06043bffd3335aaea7c4ccaf4654803",
+      "contract": "AxelarAmplifierGateway",
+      "name": "OwnershipTransferStarted",
+      "signature": "OwnershipTransferStarted(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.5b80e145d8c6b34d013216577ba6533a9f9951d6c486cb08a58f1cf53038d911",
+      "contract": "AxelarAmplifierGateway",
+      "name": "Paused",
+      "signature": "Paused(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.722b9f64d66df5d70cb35a9419a3bd55236cbaecb0718d542ed86ee95c0fe4ad",
+      "contract": "AxelarAmplifierGateway",
+      "name": "Unpaused",
+      "signature": "Unpaused(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.ab9acbb819a4dee83177eefb952a8ab507b9281da37d548b7125252185f46dfd",
+      "contract": "AxelarAmplifierGateway",
+      "name": "OperatorshipTransferred",
+      "signature": "OperatorshipTransferred(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.b9b34f4726192b78c3be5d4d580a980253a4a0208f49fb43f2a6a055b11d01b0",
+      "contract": "AxelarAmplifierGateway",
+      "name": "OwnershipTransferred",
+      "signature": "OwnershipTransferred(address)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.c76f28af368ddc907c6e2bcab25b7a607e4e080520ad05a03b2206726b65f8e1",
+      "contract": "AxelarAmplifierGateway",
+      "name": "ContractCall",
+      "signature": "ContractCall(address,string,string,bytes32,bytes)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.d7770fe3d7826d48763ae64bfcb54c8893b210c5ef90b2a8add84e6a0b983ae7",
+      "contract": "AxelarAmplifierGateway",
+      "name": "SignersRotated",
+      "signature": "SignersRotated(uint256,bytes32,bytes)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.f0abfa270105ccbb566a46ba0a089ce07cf9e3738b9fd62980c63e78a00d43a1",
+      "contract": "AxelarAmplifierGateway",
+      "name": "MessageExecuted",
+      "signature": "MessageExecuted(bytes32)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_event.AxelarAmplifierGateway.f4a17e58b02fd95c4283908b9d1de4a6cb29b71885ef2f3b9d29cc654512bf4d",
+      "contract": "AxelarAmplifierGateway",
+      "name": "MessageApproved",
+      "signature": "MessageApproved(bytes32,string,string,string,address,bytes32)",
+      "kind": "abi_event",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.00c0ad21df88331516a84fa977495c389ca0754f14471d1b6380d390eeafa775",
+      "contract": "AxelarAmplifierGateway",
+      "name": "operator",
+      "signature": "operator()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.30c1e2ee99fddc4ecd3bc8aac31053c019cfeb0c07a3a2d1773b9c071d7c2a5e",
+      "contract": "AxelarAmplifierGateway",
+      "name": "messageHashToSign",
+      "signature": "messageHashToSign(bytes32,bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.336ac841833e9bb740e7085f18e7e2f073957afe3fab9f33923c2407606b2c6c",
+      "contract": "AxelarAmplifierGateway",
+      "name": "pendingOwner",
+      "signature": "pendingOwner()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.33cb6da4d26454dc74ba00a1235c643e877b5d7a87b92e545b1bb62ad4feb68f",
+      "contract": "AxelarAmplifierGateway",
+      "name": "approveMessages",
+      "signature": "approveMessages((string,string,string,address,bytes32)[],(((address,uint128)[],uint128,bytes32),bytes[]))",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.37e0f83992b6fcd5beb3792fb2c48a822c536ceef45fb4f1d134c5a2157891a6",
+      "contract": "AxelarAmplifierGateway",
+      "name": "timeSinceRotation",
+      "signature": "timeSinceRotation()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.489aac53dd99b9991ab9c74d4448c0526dbbbb696cc5a9fc9f473a49513cd0ae",
+      "contract": "AxelarAmplifierGateway",
+      "name": "domainSeparator",
+      "signature": "domainSeparator()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.492c454a55cadbb2ad89bcdf9b3112df40a8ffbf0cd1d57f3b0c854ad28428cd",
+      "contract": "AxelarAmplifierGateway",
+      "name": "epoch",
+      "signature": "epoch()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.598ea59a5d52b9692fa52e0fa3b7da7998121e7be649ca43deaca61fa520683d",
+      "contract": "AxelarAmplifierGateway",
+      "name": "callContract",
+      "signature": "callContract(string,string,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.5f1d273171432e9d55842bcef8c7f664eea4d34bfcafea0df005e8b74cd557de",
+      "contract": "AxelarAmplifierGateway",
+      "name": "lastRotationTimestamp",
+      "signature": "lastRotationTimestamp()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.681ba173029aa2c4ee99ea5894c7fa76f14b8d28271f3d30d7e4be6e32798adb",
+      "contract": "AxelarAmplifierGateway",
+      "name": "epochBySignersHash",
+      "signature": "epochBySignersHash(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.7af0c7647f81403f5552908094ffbf0ba0b840eccc5ace2685b0c7b03b31ae7e",
+      "contract": "AxelarAmplifierGateway",
+      "name": "signersHashByEpoch",
+      "signature": "signersHashByEpoch(uint256)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.7e5d320168988c7358170d678e652a0a433c4b61a65e01a9ef945c5287417ab3",
+      "contract": "AxelarAmplifierGateway",
+      "name": "upgrade",
+      "signature": "upgrade(address,bytes32,bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.83b4d1c026d93e53b5cec3f8a8f49aa0f6f920644e955277351305003dcf8340",
+      "contract": "AxelarAmplifierGateway",
+      "name": "validateContractCall",
+      "signature": "validateContractCall(bytes32,string,string,bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.88ddf41269c5a597ad942a7d36635770a15f4aafeec653c62641fdeab03e6280",
+      "contract": "AxelarAmplifierGateway",
+      "name": "transferOperatorship",
+      "signature": "transferOperatorship(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.8cfea61e65ee07e96faf4630df5ed924ca5973dba3c928fd213b46128d830733",
+      "contract": "AxelarAmplifierGateway",
+      "name": "rotateSigners",
+      "signature": "rotateSigners(((address,uint128)[],uint128,bytes32),(((address,uint128)[],uint128,bytes32),bytes[]))",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.a2f5d40c49530ae41ce1132554865c5d37ecd969e81f50ef4c7ae8f49ffb130f",
+      "contract": "AxelarAmplifierGateway",
+      "name": "paused",
+      "signature": "paused()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.a6835396d6f32f77b239f1da54670f1da0bd43c2e71d1c3869e52f9d6a8edba2",
+      "contract": "AxelarAmplifierGateway",
+      "name": "isCommandExecuted",
+      "signature": "isCommandExecuted(bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.a9735ee749759b8824008456ae9f838dbcecb85b35fe0bfe0bae4371c1fbd6b3",
+      "contract": "AxelarAmplifierGateway",
+      "name": "setPauseStatus",
+      "signature": "setPauseStatus(bool)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.a9c353c22b5859cdd54b46613ad2bdbe025e4c3dfe9d5341f830aba262af32b3",
+      "contract": "AxelarAmplifierGateway",
+      "name": "validateProof",
+      "signature": "validateProof(bytes32,(((address,uint128)[],uint128,bytes32),bytes[]))",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.ac56aa72fd80738eaf7a2151468fad252424640ef9c63095df0e77140873fd1c",
+      "contract": "AxelarAmplifierGateway",
+      "name": "previousSignersRetention",
+      "signature": "previousSignersRetention()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.acf109da367a19db300966bdc09f63c196c07b3df1ee78696c08b8eb6399af17",
+      "contract": "AxelarAmplifierGateway",
+      "name": "setup",
+      "signature": "setup(bytes)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.b16af8e0353e0e8d3a2ed705b47a1727a7245ff3662c0677219142c390846462",
+      "contract": "AxelarAmplifierGateway",
+      "name": "isContractCallApproved",
+      "signature": "isContractCallApproved(bytes32,string,string,address,bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.d866a935408ad91f4d68b4b63d6bce7be39f4f4f7413897e2e802aaee59cd365",
+      "contract": "AxelarAmplifierGateway",
+      "name": "contractId",
+      "signature": "contractId()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.db71b2021d00b629e5f25da12be2cda025f639eb371d1aee1f950eac29496b6a",
+      "contract": "AxelarAmplifierGateway",
+      "name": "isMessageApproved",
+      "signature": "isMessageApproved(string,string,string,address,bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.dc942888f8cef1f61037280981f9f6f7acd8c80ffc1f7a9717ce837042b48520",
+      "contract": "AxelarAmplifierGateway",
+      "name": "transferOwnership",
+      "signature": "transferOwnership(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.e53cfd18b7dad1eb94d4dcb092f30c4a410c7706a61a46080e137d2b484415f9",
+      "contract": "AxelarAmplifierGateway",
+      "name": "messageToCommandId",
+      "signature": "messageToCommandId(string,string)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.e7f43603070ede1e13684c6f232145447b4b3291588ea75a4337ebaa8fbe18f0",
+      "contract": "AxelarAmplifierGateway",
+      "name": "acceptOwnership",
+      "signature": "acceptOwnership()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.e89bff61967e1202745bb8dbd6c2138bbf3874528859634445899b1f91a7f2a2",
+      "contract": "AxelarAmplifierGateway",
+      "name": "validateMessage",
+      "signature": "validateMessage(string,string,string,bytes32)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.eca9e3b03631cdf659477e2a333c5b018f8427d75d19802f0b3bd7e6bc9a2d4b",
+      "contract": "AxelarAmplifierGateway",
+      "name": "implementation",
+      "signature": "implementation()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.f6102c3f1507e1e2df56e4814ff57eb60254d4fd58df44fc543158e3752c686a",
+      "contract": "AxelarAmplifierGateway",
+      "name": "minimumRotationDelay",
+      "signature": "minimumRotationDelay()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.f77f7758a959fd819ef2799e8f69ad52d827feacaffdab81a5fb40d0dd80bcee",
+      "contract": "AxelarAmplifierGateway",
+      "name": "isMessageExecuted",
+      "signature": "isMessageExecuted(string,string)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.fb407bfd69159e18c3e8a7a15d2403658039569b0a8606929e19b1e07c1518a1",
+      "contract": "AxelarAmplifierGateway",
+      "name": "owner",
+      "signature": "owner()",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    },
+    {
+      "symbol_id": "abi_function.AxelarAmplifierGateway.fec68b12bdd93fa426c23bf2bb966ab271b03945f2294747107e46eb2d6b35e7",
+      "contract": "AxelarAmplifierGateway",
+      "name": "proposeOwnership",
+      "signature": "proposeOwnership(address)",
+      "kind": "abi_function",
+      "domain": "shared",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "source_file_sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0"
+    }
+  ],
+  "stable_symbols_sha256": "db31c826ac23ec24881ae55f26f413636c3d1dc7c2e39355c9de9fb2f65fcc33",
+  "domain_assignments": {
+    "AxelarAmplifierGateway": "shared"
+  },
+  "source_selection_hash": "de05ada4e226668a5199504ae8921fff36d938f21ad0ab4a733294aec2f830c9"
+}

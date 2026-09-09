@@ -1,0 +1,26 @@
+{
+  "lineage_id": "hop",
+  "workflow_name": "hop_normal_dispatch_and_execution",
+  "description": "Standard cross-domain lifecycle for Hop Protocol from source dispatch to destination receipt.",
+  "steps": [
+    {
+      "step_index": 1,
+      "action": "deposit_or_dispatch",
+      "contract": "L1_Bridge",
+      "expected_event": "ChallengeResolved"
+    },
+    {
+      "step_index": 2,
+      "action": "relay_or_attest",
+      "actor": "relayer_or_oracle",
+      "proof_type": "bonder_relayed_with_l1_roots"
+    },
+    {
+      "step_index": 3,
+      "action": "settle_or_execute",
+      "contract": "L2_Bridge",
+      "expected_state_transition": "message_nonce_incremented_or_executed_flag_set"
+    }
+  ],
+  "harness_assertion": "assert_normal_workflow_completes_without_revert"
+}

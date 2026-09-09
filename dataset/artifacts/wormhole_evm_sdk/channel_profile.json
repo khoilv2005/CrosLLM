@@ -1,0 +1,20 @@
+{
+  "channel_type": "vaa_attestation_bridge",
+  "topology": "any_to_any",
+  "source_domains": [
+    "Ethereum",
+    "Solana",
+    "BSC",
+    "Polygon",
+    "Arbitrum"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "Solana",
+    "BSC",
+    "Polygon",
+    "Arbitrum"
+  ],
+  "message_passing": "guardian_network_vaa",
+  "settlement": "13_of_19_guardian_quorum"
+}

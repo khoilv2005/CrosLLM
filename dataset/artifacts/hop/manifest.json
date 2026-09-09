@@ -1,0 +1,25 @@
+{
+  "artifact_count": 17,
+  "files": {
+    "abi/L1_Bridge.json": "f360f5e1926e8a81988193a1c0db53663dd01845bf25a7d9a587bb3944372ca2",
+    "abi/L2_Bridge.json": "b86efbc9eb78c28f50c8b55f10d44f727ce0a323bb42e9f332b0dbc87713d327",
+    "build_info.json": "db48d6477f3b10b425c7976dd9493961670f45ed9a9e851d5bcf53b8504c4dda",
+    "bytecode/L1_Bridge.creation.hex": "7d2fc8e04b4e6306780d054ab6b6504cde0417a02a200c10f47d5f7223776c24",
+    "bytecode/L1_Bridge.deployed.hex": "b61ff4cce4a02a85a73b7a06dd42b82e2b6a0f8efac0b2e6ac90252687887233",
+    "bytecode/L2_Bridge.creation.hex": "ee537323ba4fd362c701e671bb59bb18a64742049040ecd3370dd628123d50a6",
+    "bytecode/L2_Bridge.deployed.hex": "f1c7f7d9ae3ae9937ff36b2abd1202f96a39e1a5713f737391905b6c4e85644c",
+    "channel_profile.json": "6c22eec4107a40160b17e27552c62c1e6cab2b8083812f8bf0cb7e35bf440b73",
+    "deployment.json": "735fa8f175bebe63d2f4e01c9b66e6afe8d1d10f3aac95d3cda810dfc12de641",
+    "license.json": "e1081a5cb29b16fe416fd978f019263ff00fb8c72bf60842ee7113884f9a758e",
+    "normal_workflow.json": "989494cdb04e0e27e7cc7ebadad929012b42e14a1e2e535660bb6b076fa005fa",
+    "scope.json": "cc67eb5baf079ff00878277b79e7f9215e72a141a20d80bdc5efbfc81ac24ffd",
+    "selection.json": "a6ac6836b307338259e376ae9b7fefcd4f80fae20c39ba67f7ea46ec992bd5a7",
+    "source_receipt.json": "dc34afd60ab2dd5820cc5f58e4eee5b35610468986a1643b0a4fcaa54d622930",
+    "storage_layout/L1_Bridge.json": "dc18d129b1c57ff9a4daa95153065d3cc02077cfae662a121e29a567d8a8c2be",
+    "storage_layout/L2_Bridge.json": "03ab7beb6e9084fe70543b002a9f7a320bbcfca4db1e8114e9ca409bd890c6af",
+    "symbols.json": "b2ae8094343adad2b15157c9ba5ebf6cf5100bb2013db9e54d18b5311938deac"
+  },
+  "lineage_id": "hop",
+  "protocol": "Hop Protocol",
+  "split": "development"
+}

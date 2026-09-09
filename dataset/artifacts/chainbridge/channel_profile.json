@@ -1,0 +1,14 @@
+{
+  "channel_type": "lock_mint_burn_release",
+  "topology": "bidirectional_peer",
+  "source_domains": [
+    "Ethereum",
+    "Substrate_EVM"
+  ],
+  "target_domains": [
+    "Ethereum",
+    "Substrate_EVM"
+  ],
+  "message_passing": "relayer_quorum_vote",
+  "settlement": "m_of_n_relayer_signatures"
+}

@@ -1,0 +1,322 @@
+{
+  "artifact_manifest_sha256": "b64562276f4aa6b88ec20d6626eec4cebf856c780d88f2b1f9359cfe799ed750",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+      "source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "d06a5bd7ad195506ac30f48e50312a5e346999f34c5345a5cf54cc4ac3c27d09",
+      "source_path": "contracts/governance/BaseWeightedMultisig.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "03b8eb58a319d5eb23b5a67995ba81aeefcab993a2d93e4435cbe9ba46eff202",
+      "source_path": "contracts/interfaces/IAxelarAmplifierGateway.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "55787216f714bd09f7e4aac5dbecacbb0693e9f6cf2fa67441088694ab5c0d78",
+      "source_path": "contracts/interfaces/IAxelarGateway.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "042011fdb05fa0c3616ee75173642f753db767080282cabc4e3934955c9661e5",
+      "source_path": "contracts/interfaces/IBaseAmplifierGateway.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "be4b3ad70ecbfa4b81194f48cba2ffb512bf35dd4babdcd3e1c2ee8bba0378b0",
+      "source_path": "contracts/interfaces/IBaseWeightedMultisig.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "640a4f1e3af0b3f29de8c1bf3ec78f4b7097f32b18384557a005d540a5b7ceee",
+      "source_path": "contracts/interfaces/IContractIdentifier.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "34427083fa9089a11eea99399a4d05f67444d755c39e8191213f68f51da05d99",
+      "source_path": "contracts/interfaces/IImplementation.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "ed706ac8dcf59c5e70310840eac3ac36303bb37ab95007e53f4d42ccb97cdb95",
+      "source_path": "contracts/interfaces/IOwnable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "1127053b28067a61f26696261fc9e37651bfc144815c39b2baa6a991cb9beb56",
+      "source_path": "contracts/interfaces/IPausable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "4d7bfc00c7555e7f633bafa92881c7e99c2bd49252b11ab3e6c347d2268a40ea",
+      "source_path": "contracts/interfaces/IUpgradable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "fc98073dfb03c37dc471641601d19ee021c191650263290e7ddcaa8c80a0ac3d",
+      "source_path": "contracts/libs/ECDSA.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "f13c55de8a27b6613d42f5dc040942e5ad6cb7520acb95860ffb8fdaf9c43c96",
+      "source_path": "contracts/types/AmplifierGatewayTypes.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "91453522174ba048cbb21ea2b9bcdd056ecd29673638ca77c30a3c334d51b952",
+      "source_path": "contracts/types/WeightedMultisigTypes.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "ead519fc6d03d3798db756dd0859007ab371d4c52c320029d7f4c0a8ea089a92",
+      "source_path": "contracts/upgradable/Implementation.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "3a671f8e5d1225ef465c14e3b8b936ae8cfbc54b2bb6b2dac795d64b3f05144b",
+      "source_path": "contracts/upgradable/Upgradable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "f7348c1d0417ee946029dfe68173f451ba7bd6b27d35f02e61ba1e9864b19fd1",
+      "source_path": "contracts/utils/Ownable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "de341027c63dcd42fe9b663a9c02a288253404ac23db59c8e7e5cc3b1caddea9",
+      "source_path": "contracts/utils/Pausable.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:90f88c49adfef1286f13980b65c4e6524abb4c012e4394abc53649c5fc76f6aa",
+  "compiler_version": "0.8.36",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "381a7a56eb70f3f091fbf90d063e48473a68672fb6f92d7b0111d663e5e78602"
+    }
+  ],
+  "lineage_id": "axelar_gmp",
+  "manifest_sha256": "f31bea4856ba06463b82000e4349ff67672a320b2515bab6ae09fc7a61151f8d",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "2c034cf04b955828f92d7c18cccdd3896c9dee80d37121549f51978d0573ff57",
+  "source_commit": "30196ca7cb9479fd5f79f0668523bd2a488093ed",
+  "source_repository": "https://github.com/axelarnetwork/axelar-gmp-sdk-solidity.git",
+  "source_selection_hash": "de05ada4e226668a5199504ae8921fff36d938f21ad0ab4a733294aec2f830c9",
+  "test_source": {
+    "path": "test/AxelarSourceBackedHarnessTest.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "b241bead3fd59c2c35db046e57e98c6df03722e4d43e3797480d838b7970da3f"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/gateway/AxelarAmplifierGateway.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b3d452c7d408a21405edd3bf27f9080186a747de928073f536ccb0ea6f13b5b0",
+      "source_path": "contracts/gateway/AxelarAmplifierGateway.sol"
+    },
+    {
+      "harness_path": "contracts/gateway/AxelarAmplifierGatewayProxy.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ee304b8ad955584fa98fce2c898bbc6566ae91f44c83d5a54b288e7bfb1cbf88",
+      "source_path": "contracts/gateway/AxelarAmplifierGatewayProxy.sol"
+    },
+    {
+      "harness_path": "contracts/gateway/BaseAmplifierGateway.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+      "source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+    },
+    {
+      "harness_path": "contracts/governance/BaseWeightedMultisig.sol",
+      "role": "upstream_harness_input",
+      "sha256": "d06a5bd7ad195506ac30f48e50312a5e346999f34c5345a5cf54cc4ac3c27d09",
+      "source_path": "contracts/governance/BaseWeightedMultisig.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IAxelarAmplifierGateway.sol",
+      "role": "upstream_harness_input",
+      "sha256": "03b8eb58a319d5eb23b5a67995ba81aeefcab993a2d93e4435cbe9ba46eff202",
+      "source_path": "contracts/interfaces/IAxelarAmplifierGateway.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IAxelarGateway.sol",
+      "role": "upstream_harness_input",
+      "sha256": "55787216f714bd09f7e4aac5dbecacbb0693e9f6cf2fa67441088694ab5c0d78",
+      "source_path": "contracts/interfaces/IAxelarGateway.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IBaseAmplifierGateway.sol",
+      "role": "upstream_harness_input",
+      "sha256": "042011fdb05fa0c3616ee75173642f753db767080282cabc4e3934955c9661e5",
+      "source_path": "contracts/interfaces/IBaseAmplifierGateway.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IBaseWeightedMultisig.sol",
+      "role": "upstream_harness_input",
+      "sha256": "be4b3ad70ecbfa4b81194f48cba2ffb512bf35dd4babdcd3e1c2ee8bba0378b0",
+      "source_path": "contracts/interfaces/IBaseWeightedMultisig.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IContractIdentifier.sol",
+      "role": "upstream_harness_input",
+      "sha256": "640a4f1e3af0b3f29de8c1bf3ec78f4b7097f32b18384557a005d540a5b7ceee",
+      "source_path": "contracts/interfaces/IContractIdentifier.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IImplementation.sol",
+      "role": "upstream_harness_input",
+      "sha256": "34427083fa9089a11eea99399a4d05f67444d755c39e8191213f68f51da05d99",
+      "source_path": "contracts/interfaces/IImplementation.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IOwnable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ed706ac8dcf59c5e70310840eac3ac36303bb37ab95007e53f4d42ccb97cdb95",
+      "source_path": "contracts/interfaces/IOwnable.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IPausable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1127053b28067a61f26696261fc9e37651bfc144815c39b2baa6a991cb9beb56",
+      "source_path": "contracts/interfaces/IPausable.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IProxy.sol",
+      "role": "upstream_harness_input",
+      "sha256": "06dd639e748c54241c2195d79e816501014c5eff74ec78703ccdd82d17c18e76",
+      "source_path": "contracts/interfaces/IProxy.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IUpgradable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "4d7bfc00c7555e7f633bafa92881c7e99c2bd49252b11ab3e6c347d2268a40ea",
+      "source_path": "contracts/interfaces/IUpgradable.sol"
+    },
+    {
+      "harness_path": "contracts/libs/ECDSA.sol",
+      "role": "upstream_harness_input",
+      "sha256": "fc98073dfb03c37dc471641601d19ee021c191650263290e7ddcaa8c80a0ac3d",
+      "source_path": "contracts/libs/ECDSA.sol"
+    },
+    {
+      "harness_path": "contracts/types/AmplifierGatewayTypes.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f13c55de8a27b6613d42f5dc040942e5ad6cb7520acb95860ffb8fdaf9c43c96",
+      "source_path": "contracts/types/AmplifierGatewayTypes.sol"
+    },
+    {
+      "harness_path": "contracts/types/WeightedMultisigTypes.sol",
+      "role": "upstream_harness_input",
+      "sha256": "91453522174ba048cbb21ea2b9bcdd056ecd29673638ca77c30a3c334d51b952",
+      "source_path": "contracts/types/WeightedMultisigTypes.sol"
+    },
+    {
+      "harness_path": "contracts/upgradable/BaseProxy.sol",
+      "role": "upstream_harness_input",
+      "sha256": "69d522a02bde70408f0df1be948b3991403b673a119d957a0d807e338371e0f7",
+      "source_path": "contracts/upgradable/BaseProxy.sol"
+    },
+    {
+      "harness_path": "contracts/upgradable/Implementation.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ead519fc6d03d3798db756dd0859007ab371d4c52c320029d7f4c0a8ea089a92",
+      "source_path": "contracts/upgradable/Implementation.sol"
+    },
+    {
+      "harness_path": "contracts/upgradable/Proxy.sol",
+      "role": "upstream_harness_input",
+      "sha256": "e7dae3b1a4e6e50f2e15078087d73fd974cb4c948d9a7eafd12070c97cd45925",
+      "source_path": "contracts/upgradable/Proxy.sol"
+    },
+    {
+      "harness_path": "contracts/upgradable/Upgradable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3a671f8e5d1225ef465c14e3b8b936ae8cfbc54b2bb6b2dac795d64b3f05144b",
+      "source_path": "contracts/upgradable/Upgradable.sol"
+    },
+    {
+      "harness_path": "contracts/utils/Ownable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f7348c1d0417ee946029dfe68173f451ba7bd6b27d35f02e61ba1e9864b19fd1",
+      "source_path": "contracts/utils/Ownable.sol"
+    },
+    {
+      "harness_path": "contracts/utils/Pausable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "de341027c63dcd42fe9b663a9c02a288253404ac23db59c8e7e5cc3b1caddea9",
+      "source_path": "contracts/utils/Pausable.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "application": [
+        "IAxelarGateway.callContract"
+      ],
+      "eve": [],
+      "recipient": [
+        "AxelarAmplifierGateway.validateMessage"
+      ],
+      "signer": [
+        "AxelarAmplifierGateway.approveMessages"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_on_invalid_weighted_proof",
+      "mechanism": "source gateway validates an ECDSA proof over the command and current signer set"
+    },
+    "callbacks": {
+      "destination_callback": "application consumer invokes validateMessage; gateway has no direct callback in selected scope",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp for approval/consumption",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp for outbound call"
+    },
+    "finality": {
+      "model": "weighted signer proof with threshold one in the development profile",
+      "status": "proof_threshold_and_executed_state_tested"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "outbound_payload_hash",
+        "weighted_proof",
+        "approval_identity",
+        "replay_blocked"
+      ],
+      "steps": [
+        "callContract",
+        "approveMessages",
+        "validateMessage",
+        "executed_state"
+      ],
+      "test": "test_outbound_and_approved_message_lifecycle"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys implementation, proxy, signer set and recipient for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the locked AxelarAmplifierGateway behind its locked proxy and seeds one weighted signer set",
+      "source_contracts": [
+        "AxelarAmplifierGateway",
+        "AxelarAmplifierGatewayProxy"
+      ]
+    }
+  }
+}

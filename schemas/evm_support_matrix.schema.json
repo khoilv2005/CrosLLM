@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/evm_support_matrix.schema.json",
+  "title": "CrossLLM source-backed development EVM support matrix",
+  "description": "A conservative, hash-bound draft scope for one independent EVM replay host.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "lineage_id", "source_repository",
+    "source_commit", "source_manifest_sha256", "source_file_sha256",
+    "artifact_manifest_sha256", "profile_sha256", "matrix", "bytecode_opcode_scan",
+    "source_backed", "acceptance_status", "acceptance_owner", "accepted_at", "acceptance_agent", "independent_validation_required",
+    "independent_differential_required", "admission_eligible", "evidence_scope", "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "evm_execution_support_matrix"},
+    "scope": {"const": "source_backed_development_host_draft"},
+    "lineage_id": {"const": "celer_cbridge"},
+    "source_repository": {"type": "string", "format": "uri"},
+    "source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "source_manifest_sha256": {"$ref": "#/$defs/sha256"},
+    "source_file_sha256": {"$ref": "#/$defs/sha256"},
+    "artifact_manifest_sha256": {"$ref": "#/$defs/sha256"},
+    "profile_sha256": {"$ref": "#/$defs/sha256"},
+    "matrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "matrix_id", "engine", "engine_revision", "entries", "acceptance_status", "acceptance_owner", "accepted_at", "acceptance_agent", "matrix_hash"],
+      "properties": {
+        "schema_version": {"const": 1},
+        "matrix_id": {"type": "string", "minLength": 1},
+        "engine": {"type": "string", "minLength": 1},
+        "engine_revision": {"type": "string", "minLength": 1},
+        "entries": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/entry"}},
+        "acceptance_status": {"enum": ["draft", "owner_accepted"]},
+        "acceptance_owner": {"type": ["string", "null"]},
+        "accepted_at": {"type": ["string", "null"]},
+        "acceptance_agent": {"enum": ["codex", null]},
+        "matrix_hash": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "bytecode_opcode_scan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bytecode_path", "bytecode_sha256", "unique_opcodes", "scan_hash"],
+      "properties": {
+        "bytecode_path": {"type": "string", "minLength": 1},
+        "bytecode_sha256": {"$ref": "#/$defs/sha256"},
+        "unique_opcodes": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "scan_hash": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "source_backed": {"const": true},
+    "acceptance_status": {"const": "draft"},
+    "acceptance_owner": {"type": ["string", "null"]},
+    "accepted_at": {"type": ["string", "null"]},
+    "acceptance_agent": {"enum": ["codex", null]},
+    "independent_validation_required": {"const": false},
+    "independent_differential_required": {"const": true},
+    "admission_eligible": {"const": false},
+    "evidence_scope": {"const": "source_backed_development_host_draft"},
+    "report_hash": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "feature", "status", "condition", "evidence_hash", "note"],
+      "properties": {
+        "category": {"enum": ["opcode", "precompile", "proxy", "crypto"]},
+        "feature": {"type": "string", "minLength": 1},
+        "status": {"enum": ["supported", "conditional", "unsupported", "unknown"]},
+        "condition": {"type": ["string", "null"]},
+        "evidence_hash": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "note": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "lineage_id": "axelar_gmp",
+  "compiler": "solc",
+  "compiler_version": "0.8.36",
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:90f88c49adfef1286f13980b65c4e6524abb4c012e4394abc53649c5fc76f6aa",
+  "compiler_binary_path": "/compiler/solc",
+  "compiler_binary_sha256": "ce964c1bfb05a62099633caa7360f80ba6013b3f5529daaaa080c74654a6d577",
+  "dependency_closure": {
+    "roots": [],
+    "file_count": 0,
+    "files": [],
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "dependency_root": null,
+  "dependency_mounts": [],
+  "dependency_remappings": [],
+  "source_selection": {
+    "schema_version": 1,
+    "entry_paths": [
+      "contracts/gateway/AxelarAmplifierGateway.sol"
+    ],
+    "document_paths": [
+      "LICENSE",
+      "README.md"
+    ],
+    "selected_paths": [
+      "LICENSE",
+      "README.md",
+      "contracts/gateway/AxelarAmplifierGateway.sol",
+      "contracts/gateway/BaseAmplifierGateway.sol",
+      "contracts/governance/BaseWeightedMultisig.sol",
+      "contracts/interfaces/IAxelarAmplifierGateway.sol",
+      "contracts/interfaces/IAxelarGateway.sol",
+      "contracts/interfaces/IBaseAmplifierGateway.sol",
+      "contracts/interfaces/IBaseWeightedMultisig.sol",
+      "contracts/interfaces/IContractIdentifier.sol",
+      "contracts/interfaces/IImplementation.sol",
+      "contracts/interfaces/IOwnable.sol",
+      "contracts/interfaces/IPausable.sol",
+      "contracts/interfaces/IUpgradable.sol",
+      "contracts/libs/ECDSA.sol",
+      "contracts/types/AmplifierGatewayTypes.sol",
+      "contracts/types/WeightedMultisigTypes.sol",
+      "contracts/upgradable/Implementation.sol",
+      "contracts/upgradable/Upgradable.sol",
+      "contracts/utils/Ownable.sol",
+      "contracts/utils/Pausable.sol"
+    ],
+    "unresolved_imports": [],
+    "selection_hash": "de05ada4e226668a5199504ae8921fff36d938f21ad0ab4a733294aec2f830c9"
+  },
+  "build_framework": "foundry",
+  "docker_build_image": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+  "docker_network": "none",
+  "compiler_scratch": "read-only source bind; /tmp/foundry-cache and /tmp/foundry-out disposable; /compiler is a lineage-scoped disposable Docker volume",
+  "build_command": "forge inspect <Contract> [abi|storage|bytecode]",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "compiler_settings": {
+    "compiler": "solc",
+    "compiler_version": "0.8.36",
+    "compiler_image": "ghcr.io/argotorg/solc@sha256:90f88c49adfef1286f13980b65c4e6524abb4c012e4394abc53649c5fc76f6aa",
+    "compiler_binary_sha256": "ce964c1bfb05a62099633caa7360f80ba6013b3f5529daaaa080c74654a6d577",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "build_framework": "foundry"
+  },
+  "verification_status": "inspect_probe_only",
+  "verified": false,
+  "compiler_settings_sha256": "aea34ebf564f381dbc6ccd6616356665b2cbf91c8ba3bed718fbb28a73913f2a"
+}

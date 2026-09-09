@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "deviation_id": "DEV-HOP-ABSTRACT-TARGET-001",
+  "lineage_id": "hop",
+  "source_commit": "0726ffa0e14745134116e552178fd7e0edcfa8e6",
+  "review_scope": "locked production target selection",
+  "review_status": "automated_rejection_pending_human_admission_review",
+  "decision": "rejected_for_source_backed_artifact_admission",
+  "reason": "The locked production targets are abstract contracts and cannot provide deployable creation or runtime bytecode.",
+  "target_reviews": [
+    {
+      "contract_name": "L1_Bridge",
+      "source_path": "contracts/bridges/L1_Bridge.sol",
+      "source_file_sha256": "1036fa1b2bd645da52cb2e834906acc850c7c567082fe74d302c4415185c56b9",
+      "declaration_kind": "abstract_contract",
+      "declaration_line": 16,
+      "deployable_source_target": false
+    },
+    {
+      "contract_name": "L2_Bridge",
+      "source_path": "contracts/bridges/L2_Bridge.sol",
+      "source_file_sha256": "c29d48f4764424c9dd9c2658783023fb2debec6c80c3f56eba387ad957e46fe7",
+      "declaration_kind": "abstract_contract",
+      "declaration_line": 20,
+      "deployable_source_target": false
+    }
+  ],
+  "rejected_substitutions": [
+    {
+      "contract_name": "Mock_L1_Bridge",
+      "source_path": "contracts/test/Mock_L1_Bridge.sol",
+      "source_file_sha256": "cff786fef43007fd3776db15cf3af00ecff40561fc22f9445df45f1853a4e65a",
+      "reason": "test mock; not a production target"
+    },
+    {
+      "contract_name": "Mock_L2_Bridge",
+      "source_path": "contracts/test/Mock_L2_Bridge.sol",
+      "source_file_sha256": "4a70c0ce09d9e8d0aa8ae2c9af411c69fadbdf6cb8565d1dda9a6eece373f169",
+      "reason": "test mock; not a production target"
+    }
+  ],
+  "admission_effect": "Hop remains excluded from source-backed development admission; any legacy artifact is diagnostic/quarantined evidence only.",
+  "evidence": [
+    "dataset/sources/source_lock.json",
+    "dataset/tools/extract_all_artifacts.py",
+    "source_target_metadata()",
+    "require_concrete_source_target()"
+  ]
+}

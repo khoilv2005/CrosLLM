@@ -1,0 +1,167 @@
+{
+  "adjudication": {
+    "agreement": {
+      "confusion": {
+        "confirmed": {
+          "confirmed": 1,
+          "rejected": 1
+        },
+        "rejected": {
+          "confirmed": 0,
+          "rejected": 0
+        }
+      },
+      "kappa": 0.0,
+      "kappa_ci": [
+        0.0,
+        1.0
+      ],
+      "matched": 2,
+      "missing_left": 0,
+      "missing_right": 0,
+      "observed_agreement": 0.5,
+      "observed_agreement_ci": [
+        0.0,
+        1.0
+      ]
+    },
+    "deduplicated_finding_ids": [
+      "finding-1",
+      "finding-2"
+    ],
+    "finding_count": 3,
+    "first_reconciliation_status": "confirmed",
+    "label_count": 4,
+    "ledger_hash": "5258611cc5245ad526c47a012814c07622b77cfc7ee410cd884eaaf0ee9d2bf9",
+    "reconciliation_count": 2,
+    "relabel_count": 1,
+    "requirement_mapping_count": 2,
+    "second_reconciliation_status": "unresolved",
+    "taxonomy_classes": [
+      "malformed_serialization",
+      "unresolved_reference",
+      "type_domain_mismatch",
+      "unwarranted_property",
+      "vacuity",
+      "duplication",
+      "solver_infeasibility",
+      "timeout_or_unsupported",
+      "replay_failure",
+      "non_security_behavior",
+      "true_vulnerability"
+    ]
+  },
+  "admission_eligible": false,
+  "analysis": {
+    "artifact_hash": "ee2559b4fb12f6e4f8ad00588ba1a72edc1419a7a1ee257c4047e9ff9cc4807c",
+    "input_hash": "cea7083234a956d08f5defe881486c02a4668b90dbe994f68c78f9bd35cc5115",
+    "primary_contrast_count": 5,
+    "row_count": 66,
+    "secondary_contrast_count": 6,
+    "table_count": 11,
+    "table_ids": [
+      "recall",
+      "useful_proposal_recall",
+      "false_alert_rate",
+      "false_discovery_proportion",
+      "native_witness_yield",
+      "independent_replay_rate",
+      "witness_time",
+      "claim_time",
+      "stage_denominators",
+      "time_conditioned",
+      "inference"
+    ]
+  },
+  "figures": [
+    {
+      "figure_id": "paired_lineage",
+      "format": "svg",
+      "kind": "bar",
+      "source_hash": "efe09995e71938c37a3ddeab164a21d0f332988dda3710be8125b4dbb6a6abb4",
+      "svg_hash": "b383cb798744e3339cd9ad786dc11cdb3233b1115fc93ec759ea096897e7c440"
+    },
+    {
+      "figure_id": "recall_at_n",
+      "format": "svg",
+      "kind": "line",
+      "source_hash": "47f5588282efb750f569e553b51626652c11cf9f8a95914b93b8cf00b27e46df",
+      "svg_hash": "a366da38ec7c35fc88d15f267a373b5e887a16a1d31c41589cfe31e1bd9f4517"
+    },
+    {
+      "figure_id": "time_curves",
+      "format": "svg",
+      "kind": "line",
+      "source_hash": "6fb5014efcaf3c04e7cc2542247cbc757a8962e9bb1a3bbb05dbbb1cedba457c",
+      "svg_hash": "c5b4dcd16dd623a051080d98336ee215ed3203cfe6b6f0853d0a5ab8f5133067"
+    },
+    {
+      "figure_id": "scaling",
+      "format": "svg",
+      "kind": "line",
+      "source_hash": "3a082a8b819e72886a630b42c82f1b4b697c34e7715678a4b4656d7ced3a441d",
+      "svg_hash": "d1c4ddaeb33c25d7a9463a6f5efff2c0890f1e567fd0f2b32200c7b21d843ed3"
+    },
+    {
+      "figure_id": "failure_flow",
+      "format": "svg",
+      "kind": "bar",
+      "source_hash": "29cac4f64fb160ff48b836d51bf8d84561d2e21803b7b334160d4582a004e693",
+      "svg_hash": "ba0ce7c0ff099867899d2060b2852d070c44684caaf65a2249ebd24dda4e28f5"
+    }
+  ],
+  "inference": {
+    "bootstrap_draws": 10000,
+    "leave_one_lineage_out": {
+      "lineage-a": 0.0,
+      "lineage-b": -0.16666666666666666,
+      "lineage-c": -0.3333333333333333,
+      "lineage-d": 0.0
+    },
+    "primary_count": 5,
+    "primary_holm_scope": "primary_only",
+    "secondary_count": 6,
+    "secondary_holm_scope": "secondary_only",
+    "zero_event_upper_bound_n4": 0.527129195498412
+  },
+  "limitations": [
+    "all campaign rows, labels, and figure series are synthetic fixtures",
+    "provider calls executed: 0; no Ollama Cloud response is represented",
+    "no independent reviewer or evaluation-admission evidence is created"
+  ],
+  "outputs": {
+    "analysis_bundle_dir": "dataset/reports/m09_analysis_bundle",
+    "analysis_manifest_sha256": "729305696fde5dadf15d07bd4fab8b248f526204e5074ac79dcdd6c19b88c792",
+    "figure_bundle_dir": "dataset/reports/m09_figures",
+    "figure_manifest_sha256": "c2b5fcd91938ab8d8b22d3a87846a740af2e0740c6f883d8129e509980e23bcc"
+  },
+  "provider_calls": 0,
+  "record_type": "synthetic_m09_analysis_rehearsal",
+  "report_hash": "51fb0daa927fcecf0084aff3867b540709fc89299d42f16c53188123f96f4923",
+  "sampling": {
+    "accepted_population": 4,
+    "population_count": 12,
+    "rejected_population": 8,
+    "sample_count": 6,
+    "sampled_ids": [
+      "accepted-0",
+      "accepted-3",
+      "rejected-0",
+      "rejected-2",
+      "rejected-4",
+      "rejected-6"
+    ],
+    "seed": 20260909,
+    "weights": [
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0
+    ]
+  },
+  "schema_version": 1,
+  "scope": "development_analysis_rehearsal_only",
+  "synthetic_fixture_inputs": true
+}

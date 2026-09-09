@@ -1,0 +1,111 @@
+{
+  "artifact_manifest_sha256": "b918de740df1bf0eb6aaa898a9b8280b0b47fe8e96151b1faa9586c792d8d77c",
+  "compiler": {
+    "binary_sha256": "fb03a29a517452b9f12bcf459ef37d0a543765bb3bbc911e70a87d6a37c30d5f",
+    "image": "ghcr.io/argotorg/solc@sha256:8e9c10e5786193986b82579d056f42868620b06186a77f616523d98e7c3a35b8",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.8.24"
+  },
+  "contracts": [
+    "LineaRollup",
+    "ZkEvmV2",
+    "L1MessageService",
+    "L1MessageManager",
+    "RateLimiter",
+    "PauseManager"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "6d72e22f658e1dcd730788e689b1578d22413293cffed3aed57b167b6e129935",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "linea",
+  "protocol": "Linea",
+  "source_backed": true,
+  "source_commit": "b64fe259195f00e840d1e2a3f08b8e95e7c90918",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "2cf12c98a18cca716bd0b1c92804f6a376a4898923f9c50e1dbdca2c085127a3",
+  "source_repository": "https://github.com/Consensys/linea-contracts.git",
+  "source_selection_hash": "69225f2a98b67891f2835b227ca3ff558f9bc802d575513f320294fbc9323fe2",
+  "split": "evaluation",
+  "test_contract": "LineaRollupSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "eve": [],
+      "operator": [],
+      "security_council": [
+        "AccessControl role initialization"
+      ],
+      "user": [
+        "L1MessageService.sendMessage"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_source_backed_rejects_invalid_message_boundaries",
+      "mechanism": "exact source service rejects zero recipient and fee greater than msg.value, increments the source nonce and stores the rolling hash"
+    },
+    "callbacks": {
+      "destination_callback": "None in selected source scope; outbound sendMessage only records the canonical message commitment",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Not exercised; destination claim requires an anchored L2 Merkle root and proof",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at LineaRollup.initialize and L1MessageService.sendMessage"
+    },
+    "finality": {
+      "model": "Linea L1 message enqueue with source rolling-hash commitment",
+      "status": "initialization_and_outbound_message_identity_tested_without_blob_submission_plonk_proof_L2_root_anchor_or_claim_finality"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "initial_state_root",
+        "operator_role",
+        "message_number",
+        "message_identity",
+        "rolling_hash"
+      ],
+      "steps": [
+        "proxy_initialize",
+        "role_setup",
+        "sendMessage",
+        "message_hash",
+        "rolling_hash"
+      ],
+      "test": "test_normal_source_backed_message_enqueue"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys implementation, proxy storage and all initializer state for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the exact LineaRollup source behind an isolated implementation-slot proxy and initializes the Linea message service/rate limiter roles",
+      "source_contracts": [
+        "LineaRollup",
+        "ZkEvmV2",
+        "L1MessageService",
+        "L1MessageManager",
+        "RateLimiter",
+        "PauseManager"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

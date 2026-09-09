@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "development_compiler_lock",
+  "platform": {
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "registry": "ghcr.io/argotorg/solc",
+  "binary_path": "/usr/local/bin/solc",
+  "images": {
+    "0.6.12": "ghcr.io/argotorg/solc@sha256:ba8da496fd063c7dddb2282f115b2a59c5deaf8f2ab06a4ca858304fedaeb5c9",
+    "0.7.6": "ghcr.io/argotorg/solc@sha256:9269c273c337f3ea3b41e04909fa4ea0692e830c4b94dd99c109819c84ea16b4",
+    "0.8.9": "ghcr.io/argotorg/solc@sha256:664760e66dfbe2f335d71060a8d78b908ac3d1887339a65e9286b8b72d0db5ba",
+    "0.8.11": "ghcr.io/argotorg/solc@sha256:2fe6baaada4141dfb52cb786c11e16b77f675ee103bb1d586a446fdd572c6c66",
+    "0.8.15": "ghcr.io/argotorg/solc@sha256:91d56ebfabd56ade7c1961eea005ed7b23cdb777422948abde2e1532d40877ea",
+    "0.8.16": "ghcr.io/argotorg/solc@sha256:23ad0dc6e3fb74b5118515314897f2a8badee9b86de529977e1256f1c4f65956",
+    "0.8.19": "ghcr.io/argotorg/solc@sha256:94f782d8c09ac59e436728f914d1af0437ceab86f22be49c2e5a1b846679b928",
+    "0.8.20": "ghcr.io/argotorg/solc@sha256:5a86fd18281c896fadfc2b2c5006da4347b44079f2c177414628b75a3a416ea1",
+    "0.8.24": "ghcr.io/argotorg/solc@sha256:8e9c10e5786193986b82579d056f42868620b06186a77f616523d98e7c3a35b8",
+    "0.8.28": "ghcr.io/argotorg/solc@sha256:344fc82c3fa40931fa82c2943eed01dcd2ea954f985f7fa6021682450b05dbe9",
+    "0.8.30": "ghcr.io/argotorg/solc@sha256:968cb5ba4b4ccec35d21f6a20e1c104606ee43844a6aec72611be8fb3ae237b8",
+    "0.8.33": "ghcr.io/argotorg/solc@sha256:e99eef89039696b786131c1d0a88ba9465f0e3f8bbbdb66838499b3eabde1fa9",
+    "0.8.36": "ghcr.io/argotorg/solc@sha256:90f88c49adfef1286f13980b65c4e6524abb4c012e4394abc53649c5fc76f6aa"
+  }
+}

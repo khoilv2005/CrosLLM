@@ -1,0 +1,49 @@
+{
+  "lineage_id": "wormhole_evm_sdk",
+  "protocol": "Wormhole",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "Proxy": {
+      "contract_name": "Proxy",
+      "source_path": "src/proxy/Proxy.sol",
+      "source_file_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+      "source_target": {
+        "contract_name": "Proxy",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 10
+      },
+      "abi_path": "abi/Proxy.json",
+      "abi_sha256": "f2eb2ba0a7b291f3b0a138e63fad4a4845c4fa251704257a58c9dbb8aa30441b",
+      "creation_bytecode_path": "bytecode/Proxy.creation.hex",
+      "creation_bytecode_sha256": "b5edd393f135d281b072a68cd444035d773d017f8f5f151b833afd33f36f439c",
+      "deployed_bytecode_path": "bytecode/Proxy.deployed.hex",
+      "deployed_bytecode_sha256": "09af39316fdfd8d108202a7c55ad35203e220ef07efa0995d80329576d188157",
+      "storage_layout_path": "storage_layout/Proxy.json",
+      "storage_layout_sha256": "0680e1dbebc408a223fc35d2e734ce09c4d39e564062e5808fb9487b1aa0394c",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": null,
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": false,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

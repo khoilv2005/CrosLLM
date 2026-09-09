@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/calibration_rehearsal.schema.json",
+  "title": "CrossLLM synthetic development calibration rehearsal",
+  "description": "Planning-only M10 rehearsal; it cannot represent provider outcomes or evaluation admission.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "admission_eligible",
+    "executed_provider_calls", "synthetic_fixture_inputs", "menu", "observations",
+    "selection", "truncation_diagnostics", "precision_config", "precision_inputs",
+    "replicate_selection", "budget", "freeze", "hash_inputs", "limitations", "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "synthetic_development_calibration_rehearsal"},
+    "scope": {"const": "development_pipeline_rehearsal_only"},
+    "admission_eligible": {"const": false},
+    "executed_provider_calls": {"const": 0},
+    "synthetic_fixture_inputs": {"const": true},
+    "menu": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "object"}},
+    "observations": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "object"}},
+    "selection": {"type": "object"},
+    "truncation_diagnostics": {"type": "object"},
+    "precision_config": {"type": "object"},
+    "precision_inputs": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "replicate_selection": {"type": "object"},
+    "budget": {"type": "object"},
+    "freeze": {"type": "object"},
+    "hash_inputs": {"type": "object", "minProperties": 7, "additionalProperties": {"type": "string", "minLength": 1}},
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "report_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

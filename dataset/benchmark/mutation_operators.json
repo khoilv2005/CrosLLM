@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "description": "Formal specifications of CrossLLM mutation operators across 6 security property families for the 12 evaluation lineages.",
+  "operators": [
+    {
+      "operator_id": "OP_REPLAY_NONCE_REMOVAL",
+      "property_family": "replay",
+      "name": "Cross-Chain Message Nonce & Delivery Tracking Omission",
+      "precondition": "The destination endpoint or bridge records a message hash, sequence number, or nonce to prevent replay.",
+      "transformation": "Remove the storage update or state check marking the message or delivery hash as executed.",
+      "semantic_consequence": "The exact same valid cross-chain message can be submitted and processed multiple times on the destination chain.",
+      "intended_security_property": "PROP_REPLAY_UNIQUENESS: Every cross-chain message identifier shall be executed at most once on destination domain.",
+      "negative_control_policy": "Reinstate idempotent execution check and assert double-execution reverts with 'AlreadyExecuted' or equivalent."
+    },
+    {
+      "operator_id": "OP_REPLAY_DOMAIN_STRIP",
+      "property_family": "replay",
+      "name": "Domain Separator Scope Stripping",
+      "precondition": "The message commitment or hash includes source chainId or destination domain identifier.",
+      "transformation": "Omit the domain/chainId parameter from the message digest calculation.",
+      "semantic_consequence": "A valid message dispatched for Chain A can be validly relayed and consumed on Chain B.",
+      "intended_security_property": "PROP_DOMAIN_ISOLATION: Message proofs and signatures must be strictly bound to the target destination chain ID.",
+      "negative_control_policy": "Enforce destination domain binding in message hash verification."
+    },
+    {
+      "operator_id": "OP_SPOOF_SOURCE_SENDER",
+      "property_family": "input_validation",
+      "name": "Unauthenticated Source Sender Spoofing",
+      "precondition": "The message payload carries source caller/sender address which the receiver callback uses for access control.",
+      "transformation": "Bypass validation comparing message origin to expected cross-chain counterpart or authorized peer.",
+      "semantic_consequence": "An arbitrary sender on the source domain can trigger privileged receiver logic on the destination domain.",
+      "intended_security_property": "PROP_SOURCE_AUTH: Destination execution must authenticate that the source message originator equals the authorized remote peer.",
+      "negative_control_policy": "Strictly check msg.sender == authorizedSourceAddress or verify trusted peer mapping."
+    },
+    {
+      "operator_id": "OP_SPOOF_CHAIN_ID",
+      "property_family": "input_validation",
+      "name": "Forged Source Chain Identifier Acceptance",
+      "precondition": "The protocol validates that the incoming message was dispatched from a supported source domain.",
+      "transformation": "Weaken source chain ID validation, accepting zero or wildcard source domain identifiers.",
+      "semantic_consequence": "Attacker can present messages with forged or unconfigured chain identifiers, bypassing routing security modules.",
+      "intended_security_property": "PROP_ROUTING_VALIDITY: Incoming cross-chain packets must strictly match an admitted, active network domain.",
+      "negative_control_policy": "Enforce registered domain checks before dispatching payload to destination handlers."
+    },
+    {
+      "operator_id": "OP_INVARIANT_FEE_UNDERFLOW",
+      "property_family": "logic",
+      "name": "Cross-Chain Asset Conservation and Fee Underflow",
+      "precondition": "The bridge deducts protocol/relayer fees from the deposited token amount before release or minting.",
+      "transformation": "Invert fee subtraction to addition or omit amount balance consistency checks during destination mint/unlock.",
+      "semantic_consequence": "Destination domain mints or unlocks more tokens than were locked on source chain, violating total cross-chain conservation.",
+      "intended_security_property": "PROP_VALUE_CONSERVATION: Total destination released amount plus fees cannot exceed total source deposited amount.",
+      "negative_control_policy": "Enforce strict balance deltas: destination_released + fees == source_locked."
+    },
+    {
+      "operator_id": "OP_INVARIANT_ACCOUNTING_DESYNC",
+      "property_family": "logic",
+      "name": "Liquidity Pool & Share Accounting Desynchronization",
+      "precondition": "The protocol updates local pool liquidity records when fulfilling cross-chain transfer requests.",
+      "transformation": "Skip debiting local liquidity reserves upon transfer fill, while continuing to transfer tokens to recipient.",
+      "semantic_consequence": "Internal accounting reserves desynchronize with actual ERC20 balances, leading to insolvent pool states.",
+      "intended_security_property": "PROP_POOL_SOLVENCY: Internal ledger accounting must strictly reflect actual physical token reserves.",
+      "negative_control_policy": "Update pool balances atomically with external token transfers."
+    },
+    {
+      "operator_id": "OP_UNVERIFIED_CALLER_BYPASS",
+      "property_family": "message_handling",
+      "name": "Receiver Endpoint Authorization Bypass",
+      "precondition": "The application contract exposes a callback (e.g. handle, receiveMessage) protected by onlyBridge / onlyMailbox.",
+      "transformation": "Remove or comment out the caller authorization modifier on the receive callback.",
+      "semantic_consequence": "Direct unprivileged calls on the destination chain can spoof cross-chain message execution without any bridge verification.",
+      "intended_security_property": "PROP_ENTRYPOINT_PRIVILEGE: Cross-chain callback functions may only be invoked by the verified protocol bridge/endpoint.",
+      "negative_control_policy": "Enforce require(msg.sender == address(trustedBridge)) on all cross-domain receiver methods."
+    },
+    {
+      "operator_id": "OP_CALLBACK_REENTRANCY",
+      "property_family": "message_handling",
+      "name": "Cross-Chain Message Delivery State Reentrancy",
+      "precondition": "The bridge executes an arbitrary receiver call before finalizing delivery state.",
+      "transformation": "Move internal state updates (such as message completion flags) after external message execution call.",
+      "semantic_consequence": "Malicious receiver contract can reenter bridge execute function before message status is recorded as executed.",
+      "intended_security_property": "PROP_CHECKS_EFFECTS_INTERACTIONS: Cross-chain bridge must transition internal delivery state before invoking external contract hooks.",
+      "negative_control_policy": "Apply CEI pattern and NonReentrant guard around cross-chain message dispatches."
+    },
+    {
+      "operator_id": "OP_QUORUM_THRESHOLD_DECREMENT",
+      "property_family": "quorum",
+      "name": "Multi-Attestation Quorum Threshold Bypass",
+      "precondition": "A threshold of relayer/validator signatures is required to approve cross-domain execution.",
+      "transformation": "Reduce the required signature threshold calculation (e.g. threshold = 1 or threshold = 0) or accept repeated signatures from same validator.",
+      "semantic_consequence": "A sub-threshold number of compromised or forged validator signatures can execute arbitrary cross-chain operations.",
+      "intended_security_property": "PROP_QUORUM_THRESHOLD: Message execution requires strict adherence to M-of-N distinct validator signatures.",
+      "negative_control_policy": "Require distinct valid signer addresses matching active validator set >= required quorum."
+    },
+    {
+      "operator_id": "OP_FINALITY_WINDOW_TRUNCATION",
+      "property_family": "finality",
+      "name": "Optimistic Challenge Window & Dispute Bypass",
+      "precondition": "An optimistic bridge enforces a challenge period (dispute window) before withdrawal or root finalization.",
+      "transformation": "Set challenge window period to zero or omit timestamp check against block.timestamp.",
+      "semantic_consequence": "Fraudulent roots or withdrawals can be finalized immediately without allowing honest observers time to submit fraud proofs.",
+      "intended_security_property": "PROP_FINALITY_DELAY: State root or withdrawal finalization must enforce elapsed time >= CHALLENGE_PERIOD.",
+      "negative_control_policy": "Require require(block.timestamp >= proposalTimestamp + challengePeriod) prior to execution."
+    }
+  ]
+}

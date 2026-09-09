@@ -1,0 +1,269 @@
+{
+  "artifact_manifest_sha256": "51317044a8d048a2db588ef48e8ef2d81f94596de94b8cc8ac0398936d8284ce",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+      "source_path": "contracts/AgglayerBridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "a9046b58229661be8f78d008cfe70aec360cc99498e030d75769626f11d7f7aa",
+      "source_path": "contracts/interfaces/IAgglayerBridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "2d67915841426663b30f715299f737d0a261152546b603ea3e024a730f599fb7",
+      "source_path": "contracts/interfaces/IBaseLegacyAgglayerGER.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "4572e6894ef81b8c2487881f5560671f4ba8fa62c7aec7f279b9543007a0e744",
+      "source_path": "contracts/interfaces/IBridgeMessageReceiver.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "69981ad0bc4e628dd67686adcc88ae3aa2c628d0ac24456f7bdb66b480bc1a1b",
+      "source_path": "contracts/interfaces/IBytecodeStorer.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "4d7c453d6c6a523e98b70669dc0740b48f626e422e31cd6f497bd32528e01300",
+      "source_path": "contracts/interfaces/IEmergencyManager.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "891a7942b2ac52ea99164c2d3e8a8024bf370cee0c0e2ed14f429d773389d2ba",
+      "source_path": "contracts/interfaces/IProxyAdmin.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "8ec60908aa92331c536f003910fe321f504a7ef9d2a389d27fb49646d19dc3cf",
+      "source_path": "contracts/interfaces/ITokenWrappedBridgeUpgradeable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c801fccc0c2412e5614a91a0576459d4b3d847c4b92bf351a7b418e4ffc9e072",
+      "source_path": "contracts/interfaces/IVersion.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "ed61604ff583aea9aeb8386c9c5261e230b977312999c9249cde7725e76a094e",
+      "source_path": "contracts/lib/BridgeLib.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "bc13be04084f23748247cca0feaa39a36656e6433bcfd22e486759d2678602a2",
+      "source_path": "contracts/lib/DepositContractBase.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "3016e18a0dd5b2998f9efb28fae519c03109270c48e8ba17f48a37e8829f8e04",
+      "source_path": "contracts/lib/DepositContractV2.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c26f722a522df7979c63bfcb0f150eab68937abd41d4104adf6c4b9a0a968184",
+      "source_path": "contracts/lib/EmergencyManager.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "adf87b0538da3b3e8d31b86a24c69f6f5863a382efe39f8bd451fba43d860f56",
+      "source_path": "contracts/lib/GlobalExitRootLib.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "87138b36d34735998821b64212061bc59a888d5e11cc904c66dbde87af30ce3f",
+      "source_path": "contracts/lib/Hashes.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "d04428b3395d314050ca56aa6779bb35ae742c6361c877b94e90dd8648f8531a",
+      "source_path": "contracts/lib/TokenWrappedBridgeUpgradeable.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:344fc82c3fa40931fa82c2943eed01dcd2ea954f985f7fa6021682450b05dbe9",
+  "compiler_version": "0.8.28",
+  "dirty_worktree": true,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "381a7a56eb70f3f091fbf90d063e48473a68672fb6f92d7b0111d663e5e78602"
+    }
+  ],
+  "lineage_id": "polygon_zkevm",
+  "manifest_sha256": "7d3f5f4cfa19a92ef62b184f1ed0dfd06f3fd28c7e7addb1787625ee0edf8f64",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "c4793b6fc2016ddb2ede4ec205ea264367ce711ba8e1b99304ae8edc514e6848",
+  "source_commit": "110bda5a03e70ee7331bc06407a8e79226d3e520",
+  "source_repository": "https://github.com/0xPolygonHermez/zkevm-contracts.git",
+  "source_selection_hash": "fb5186e7f90f0f252afe51b147fa5644218c3389c4225a6a5c0e847d1a1c7831",
+  "test_source": {
+    "path": "test/PolygonZkEVMPairedHarness.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "a7349694c5b7e22f019b3cf0581c18860c866e561de4a0dcc1bd59633ec9ae71"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/AgglayerBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+      "source_path": "contracts/AgglayerBridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IAgglayerBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "a9046b58229661be8f78d008cfe70aec360cc99498e030d75769626f11d7f7aa",
+      "source_path": "contracts/interfaces/IAgglayerBridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IBaseLegacyAgglayerGER.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2d67915841426663b30f715299f737d0a261152546b603ea3e024a730f599fb7",
+      "source_path": "contracts/interfaces/IBaseLegacyAgglayerGER.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IBridgeMessageReceiver.sol",
+      "role": "upstream_harness_input",
+      "sha256": "4572e6894ef81b8c2487881f5560671f4ba8fa62c7aec7f279b9543007a0e744",
+      "source_path": "contracts/interfaces/IBridgeMessageReceiver.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IBytecodeStorer.sol",
+      "role": "upstream_harness_input",
+      "sha256": "69981ad0bc4e628dd67686adcc88ae3aa2c628d0ac24456f7bdb66b480bc1a1b",
+      "source_path": "contracts/interfaces/IBytecodeStorer.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IEmergencyManager.sol",
+      "role": "upstream_harness_input",
+      "sha256": "4d7c453d6c6a523e98b70669dc0740b48f626e422e31cd6f497bd32528e01300",
+      "source_path": "contracts/interfaces/IEmergencyManager.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IProxyAdmin.sol",
+      "role": "upstream_harness_input",
+      "sha256": "891a7942b2ac52ea99164c2d3e8a8024bf370cee0c0e2ed14f429d773389d2ba",
+      "source_path": "contracts/interfaces/IProxyAdmin.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/ITokenWrappedBridgeUpgradeable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "8ec60908aa92331c536f003910fe321f504a7ef9d2a389d27fb49646d19dc3cf",
+      "source_path": "contracts/interfaces/ITokenWrappedBridgeUpgradeable.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IVersion.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c801fccc0c2412e5614a91a0576459d4b3d847c4b92bf351a7b418e4ffc9e072",
+      "source_path": "contracts/interfaces/IVersion.sol"
+    },
+    {
+      "harness_path": "contracts/lib/BridgeLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ed61604ff583aea9aeb8386c9c5261e230b977312999c9249cde7725e76a094e",
+      "source_path": "contracts/lib/BridgeLib.sol"
+    },
+    {
+      "harness_path": "contracts/lib/DepositContractBase.sol",
+      "role": "upstream_harness_input",
+      "sha256": "bc13be04084f23748247cca0feaa39a36656e6433bcfd22e486759d2678602a2",
+      "source_path": "contracts/lib/DepositContractBase.sol"
+    },
+    {
+      "harness_path": "contracts/lib/DepositContractV2.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3016e18a0dd5b2998f9efb28fae519c03109270c48e8ba17f48a37e8829f8e04",
+      "source_path": "contracts/lib/DepositContractV2.sol"
+    },
+    {
+      "harness_path": "contracts/lib/EmergencyManager.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c26f722a522df7979c63bfcb0f150eab68937abd41d4104adf6c4b9a0a968184",
+      "source_path": "contracts/lib/EmergencyManager.sol"
+    },
+    {
+      "harness_path": "contracts/lib/GlobalExitRootLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "adf87b0538da3b3e8d31b86a24c69f6f5863a382efe39f8bd451fba43d860f56",
+      "source_path": "contracts/lib/GlobalExitRootLib.sol"
+    },
+    {
+      "harness_path": "contracts/lib/Hashes.sol",
+      "role": "upstream_harness_input",
+      "sha256": "87138b36d34735998821b64212061bc59a888d5e11cc904c66dbde87af30ce3f",
+      "source_path": "contracts/lib/Hashes.sol"
+    },
+    {
+      "harness_path": "contracts/lib/TokenWrappedBridgeUpgradeable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "d04428b3395d314050ca56aa6779bb35ae742c6361c877b94e90dd8648f8531a",
+      "source_path": "contracts/lib/TokenWrappedBridgeUpgradeable.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "eve": [],
+      "global_exit_root_manager": [],
+      "proxy_admin": [
+        "IProxyAdmin.owner"
+      ],
+      "user": [
+        "AgglayerBridge.bridgeAsset"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_source_backed_rejects_same_network_destination",
+      "mechanism": "exact source bridge rejects same-network destinations and ERC20 msg.value, transfers the approved amount, records one leaf and changes the canonical root"
+    },
+    "callbacks": {
+      "destination_callback": "None in selected source scope; AgglayerBridge.bridgeAsset emits/records the outbound leaf",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Not exercised; destination claim requires an external global exit root and SMT proof",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at AgglayerBridge.bridgeAsset"
+    },
+    "finality": {
+      "model": "source escrow and canonical deposit-tree leaf insertion",
+      "status": "asset_escrow_and_root_update_tested_without_Agglayer_global_exit_root_submission_rollup_finality_or_claim_proof"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "network_id",
+        "deposit_count",
+        "token_escrow",
+        "caller_balance",
+        "root_changed"
+      ],
+      "steps": [
+        "proxy_initialize",
+        "approve",
+        "AgglayerBridge.bridgeAsset",
+        "source_escrow",
+        "deposit_leaf",
+        "Merkle_root_update"
+      ],
+      "test": "test_normal_source_backed_asset_escrow_and_leaf"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys the exact implementation, proxy storage, proxy-admin probe and token for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the exact AgglayerBridge source behind an isolated EIP-1967 storage proxy with a proxy-admin owner boundary",
+      "source_contracts": [
+        "AgglayerBridge",
+        "DepositContractV2",
+        "DepositContractBase",
+        "BridgeLib",
+        "TokenWrappedBridgeUpgradeable"
+      ]
+    }
+  }
+}

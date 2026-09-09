@@ -1,0 +1,29 @@
+{
+  "archive_backend": "host",
+  "archive_command": "git archive --format=tar HEAD",
+  "archive_format": "tar",
+  "artifact_admission_status": "source_pinned_and_built",
+  "canonical_environment": "resolved from private source cache; inspect runs in pinned Docker",
+  "compiler_binary_sha256": null,
+  "dependency_closure": {
+    "file_count": 0,
+    "files": [],
+    "roots": [
+      "lib"
+    ],
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "dependency_mounts": [],
+  "dependency_remappings": [],
+  "dependency_root": null,
+  "dirty_worktree": false,
+  "harness_status": "source_backed_development",
+  "host_id": "wormhole_core_bridge",
+  "inspect_network": "none",
+  "lineage_id": "wormhole_evm_sdk",
+  "pinned_status": "source_pinned",
+  "source_archive_sha256": "9cb9f57e2d1fd02c4283cf85707f6830f722c3fb81b1cc84031dc3df5d274e17",
+  "source_commit": "2cb855ea9d0a6c28470620a6d37c04d0496ea919",
+  "source_repo": "https://github.com/wormhole-foundation/wormhole-solidity-sdk.git",
+  "source_selection_hash": "0cfbb065e77cefe8ba5869b6c357e8fd470ba4a5bf4e90ded069cfd975b8489e"
+}

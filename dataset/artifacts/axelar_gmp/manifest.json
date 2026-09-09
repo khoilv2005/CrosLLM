@@ -1,0 +1,21 @@
+{
+  "artifact_count": 13,
+  "files": {
+    "abi/AxelarAmplifierGateway.json": "44499c9cbbb0d667348ca7ac02bdece955988b6f89e0657daf40c124420a0152",
+    "build_info.json": "bfa16d6322bccb01bb07170789c905c6646ea29994d182f2994bbd5cb780737c",
+    "bytecode/AxelarAmplifierGateway.creation.hex": "6ded38df88d0973eea213f30632327140e83f8ba94379e53b3a43d1a345ad66c",
+    "bytecode/AxelarAmplifierGateway.deployed.hex": "f4712bf8bdd6b6b4a19587ed9cbb8721fd98480abe25493c86b736d5ff3940b8",
+    "channel_profile.json": "953985afff251ae7e758c2c2f6e97ad02830d1e1427c173bca5f0dfc9c958727",
+    "deployment.json": "cc527b0c7dd1d3d258470fd17ad25534e0fd85732d1d008db01131d427b74de9",
+    "license.json": "71178a4bf584a188caeba5e4707e48559a0964a7d8836be2ad0791437a5b960f",
+    "normal_workflow.json": "a0125ac7e881b84969337be0b1d0cbd704982b14b18bb84926bcf5a91ba9a19e",
+    "scope.json": "525cb0bffdb31813df8ec2338dc767c15337ba1e5a36eb30f98ae6d13f66153a",
+    "selection.json": "2215ac3203950a1cafc08d32f375562bcaf022a01e38c14feb397294f16e4aa0",
+    "source_receipt.json": "9172afb8be97a189a2e47bfd94d3a40810bd840aa8131eb2e35fb8553a30dffb",
+    "storage_layout/AxelarAmplifierGateway.json": "0680e1dbebc408a223fc35d2e734ce09c4d39e564062e5808fb9487b1aa0394c",
+    "symbols.json": "1d5454ca053e4ddbc7b923f4890883f80878f8acafbea6e64d999314227cbdbd"
+  },
+  "lineage_id": "axelar_gmp",
+  "protocol": "Axelar GMP",
+  "split": "evaluation"
+}

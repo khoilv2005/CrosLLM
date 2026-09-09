@@ -1,0 +1,8 @@
+{
+  "lineage_id": "scroll",
+  "protocol": "Scroll",
+  "test_suite": "ScrollSourceBackedHarnessTest",
+  "execution_engine": "Foundry EVM in pinned Docker image",
+  "status": "PASS",
+  "evidence_scope": "source_backed_development_probe_enqueue_alias_relay_and_replay"
+}

@@ -1,0 +1,4 @@
+Return exactly one short JSON object with a neutral acknowledgement, for
+example {"ok":true}. Do not include secrets, model claims, hidden reasoning,
+or Markdown. This is a connectivity and response-shape probe only; the result
+does not establish model identity, effective settings, or security evidence.

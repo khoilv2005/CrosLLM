@@ -1,0 +1,102 @@
+{
+  "artifact_manifest_sha256": "8ab7d5cc01fd9bbf44c7fc3fe7a21531668850304c9f0cc3b86d9d6f2c2b58a7",
+  "compiler": {
+    "binary_sha256": "fab8f0275c8e6111294431eb7ddc03c12625a62b26e38f36a5ece659370f977b",
+    "image": "ghcr.io/argotorg/solc@sha256:ba8da496fd063c7dddb2282f115b2a59c5deaf8f2ab06a4ca858304fedaeb5c9",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.6.12"
+  },
+  "contracts": [
+    "SynapseBridge"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "bdb7d17eef972e51773e9bb1359c4f1c99ddf51c9c8b798ff8c3e37405d6ca51",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "synapse",
+  "protocol": "Synapse Protocol",
+  "source_backed": true,
+  "source_commit": "60f1c25cf2f115911e11255f515e1450fe96100c",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "e9c457d690b3e1fb2ab473394a3a726e9092fae38b2066b3b9338bd7a33e3295",
+  "source_repository": "https://github.com/synapsecns/synapse-contracts.git",
+  "source_selection_hash": "99d1cee3c21379228a8e3cc80a304296b2aca08e0bc9a1ddbb6eb1d65cb20f72",
+  "split": "evaluation",
+  "test_contract": "SynapseSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "admin_setup": [
+        "AccessControl.grantRole"
+      ],
+      "eve": [],
+      "node_group": [
+        "SynapseBridge.mint"
+      ],
+      "user": [
+        "SynapseBridge.deposit"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_unauthorized_node",
+      "mechanism": "source SynapseBridge checks NODEGROUP_ROLE before mint and records kappa before settlement"
+    },
+    "callbacks": {
+      "destination_callback": "IERC20Mintable.mint followed by SafeERC20 transfer; no application callback in selected source scope",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.number at node-group mint",
+      "explicit_time_warp": false,
+      "source": "Foundry block.number at deposit"
+    },
+    "finality": {
+      "model": "node-group role authorization plus one-time kappa execution record",
+      "status": "role_boundary_and_replay_protection_tested_without_external_consensus_delay"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "source_escrow",
+        "net_mint_amount",
+        "fee_accounting",
+        "replay_identity"
+      ],
+      "steps": [
+        "approve",
+        "deposit",
+        "node_group_role",
+        "mint",
+        "kappa_record"
+      ],
+      "test": "test_normal_source_backed_deposit_and_node_mint"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys both locked bridges and tokens for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the locked SynapseBridge source contract on isolated source and destination domains",
+      "source_contracts": [
+        "SynapseBridge"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

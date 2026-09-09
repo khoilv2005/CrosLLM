@@ -1,0 +1,357 @@
+{
+  "storage": [
+    {
+      "astId": 7,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "name",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_string_storage"
+    },
+    {
+      "astId": 9,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "symbol",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_string_storage"
+    },
+    {
+      "astId": 14,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "DOMAIN_SEPARATOR",
+      "offset": 0,
+      "slot": "2",
+      "type": "t_bytes32"
+    },
+    {
+      "astId": 16,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "decimals",
+      "offset": 0,
+      "slot": "3",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 18,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "totalSupply",
+      "offset": 0,
+      "slot": "4",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 22,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "balanceOf",
+      "offset": 0,
+      "slot": "5",
+      "type": "t_mapping(t_address,t_uint256)"
+    },
+    {
+      "astId": 28,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "allowance",
+      "offset": 0,
+      "slot": "6",
+      "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))"
+    },
+    {
+      "astId": 32,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "nonces",
+      "offset": 0,
+      "slot": "7",
+      "type": "t_mapping(t_address,t_uint256)"
+    },
+    {
+      "astId": 3284,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "_status",
+      "offset": 0,
+      "slot": "8",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 520,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "chainPaths",
+      "offset": 0,
+      "slot": "9",
+      "type": "t_array(t_struct(ChainPath)499_storage)dyn_storage"
+    },
+    {
+      "astId": 526,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "chainPathIndexLookup",
+      "offset": 0,
+      "slot": "10",
+      "type": "t_mapping(t_uint16,t_mapping(t_uint256,t_uint256))"
+    },
+    {
+      "astId": 530,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "sharedDecimals",
+      "offset": 0,
+      "slot": "11",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 532,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "localDecimals",
+      "offset": 0,
+      "slot": "12",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 540,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "stopSwap",
+      "offset": 0,
+      "slot": "13",
+      "type": "t_bool"
+    },
+    {
+      "astId": 542,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "totalLiquidity",
+      "offset": 0,
+      "slot": "14",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 544,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "totalWeight",
+      "offset": 0,
+      "slot": "15",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 546,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "mintFeeBP",
+      "offset": 0,
+      "slot": "16",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 548,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "protocolFeeBalance",
+      "offset": 0,
+      "slot": "17",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 550,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "mintFeeBalance",
+      "offset": 0,
+      "slot": "18",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 552,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "eqFeePool",
+      "offset": 0,
+      "slot": "19",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 554,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "feeLibrary",
+      "offset": 0,
+      "slot": "20",
+      "type": "t_address"
+    },
+    {
+      "astId": 556,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "deltaCredit",
+      "offset": 0,
+      "slot": "21",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 558,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "batched",
+      "offset": 0,
+      "slot": "22",
+      "type": "t_bool"
+    },
+    {
+      "astId": 560,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "defaultSwapMode",
+      "offset": 1,
+      "slot": "22",
+      "type": "t_bool"
+    },
+    {
+      "astId": 562,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "defaultLPMode",
+      "offset": 2,
+      "slot": "22",
+      "type": "t_bool"
+    },
+    {
+      "astId": 564,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "swapDeltaBP",
+      "offset": 0,
+      "slot": "23",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 566,
+      "contract": "contracts/Pool.sol:Pool",
+      "label": "lpDeltaBP",
+      "offset": 0,
+      "slot": "24",
+      "type": "t_uint256"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_array(t_struct(ChainPath)499_storage)dyn_storage": {
+      "encoding": "dynamic_array",
+      "label": "struct Pool.ChainPath[]",
+      "numberOfBytes": "32",
+      "base": "t_struct(ChainPath)499_storage"
+    },
+    "t_bool": {
+      "encoding": "inplace",
+      "label": "bool",
+      "numberOfBytes": "1"
+    },
+    "t_bytes32": {
+      "encoding": "inplace",
+      "label": "bytes32",
+      "numberOfBytes": "32"
+    },
+    "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => mapping(address => uint256))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_address,t_uint256)"
+    },
+    "t_mapping(t_address,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_uint16,t_mapping(t_uint256,t_uint256))": {
+      "encoding": "mapping",
+      "key": "t_uint16",
+      "label": "mapping(uint16 => mapping(uint256 => uint256))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint256,t_uint256)"
+    },
+    "t_mapping(t_uint256,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_string_storage": {
+      "encoding": "bytes",
+      "label": "string",
+      "numberOfBytes": "32"
+    },
+    "t_struct(ChainPath)499_storage": {
+      "encoding": "inplace",
+      "label": "struct Pool.ChainPath",
+      "numberOfBytes": "224",
+      "members": [
+        {
+          "astId": 484,
+          "contract": "contracts/Pool.sol:Pool",
+          "label": "ready",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_bool"
+        },
+        {
+          "astId": 486,
+          "contract": "contracts/Pool.sol:Pool",
+          "label": "dstChainId",
+          "offset": 1,
+          "slot": "0",
+          "type": "t_uint16"
+        },
+        {
+          "astId": 488,
+          "contract": "contracts/Pool.sol:Pool",
+          "label": "dstPoolId",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 490,
+          "contract": "contracts/Pool.sol:Pool",
+          "label": "weight",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 492,
+          "contract": "contracts/Pool.sol:Pool",
+          "label": "balance",
+          "offset": 0,
+          "slot": "3",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 494,
+          "contract": "contracts/Pool.sol:Pool",
+          "label": "lkb",
+          "offset": 0,
+          "slot": "4",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 496,
+          "contract": "contracts/Pool.sol:Pool",
+          "label": "credits",
+          "offset": 0,
+          "slot": "5",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 498,
+          "contract": "contracts/Pool.sol:Pool",
+          "label": "idealBalance",
+          "offset": 0,
+          "slot": "6",
+          "type": "t_uint256"
+        }
+      ]
+    },
+    "t_uint16": {
+      "encoding": "inplace",
+      "label": "uint16",
+      "numberOfBytes": "2"
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    }
+  }
+}

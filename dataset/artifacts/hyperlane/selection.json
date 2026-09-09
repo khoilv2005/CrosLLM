@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "solidity/contracts/Mailbox.sol"
+  ],
+  "document_paths": [
+    "LICENSE.md",
+    "README.md"
+  ],
+  "selected_paths": [
+    "LICENSE.md",
+    "README.md",
+    "solidity/contracts/Mailbox.sol",
+    "solidity/contracts/PackageVersioned.sol",
+    "solidity/contracts/interfaces/IInterchainSecurityModule.sol",
+    "solidity/contracts/interfaces/IMailbox.sol",
+    "solidity/contracts/interfaces/IMessageRecipient.sol",
+    "solidity/contracts/interfaces/hooks/IPostDispatchHook.sol",
+    "solidity/contracts/libs/Indexed.sol",
+    "solidity/contracts/libs/Message.sol",
+    "solidity/contracts/libs/TypeCasts.sol",
+    "solidity/contracts/upgrade/Versioned.sol"
+  ],
+  "unresolved_imports": [
+    "solidity/contracts/Mailbox.sol:@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+    "solidity/contracts/Mailbox.sol:@openzeppelin/contracts/utils/Address.sol"
+  ],
+  "selection_hash": "863c914bd986840868bb75ccf28bc300a7257aa655709aad9e2fa7bb7388e459"
+}

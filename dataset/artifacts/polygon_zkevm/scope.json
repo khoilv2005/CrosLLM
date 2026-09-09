@@ -1,0 +1,14 @@
+{
+  "lineage_id": "polygon_zkevm",
+  "protocol": "Polygon zkEVM / Agglayer",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "AgglayerBridge"
+  ],
+  "entry_points": {
+    "AgglayerBridge": "contracts/AgglayerBridge.sol"
+  },
+  "channel_type": "agglayer_shared_bridge",
+  "topology": "hub_and_spoke_unified_exit_root",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

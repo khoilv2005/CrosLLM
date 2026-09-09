@@ -1,0 +1,531 @@
+{
+  "artifact_manifest_sha256": "22a9b1602296a6ea133e3c0a513d18daa6db3bd974cd7380e3a0260238d0755b",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "7cde0294410df6e5ef71c90d324f7cb628ddd930d0a367ea41a3c52e8031949b",
+      "source_path": "contracts/bridges/Accounting.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "06386e192702de2c3f78fd7d8b7f4503ccb0835dd6a600ec3b726801940621e3",
+      "source_path": "contracts/bridges/Bridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "29776fb72bb50124094d22e9d1907604417c537cdd956be8f5f077e9ef993051",
+      "source_path": "contracts/bridges/HopBridgeToken.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "1036fa1b2bd645da52cb2e834906acc850c7c567082fe74d302c4415185c56b9",
+      "source_path": "contracts/bridges/L1_Bridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "2459db016fd20ce70f4b69fa7db5f810556c661defeea6fdbf353ddaa06e0349",
+      "source_path": "contracts/bridges/L2_AmmWrapper.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c29d48f4764424c9dd9c2658783023fb2debec6c80c3f56eba387ad957e46fe7",
+      "source_path": "contracts/bridges/L2_Bridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "af05b6e356d6a04aab29196f89b99e3b9b0e00d7479c51482dc4e3aa2de4b449",
+      "source_path": "contracts/bridges/SwapDataConsumer.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b2e04be22951ee0030d7a19cf4cb7f5033f7035bda5c1c83d680a816d9fcf05b",
+      "source_path": "contracts/interfaces/IBonderRegistry.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "fccb2ae0bc8029f42c1542bc6060797dfebaf1fb6049de698ea6d27566c4d41c",
+      "source_path": "contracts/interfaces/IWETH.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c988a04f3c6763efe64c87760afba1aec6ff888f0cef30560d48e3114f60bfc3",
+      "source_path": "contracts/libraries/Lib_MerkleTree.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "c3465dbcfd428df8cc82dff3f0653dc43f969806bd784b1acc95e1e07dd2b275",
+      "source_path": "contracts/saddle/LPToken.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "faecf362b0cef13441f97036cb776dfdc936f7486b73b013f384d1780a816bcb",
+      "source_path": "contracts/saddle/MathUtils.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "046bdb303bc53016f6ecf599e1f7b2fd4b7e55f3fef670dec44f19bd39a744e3",
+      "source_path": "contracts/saddle/OwnerPausableUpgradeable.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "34fbd2e0f04d1f54b1987e856ca4abb6f55a5da61703d921b85fae9fff435e93",
+      "source_path": "contracts/saddle/Swap.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b63342048f6cf23d547da58c6f88a3051d1b687b373d999185548a32d8539a82",
+      "source_path": "contracts/saddle/SwapUtils.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "bb8146042e30d8b0ebfe8cada0e9eb85cb1d4dff4712c5fcaf4723fd69b63e93",
+      "source_path": "contracts/saddle/interfaces/IAllowlist.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "d4682b543dc94648a2d717e5e7e40a1663b31af6ee8d5b1000f7a2cb5881be26",
+      "source_path": "contracts/saddle/interfaces/ISwap.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "cff786fef43007fd3776db15cf3af00ecff40561fc22f9445df45f1853a4e65a",
+      "source_path": "contracts/test/Mock_L1_Bridge.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "4a70c0ce09d9e8d0aa8ae2c9af411c69fadbdf6cb8565d1dda9a6eece373f169",
+      "source_path": "contracts/test/Mock_L2_Bridge.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:ba8da496fd063c7dddb2282f115b2a59c5deaf8f2ab06a4ca858304fedaeb5c9",
+  "compiler_version": "0.6.12",
+  "dirty_worktree": false,
+  "generated_support_files": [],
+  "lineage_id": "hop",
+  "manifest_sha256": "6897a0b5896032092137a8c2926ae7624fc1e3a9ae6fd8a8006a05eb6a2a2409",
+  "optimizer": true,
+  "optimizer_runs": 50000,
+  "schema_version": 1,
+  "source_archive_sha256": "054ce4a64cadd40732987268d628c76ca63cbd036c31323c0b774595ee2f87c4",
+  "source_commit": "0726ffa0e14745134116e552178fd7e0edcfa8e6",
+  "source_repository": "https://github.com/hop-protocol/contracts.git",
+  "source_selection_hash": "78fb4e9d88be9911caa190d9bcb114bfa68c1871ca6c926999afcec01897d617",
+  "test_source": {
+    "path": "test/HopPairedHarness.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "e3073c5c64e9637c10c834ef7dbeae9db8cbd652d78d764e28cac259188e5324"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/bridges/Accounting.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7cde0294410df6e5ef71c90d324f7cb628ddd930d0a367ea41a3c52e8031949b",
+      "source_path": "contracts/bridges/Accounting.sol"
+    },
+    {
+      "harness_path": "contracts/bridges/BonderRegistry.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7f5a711c7f6b681762e9cc8743a4b700ca8555817c976ccd5024ca424d11ceb5",
+      "source_path": "contracts/bridges/BonderRegistry.sol"
+    },
+    {
+      "harness_path": "contracts/bridges/Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "06386e192702de2c3f78fd7d8b7f4503ccb0835dd6a600ec3b726801940621e3",
+      "source_path": "contracts/bridges/Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/bridges/HopBridgeToken.sol",
+      "role": "upstream_harness_input",
+      "sha256": "29776fb72bb50124094d22e9d1907604417c537cdd956be8f5f077e9ef993051",
+      "source_path": "contracts/bridges/HopBridgeToken.sol"
+    },
+    {
+      "harness_path": "contracts/bridges/L1_Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1036fa1b2bd645da52cb2e834906acc850c7c567082fe74d302c4415185c56b9",
+      "source_path": "contracts/bridges/L1_Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/bridges/L2_AmmWrapper.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2459db016fd20ce70f4b69fa7db5f810556c661defeea6fdbf353ddaa06e0349",
+      "source_path": "contracts/bridges/L2_AmmWrapper.sol"
+    },
+    {
+      "harness_path": "contracts/bridges/L2_Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c29d48f4764424c9dd9c2658783023fb2debec6c80c3f56eba387ad957e46fe7",
+      "source_path": "contracts/bridges/L2_Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/bridges/SwapDataConsumer.sol",
+      "role": "upstream_harness_input",
+      "sha256": "af05b6e356d6a04aab29196f89b99e3b9b0e00d7479c51482dc4e3aa2de4b449",
+      "source_path": "contracts/bridges/SwapDataConsumer.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IBonderRegistry.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b2e04be22951ee0030d7a19cf4cb7f5033f7035bda5c1c83d680a816d9fcf05b",
+      "source_path": "contracts/interfaces/IBonderRegistry.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IWETH.sol",
+      "role": "upstream_harness_input",
+      "sha256": "fccb2ae0bc8029f42c1542bc6060797dfebaf1fb6049de698ea6d27566c4d41c",
+      "source_path": "contracts/interfaces/IWETH.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/arbitrum/bridges/IEthERC20Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "0b178498d3874a152d285bb92da6906afd9fea2f2f1afe04a059edaa2fa2abc8",
+      "source_path": "contracts/interfaces/arbitrum/bridges/IEthERC20Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/arbitrum/messengers/IArbSys.sol",
+      "role": "upstream_harness_input",
+      "sha256": "16eb6fe2ed53ba3d14d36674aa494794f5c474fa31b56a5b68af1d5650af395c",
+      "source_path": "contracts/interfaces/arbitrum/messengers/IArbSys.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/arbitrum/messengers/IBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "92d4788ad9ff4cd36e514680c07c13f529351310d2386abb690f8e307eb79e90",
+      "source_path": "contracts/interfaces/arbitrum/messengers/IBridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/arbitrum/messengers/IGlobalInbox.sol",
+      "role": "upstream_harness_input",
+      "sha256": "169b68095844f7c5278e60945344d6a5da42078e59bbdc1a4cb53571d4dd7254",
+      "source_path": "contracts/interfaces/arbitrum/messengers/IGlobalInbox.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/arbitrum/messengers/IInbox.sol",
+      "role": "upstream_harness_input",
+      "sha256": "965156bb0e15ec9d0058ef69eb9a7b297dbffa20a9482b52f95dbdaa44ad17c7",
+      "source_path": "contracts/interfaces/arbitrum/messengers/IInbox.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/arbitrum/messengers/IMessageProvider.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ce3e79322be7f3a02043a10d3a466be2d65f18305c6b6443713e29fb76d7e950",
+      "source_path": "contracts/interfaces/arbitrum/messengers/IMessageProvider.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/arbitrum/messengers/IOutbox.sol",
+      "role": "upstream_harness_input",
+      "sha256": "72a6ae0e1ed6cd2b563e0af371f2755a45ee9f445cdff52667b8ed8a330dbf5a",
+      "source_path": "contracts/interfaces/arbitrum/messengers/IOutbox.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/optimism/bridges/iOVM_L1ERC20Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f314fb158715a568917305de5491132eab5eaf3ddf89db2b118d15e10f2783e2",
+      "source_path": "contracts/interfaces/optimism/bridges/iOVM_L1ERC20Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/optimism/bridges/iOVM_L1StandardBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f08be366d50efca7d922e0cdbde50c6b2a4d32722fb55ca52dbf583d2070ed78",
+      "source_path": "contracts/interfaces/optimism/bridges/iOVM_L1StandardBridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/optimism/bridges/iOVM_L2ERC20Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c7941a505ad49e1da5ff67affb5a3f3a1e5ba4be4b1f688def22220829e75ba9",
+      "source_path": "contracts/interfaces/optimism/bridges/iOVM_L2ERC20Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/optimism/bridges/iOVM_L2StandardBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6697d2894ce33de2605227fe58081aafcac53e93500d220a36f474ec758aa11b",
+      "source_path": "contracts/interfaces/optimism/bridges/iOVM_L2StandardBridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/optimism/messengers/iOVM_BaseCrossDomainMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "cc789f796c363b8a2ba5f0e2b97c1f7e061522af838fdae2c874d96aaa2838eb",
+      "source_path": "contracts/interfaces/optimism/messengers/iOVM_BaseCrossDomainMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/optimism/messengers/iOVM_L1CrossDomainMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "48838101f4fbc8c6f78fb40e60fb82d9352869450838edfc7b530e13d4f59642",
+      "source_path": "contracts/interfaces/optimism/messengers/iOVM_L1CrossDomainMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/optimism/messengers/iOVM_L2CrossDomainMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7c88c835c9074e9707ca99515268d3804f5e265d904b1e32ce0722178923daa0",
+      "source_path": "contracts/interfaces/optimism/messengers/iOVM_L2CrossDomainMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/polygon/bridges/IRootChainManager.sol",
+      "role": "upstream_harness_input",
+      "sha256": "4908a8aa9d39a48332c977ce96cdfd2fc307c0eb936eaece41ecb860802d31e6",
+      "source_path": "contracts/interfaces/polygon/bridges/IRootChainManager.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/polygon/messengers/IPolygonFxChild.sol",
+      "role": "upstream_harness_input",
+      "sha256": "0ab6329ce2e59e5b6f2c62ce85d99edb264fbecaff2d533f5694870aeeab82c3",
+      "source_path": "contracts/interfaces/polygon/messengers/IPolygonFxChild.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/polygon/messengers/I_L1_PolygonMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "062d06d6c3f15b97372a466f8d6ae35796d208ee66d3060de69de24a9f82a45c",
+      "source_path": "contracts/interfaces/polygon/messengers/I_L1_PolygonMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/polygon/messengers/I_L2_PolygonMessengerProxy.sol",
+      "role": "upstream_harness_input",
+      "sha256": "d11695b722d0ed9b3301d4fb41eb01ad6ab1ce53813acb6beb40f3785e201107",
+      "source_path": "contracts/interfaces/polygon/messengers/I_L2_PolygonMessengerProxy.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/xDai/bridges/IForeignOmniBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c25a3f35c72eb280bad5e6278c128ed1bd803f2e322d722b700002136e964381",
+      "source_path": "contracts/interfaces/xDai/bridges/IForeignOmniBridge.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/xDai/messengers/IArbitraryMessageBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "f812b32a371f0158951e02f79af04a43954bcee409b436a68451665be7fb6ddf",
+      "source_path": "contracts/interfaces/xDai/messengers/IArbitraryMessageBridge.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/Lib_MerkleTree.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c988a04f3c6763efe64c87760afba1aec6ff888f0cef30560d48e3114f60bfc3",
+      "source_path": "contracts/libraries/Lib_MerkleTree.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/LPToken.sol",
+      "role": "upstream_harness_input",
+      "sha256": "c3465dbcfd428df8cc82dff3f0653dc43f969806bd784b1acc95e1e07dd2b275",
+      "source_path": "contracts/saddle/LPToken.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/MathUtils.sol",
+      "role": "upstream_harness_input",
+      "sha256": "faecf362b0cef13441f97036cb776dfdc936f7486b73b013f384d1780a816bcb",
+      "source_path": "contracts/saddle/MathUtils.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/OwnerPausableUpgradeable.sol",
+      "role": "upstream_harness_input",
+      "sha256": "046bdb303bc53016f6ecf599e1f7b2fd4b7e55f3fef670dec44f19bd39a744e3",
+      "source_path": "contracts/saddle/OwnerPausableUpgradeable.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/Swap.sol",
+      "role": "upstream_harness_input",
+      "sha256": "34fbd2e0f04d1f54b1987e856ca4abb6f55a5da61703d921b85fae9fff435e93",
+      "source_path": "contracts/saddle/Swap.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/SwapUtils.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b63342048f6cf23d547da58c6f88a3051d1b687b373d999185548a32d8539a82",
+      "source_path": "contracts/saddle/SwapUtils.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/interfaces/IAllowlist.sol",
+      "role": "upstream_harness_input",
+      "sha256": "bb8146042e30d8b0ebfe8cada0e9eb85cb1d4dff4712c5fcaf4723fd69b63e93",
+      "source_path": "contracts/saddle/interfaces/IAllowlist.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/interfaces/IFlashLoanReceiver.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b8188c429d64f1932056de17ef47c7d357bb90eaab24d20b9e3da701b20c3be7",
+      "source_path": "contracts/saddle/interfaces/IFlashLoanReceiver.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/interfaces/ISwap.sol",
+      "role": "upstream_harness_input",
+      "sha256": "d4682b543dc94648a2d717e5e7e40a1663b31af6ee8d5b1000f7a2cb5881be26",
+      "source_path": "contracts/saddle/interfaces/ISwap.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/interfaces/ISwapFlashLoan.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ac35ad5f1f5be7a49dfb55c932dedd43cb6cc584d2ff49a2ca1109225aadf506",
+      "source_path": "contracts/saddle/interfaces/ISwapFlashLoan.sol"
+    },
+    {
+      "harness_path": "contracts/saddle/interfaces/ISwapGuarded.sol",
+      "role": "upstream_harness_input",
+      "sha256": "31a6ec91299e88d08c6c9276c6596ca6191ffd6eb6c0684ac4ddaecb1efc9e0b",
+      "source_path": "contracts/saddle/interfaces/ISwapGuarded.sol"
+    },
+    {
+      "harness_path": "contracts/test/BytesLib.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6dc2ba7a3d95b29c793ae7697a322adfbd273e1eaef05295278b964ac047b001",
+      "source_path": "contracts/test/BytesLib.sol"
+    },
+    {
+      "harness_path": "contracts/test/MockERC20.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3eddf6180e13c1b6a7d7c51ee77e28258cfb6f7e079a9faeef618218c70e6286",
+      "source_path": "contracts/test/MockERC20.sol"
+    },
+    {
+      "harness_path": "contracts/test/MockMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "939ff06b7fcc20addf1a82e7248f3c50e05d2e941b5c3035571685364b46d24d",
+      "source_path": "contracts/test/MockMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/test/Mock_Accounting.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2cc9d0f681ca31d16b8b152a9f1ab3989808a5af98aafa34f9636663c884bf21",
+      "source_path": "contracts/test/Mock_Accounting.sol"
+    },
+    {
+      "harness_path": "contracts/test/Mock_Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b4b59ba8da2836d2dd3da602e99b92ae5a0ba4cf05ceb3ec76f4884cb03d9ce1",
+      "source_path": "contracts/test/Mock_Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/test/Mock_L1_Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "cff786fef43007fd3776db15cf3af00ecff40561fc22f9445df45f1853a4e65a",
+      "source_path": "contracts/test/Mock_L1_Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/test/Mock_L1_CanonicalBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "9fb62b2c5bcca5fb8c2f89372f1b6d6f1de4397852137c71a6169e3f1ca7047c",
+      "source_path": "contracts/test/Mock_L1_CanonicalBridge.sol"
+    },
+    {
+      "harness_path": "contracts/test/Mock_L1_Messenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "13748e58a3e085139da8c8eb5459f623929fb0dab25c36d7aef28401318c6665",
+      "source_path": "contracts/test/Mock_L1_Messenger.sol"
+    },
+    {
+      "harness_path": "contracts/test/Mock_L2_Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "4a70c0ce09d9e8d0aa8ae2c9af411c69fadbdf6cb8565d1dda9a6eece373f169",
+      "source_path": "contracts/test/Mock_L2_Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/test/Mock_L2_Messenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "2c06d9da4f303890e3315b10d0596af3e91ee6289e06e05872498616a5f3a6dd",
+      "source_path": "contracts/test/Mock_L2_Messenger.sol"
+    },
+    {
+      "harness_path": "contracts/test/arbitrum/MockEthERC20Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6462cc3ea798bc2f23b91e16754f49563e0845fe13dfcd4c94d89dfb6400d799",
+      "source_path": "contracts/test/arbitrum/MockEthERC20Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/test/arbitrum/mockArbitrum_L1_ERC20_Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "ea16251ecfa46cf513086cc868d5888bf0e2e9ea0275b4a5fffcad0eb0623764",
+      "source_path": "contracts/test/arbitrum/mockArbitrum_L1_ERC20_Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/test/arbitrum/mockArbitrum_L2_ERC20_Bridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6e39b49e3ae2dd879ec042e5ffa706ca83c7bf1035671b7fe02df0aeb18af261",
+      "source_path": "contracts/test/arbitrum/mockArbitrum_L2_ERC20_Bridge.sol"
+    },
+    {
+      "harness_path": "contracts/test/polygon/MockRootChainManager.sol",
+      "role": "upstream_harness_input",
+      "sha256": "dd6b7d2fa8ff2afbdb2a40955134339803e00bfd85d7658a4980269aeda8faca",
+      "source_path": "contracts/test/polygon/MockRootChainManager.sol"
+    },
+    {
+      "harness_path": "contracts/test/polygon/Mock_L1_PolygonMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "5749ab37ff85ad2e1c37dd21f9aaa15fd6210fdfac89b41f7d104c2454afa81c",
+      "source_path": "contracts/test/polygon/Mock_L1_PolygonMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/test/xDai/MockForeignOmniBridge.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1d9182af4006c630b7e10dd30005b30720f030ea7993ae6b1ca9f0ecb5ba0ad0",
+      "source_path": "contracts/test/xDai/MockForeignOmniBridge.sol"
+    },
+    {
+      "harness_path": "contracts/test/xDai/Mock_L1_xDaiMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "a408656ffeb26c50c690e00008c50ea9a006e6da4b79f96763c29a837951fa3e",
+      "source_path": "contracts/test/xDai/Mock_L1_xDaiMessenger.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "bonder": [
+        "L1_Bridge.stake"
+      ],
+      "eve": [],
+      "upstream_l2_connector": [
+        "L2_Bridge.distribute"
+      ],
+      "user": [
+        "L1_Bridge.sendToL2"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_unauthorized_distribute",
+      "mechanism": "exact upstream L1/L2 bridge source requires the configured chain and x-domain connector before settlement"
+    },
+    "callbacks": {
+      "destination_callback": "Mock_L1_Bridge -> Mock_L2_Bridge source connector path",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp at Mock_L2_Bridge.distribute",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at L1_Bridge.sendToL2"
+    },
+    "finality": {
+      "model": "source escrow, destination hToken mint and bridge token-conservation invariant",
+      "status": "normal_liquidity_transfer_boundary_tested_without_transfer_root_challenge_or_external_finality"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "alice_debit",
+        "bridge_escrow",
+        "chain_balance",
+        "destination_supply",
+        "token_conservation"
+      ],
+      "steps": [
+        "L1_Bridge.sendToL2",
+        "source_token_escrow",
+        "Mock_L2_Bridge.distribute",
+        "destination_hToken_mint",
+        "conservation_assertions"
+      ],
+      "test": "test_normal_l1_to_l2_transfer"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys token, registry, bridges and hToken for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the exact Hop source test bridges with the upstream BonderRegistry, HopBridgeToken and token boundary doubles",
+      "source_contracts": [
+        "L1_Bridge",
+        "L2_Bridge",
+        "Bridge",
+        "Accounting",
+        "BonderRegistry"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "src/proxy/Proxy.sol"
+  ],
+  "document_paths": [
+    "LICENSE",
+    "README.md"
+  ],
+  "selected_paths": [
+    "LICENSE",
+    "README.md",
+    "src/proxy/Eip1967Implementation.sol",
+    "src/proxy/Proxy.sol"
+  ],
+  "unresolved_imports": [],
+  "selection_hash": "0cfbb065e77cefe8ba5869b6c357e8fd470ba4a5bf4e90ded069cfd975b8489e"
+}

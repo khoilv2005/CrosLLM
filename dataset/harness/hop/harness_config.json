@@ -1,0 +1,108 @@
+{
+  "artifact_manifest_sha256": "22a9b1602296a6ea133e3c0a513d18daa6db3bd974cd7380e3a0260238d0755b",
+  "compiler": {
+    "binary_sha256": "fab8f0275c8e6111294431eb7ddc03c12625a62b26e38f36a5ece659370f977b",
+    "image": "ghcr.io/argotorg/solc@sha256:ba8da496fd063c7dddb2282f115b2a59c5deaf8f2ab06a4ca858304fedaeb5c9",
+    "optimizer": true,
+    "optimizer_runs": 50000,
+    "version": "0.6.12"
+  },
+  "contracts": [
+    "L1_Bridge",
+    "L2_Bridge"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "c2d9901bdb9a3167d1b51663f7cc4a085bb16c8a478c1a63ad3b132f1493b82b",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "hop",
+  "protocol": "Hop Protocol",
+  "source_backed": true,
+  "source_commit": "0726ffa0e14745134116e552178fd7e0edcfa8e6",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "072ac9ad2decaa237a076f1caab21c08a288cb1c99d8ee369732568eea28f07b",
+  "source_repository": "https://github.com/hop-protocol/contracts.git",
+  "source_selection_hash": "78fb4e9d88be9911caa190d9bcb114bfa68c1871ca6c926999afcec01897d617",
+  "split": "development",
+  "test_contract": "HopPairedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "bonder": [
+        "L1_Bridge.stake"
+      ],
+      "eve": [],
+      "upstream_l2_connector": [
+        "L2_Bridge.distribute"
+      ],
+      "user": [
+        "L1_Bridge.sendToL2"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_unauthorized_distribute",
+      "mechanism": "exact upstream L1/L2 bridge source requires the configured chain and x-domain connector before settlement"
+    },
+    "callbacks": {
+      "destination_callback": "Mock_L1_Bridge -> Mock_L2_Bridge source connector path",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp at Mock_L2_Bridge.distribute",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at L1_Bridge.sendToL2"
+    },
+    "finality": {
+      "model": "source escrow, destination hToken mint and bridge token-conservation invariant",
+      "status": "normal_liquidity_transfer_boundary_tested_without_transfer_root_challenge_or_external_finality"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "alice_debit",
+        "bridge_escrow",
+        "chain_balance",
+        "destination_supply",
+        "token_conservation"
+      ],
+      "steps": [
+        "L1_Bridge.sendToL2",
+        "source_token_escrow",
+        "Mock_L2_Bridge.distribute",
+        "destination_hToken_mint",
+        "conservation_assertions"
+      ],
+      "test": "test_normal_l1_to_l2_transfer"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys token, registry, bridges and hToken for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the exact Hop source test bridges with the upstream BonderRegistry, HopBridgeToken and token boundary doubles",
+      "source_contracts": [
+        "L1_Bridge",
+        "L2_Bridge",
+        "Bridge",
+        "Accounting",
+        "BonderRegistry"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

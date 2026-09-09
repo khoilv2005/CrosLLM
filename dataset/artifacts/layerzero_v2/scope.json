@@ -1,0 +1,14 @@
+{
+  "lineage_id": "layerzero_v2",
+  "protocol": "LayerZero v2",
+  "split": "development",
+  "in_scope_contracts": [
+    "SendUln302"
+  ],
+  "entry_points": {
+    "SendUln302": "contracts/uln/uln302/SendUln302.sol"
+  },
+  "channel_type": "arbitrary_messaging",
+  "topology": "any_to_any",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

@@ -1,0 +1,14 @@
+{
+  "lineage_id": "synapse",
+  "protocol": "Synapse Protocol",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "SynapseBridge"
+  ],
+  "entry_points": {
+    "SynapseBridge": "contracts/bridge/SynapseBridge.sol"
+  },
+  "channel_type": "cross_chain_liquidity_and_messaging",
+  "topology": "any_to_any",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

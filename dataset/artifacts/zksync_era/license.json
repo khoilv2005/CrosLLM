@@ -1,0 +1,10 @@
+{
+  "lineage_id": "zksync_era",
+  "protocol": "zkSync Era",
+  "declared_license": "MIT",
+  "source_repository": "https://github.com/matter-labs/era-contracts.git",
+  "spdx_identifier": "MIT",
+  "commercial_use_restrictions": false,
+  "redistribution_permitted": null,
+  "license_review_status": "pending_component_review"
+}

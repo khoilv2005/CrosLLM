@@ -1,0 +1,415 @@
+{
+  "lineage_id": "zksync_era",
+  "protocol": "zkSync Era",
+  "contracts": {
+    "L1ERC20Bridge": {
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+      "source_target": {
+        "contract_name": "L1ERC20Bridge",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 24
+      },
+      "function_count": 15,
+      "functions": [
+        "ERA_CHAIN_ID",
+        "L1_ASSET_ROUTER",
+        "L1_NATIVE_TOKEN_VAULT",
+        "L1_NULLIFIER",
+        "claimFailedDeposit",
+        "deposit",
+        "depositAmount",
+        "finalizeWithdrawal",
+        "initialize",
+        "isWithdrawalFinalized",
+        "l2Bridge",
+        "l2TokenAddress",
+        "l2TokenBeacon",
+        "l2TokenProxyBytecodeHash"
+      ],
+      "event_count": 3,
+      "events": [
+        "ClaimedFailedDeposit",
+        "DepositInitiated",
+        "WithdrawalFinalized"
+      ],
+      "storage_slot_count": 8,
+      "storage_slots": [
+        "isWithdrawalFinalized",
+        "depositAmount",
+        "l2Bridge",
+        "l2TokenBeacon",
+        "l2TokenProxyBytecodeHash",
+        "__DEPRECATED_lastWithdrawalLimitReset",
+        "__DEPRECATED_withdrawnAmountInWindow",
+        "__DEPRECATED_totalDepositedAmountPerUser"
+      ]
+    }
+  },
+  "stable_symbols": [
+    {
+      "symbol_id": "abi_constructor.L1ERC20Bridge.a208afccd80a16eaba5509ca8a7eda8a856ac7746e252418ed74585826e89ca0",
+      "contract": "L1ERC20Bridge",
+      "name": "constructor",
+      "signature": "constructor(address,address,address,uint256)",
+      "kind": "abi_constructor",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_error.L1ERC20Bridge.0ca7b5594664e4b6571237f0d2a0badd58ff233ac7327d4ad1050c3b07db64b7",
+      "contract": "L1ERC20Bridge",
+      "name": "TokensWithFeesNotSupported",
+      "signature": "TokensWithFeesNotSupported()",
+      "kind": "abi_error",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_error.L1ERC20Bridge.1bc8302f283c1096b59224b1a23241df0298f2365df0948a7d16fc83ce4e558d",
+      "contract": "L1ERC20Bridge",
+      "name": "ETHDepositNotSupported",
+      "signature": "ETHDepositNotSupported()",
+      "kind": "abi_error",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_error.L1ERC20Bridge.36f7eabcea4fd347d0fe43818d8ed7099140a0aece591ee16de3996a77bbd779",
+      "contract": "L1ERC20Bridge",
+      "name": "NotInitializedReentrancyGuard",
+      "signature": "NotInitializedReentrancyGuard()",
+      "kind": "abi_error",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_error.L1ERC20Bridge.379d46e23387684fa4b6e36f25b5ccb0672150ad7b9cb510f4bceb75611c279a",
+      "contract": "L1ERC20Bridge",
+      "name": "AssetRouterAllowanceNotZero",
+      "signature": "AssetRouterAllowanceNotZero()",
+      "kind": "abi_error",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_error.L1ERC20Bridge.7e812292297c5fea388a0bf6f43e6ba1c2c56705d493aeaf4574a9963b95feda",
+      "contract": "L1ERC20Bridge",
+      "name": "Reentrancy",
+      "signature": "Reentrancy()",
+      "kind": "abi_error",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_error.L1ERC20Bridge.afda7b4e4fa269675242873e6214ebc3ca77e5143673d0abf67a2d3cad1580db",
+      "contract": "L1ERC20Bridge",
+      "name": "EmptyDeposit",
+      "signature": "EmptyDeposit()",
+      "kind": "abi_error",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_error.L1ERC20Bridge.b06e6e5b58b78aeccf57c7ba8eef1367dbc0bba7cd9c3c1e72d932e9576d1d77",
+      "contract": "L1ERC20Bridge",
+      "name": "WithdrawalAlreadyFinalized",
+      "signature": "WithdrawalAlreadyFinalized()",
+      "kind": "abi_error",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_error.L1ERC20Bridge.ecc7cdfee1b3470b3f54068c4a9689c5c59d6ed13b3f7162a72052542a565033",
+      "contract": "L1ERC20Bridge",
+      "name": "SlotOccupied",
+      "signature": "SlotOccupied()",
+      "kind": "abi_error",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_event.L1ERC20Bridge.375f0cf7a43ba91ef3220b16b144923595a9aa34aa516e9b6dddea9ae51d6594",
+      "contract": "L1ERC20Bridge",
+      "name": "WithdrawalFinalized",
+      "signature": "WithdrawalFinalized(address,address,uint256)",
+      "kind": "abi_event",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_event.L1ERC20Bridge.d89e04e9ac543923465272b64862cdcb9385025dead01e4a1e684fb3a308cf4d",
+      "contract": "L1ERC20Bridge",
+      "name": "ClaimedFailedDeposit",
+      "signature": "ClaimedFailedDeposit(address,address,uint256)",
+      "kind": "abi_event",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_event.L1ERC20Bridge.f981acfa2d1f9e7fa19bb73dd88750f069268f576644419da9599eb44c9e34d8",
+      "contract": "L1ERC20Bridge",
+      "name": "DepositInitiated",
+      "signature": "DepositInitiated(bytes32,address,address,address,uint256)",
+      "kind": "abi_event",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.0a2549539500ceb871de6838f169d4e37516e04d182b6c1ddf6e972c3ca97ad9",
+      "contract": "L1ERC20Bridge",
+      "name": "L1_NULLIFIER",
+      "signature": "L1_NULLIFIER()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.0f143b770d566e900dc183053a772447153f3a05a60897a9e0a657498006783e",
+      "contract": "L1ERC20Bridge",
+      "name": "finalizeWithdrawal",
+      "signature": "finalizeWithdrawal(uint256,uint256,uint16,bytes,bytes32[])",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.1a6dba76f0575f3207bedc02c4499a01097812a627a049d8970e41f7903b5192",
+      "contract": "L1ERC20Bridge",
+      "name": "deposit",
+      "signature": "deposit(address,address,uint256,uint256,uint256,address)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.4ade319b809180e7be6d2f0b883f8f59fadba7d300495d8a286e07df50af1de9",
+      "contract": "L1ERC20Bridge",
+      "name": "depositAmount",
+      "signature": "depositAmount(address,address,bytes32)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.5c2cef632306f961b7f55bb75bfe73a9226715406f2ec9584c1c59ccea123bf3",
+      "contract": "L1ERC20Bridge",
+      "name": "l2TokenBeacon",
+      "signature": "l2TokenBeacon()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.65f68fc6494389a5c01ac19fa804adcc7ed3954b4bcc4a542003b6a705da4824",
+      "contract": "L1ERC20Bridge",
+      "name": "l2TokenProxyBytecodeHash",
+      "signature": "l2TokenProxyBytecodeHash()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.672548905b792ba0f2388b0ce77bb0935f95ac7dc4d42b864d531dcc0f526095",
+      "contract": "L1ERC20Bridge",
+      "name": "l2Bridge",
+      "signature": "l2Bridge()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.7064f36cf77afe8da4ee3f1467d4d1f596c0e3232428f0ab57c9664faed81cfc",
+      "contract": "L1ERC20Bridge",
+      "name": "l2TokenAddress",
+      "signature": "l2TokenAddress(address)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.81e54f0ae357533c52d069547905957ee5ebb5b813735a09441a570daa76d68a",
+      "contract": "L1ERC20Bridge",
+      "name": "ERA_CHAIN_ID",
+      "signature": "ERA_CHAIN_ID()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.91d31efefcc59ff3324f946dd80d1fd17671afed963cedc7d604a4b661c9986f",
+      "contract": "L1ERC20Bridge",
+      "name": "L1_ASSET_ROUTER",
+      "signature": "L1_ASSET_ROUTER()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.a4e92cd2f88ba70f23be0a1a79095d2743244798fbfd43731dadd815b38ab55d",
+      "contract": "L1ERC20Bridge",
+      "name": "isWithdrawalFinalized",
+      "signature": "isWithdrawalFinalized(uint256,uint256)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.ba0ab03d6e11adb9f5b8c876403f430ae4518ef5a6328223ab3e5c0553995cc2",
+      "contract": "L1ERC20Bridge",
+      "name": "initialize",
+      "signature": "initialize()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.de8565908d3ca7403d98a36edbf1d48cfc38e7f0c6926e5ddff2422b2f049195",
+      "contract": "L1ERC20Bridge",
+      "name": "L1_NATIVE_TOKEN_VAULT",
+      "signature": "L1_NATIVE_TOKEN_VAULT()",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.dedccbbcc8d8b8a5f85cabd0b1c47d4812aaaed8cf8fe782f532607c62338613",
+      "contract": "L1ERC20Bridge",
+      "name": "deposit",
+      "signature": "deposit(address,address,uint256,uint256,uint256)",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "abi_function.L1ERC20Bridge.ebd996046b394e6cffbcc27549a5b8470cbbc283a9f7462e5778c19a82f10338",
+      "contract": "L1ERC20Bridge",
+      "name": "claimFailedDeposit",
+      "signature": "claimFailedDeposit(address,address,bytes32,uint256,uint256,uint16,bytes32[])",
+      "kind": "abi_function",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "storage.L1ERC20Bridge.slot_0.isWithdrawalFinalized",
+      "contract": "L1ERC20Bridge",
+      "name": "isWithdrawalFinalized",
+      "signature": "storage(0)",
+      "kind": "storage",
+      "type": "t_mapping(t_uint256,t_mapping(t_uint256,t_bool))",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "storage.L1ERC20Bridge.slot_1.depositAmount",
+      "contract": "L1ERC20Bridge",
+      "name": "depositAmount",
+      "signature": "storage(1)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_mapping(t_address,t_mapping(t_bytes32,t_uint256)))",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "storage.L1ERC20Bridge.slot_2.l2Bridge",
+      "contract": "L1ERC20Bridge",
+      "name": "l2Bridge",
+      "signature": "storage(2)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "storage.L1ERC20Bridge.slot_3.l2TokenBeacon",
+      "contract": "L1ERC20Bridge",
+      "name": "l2TokenBeacon",
+      "signature": "storage(3)",
+      "kind": "storage",
+      "type": "t_address",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "storage.L1ERC20Bridge.slot_4.l2TokenProxyBytecodeHash",
+      "contract": "L1ERC20Bridge",
+      "name": "l2TokenProxyBytecodeHash",
+      "signature": "storage(4)",
+      "kind": "storage",
+      "type": "t_bytes32",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "storage.L1ERC20Bridge.slot_5.__DEPRECATED_lastWithdrawalLimitReset",
+      "contract": "L1ERC20Bridge",
+      "name": "__DEPRECATED_lastWithdrawalLimitReset",
+      "signature": "storage(5)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_uint256)",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "storage.L1ERC20Bridge.slot_6.__DEPRECATED_withdrawnAmountInWindow",
+      "contract": "L1ERC20Bridge",
+      "name": "__DEPRECATED_withdrawnAmountInWindow",
+      "signature": "storage(6)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_uint256)",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    },
+    {
+      "symbol_id": "storage.L1ERC20Bridge.slot_7.__DEPRECATED_totalDepositedAmountPerUser",
+      "contract": "L1ERC20Bridge",
+      "name": "__DEPRECATED_totalDepositedAmountPerUser",
+      "signature": "storage(7)",
+      "kind": "storage",
+      "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+      "domain": "source",
+      "source_path": "contracts/bridge/L1ERC20Bridge.sol",
+      "source_file_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7"
+    }
+  ],
+  "stable_symbols_sha256": "37a240b8176860b02860e6ff803c920d1444e2fdd9aafacdc66e19fa990c9405",
+  "domain_assignments": {
+    "L1ERC20Bridge": "source"
+  },
+  "source_selection_hash": "1348d08a035f45537f512088ad1708af1927b57e0fab6e48e7958eea8544a59f"
+}

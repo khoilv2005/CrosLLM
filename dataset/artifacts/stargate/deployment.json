@@ -1,0 +1,109 @@
+{
+  "lineage_id": "stargate",
+  "protocol": "Stargate Finance",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "Bridge": {
+      "contract_name": "Bridge",
+      "source_path": "contracts/Bridge.sol",
+      "source_file_sha256": "bb2ebfa5ac616b7dc203ce5c84d738467d8790927c1a41454f40a62996287490",
+      "source_target": {
+        "contract_name": "Bridge",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 18
+      },
+      "abi_path": "abi/Bridge.json",
+      "abi_sha256": "9f4ed6bd4300115d18dfb0afe0e7a4bc49cd8ca2ed31d8b01ed5741728c55a79",
+      "creation_bytecode_path": "bytecode/Bridge.creation.hex",
+      "creation_bytecode_sha256": "65f09e563f5437f297375236294757b2768e0ff9141f6787ecb30f0007b129e6",
+      "deployed_bytecode_path": "bytecode/Bridge.deployed.hex",
+      "deployed_bytecode_sha256": "4b4a96cc40748451cafabd3a0745d69424525eef44c8d02dba24a6251a2c5f2d",
+      "storage_layout_path": "storage_layout/Bridge.json",
+      "storage_layout_sha256": "e0a118eb4084c6f3319076e76c752d0774c8987842ba33856b4d5a4dcdd29150",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": null,
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": false,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    },
+    "Pool": {
+      "contract_name": "Pool",
+      "source_path": "contracts/Pool.sol",
+      "source_file_sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+      "source_target": {
+        "contract_name": "Pool",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 16
+      },
+      "abi_path": "abi/Pool.json",
+      "abi_sha256": "d927e2020f1b0a78331a9071c3d94434a279d8c22eb5d958384e322a7a720a85",
+      "creation_bytecode_path": "bytecode/Pool.creation.hex",
+      "creation_bytecode_sha256": "01fc310b51e60fe5c8d85339905a0c344275aa2c75b80b99281b927ba9192871",
+      "deployed_bytecode_path": "bytecode/Pool.deployed.hex",
+      "deployed_bytecode_sha256": "3472ccd16dfa1225a73ff11fe85e2b5b9347a78ff70244a879abb2e2b76ac150",
+      "storage_layout_path": "storage_layout/Pool.json",
+      "storage_layout_sha256": "fd13047b568edbce196c53e35f90425aaa7a15b4297e5adf339cceb4508489f0",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": null,
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": false,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    },
+    "Router": {
+      "contract_name": "Router",
+      "source_path": "contracts/Router.sol",
+      "source_file_sha256": "3140a8e79abcfc5afa772857fb58e210a56007870f87236b5580e19a3ab81bc0",
+      "source_target": {
+        "contract_name": "Router",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 21
+      },
+      "abi_path": "abi/Router.json",
+      "abi_sha256": "8ee9aee919a20223ac4a958ceea420b5ee998692e877d485342a2aba462263ae",
+      "creation_bytecode_path": "bytecode/Router.creation.hex",
+      "creation_bytecode_sha256": "d2cc47d836bd7fb42b76100b137a8aa15b0bc7818fa6e06a0a763af391a7b104",
+      "deployed_bytecode_path": "bytecode/Router.deployed.hex",
+      "deployed_bytecode_sha256": "3edaea7973f4a224e817eb1333f69e3a1094cdb22101daf5d7781b344a9b5a6e",
+      "storage_layout_path": "storage_layout/Router.json",
+      "storage_layout_sha256": "d76b00bb6916118d0410dd71bed64fc72fef97a47fa3423e82f0cb2b6b203941",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": null,
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": false,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

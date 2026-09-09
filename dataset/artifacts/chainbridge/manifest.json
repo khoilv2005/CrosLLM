@@ -1,0 +1,25 @@
+{
+  "artifact_count": 17,
+  "files": {
+    "abi/Bridge.json": "cf284fbbd025939814a8c14ac9780d6af5f23158de4c5e81861eb3c2ae96e4e1",
+    "abi/ERC20Handler.json": "b471383482ee152a01b874cbefff33efd5ccae338e3bc48fe926fb98039d0777",
+    "build_info.json": "e630307569c919d65efd4547abe284683f58071723f1cce859222411f157082e",
+    "bytecode/Bridge.creation.hex": "a2c550bb21b1b8c4d2cfd138a35ad570862739cbeb47f872f59b7f634536d905",
+    "bytecode/Bridge.deployed.hex": "23a5e78779e63826c65b511f25732da8302dc52807d7c58e63e145bce5879c80",
+    "bytecode/ERC20Handler.creation.hex": "3917fc8bc22c5b90b3ffdc38870d49f2fa73831230aa01f86b608d1d84f3abe2",
+    "bytecode/ERC20Handler.deployed.hex": "10a28d93252d32f923a818b4659bdd21efd81e5605bede9443579aed6c3c1eb8",
+    "channel_profile.json": "3102d9d2898a76cf90fabba843a8043cf7a371138d96a9375fa60ddb2da230e4",
+    "deployment.json": "1b8d0ed72018fe3e99dad3457debd692fd380279bc2561c5d3c62551c06fbc9c",
+    "license.json": "e4ac5697a13bcd0d96ae3e9c0f79be01924d224a5fbe3323de2228b29d639a3d",
+    "normal_workflow.json": "515593b1acfbd33fa749d375727eedb6d8e390bd703d6ead8ca83c1d78c151b1",
+    "scope.json": "c91a265feaad80fda77512391bb62a3e7c61b359fd06151aa57da904a4fe5514",
+    "selection.json": "4afa310cfa253f8a2ebeb8809d8f847603f875fc679dec9278098052510ae224",
+    "source_receipt.json": "f563f09019563b49384a73419a0be2c72965b556ae5e9e0ff09b793636228fda",
+    "storage_layout/Bridge.json": "01be9b749440afd3edc5a19260a9371e168c815d1eba4686903514316c51f1b2",
+    "storage_layout/ERC20Handler.json": "858168a96b46efc789d081e5d9ce3b89374498e21b6eba07abbf5129f85f1abe",
+    "symbols.json": "87dd4b8797c223f90fce46ba667d4ae24852903406f8311dece19c9ab5a1c123"
+  },
+  "lineage_id": "chainbridge",
+  "protocol": "ChainBridge",
+  "split": "development"
+}

@@ -1,0 +1,76 @@
+{
+  "analysis_json": "analysis.json",
+  "artifact_hash": "ee2559b4fb12f6e4f8ad00588ba1a72edc1419a7a1ee257c4047e9ff9cc4807c",
+  "bundle_hash": "699138ad2d7e74ff67feb5869a802b8a4e387844482ee70b28a95fbc3a0a0e8d",
+  "input_hash": "cea7083234a956d08f5defe881486c02a4668b90dbe994f68c78f9bd35cc5115",
+  "row_count": 66,
+  "schema_version": 1,
+  "tables": [
+    {
+      "path": "recall.csv",
+      "row_count": 3,
+      "sha256": "6f451c258954db7b1688cb8fe47f108def6004273cd7dc9862f691444a4ffcd2",
+      "table_id": "recall"
+    },
+    {
+      "path": "useful_proposal_recall.csv",
+      "row_count": 3,
+      "sha256": "6f451c258954db7b1688cb8fe47f108def6004273cd7dc9862f691444a4ffcd2",
+      "table_id": "useful_proposal_recall"
+    },
+    {
+      "path": "false_alert_rate.csv",
+      "row_count": 3,
+      "sha256": "c9cbc9a596fce358bd51392c49a9b7477dee35b5f8ad215efeb04d29e1460d23",
+      "table_id": "false_alert_rate"
+    },
+    {
+      "path": "false_discovery_proportion.csv",
+      "row_count": 3,
+      "sha256": "3107606b9f97973a7a529c22d90e78663d5f865cded1c98459682c4afc47c388",
+      "table_id": "false_discovery_proportion"
+    },
+    {
+      "path": "native_witness_yield.csv",
+      "row_count": 3,
+      "sha256": "6d41e2fc79bdf44c850356541fbb3004c2502a6ec91f0311718a85689eb0acc1",
+      "table_id": "native_witness_yield"
+    },
+    {
+      "path": "independent_replay_rate.csv",
+      "row_count": 3,
+      "sha256": "351b24075963f27d665df059d3753bc28f3dda46aa42bd3d64600497ddd46e0c",
+      "table_id": "independent_replay_rate"
+    },
+    {
+      "path": "witness_time.csv",
+      "row_count": 3,
+      "sha256": "0ba9b801c0b483f4619df7cb8c1c30f4136286ed658425ce2ee069905ffc7ffc",
+      "table_id": "witness_time"
+    },
+    {
+      "path": "claim_time.csv",
+      "row_count": 3,
+      "sha256": "60173059bcdb9c8a8e7638fbf6ee9534b6788bcb057c37efdda78c02d9475492",
+      "table_id": "claim_time"
+    },
+    {
+      "path": "stage_denominators.csv",
+      "row_count": 18,
+      "sha256": "3bafa446c1340c9b81bdb5c1256ac7615576c86a6028ff36cfa202faae31913b",
+      "table_id": "stage_denominators"
+    },
+    {
+      "path": "time_conditioned.csv",
+      "row_count": 6,
+      "sha256": "ca9f8bc1b5ab1d041eff60c8b8a87b8e9f2eeb093229494bdb65de3ad4c2d828",
+      "table_id": "time_conditioned"
+    },
+    {
+      "path": "inference.csv",
+      "row_count": 11,
+      "sha256": "99ce24e1a2f501205c1317056188c254d727756125c63b58c00c59c1af3c4ed2",
+      "table_id": "inference"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "lineage_id": "layerzero_v2",
+  "protocol": "LayerZero v2",
+  "test_suite": "LayerZeroV2PairedHarnessTest",
+  "execution_engine": "Foundry EVM in pinned Docker image",
+  "status": "PASS",
+  "evidence_scope": "generated_development_harness_smoke_only"
+}

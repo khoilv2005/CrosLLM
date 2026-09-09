@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "status": "development_probe",
+  "probed_at": "2026-09-08",
+  "lock_mode": "version-pinned-development-with-hashed-python-wheels",
+  "python_lock_file": "requirements.lock",
+  "python_lock_install": "python -m pip install --require-hashes --requirement requirements.lock",
+  "host": {
+    "os": "Windows",
+    "docker_context": "desktop-linux",
+    "docker_server": "29.7.2"
+  },
+  "python_dependencies": {
+    "runtime": "CPython 3.14.7",
+    "ci_runtime": "CPython 3.11 on ubuntu-24.04",
+    "platform_variants": {
+      "windows": "z3-solver==5.1.0.0",
+      "linux": "z3-solver==4.15.4.0"
+    },
+    "packages": [
+      {
+        "name": "attrs",
+        "version": "26.1.0",
+        "source": "PyPI wheel",
+        "status": "observed"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0",
+        "source": "PyPI wheel",
+        "status": "observed"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "source": "PyPI wheel",
+        "status": "observed"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0",
+        "source": "PyPI wheel",
+        "status": "observed"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.6.3",
+        "source": "PyPI wheel",
+        "status": "observed"
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.16.0",
+        "source": "PyPI wheel",
+        "status": "observed"
+      },
+      {
+        "name": "z3-solver",
+        "version": "5.1.0.0",
+        "z3_version": "5.1.0",
+        "source": "PyPI wheel",
+        "status": "installed_and_imported"
+      }
+    ],
+    "verification": "python -c import z3; print(z3.get_version_string())"
+  },
+  "images": {
+    "foundry": {
+      "ref": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+      "tag_observed": "latest",
+      "forge_version_observed": "1.8.1 (982849d314 2026-08-28T17:47:51.123690936Z)",
+      "solc_in_image": false,
+      "purpose": "development Solidity/Foundry probe"
+    },
+    "node_11": {
+      "ref": "node@sha256:67ca28addce8ae818b144114a9376a6603aba09069b7313618d37b38584abba1",
+      "tag_observed": "11.15.0",
+      "purpose": "Hop development build probe"
+    },
+    "node_16": {
+      "ref": "node@sha256:f77a1aef2da8d83e45ec990f45df50f1a286c5fe8bbfb8c6e4246c6389705c0b",
+      "tag_observed": "16",
+      "purpose": "Celer/ChainBridge development build probe"
+    },
+    "node_18": {
+      "ref": "node@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783",
+      "tag_observed": "18.20.8",
+      "purpose": "reserved development compatibility probe"
+    },
+    "python_worker": {
+      "ref": "python:3.11-slim@sha256:9534e5a8e315485d4061ed659af0fd78a284c015f9b73661b41d6bab25604534",
+      "tag_observed": "3.11-slim",
+      "purpose": "development clean-worker installation and isolation probe"
+    }
+  },
+  "execution": {
+    "development_host": "Windows workstation with Docker Desktop Linux engine",
+    "build_and_evm_replay": "digest-pinned Linux containers with --network=none",
+    "provider_worker": "Docker worker with Ollama Cloud egress policy; external firewall enforcement required",
+    "private_gold_mount": "forbidden",
+    "model_weight_mount_or_download": "forbidden",
+    "broadcast_capability": "forbidden"
+  },
+  "ci": {
+    "workflow": ".github/workflows/ci.yml",
+    "runner": "ubuntu-24.04",
+    "dependency_install_is_hash_checked": true,
+    "package_install_is_dependency_free": true,
+    "source_compile_and_tests": true
+  },
+  "open_items": [
+    "Promote the development worker to an evaluation worker image only after the backend decision and review.",
+    "Provide a pinned solc installation compatible with each selected host; the Foundry image does not contain solc.",
+    "Build and archive a single reproducible worker image after the backend decision.",
+    "Repeat all probes in clean containers and attach command output hashes before evaluation."
+  ]
+}

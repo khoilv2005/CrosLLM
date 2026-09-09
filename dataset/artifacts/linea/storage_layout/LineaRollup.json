@@ -1,0 +1,477 @@
+{
+  "storage": [
+    {
+      "astId": 3896,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "_initialized",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_uint8"
+    },
+    {
+      "astId": 3899,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "_initializing",
+      "offset": 1,
+      "slot": "0",
+      "type": "t_bool"
+    },
+    {
+      "astId": 4438,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 4712,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "51",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 3508,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "_roles",
+      "offset": 0,
+      "slot": "101",
+      "type": "t_mapping(t_bytes32,t_struct(RoleData)3503_storage)"
+    },
+    {
+      "astId": 3815,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "102",
+      "type": "t_array(t_uint256)49_storage"
+    },
+    {
+      "astId": 3157,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "periodInSeconds",
+      "offset": 0,
+      "slot": "151",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 3159,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "limitInWei",
+      "offset": 0,
+      "slot": "152",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 3162,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "currentPeriodEnd",
+      "offset": 0,
+      "slot": "153",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 3165,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "currentPeriodAmountInWei",
+      "offset": 0,
+      "slot": "154",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 3170,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "155",
+      "type": "t_array(t_uint256)10_storage"
+    },
+    {
+      "astId": 2619,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "outboxL1L2MessageStatus",
+      "offset": 0,
+      "slot": "165",
+      "type": "t_mapping(t_bytes32,t_uint256)"
+    },
+    {
+      "astId": 2624,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "inboxL2L1MessageStatus",
+      "offset": 0,
+      "slot": "166",
+      "type": "t_mapping(t_bytes32,t_uint256)"
+    },
+    {
+      "astId": 2546,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap_ReentrancyGuardUpgradeable",
+      "offset": 0,
+      "slot": "167",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 2951,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "pauseTypeStatuses",
+      "offset": 0,
+      "slot": "217",
+      "type": "t_mapping(t_bytes32,t_bool)"
+    },
+    {
+      "astId": 2953,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "_pauseTypeStatusesBitMap",
+      "offset": 0,
+      "slot": "218",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 2958,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "219",
+      "type": "t_array(t_uint256)9_storage"
+    },
+    {
+      "astId": 2679,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "nextMessageNumber",
+      "offset": 0,
+      "slot": "228",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 2682,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "_messageSender",
+      "offset": 0,
+      "slot": "229",
+      "type": "t_address"
+    },
+    {
+      "astId": 2687,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "230",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 1227,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "currentTimestamp",
+      "offset": 0,
+      "slot": "280",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 1229,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "currentL2BlockNumber",
+      "offset": 0,
+      "slot": "281",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 1233,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "stateRootHashes",
+      "offset": 0,
+      "slot": "282",
+      "type": "t_mapping(t_uint256,t_bytes32)"
+    },
+    {
+      "astId": 1237,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "verifiers",
+      "offset": 0,
+      "slot": "283",
+      "type": "t_mapping(t_uint256,t_address)"
+    },
+    {
+      "astId": 1242,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "284",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 1985,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "rollingHashes",
+      "offset": 0,
+      "slot": "334",
+      "type": "t_mapping(t_uint256,t_bytes32)"
+    },
+    {
+      "astId": 1988,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "_messageClaimedBitMap",
+      "offset": 0,
+      "slot": "335",
+      "type": "t_struct(BitMap)5704_storage"
+    },
+    {
+      "astId": 1992,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "l2MerkleRootsDepths",
+      "offset": 0,
+      "slot": "336",
+      "type": "t_mapping(t_bytes32,t_uint256)"
+    },
+    {
+      "astId": 1997,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap_L1MessageManager",
+      "offset": 0,
+      "slot": "337",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 2201,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "systemMigrationBlock",
+      "offset": 0,
+      "slot": "387",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 2206,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "__gap_L1MessageService",
+      "offset": 0,
+      "slot": "388",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 62,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "dataFinalStateRootHashes",
+      "offset": 0,
+      "slot": "438",
+      "type": "t_mapping(t_bytes32,t_bytes32)"
+    },
+    {
+      "astId": 67,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "dataParents",
+      "offset": 0,
+      "slot": "439",
+      "type": "t_mapping(t_bytes32,t_bytes32)"
+    },
+    {
+      "astId": 72,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "dataShnarfHashes",
+      "offset": 0,
+      "slot": "440",
+      "type": "t_mapping(t_bytes32,t_bytes32)"
+    },
+    {
+      "astId": 77,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "dataStartingBlock",
+      "offset": 0,
+      "slot": "441",
+      "type": "t_mapping(t_bytes32,t_uint256)"
+    },
+    {
+      "astId": 82,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "dataEndingBlock",
+      "offset": 0,
+      "slot": "442",
+      "type": "t_mapping(t_bytes32,t_uint256)"
+    },
+    {
+      "astId": 85,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "currentL2StoredL1MessageNumber",
+      "offset": 0,
+      "slot": "443",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 88,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "currentL2StoredL1RollingHash",
+      "offset": 0,
+      "slot": "444",
+      "type": "t_bytes32"
+    },
+    {
+      "astId": 90,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "currentFinalizedShnarf",
+      "offset": 0,
+      "slot": "445",
+      "type": "t_bytes32"
+    },
+    {
+      "astId": 95,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "shnarfFinalBlockNumbers",
+      "offset": 0,
+      "slot": "446",
+      "type": "t_mapping(t_bytes32,t_uint256)"
+    },
+    {
+      "astId": 98,
+      "contract": "contracts/LineaRollup.sol:LineaRollup",
+      "label": "currentFinalizedState",
+      "offset": 0,
+      "slot": "447",
+      "type": "t_bytes32"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_array(t_uint256)10_storage": {
+      "encoding": "inplace",
+      "label": "uint256[10]",
+      "numberOfBytes": "320",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)49_storage": {
+      "encoding": "inplace",
+      "label": "uint256[49]",
+      "numberOfBytes": "1568",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)50_storage": {
+      "encoding": "inplace",
+      "label": "uint256[50]",
+      "numberOfBytes": "1600",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)9_storage": {
+      "encoding": "inplace",
+      "label": "uint256[9]",
+      "numberOfBytes": "288",
+      "base": "t_uint256"
+    },
+    "t_bool": {
+      "encoding": "inplace",
+      "label": "bool",
+      "numberOfBytes": "1"
+    },
+    "t_bytes32": {
+      "encoding": "inplace",
+      "label": "bytes32",
+      "numberOfBytes": "32"
+    },
+    "t_mapping(t_address,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_mapping(t_bytes32,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_mapping(t_bytes32,t_bytes32)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => bytes32)",
+      "numberOfBytes": "32",
+      "value": "t_bytes32"
+    },
+    "t_mapping(t_bytes32,t_struct(RoleData)3503_storage)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)",
+      "numberOfBytes": "32",
+      "value": "t_struct(RoleData)3503_storage"
+    },
+    "t_mapping(t_bytes32,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_bytes32",
+      "label": "mapping(bytes32 => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_uint256,t_address)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => address)",
+      "numberOfBytes": "32",
+      "value": "t_address"
+    },
+    "t_mapping(t_uint256,t_bytes32)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => bytes32)",
+      "numberOfBytes": "32",
+      "value": "t_bytes32"
+    },
+    "t_mapping(t_uint256,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_struct(BitMap)5704_storage": {
+      "encoding": "inplace",
+      "label": "struct BitMaps.BitMap",
+      "numberOfBytes": "32",
+      "members": [
+        {
+          "astId": 5703,
+          "contract": "contracts/LineaRollup.sol:LineaRollup",
+          "label": "_data",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_mapping(t_uint256,t_uint256)"
+        }
+      ]
+    },
+    "t_struct(RoleData)3503_storage": {
+      "encoding": "inplace",
+      "label": "struct AccessControlUpgradeable.RoleData",
+      "numberOfBytes": "64",
+      "members": [
+        {
+          "astId": 3500,
+          "contract": "contracts/LineaRollup.sol:LineaRollup",
+          "label": "members",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_mapping(t_address,t_bool)"
+        },
+        {
+          "astId": 3502,
+          "contract": "contracts/LineaRollup.sol:LineaRollup",
+          "label": "adminRole",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_bytes32"
+        }
+      ]
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    },
+    "t_uint8": {
+      "encoding": "inplace",
+      "label": "uint8",
+      "numberOfBytes": "1"
+    }
+  }
+}

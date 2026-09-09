@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/isolation_canary.schema.json",
+  "title": "CrossLLM Docker worker isolation canary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "image_ref", "case_ids", "cases",
+    "case_count", "passed_count", "all_passed", "sentinel_sha256",
+    "network_none_for_execution", "private_gold_mounted", "model_weights_mounted",
+    "broadcast_allowed", "provider_allowlist", "external_firewall_required_for_provider",
+    "source", "admission_eligible", "evidence_scope", "report_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "docker_worker_isolation_canary"},
+    "scope": {"const": "development_runtime_isolation_only"},
+    "image_ref": {"type": "string", "pattern": "@sha256:[0-9a-fA-F]{64}$"},
+    "case_ids": {"const": ["public_sentinel_execution", "private_gold_mount", "model_weight_mount", "provider_egress_allowlist", "provider_egress_block", "broadcast_block"]},
+    "cases": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"$ref": "#/$defs/case"}},
+    "case_count": {"const": 6},
+    "passed_count": {"const": 6},
+    "all_passed": {"const": true},
+    "sentinel_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "network_none_for_execution": {"const": true},
+    "private_gold_mounted": {"const": false},
+    "model_weights_mounted": {"const": false},
+    "broadcast_allowed": {"const": false},
+    "provider_allowlist": {"const": ["ollama.com"]},
+    "external_firewall_required_for_provider": {"const": true},
+    "source": {"const": "scripts/run_isolation_canary.py"},
+    "admission_eligible": {"const": false},
+    "evidence_scope": {"const": "development_runtime_isolation_only"},
+    "report_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["case_id", "expected", "observed", "passed", "reason", "command_hash", "stdout_sha256", "stderr_sha256"],
+      "properties": {
+        "case_id": {"type": "string", "minLength": 1},
+        "expected": {"type": "string", "minLength": 1},
+        "observed": {"type": "string", "minLength": 1},
+        "passed": {"const": true},
+        "reason": {"type": "string", "minLength": 1},
+        "command_hash": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "stdout_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "stderr_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]}
+      }
+    }
+  }
+}

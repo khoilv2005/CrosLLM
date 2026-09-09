@@ -1,0 +1,186 @@
+{
+  "storage": [
+    {
+      "astId": 6176,
+      "contract": "contracts/Router.sol:Router",
+      "label": "_owner",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_address"
+    },
+    {
+      "astId": 6745,
+      "contract": "contracts/Router.sol:Router",
+      "label": "_status",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 4020,
+      "contract": "contracts/Router.sol:Router",
+      "label": "factory",
+      "offset": 0,
+      "slot": "2",
+      "type": "t_contract(Factory)1218"
+    },
+    {
+      "astId": 4022,
+      "contract": "contracts/Router.sol:Router",
+      "label": "protocolFeeOwner",
+      "offset": 0,
+      "slot": "3",
+      "type": "t_address"
+    },
+    {
+      "astId": 4024,
+      "contract": "contracts/Router.sol:Router",
+      "label": "mintFeeOwner",
+      "offset": 0,
+      "slot": "4",
+      "type": "t_address"
+    },
+    {
+      "astId": 4026,
+      "contract": "contracts/Router.sol:Router",
+      "label": "bridge",
+      "offset": 0,
+      "slot": "5",
+      "type": "t_contract(Bridge)1057"
+    },
+    {
+      "astId": 4034,
+      "contract": "contracts/Router.sol:Router",
+      "label": "revertLookup",
+      "offset": 0,
+      "slot": "6",
+      "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint256,t_bytes_storage)))"
+    },
+    {
+      "astId": 4042,
+      "contract": "contracts/Router.sol:Router",
+      "label": "cachedSwapLookup",
+      "offset": 0,
+      "slot": "7",
+      "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint256,t_struct(CachedSwap)4018_storage)))"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_bytes_memory_ptr": {
+      "encoding": "bytes",
+      "label": "bytes",
+      "numberOfBytes": "32"
+    },
+    "t_bytes_storage": {
+      "encoding": "bytes",
+      "label": "bytes",
+      "numberOfBytes": "32"
+    },
+    "t_contract(Bridge)1057": {
+      "encoding": "inplace",
+      "label": "contract Bridge",
+      "numberOfBytes": "20"
+    },
+    "t_contract(Factory)1218": {
+      "encoding": "inplace",
+      "label": "contract Factory",
+      "numberOfBytes": "20"
+    },
+    "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint256,t_bytes_storage))": {
+      "encoding": "mapping",
+      "key": "t_bytes_memory_ptr",
+      "label": "mapping(bytes => mapping(uint256 => bytes))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint256,t_bytes_storage)"
+    },
+    "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint256,t_struct(CachedSwap)4018_storage))": {
+      "encoding": "mapping",
+      "key": "t_bytes_memory_ptr",
+      "label": "mapping(bytes => mapping(uint256 => struct Router.CachedSwap))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint256,t_struct(CachedSwap)4018_storage)"
+    },
+    "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint256,t_bytes_storage)))": {
+      "encoding": "mapping",
+      "key": "t_uint16",
+      "label": "mapping(uint16 => mapping(bytes => mapping(uint256 => bytes)))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint256,t_bytes_storage))"
+    },
+    "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint256,t_struct(CachedSwap)4018_storage)))": {
+      "encoding": "mapping",
+      "key": "t_uint16",
+      "label": "mapping(uint16 => mapping(bytes => mapping(uint256 => struct Router.CachedSwap)))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint256,t_struct(CachedSwap)4018_storage))"
+    },
+    "t_mapping(t_uint256,t_bytes_storage)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => bytes)",
+      "numberOfBytes": "32",
+      "value": "t_bytes_storage"
+    },
+    "t_mapping(t_uint256,t_struct(CachedSwap)4018_storage)": {
+      "encoding": "mapping",
+      "key": "t_uint256",
+      "label": "mapping(uint256 => struct Router.CachedSwap)",
+      "numberOfBytes": "32",
+      "value": "t_struct(CachedSwap)4018_storage"
+    },
+    "t_struct(CachedSwap)4018_storage": {
+      "encoding": "inplace",
+      "label": "struct Router.CachedSwap",
+      "numberOfBytes": "128",
+      "members": [
+        {
+          "astId": 4011,
+          "contract": "contracts/Router.sol:Router",
+          "label": "token",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_address"
+        },
+        {
+          "astId": 4013,
+          "contract": "contracts/Router.sol:Router",
+          "label": "amountLD",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 4015,
+          "contract": "contracts/Router.sol:Router",
+          "label": "to",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_address"
+        },
+        {
+          "astId": 4017,
+          "contract": "contracts/Router.sol:Router",
+          "label": "payload",
+          "offset": 0,
+          "slot": "3",
+          "type": "t_bytes_storage"
+        }
+      ]
+    },
+    "t_uint16": {
+      "encoding": "inplace",
+      "label": "uint16",
+      "numberOfBytes": "2"
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    }
+  }
+}

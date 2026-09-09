@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "entry_paths": [
+    "contracts/LineaRollup.sol"
+  ],
+  "document_paths": [
+    "README.md"
+  ],
+  "selected_paths": [
+    "README.md",
+    "contracts/LineaRollup.sol",
+    "contracts/ZkEvmV2.sol",
+    "contracts/interfaces/IGenericErrors.sol",
+    "contracts/interfaces/IMessageService.sol",
+    "contracts/interfaces/IPauseManager.sol",
+    "contracts/interfaces/IRateLimiter.sol",
+    "contracts/interfaces/l1/IL1MessageManager.sol",
+    "contracts/interfaces/l1/IL1MessageManagerV1.sol",
+    "contracts/interfaces/l1/IL1MessageService.sol",
+    "contracts/interfaces/l1/ILineaRollup.sol",
+    "contracts/interfaces/l1/IPlonkVerifier.sol",
+    "contracts/interfaces/l1/IZkEvmV2.sol",
+    "contracts/lib/Utils.sol",
+    "contracts/messageService/l1/L1MessageManager.sol",
+    "contracts/messageService/l1/L1MessageService.sol",
+    "contracts/messageService/l1/TransientStorageReentrancyGuardUpgradeable.sol",
+    "contracts/messageService/l1/v1/L1MessageManagerV1.sol",
+    "contracts/messageService/l1/v1/L1MessageServiceV1.sol",
+    "contracts/messageService/lib/PauseManager.sol",
+    "contracts/messageService/lib/RateLimiter.sol",
+    "contracts/messageService/lib/SparseMerkleTreeVerifier.sol",
+    "contracts/messageService/lib/TransientStorageHelpers.sol"
+  ],
+  "unresolved_imports": [
+    "contracts/LineaRollup.sol:@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+    "contracts/ZkEvmV2.sol:@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+    "contracts/ZkEvmV2.sol:@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "contracts/messageService/l1/L1MessageManager.sol:@openzeppelin/contracts/utils/structs/BitMaps.sol",
+    "contracts/messageService/l1/L1MessageService.sol:@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+    "contracts/messageService/l1/v1/L1MessageServiceV1.sol:@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "contracts/messageService/lib/PauseManager.sol:@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+    "contracts/messageService/lib/PauseManager.sol:@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "contracts/messageService/lib/RateLimiter.sol:@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+    "contracts/messageService/lib/RateLimiter.sol:@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+  ],
+  "selection_hash": "69225f2a98b67891f2835b227ca3ff558f9bc802d575513f320294fbc9323fe2"
+}

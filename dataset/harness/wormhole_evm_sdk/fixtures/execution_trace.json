@@ -1,0 +1,8 @@
+{
+  "lineage_id": "wormhole_evm_sdk",
+  "protocol": "Wormhole",
+  "test_suite": "WormholePairedHarnessTest",
+  "execution_engine": "Foundry EVM in pinned Docker image",
+  "status": "PASS",
+  "evidence_scope": "generated_development_harness_smoke_only"
+}

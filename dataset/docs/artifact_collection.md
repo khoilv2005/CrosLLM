@@ -10,6 +10,11 @@ python3 tools/fetch_pinned_sources.py /path/to/private-source-cache
 
 The source cache is intentionally outside this public dataset package. It may contain code governed by different upstream licenses. The script checks out the exact locked commit and writes a local retrieval receipt. Do not place API keys, RPC endpoints, private artifacts or exploit material in the cache receipt.
 
+The retrieval receipt records the resolved remote, exact `HEAD`, whether the
+worktree was dirty, and the SHA-256 of `git archive --format=tar HEAD`. A dirty
+worktree is retained for diagnosis but is not a clean source admission; use the
+read-only audit before building.
+
 ## Per-lineage admission checklist
 
 For each locked lineage, complete the following before adding an evaluated case:
@@ -26,3 +31,32 @@ For each locked lineage, complete the following before adding an evaluated case:
 10. run the dataset validator and update the status ledger.
 
 No step may be inferred from a successful clone. A full codebase or many contracts still count as a single lineage unless evidence supports a distinct implementation ancestry.
+
+## Generator lock
+
+`tools/extract_all_artifacts.py` treats `sources/source_lock.json` as the
+authority for repository URL, commit, and split, and uses the pinned Foundry
+digest from `containers/toolchain.lock.json`. Its `--source-cache`,
+`--artifacts-out`, `--harness-out` and repeated `--lineage` options make the
+workflow portable; monorepos are mounted at their Git root while inspection
+uses the declared Solidity subdirectory. An optional `--docker-archive-image`
+must itself be digest-pinned and is used read-only with `--network=none` when a
+host cannot archive a locked path. It refuses to extract when embedded
+contract-selection metadata diverges from either lock. This prevents an old
+generator configuration from silently rewriting an artifact pack under a new
+provenance claim. Source receipts and build outputs still require review;
+passing this guard is not artifact admission.
+
+The source bind mount is read-only during `forge inspect`. Foundry's generated
+cache and output are redirected to `/tmp/foundry-cache` and `/tmp/foundry-out`
+through `FOUNDRY_CACHE_PATH` and `FOUNDRY_OUT` on a disposable writable tmpfs;
+this is compiler scratch space, not a write path into the source checkout. The
+extractor therefore supports projects whose source tree does not already have
+project-local cache/output directories without weakening source immutability.
+
+The default inspection mode is `--docker-network none`. If the pinned Foundry
+image does not contain the required solc, a development operator may explicitly
+use `--docker-network bridge`; the downloaded compiler and Foundry outputs stay
+in disposable container scratch mounts, and the selected network is recorded
+in the staging build information. This mode is still only a build probe until
+the compiler version/settings and deployable contract selection are reviewed.

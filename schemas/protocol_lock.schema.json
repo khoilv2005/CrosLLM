@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.invalid/schemas/protocol_lock.schema.json",
+  "title": "CrossLLM evaluation protocol lock",
+  "description": "Complete protocol configuration bound to model, benchmark and dependency hashes.",
+  "type": "object",
+  "required": ["schema_version", "status", "missing_execution_fields", "locked_at", "model_lock_hash", "benchmark_manifest_hash", "dependency_hashes", "lock_hash"],
+  "properties": {
+    "schema_version": {"type": "integer", "minimum": 1},
+    "status": {"const": "EVALUATION_LOCKED"},
+    "missing_execution_fields": {"const": []},
+    "locked_at": {"type": "string", "minLength": 1},
+    "model_lock_hash": {"$ref": "#/$defs/sha256"},
+    "benchmark_manifest_hash": {"$ref": "#/$defs/sha256"},
+    "dependency_hashes": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/sha256"}
+    },
+    "lock_hash": {"$ref": "#/$defs/sha256"},
+    "evaluation_replicates": {"type": "integer", "minimum": 1},
+    "model_families": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "budgets": {"type": "object"},
+    "proposal_slots": {"type": "integer", "minimum": 1}
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

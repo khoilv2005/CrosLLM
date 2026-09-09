@@ -1,0 +1,274 @@
+{
+  "artifact_manifest_sha256": "ffff06aa954067c860d24d3742b81ffbe945ab4d90dd5f0db58441b3c16eefab",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "4daba1a4f371c2095da029cf7e1f74e6bc60fc65a1f3799c137f38faeda2504f",
+      "source_path": "src/L1/IL1ScrollMessenger.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "5679ae856fbb77ba1ddd89f6485a0bb2c9e2bb8d9fcb3327b0f992cc9f3bee2e",
+      "source_path": "src/L1/L1ScrollMessenger.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b9d0e0c7e4740fd4f2c04a95a2b583d14413f1d5e2a4d134c77c7ce157dbaa64",
+      "source_path": "src/L1/rollup/IL1MessageQueueV1.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "93603434c3cc184574bf9a5534a5909eefa19895ccca946e57fbb1f4b8e6a660",
+      "source_path": "src/L1/rollup/IL1MessageQueueV2.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "4225a19d6f91b4af9ddabeaff3493bb2d3af6e3f8854b454182f121eff256402",
+      "source_path": "src/L1/rollup/IScrollChain.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "93ee566413866d5d491a6de568970a48a9da7268a06a14a38a58c295fd5a84c0",
+      "source_path": "src/L2/IL2ScrollMessenger.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+      "source_path": "src/L2/L2ScrollMessenger.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "08bcd23bbd07d5008ef000966c9b964351e454a9786a41536cb5e253ae2c2e18",
+      "source_path": "src/L2/predeploys/L2MessageQueue.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "3efbe357fd3c8abc770c7b33bab5c90f8a286ace52bba6e6c1415e17e8aa30dd",
+      "source_path": "src/libraries/IScrollMessenger.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "bd13d7080e95faffa53b9bda00c2e4b28a1ca241df2b946382a648d763359905",
+      "source_path": "src/libraries/ScrollMessengerBase.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "bf0db4797ac3eebf553f416636bfbbc91571acbb5ec8f0563acc1703508505c1",
+      "source_path": "src/libraries/common/AddressAliasHelper.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "72fc4090fbcdcb653e515195e5c2f42ee7d2c63baca8f756b91dc87a90f414b9",
+      "source_path": "src/libraries/common/AppendOnlyMerkleTree.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "0b30714f76a01564f51047e71e8445a0460bc27549bd410905ae0fea6715b564",
+      "source_path": "src/libraries/common/OwnableBase.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "d8f41efe5c0246229c33042154017defe0334946dce8c69acdfe094dc873d189",
+      "source_path": "src/libraries/constants/ScrollConstants.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "55cc5411b5dff4bb66f9202918284528a085e63acdcdff5feeed689487f338d7",
+      "source_path": "src/libraries/verifier/PatriciaMerkleTrieVerifier.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "d5e9a195cc584bd99df0ef7d10c2ea2cf4358e221c0eeeebc981c6747e0c10cb",
+      "source_path": "src/libraries/verifier/WithdrawTrieVerifier.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:8e9c10e5786193986b82579d056f42868620b06186a77f616523d98e7c3a35b8",
+  "compiler_version": "0.8.24",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "381a7a56eb70f3f091fbf90d063e48473a68672fb6f92d7b0111d663e5e78602"
+    }
+  ],
+  "lineage_id": "scroll",
+  "manifest_sha256": "e0168940001e18b9a63872f3f02d118a554a55626728851f8102e27730eda3e0",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "02e4f1cdad05c8afb77ac6446f29dde03f0646bc5bb7132e99c93800889ab9f2",
+  "source_commit": "dfbd661520ac30505a773881728cc5cfb005978b",
+  "source_repository": "https://github.com/scroll-tech/scroll-contracts.git",
+  "source_selection_hash": "8bde0fca2660a5b07a77a3bee4e6ff1076c86f6c2217d8ee21bd6fb87263498f",
+  "test_source": {
+    "path": "test/ScrollSourceBackedHarnessTest.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "2939d0b9d420486e60195bcb8a024991f8e96d03d96efc38a651876041c608e3"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/L1/IL1ScrollMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "4daba1a4f371c2095da029cf7e1f74e6bc60fc65a1f3799c137f38faeda2504f",
+      "source_path": "src/L1/IL1ScrollMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/L1/L1ScrollMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "5679ae856fbb77ba1ddd89f6485a0bb2c9e2bb8d9fcb3327b0f992cc9f3bee2e",
+      "source_path": "src/L1/L1ScrollMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/L1/rollup/IL1MessageQueueV1.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b9d0e0c7e4740fd4f2c04a95a2b583d14413f1d5e2a4d134c77c7ce157dbaa64",
+      "source_path": "src/L1/rollup/IL1MessageQueueV1.sol"
+    },
+    {
+      "harness_path": "contracts/L1/rollup/IL1MessageQueueV2.sol",
+      "role": "upstream_harness_input",
+      "sha256": "93603434c3cc184574bf9a5534a5909eefa19895ccca946e57fbb1f4b8e6a660",
+      "source_path": "src/L1/rollup/IL1MessageQueueV2.sol"
+    },
+    {
+      "harness_path": "contracts/L1/rollup/IScrollChain.sol",
+      "role": "upstream_harness_input",
+      "sha256": "4225a19d6f91b4af9ddabeaff3493bb2d3af6e3f8854b454182f121eff256402",
+      "source_path": "src/L1/rollup/IScrollChain.sol"
+    },
+    {
+      "harness_path": "contracts/L2/IL2ScrollMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "93ee566413866d5d491a6de568970a48a9da7268a06a14a38a58c295fd5a84c0",
+      "source_path": "src/L2/IL2ScrollMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/L2/L2ScrollMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+      "source_path": "src/L2/L2ScrollMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/L2/predeploys/L2MessageQueue.sol",
+      "role": "upstream_harness_input",
+      "sha256": "08bcd23bbd07d5008ef000966c9b964351e454a9786a41536cb5e253ae2c2e18",
+      "source_path": "src/L2/predeploys/L2MessageQueue.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/IScrollMessenger.sol",
+      "role": "upstream_harness_input",
+      "sha256": "3efbe357fd3c8abc770c7b33bab5c90f8a286ace52bba6e6c1415e17e8aa30dd",
+      "source_path": "src/libraries/IScrollMessenger.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/ScrollMessengerBase.sol",
+      "role": "upstream_harness_input",
+      "sha256": "bd13d7080e95faffa53b9bda00c2e4b28a1ca241df2b946382a648d763359905",
+      "source_path": "src/libraries/ScrollMessengerBase.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/common/AddressAliasHelper.sol",
+      "role": "upstream_harness_input",
+      "sha256": "bf0db4797ac3eebf553f416636bfbbc91571acbb5ec8f0563acc1703508505c1",
+      "source_path": "src/libraries/common/AddressAliasHelper.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/common/AppendOnlyMerkleTree.sol",
+      "role": "upstream_harness_input",
+      "sha256": "72fc4090fbcdcb653e515195e5c2f42ee7d2c63baca8f756b91dc87a90f414b9",
+      "source_path": "src/libraries/common/AppendOnlyMerkleTree.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/common/OwnableBase.sol",
+      "role": "upstream_harness_input",
+      "sha256": "0b30714f76a01564f51047e71e8445a0460bc27549bd410905ae0fea6715b564",
+      "source_path": "src/libraries/common/OwnableBase.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/constants/ScrollConstants.sol",
+      "role": "upstream_harness_input",
+      "sha256": "d8f41efe5c0246229c33042154017defe0334946dce8c69acdfe094dc873d189",
+      "source_path": "src/libraries/constants/ScrollConstants.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/verifier/PatriciaMerkleTrieVerifier.sol",
+      "role": "upstream_harness_input",
+      "sha256": "55cc5411b5dff4bb66f9202918284528a085e63acdcdff5feeed689487f338d7",
+      "source_path": "src/libraries/verifier/PatriciaMerkleTrieVerifier.sol"
+    },
+    {
+      "harness_path": "contracts/libraries/verifier/WithdrawTrieVerifier.sol",
+      "role": "upstream_harness_input",
+      "sha256": "d5e9a195cc584bd99df0ef7d10c2ea2cf4358e221c0eeeebc981c6747e0c10cb",
+      "source_path": "src/libraries/verifier/WithdrawTrieVerifier.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "aliased_l1_messenger": [
+        "L2ScrollMessenger.relayMessage"
+      ],
+      "eve": [],
+      "receiver": [
+        "ScrollRelayReceiver.receiveMessage"
+      ],
+      "user": [
+        "L1ScrollMessenger.sendMessage",
+        "L2ScrollMessenger.sendMessage"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_source_backed_l2_relay_wrong_authority",
+      "mechanism": "exact source messengers enforce queue calls, message identity and L1-to-L2 alias counterpart authorization"
+    },
+    "callbacks": {
+      "destination_callback": "L2ScrollMessenger.relayMessage -> ScrollRelayReceiver.receiveMessage",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.timestamp at L2 relayMessage",
+      "explicit_time_warp": false,
+      "source": "Foundry block.timestamp at L1/L2 sendMessage"
+    },
+    "finality": {
+      "model": "source enqueue hash/nonce, alias-authorized delivery and terminal replay state",
+      "status": "enqueue_alias_relay_and_replay_boundary_tested_without_ScrollChain_batch_finality_or_proof_trie"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "relay_calldata",
+        "queue_nonce",
+        "message_hash",
+        "alias_counterpart",
+        "receiver_payload",
+        "terminal_relay_state"
+      ],
+      "steps": [
+        "L1.sendMessage",
+        "L1_queue_append",
+        "L2.sendMessage",
+        "L2_queue_append",
+        "alias_authorization",
+        "relayMessage",
+        "receiver_callback",
+        "replay_guard"
+      ],
+      "test": "test_normal_source_backed_l1_enqueue"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys source implementations, proxy storage, queues and receiver for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys exact L1ScrollMessenger and L2ScrollMessenger implementations behind isolated initializer proxies with queue and receiver boundary probes",
+      "source_contracts": [
+        "L1ScrollMessenger",
+        "L2ScrollMessenger",
+        "ScrollMessengerBase",
+        "L2MessageQueue"
+      ]
+    }
+  }
+}

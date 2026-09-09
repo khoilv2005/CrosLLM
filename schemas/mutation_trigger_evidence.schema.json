@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.invalid/schemas/mutation_trigger_evidence.schema.json",
+  "title": "CrossLLM development mutation trigger evidence row",
+  "description": "A generated-harness smoke receipt. It is intentionally not an evaluation-admission record.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type", "evidence_schema", "harness_id", "harness_source_sha256",
+    "operator_registry_sha256", "validation_spec_sha256", "runner_image", "compiler", "network_mode",
+    "control_policy", "control_pair_verified", "independent_source_validation",
+    "admission_eligible", "exclusion_policy", "exclusion_log", "timestamp",
+    "operator_id", "property_family", "test_case", "status",
+    "mutant_exploit_verified", "negative_control_blocked_verified",
+    "probe_scope"
+  ],
+  "properties": {
+    "record_type": {"const": "mutation_operator_evidence"},
+    "evidence_schema": {"const": "crossllm.mutation-trigger-smoke/v1"},
+    "harness_id": {"const": "generated_mutation_tests"},
+    "harness_source_sha256": {"$ref": "#/$defs/sha256"},
+    "operator_registry_sha256": {"$ref": "#/$defs/sha256"},
+    "validation_spec_sha256": {"$ref": "#/$defs/sha256"},
+    "runner_image": {"type": "string", "pattern": "@sha256:[0-9a-f]{64}$"},
+    "compiler": {
+      "type": "object",
+      "required": ["version", "image", "path", "binary_sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "version": {"type": "string", "minLength": 1},
+        "image": {"type": "string", "pattern": "@sha256:[0-9a-f]{64}$"},
+        "path": {"const": "/compiler/solc"},
+        "binary_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "network_mode": {"const": "none"},
+    "control_policy": {"type": "string", "minLength": 1},
+    "control_pair_verified": {"const": true},
+    "independent_source_validation": {"const": false},
+    "admission_eligible": {"const": false},
+    "exclusion_policy": {"type": "string", "minLength": 1},
+    "exclusion_log": {"type": "array", "items": {"type": "object"}},
+    "timestamp": {"type": "string", "minLength": 1},
+    "operator_id": {"type": "string", "pattern": "^OP_[A-Z0-9_]+$"},
+    "property_family": {"enum": ["replay", "input_validation", "logic", "message_handling", "quorum", "finality"]},
+    "test_case": {"type": "string", "pattern": "^test_OP_[A-Z0-9_]+\\(\\)$"},
+    "status": {"enum": ["PASS", "FAIL"]},
+    "gas_used": {"type": ["integer", "null"], "minimum": 0},
+    "mutant_exploit_verified": {"type": "boolean"},
+    "negative_control_blocked_verified": {"type": "boolean"},
+    "probe_scope": {"const": "generated_development_mutation_harness_smoke_only"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

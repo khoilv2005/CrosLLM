@@ -1,0 +1,16 @@
+{
+  "lineage_id": "optimism",
+  "protocol": "Optimism Bedrock",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "OptimismPortal2",
+    "L1CrossDomainMessenger"
+  ],
+  "entry_points": {
+    "OptimismPortal2": "src/L1/OptimismPortal2.sol",
+    "L1CrossDomainMessenger": "src/L1/L1CrossDomainMessenger.sol"
+  },
+  "channel_type": "rollup_canonical_cross_domain_messenger",
+  "topology": "l1_l2_paired",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

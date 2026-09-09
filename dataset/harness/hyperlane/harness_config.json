@@ -1,0 +1,102 @@
+{
+  "artifact_manifest_sha256": "ba229a4d9b926a4eb0769a81c2d04cc66ff142d98798ee329444c63b327c1e3b",
+  "compiler": {
+    "binary_sha256": "9f18aaf527e1b33811f1d838415dc6add5c8de65613ff32e48c906b4a43c6a2f",
+    "image": "ghcr.io/argotorg/solc@sha256:e99eef89039696b786131c1d0a88ba9465f0e3f8bbbdb66838499b3eabde1fa9",
+    "optimizer": false,
+    "optimizer_runs": 200,
+    "version": "0.8.33"
+  },
+  "contracts": [
+    "Mailbox"
+  ],
+  "domain_pair": {
+    "destination": {
+      "id": 2,
+      "name": "DomainB",
+      "type": "evm"
+    },
+    "source": {
+      "id": 1,
+      "name": "DomainA",
+      "type": "evm"
+    }
+  },
+  "evidence": {
+    "probe_report": "dataset/reports/source_backed_harnesses.json",
+    "probe_row_sha256": "a21f97fb3c6b945af2fa85801511f02633d87302abee2bddf45fbbe2b0442e7c",
+    "probe_status": "pass"
+  },
+  "harness_status": "source_backed_development",
+  "harness_version": "2.0.0",
+  "lineage_id": "hyperlane",
+  "protocol": "Hyperlane",
+  "source_backed": true,
+  "source_commit": "8ae786a778857216ad31325f741e9f9cb01b3088",
+  "source_manifest": "source_manifest.json",
+  "source_manifest_sha256": "2ba78cd6bfd160875eb7b0aa096c9142fc87151b450d2052f58a18aa99a8ff81",
+  "source_repository": "https://github.com/hyperlane-xyz/hyperlane-monorepo.git",
+  "source_selection_hash": "863c914bd986840868bb75ccf28bc300a7257aa655709aad9e2fa7bb7388e459",
+  "split": "evaluation",
+  "test_contract": "HyperlaneSourceBackedHarnessTest",
+  "test_runner": "pytest_or_foundry",
+  "workflow_coverage": {
+    "allowed_actions": {
+      "eve": [],
+      "recipient": [
+        "IMessageRecipient.handle"
+      ],
+      "relayer": [
+        "Mailbox.process"
+      ],
+      "sender": [
+        "Mailbox.dispatch"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_when_ism_rejects_message",
+      "mechanism": "source Mailbox resolves the recipient/default ISM and requires verify(metadata, message)"
+    },
+    "callbacks": {
+      "destination_callback": "IMessageRecipient.handle(origin, sender, body)",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.number at process",
+      "explicit_time_warp": false,
+      "source": "Foundry block.number at dispatch"
+    },
+    "finality": {
+      "model": "registered interchain security module verification",
+      "status": "verification_boundary_tested_without_time_delay"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "nonce_and_message_id",
+        "destination_domain",
+        "delivery_record",
+        "callback_payload"
+      ],
+      "steps": [
+        "build_message",
+        "dispatch",
+        "ISM_verify",
+        "process",
+        "recipient_callback"
+      ],
+      "test": "test_normal_cross_chain_message_send_and_process"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys Mailbox, ISM, hooks and recipient for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the locked Mailbox implementation on two local EVM domains",
+      "source_contracts": [
+        "Mailbox"
+      ]
+    }
+  },
+  "workflow_file": "normal_workflow_test.py"
+}

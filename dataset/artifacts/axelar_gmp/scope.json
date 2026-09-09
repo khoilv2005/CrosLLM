@@ -1,0 +1,14 @@
+{
+  "lineage_id": "axelar_gmp",
+  "protocol": "Axelar GMP",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "AxelarAmplifierGateway"
+  ],
+  "entry_points": {
+    "AxelarAmplifierGateway": "contracts/gateway/AxelarAmplifierGateway.sol"
+  },
+  "channel_type": "general_message_passing",
+  "topology": "hub_and_spoke",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

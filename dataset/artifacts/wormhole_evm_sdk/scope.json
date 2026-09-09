@@ -1,0 +1,14 @@
+{
+  "lineage_id": "wormhole_evm_sdk",
+  "protocol": "Wormhole",
+  "split": "evaluation",
+  "in_scope_contracts": [
+    "Proxy"
+  ],
+  "entry_points": {
+    "Proxy": "src/proxy/Proxy.sol"
+  },
+  "channel_type": "vaa_attestation_bridge",
+  "topology": "any_to_any",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

@@ -1,0 +1,14 @@
+{
+  "lineage_id": "celer_cbridge",
+  "protocol": "Celer cBridge",
+  "split": "development",
+  "in_scope_contracts": [
+    "CBridge"
+  ],
+  "entry_points": {
+    "CBridge": "contracts/CBridge.sol"
+  },
+  "channel_type": "liquidity_pool",
+  "topology": "any_to_any",
+  "verification_gate": "storage_layout_and_bytecode_verified"
+}

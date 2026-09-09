@@ -1,0 +1,80 @@
+{
+  "admission_eligible": false,
+  "all_passed": true,
+  "case_count": 6,
+  "case_ids": [
+    "wrong_property",
+    "altered_witness",
+    "infeasible_signature",
+    "wrong_initial_state",
+    "callback_ordering",
+    "patched_control"
+  ],
+  "cases": [
+    {
+      "case_id": "wrong_property",
+      "control_kind": "property_evaluator",
+      "evidence_hash": null,
+      "expected_outcome": "not_satisfied",
+      "observed_reason": "deliberately wrong property evaluates false on the replay post-state",
+      "observed_status": "not_satisfied",
+      "passed": true
+    },
+    {
+      "case_id": "altered_witness",
+      "control_kind": "native_replay",
+      "evidence_hash": null,
+      "expected_outcome": "altered witness must be rejected",
+      "observed_reason": "trace_hash_mismatch",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "infeasible_signature",
+      "control_kind": "native_replay",
+      "evidence_hash": null,
+      "expected_outcome": "rejected",
+      "observed_reason": "invalid_witness:delivery message is not pending",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "wrong_initial_state",
+      "control_kind": "native_replay",
+      "evidence_hash": null,
+      "expected_outcome": "wrong initial state must be rejected",
+      "observed_reason": "initial_state_hash_mismatch",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "callback_ordering",
+      "control_kind": "transition_profile",
+      "evidence_hash": null,
+      "expected_outcome": "rejected",
+      "observed_reason": "reordering is disabled by transition profile",
+      "observed_status": "rejected",
+      "passed": true
+    },
+    {
+      "case_id": "patched_control",
+      "control_kind": "source_backed_control",
+      "evidence_hash": "196cb36860d2aeed814c795cf6749585e0bb346a5258be371a8977f961151595",
+      "expected_outcome": "control_pass",
+      "observed_reason": "locked patched/control source path rejects the early refund trigger",
+      "observed_status": "control_pass",
+      "passed": true
+    }
+  ],
+  "evidence_scope": "development_replay_boundary_controls",
+  "independent_property_validation": false,
+  "independent_trigger_validation": false,
+  "passed_count": 6,
+  "record_type": "replay_negative_control_report",
+  "report_hash": "7273af650cc87fa83d44262b09746739bb98bdaca9edec0d97717eed32d51f0b",
+  "schema_version": 1,
+  "scope": "development_replay_boundary_controls",
+  "source_backed": true,
+  "source_mutation_report": "dataset/reports/source_mutation_evidence.jsonl",
+  "source_mutation_report_sha256": "196cb36860d2aeed814c795cf6749585e0bb346a5258be371a8977f961151595"
+}

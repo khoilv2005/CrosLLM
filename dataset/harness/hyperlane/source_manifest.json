@@ -1,0 +1,199 @@
+{
+  "artifact_manifest_sha256": "ba229a4d9b926a4eb0769a81c2d04cc66ff142d98798ee329444c63b327c1e3b",
+  "artifact_selection_files": [
+    {
+      "role": "artifact_selection_input",
+      "sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+      "source_path": "solidity/contracts/Mailbox.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "43d2ab0d2da56d4bed9d7ac89da27da440f415c7f8029c2af22752023b81afe6",
+      "source_path": "solidity/contracts/PackageVersioned.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "bc9693f3d51ec296e3c5cf5f28e436147a46f692d7c1da7acc22ae0d6abbf9e9",
+      "source_path": "solidity/contracts/interfaces/IInterchainSecurityModule.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "cb448f024ce4b12e0a4e72b34260cc10f1a5ae73add26d5a8ddc532534929836",
+      "source_path": "solidity/contracts/interfaces/IMailbox.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "6ed9d49c5804884f33222cecb9c8b7bec91c251b2cc574db478f480e83b8ffc6",
+      "source_path": "solidity/contracts/interfaces/IMessageRecipient.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "7a0d9731fa8794e72e337b4f62cfdb0bb6225789d8a3533dc9974c07834ee265",
+      "source_path": "solidity/contracts/interfaces/hooks/IPostDispatchHook.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "b378602dad99814a30f187de769f8aa8e1ecbdb9fd705be4a0255101516e57e1",
+      "source_path": "solidity/contracts/libs/Indexed.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "44294261b58d5c276920de2b9781378944ee005255d70fa21818527b74b3db60",
+      "source_path": "solidity/contracts/libs/Message.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "1e727f61eac36587b0dcfa5b76ba449538f873d6bfa765793321db00e7f6fcfa",
+      "source_path": "solidity/contracts/libs/TypeCasts.sol"
+    },
+    {
+      "role": "artifact_selection_input",
+      "sha256": "e0130be10f7a3b72d87080f0b552742b6acf9f32e00881c8e086a6bc82686674",
+      "source_path": "solidity/contracts/upgrade/Versioned.sol"
+    }
+  ],
+  "compiler_image": "ghcr.io/argotorg/solc@sha256:e99eef89039696b786131c1d0a88ba9465f0e3f8bbbdb66838499b3eabde1fa9",
+  "compiler_version": "0.8.33",
+  "dirty_worktree": false,
+  "generated_support_files": [
+    {
+      "harness_path": "contracts/MockERC20.sol",
+      "role": "generated_test_support",
+      "sha256": "381a7a56eb70f3f091fbf90d063e48473a68672fb6f92d7b0111d663e5e78602"
+    }
+  ],
+  "lineage_id": "hyperlane",
+  "manifest_sha256": "404f62f04451348d71b48778cea9d33f2c0c0c9dab233dc1d2b140ee7a62a088",
+  "optimizer": false,
+  "optimizer_runs": 200,
+  "schema_version": 1,
+  "source_archive_sha256": "cb7705913acc12c2709900dc3f3c2029b6ca8466f1ee15fc1f7898a78f3a03d1",
+  "source_commit": "8ae786a778857216ad31325f741e9f9cb01b3088",
+  "source_repository": "https://github.com/hyperlane-xyz/hyperlane-monorepo.git",
+  "source_selection_hash": "863c914bd986840868bb75ccf28bc300a7257aa655709aad9e2fa7bb7388e459",
+  "test_source": {
+    "path": "test/HyperlaneSourceBackedHarnessTest.t.sol",
+    "role": "generated_harness_test_over_locked_source",
+    "sha256": "db432c146c26af4418105c8e6bd2bc92d175fcbc72caa0a8cb9d257ee3f0dd47"
+  },
+  "upstream_harness_files": [
+    {
+      "harness_path": "contracts/Mailbox.sol",
+      "role": "upstream_harness_input",
+      "sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+      "source_path": "solidity/contracts/Mailbox.sol"
+    },
+    {
+      "harness_path": "contracts/PackageVersioned.sol",
+      "role": "upstream_harness_input",
+      "sha256": "43d2ab0d2da56d4bed9d7ac89da27da440f415c7f8029c2af22752023b81afe6",
+      "source_path": "solidity/contracts/PackageVersioned.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IInterchainSecurityModule.sol",
+      "role": "upstream_harness_input",
+      "sha256": "bc9693f3d51ec296e3c5cf5f28e436147a46f692d7c1da7acc22ae0d6abbf9e9",
+      "source_path": "solidity/contracts/interfaces/IInterchainSecurityModule.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IMailbox.sol",
+      "role": "upstream_harness_input",
+      "sha256": "cb448f024ce4b12e0a4e72b34260cc10f1a5ae73add26d5a8ddc532534929836",
+      "source_path": "solidity/contracts/interfaces/IMailbox.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/IMessageRecipient.sol",
+      "role": "upstream_harness_input",
+      "sha256": "6ed9d49c5804884f33222cecb9c8b7bec91c251b2cc574db478f480e83b8ffc6",
+      "source_path": "solidity/contracts/interfaces/IMessageRecipient.sol"
+    },
+    {
+      "harness_path": "contracts/interfaces/hooks/IPostDispatchHook.sol",
+      "role": "upstream_harness_input",
+      "sha256": "7a0d9731fa8794e72e337b4f62cfdb0bb6225789d8a3533dc9974c07834ee265",
+      "source_path": "solidity/contracts/interfaces/hooks/IPostDispatchHook.sol"
+    },
+    {
+      "harness_path": "contracts/libs/Indexed.sol",
+      "role": "upstream_harness_input",
+      "sha256": "b378602dad99814a30f187de769f8aa8e1ecbdb9fd705be4a0255101516e57e1",
+      "source_path": "solidity/contracts/libs/Indexed.sol"
+    },
+    {
+      "harness_path": "contracts/libs/Message.sol",
+      "role": "upstream_harness_input",
+      "sha256": "44294261b58d5c276920de2b9781378944ee005255d70fa21818527b74b3db60",
+      "source_path": "solidity/contracts/libs/Message.sol"
+    },
+    {
+      "harness_path": "contracts/libs/TypeCasts.sol",
+      "role": "upstream_harness_input",
+      "sha256": "1e727f61eac36587b0dcfa5b76ba449538f873d6bfa765793321db00e7f6fcfa",
+      "source_path": "solidity/contracts/libs/TypeCasts.sol"
+    },
+    {
+      "harness_path": "contracts/upgrade/Versioned.sol",
+      "role": "upstream_harness_input",
+      "sha256": "e0130be10f7a3b72d87080f0b552742b6acf9f32e00881c8e086a6bc82686674",
+      "source_path": "solidity/contracts/upgrade/Versioned.sol"
+    }
+  ],
+  "workflow_coverage": {
+    "allowed_actions": {
+      "eve": [],
+      "recipient": [
+        "IMessageRecipient.handle"
+      ],
+      "relayer": [
+        "Mailbox.process"
+      ],
+      "sender": [
+        "Mailbox.dispatch"
+      ]
+    },
+    "attestation": {
+      "insufficient_or_wrong_actor_test": "test_revert_when_ism_rejects_message",
+      "mechanism": "source Mailbox resolves the recipient/default ISM and requires verify(metadata, message)"
+    },
+    "callbacks": {
+      "destination_callback": "IMessageRecipient.handle(origin, sender, body)",
+      "ordering_asserted": true
+    },
+    "clocks": {
+      "destination": "Foundry block.number at process",
+      "explicit_time_warp": false,
+      "source": "Foundry block.number at dispatch"
+    },
+    "finality": {
+      "model": "registered interchain security module verification",
+      "status": "verification_boundary_tested_without_time_delay"
+    },
+    "normal_workflow": {
+      "assertions": [
+        "nonce_and_message_id",
+        "destination_domain",
+        "delivery_record",
+        "callback_payload"
+      ],
+      "steps": [
+        "build_message",
+        "dispatch",
+        "ISM_verify",
+        "process",
+        "recipient_callback"
+      ],
+      "test": "test_normal_cross_chain_message_send_and_process"
+    },
+    "reset_isolation": {
+      "cross_test_state_reuse": false,
+      "mechanism": "Foundry setUp redeploys Mailbox, ISM, hooks and recipient for every test"
+    },
+    "state_initialization": {
+      "isolated_per_test": true,
+      "mechanism": "Foundry setUp deploys the locked Mailbox implementation on two local EVM domains",
+      "source_contracts": [
+        "Mailbox"
+      ]
+    }
+  }
+}

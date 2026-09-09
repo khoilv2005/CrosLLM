@@ -1,0 +1,12 @@
+{
+  "channel_type": "rollup_canonical_token_bridge",
+  "topology": "l1_l2_paired",
+  "source_domains": [
+    "Ethereum"
+  ],
+  "target_domains": [
+    "Arbitrum One"
+  ],
+  "message_passing": "inbox_retryable_tickets",
+  "settlement": "nitro_fraud_proof_rollup"
+}

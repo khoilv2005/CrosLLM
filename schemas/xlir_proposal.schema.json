@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.invalid/schemas/xlir_proposal.schema.json",
+  "title": "CrossLLM XLIR proposal",
+  "description": "Schema for one invariant proposal or one explicit abstention. Grounding and semantic checks remain compiler responsibilities.",
+  "oneOf": [
+    { "$ref": "#/$defs/abstain" },
+    { "$ref": "#/$defs/invariant" }
+  ],
+  "$defs": {
+    "typeName": {
+      "type": "string",
+      "enum": ["bool", "uint256", "int256", "address", "bytes32"]
+    },
+    "identifier": {
+      "type": "string",
+      "minLength": 1
+    },
+    "abstain": {
+      "type": "object",
+      "required": ["abstain", "reason"],
+      "properties": {
+        "abstain": { "const": true },
+        "reason": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "invariant": {
+      "type": "object",
+      "required": ["kind", "body"],
+      "properties": {
+        "kind": { "const": "invariant" },
+        "invariant_id": { "$ref": "#/$defs/identifier" },
+        "body": { "$ref": "#/$defs/expression" }
+      },
+      "additionalProperties": false
+    },
+    "expression": {
+      "oneOf": [
+        { "$ref": "#/$defs/symbol" },
+        { "$ref": "#/$defs/bound" },
+        { "$ref": "#/$defs/literal" },
+        { "$ref": "#/$defs/unary" },
+        { "$ref": "#/$defs/binary" },
+        { "$ref": "#/$defs/quantifier" },
+        { "$ref": "#/$defs/temporal" },
+        { "$ref": "#/$defs/primitive" }
+      ]
+    },
+    "symbol": {
+      "type": "object",
+      "required": ["kind", "symbol_id", "state"],
+      "properties": {
+        "kind": { "const": "symbol" },
+        "symbol_id": { "$ref": "#/$defs/identifier" },
+        "state": { "enum": ["pre", "post"] }
+      },
+      "additionalProperties": false
+    },
+    "bound": {
+      "type": "object",
+      "required": ["kind", "variable", "type"],
+      "properties": {
+        "kind": { "const": "bound" },
+        "variable": { "$ref": "#/$defs/identifier" },
+        "type": { "$ref": "#/$defs/typeName" }
+      },
+      "additionalProperties": false
+    },
+    "literal": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "type", "value"],
+          "properties": {
+            "kind": { "const": "literal" },
+            "type": { "const": "bool" },
+            "value": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "type", "value"],
+          "properties": {
+            "kind": { "const": "literal" },
+            "type": { "const": "uint256" },
+            "value": { "type": "integer", "minimum": 0, "maximum": 115792089237316195423570985008687907853269984665640564039457584007913129639935 }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "type", "value"],
+          "properties": {
+            "kind": { "const": "literal" },
+            "type": { "const": "int256" },
+            "value": { "type": "integer", "minimum": -57896044618658097711785492504343953926634992332820282019728792003956564819968, "maximum": 57896044618658097711785492504343953926634992332820282019728792003956564819967 }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "type", "value"],
+          "properties": {
+            "kind": { "const": "literal" },
+            "type": { "const": "address" },
+            "value": { "type": "string", "pattern": "^0x[0-9a-fA-F]{40}$" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "type", "value"],
+          "properties": {
+            "kind": { "const": "literal" },
+            "type": { "const": "bytes32" },
+            "value": { "type": "string", "pattern": "^0x[0-9a-fA-F]{64}$" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "unary": {
+      "type": "object",
+      "required": ["kind", "operator", "operand"],
+      "properties": {
+        "kind": { "const": "unary" },
+        "operator": { "enum": ["not", "neg", "bitnot"] },
+        "operand": { "$ref": "#/$defs/expression" }
+      },
+      "additionalProperties": false
+    },
+    "binary": {
+      "type": "object",
+      "required": ["kind", "operator", "left", "right"],
+      "properties": {
+        "kind": { "const": "binary" },
+        "operator": {
+          "enum": ["and", "or", "implies", "eq", "neq", "ge", "le", "gt", "lt", "add", "sub", "mul", "div", "mod", "band", "bor", "bxor", "shl", "shr", "sar"]
+        },
+        "left": { "$ref": "#/$defs/expression" },
+        "right": { "$ref": "#/$defs/expression" }
+      },
+      "additionalProperties": false
+    },
+    "quantifier": {
+      "type": "object",
+      "required": ["kind", "operator", "variable", "variable_type", "domain", "body"],
+      "properties": {
+        "kind": { "const": "quantifier" },
+        "operator": { "enum": ["forall", "exists"] },
+        "variable": { "$ref": "#/$defs/identifier" },
+        "variable_type": { "$ref": "#/$defs/typeName" },
+        "domain": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/literal" }
+        },
+        "body": { "$ref": "#/$defs/expression" }
+      },
+      "additionalProperties": false
+    },
+    "temporal": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "operator", "horizon", "operand"],
+          "properties": {
+            "kind": { "const": "temporal" },
+            "operator": { "const": "once" },
+            "horizon": { "type": "integer", "minimum": 0 },
+            "operand": { "$ref": "#/$defs/expression" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "operator", "operand"],
+          "properties": {
+            "kind": { "const": "temporal" },
+            "operator": { "const": "globally" },
+            "operand": { "$ref": "#/$defs/expression" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "primitive": {
+      "type": "object",
+      "required": ["kind", "primitive_id", "arguments"],
+      "properties": {
+        "kind": { "const": "primitive" },
+        "primitive_id": { "$ref": "#/$defs/identifier" },
+        "arguments": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/expression" }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

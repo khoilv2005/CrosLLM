@@ -1,0 +1,10 @@
+{
+  "lineage_id": "layerzero_v2",
+  "protocol": "LayerZero v2",
+  "declared_license": "BUSL-1.1",
+  "source_repository": "https://github.com/LayerZero-Labs/LayerZero-v2.git",
+  "spdx_identifier": "BUSL-1.1",
+  "commercial_use_restrictions": true,
+  "redistribution_permitted": null,
+  "license_review_status": "pending_component_review"
+}

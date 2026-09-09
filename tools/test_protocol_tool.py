@@ -24,6 +24,46 @@ def fixture(index: int = 0) -> dict:
         'native_evm_scope':True,'seal_timestamp':'2026-09-07T00:00:00Z'}
 
 class ManifestChecks(unittest.TestCase):
+    def complete_final_fixture(self) -> list[dict]:
+        rows = []
+        families = sorted(tool.FAMILIES)
+        for index in range(120):
+            positive = fixture(10_000 + index)
+            control = fixture(20_000 + index)
+            lineage = f"final-lineage-{index // 10}"
+            family = families[index % len(families)]
+            for row, instance_id, status, cohort in (
+                (positive, f"final-positive-{index}", "vulnerable", "sealed"),
+                (control, f"final-control-{index}", "patched", "negative"),
+            ):
+                row.update({
+                    "instance_id": instance_id,
+                    "lineage_id": lineage,
+                    "property_family": family,
+                    "status": status,
+                    "cohort": cohort,
+                    "split": "evaluation",
+                    "admission_status": "admitted",
+                    "source_archive_sha256": "a" * 64,
+                    "artifact_manifest_sha256": "b" * 64,
+                    "deployment_config_sha256": "c" * 64,
+                    "paired_harness_sha256": "d" * 64,
+                    "trigger_validation_evidence_hash": "e" * 64,
+                    "admission_acceptance": {
+                        "owner": "project-owner",
+                        "agent": "codex",
+                        "accepted_at": "2026-09-09T00:00:00Z",
+                        "evidence_refs": ["evidence://synthetic-template"],
+                    },
+                })
+            control["negative_validation_scope"] = {"exploit_blocked": True}
+            positive["paired_instance_id"] = control["instance_id"]
+            control["paired_instance_id"] = positive["instance_id"]
+            positive["mutation_patch_sha256"] = "f" * 64
+            control["negative_validation_evidence_hash"] = "1" * 64
+            rows.extend((positive, control))
+        return rows
+
     def test_valid_basic_shape(self):
         errors,warnings=tool.validate([fixture(i) for i in range(12)])
         self.assertEqual(errors,[])
@@ -77,6 +117,64 @@ class ManifestChecks(unittest.TestCase):
         counts=tool.inventory([row])
         self.assertEqual(counts['dependency_references_sum_not_unique_contracts'],4)
         self.assertEqual(counts['lineages'],1)
+
+    def test_admission_mode_requires_independent_evidence(self):
+        row = fixture(1)
+        errors, _warnings = tool.validate([row], 'admission')
+        self.assertTrue(any('admission_status' in error for error in errors))
+        self.assertTrue(any('source_archive_sha256' in error for error in errors))
+
+    def test_admission_mode_accepts_a_complete_synthetic_pair(self):
+        left = fixture(1)
+        right = fixture(2)
+        right['lineage_id'] = left['lineage_id']
+        left['paired_instance_id'] = right['instance_id']
+        right['paired_instance_id'] = left['instance_id']
+        right['cohort'] = 'negative'
+        right['status'] = 'patched'
+        right['negative_validation_scope'] = {'exploit_blocked': True}
+        for row in (left, right):
+            row.update({
+                'admission_status': 'admitted',
+                'source_archive_sha256': 'a' * 64,
+                'artifact_manifest_sha256': 'b' * 64,
+                'deployment_config_sha256': 'c' * 64,
+                'paired_harness_sha256': 'd' * 64,
+                'trigger_validation_evidence_hash': 'e' * 64,
+                'admission_acceptance': {
+                    'owner': 'project-owner',
+                    'agent': 'codex',
+                    'accepted_at': '2026-09-08T00:00:00Z',
+                    'evidence_refs': ['evidence://synthetic'],
+                },
+            })
+        left['mutation_patch_sha256'] = 'f' * 64
+        right['negative_validation_evidence_hash'] = '1' * 64
+        errors, warnings = tool.validate([left, right], 'admission')
+        self.assertEqual(errors, [])
+        self.assertTrue(any('evaluation lineages' in warning for warning in warnings))
+        schema_path = tool.Path(__file__).resolve().parents[1] / 'schemas' / 'benchmark_admission.schema.json'
+        self.assertEqual(tool.schema_errors([left, right], schema_path), [])
+
+    def test_final_mode_requires_complete_balanced_design(self):
+        errors, _warnings = tool.validate([fixture(i) for i in range(2)], 'final')
+        self.assertTrue(any('240 rows' in error for error in errors))
+        self.assertTrue(any('sealed positives' in error for error in errors))
+        self.assertTrue(any('matched controls' in error for error in errors))
+
+    def test_final_mode_accepts_complete_balanced_synthetic_design(self):
+        rows = self.complete_final_fixture()
+        errors, warnings = tool.validate(rows, 'final')
+        self.assertEqual(errors, [])
+        self.assertEqual(warnings, [])
+        schema_path = tool.Path(__file__).resolve().parents[1] / 'schemas' / 'benchmark_admission.schema.json'
+        self.assertEqual(tool.schema_errors(rows, schema_path), [])
+
+    def test_final_mode_rejects_shared_positive_control_artifact(self):
+        rows = self.complete_final_fixture()
+        rows[1]['artifact_pack_sha256'] = rows[0]['artifact_pack_sha256']
+        errors, _warnings = tool.validate(rows, 'final')
+        self.assertTrue(any('distinct artifact packs' in error for error in errors))
 
 if __name__=='__main__':
     unittest.main()

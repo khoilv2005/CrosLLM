@@ -1,0 +1,16 @@
+[profile.default]
+src = "contracts"
+test = "test"
+out = "out"
+solc_version = "0.8.28"
+optimizer = true
+optimizer_runs = 999999
+via_ir = true
+evm_version = "shanghai"
+remappings = [
+    "forge-std/=lib/forge-std/src/",
+    "@openzeppelin/contracts/=lib/@openzeppelin/contracts/",
+    "@openzeppelin/contracts5/=lib/@openzeppelin/contracts5/",
+    "@openzeppelin/contracts-upgradeable5/=lib/@openzeppelin/contracts-upgradeable5/",
+    "@openzeppelin/contracts-upgradeable4/=lib/@openzeppelin/contracts-upgradeable4/"
+]

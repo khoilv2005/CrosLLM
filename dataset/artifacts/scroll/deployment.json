@@ -1,0 +1,79 @@
+{
+  "lineage_id": "scroll",
+  "protocol": "Scroll",
+  "deployment_schema": "deterministic_paired_domain",
+  "mock_domains": [
+    {
+      "domain_id": 1,
+      "domain_name": "DomainA",
+      "network_id": 1001
+    },
+    {
+      "domain_id": 2,
+      "domain_name": "DomainB",
+      "network_id": 1002
+    }
+  ],
+  "contracts": {
+    "L1ScrollMessenger": {
+      "contract_name": "L1ScrollMessenger",
+      "source_path": "src/L1/L1ScrollMessenger.sol",
+      "source_file_sha256": "5679ae856fbb77ba1ddd89f6485a0bb2c9e2bb8d9fcb3327b0f992cc9f3bee2e",
+      "source_target": {
+        "contract_name": "L1ScrollMessenger",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 34
+      },
+      "abi_path": "abi/L1ScrollMessenger.json",
+      "abi_sha256": "b30616bdb677a538cc3b342304fe331adfbdc6369883d6b932b9619e6c9822d0",
+      "creation_bytecode_path": "bytecode/L1ScrollMessenger.creation.hex",
+      "creation_bytecode_sha256": "515063a4b39098dc0c8ba1154b985db1c4510e307866a633b5c660db114a231a",
+      "deployed_bytecode_path": "bytecode/L1ScrollMessenger.deployed.hex",
+      "deployed_bytecode_sha256": "ce66e2ea6d0f65b047458f2a7d7c8af36da0b7d4fc607ddddb7eddc84f596306",
+      "storage_layout_path": "storage_layout/L1ScrollMessenger.json",
+      "storage_layout_sha256": "36529ce014ff6d6fe10e6a7aeec855116a84987c903dde5faf434ff1e22bab1e",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": "initialize",
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": true,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    },
+    "L2ScrollMessenger": {
+      "contract_name": "L2ScrollMessenger",
+      "source_path": "src/L2/L2ScrollMessenger.sol",
+      "source_file_sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+      "source_target": {
+        "contract_name": "L2ScrollMessenger",
+        "kind": "contract",
+        "deployable_source_target": true,
+        "declaration_line": 26
+      },
+      "abi_path": "abi/L2ScrollMessenger.json",
+      "abi_sha256": "33bf708fac39fa4ed418d2f776219686527f823993ada707e693fba729b551b3",
+      "creation_bytecode_path": "bytecode/L2ScrollMessenger.creation.hex",
+      "creation_bytecode_sha256": "cea8d79741fb4f1ebd1cb86594cba3249cfa6a479eec20e67004ee9c538aef3b",
+      "deployed_bytecode_path": "bytecode/L2ScrollMessenger.deployed.hex",
+      "deployed_bytecode_sha256": "b12ca70f2ee5a0f536ff094d6b646ad2d482b50c6765a469879e0cafc1cb0de6",
+      "storage_layout_path": "storage_layout/L2ScrollMessenger.json",
+      "storage_layout_sha256": "cf2fc6735b9f1d6a6243c29cbcc234d518bedfe74181955c6640cdbd03119cbb",
+      "constructor_args": [],
+      "constructor_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "initializer": "initialize",
+      "initializer_args_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "is_upgradeable": true,
+      "proxy": {
+        "is_proxy": false,
+        "implementation_source_path": null,
+        "implementation_code_hash": null
+      },
+      "linked_libraries": []
+    }
+  }
+}

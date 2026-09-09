@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/source_mutation_evidence.schema.json",
+  "title": "CrossLLM source-backed development mutation evidence",
+  "description": "Evidence that a semantics-changing development patch was applied to a locked source copy and distinguished from its clean control. This is not evaluation admission.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "operator_id", "property_family",
+    "lineage_id", "source_repository", "source_commit", "source_manifest_sha256",
+    "source_mutation_spec_sha256", "source_path", "base_source_sha256", "mutant_source_sha256", "patch_sha256",
+    "test_source_sha256", "control_test", "mutant_test", "control_status",
+    "mutant_status", "patch_changed_source", "control_pair_verified",
+    "source_backed", "independent_property_validation", "independent_trigger_validation",
+    "admission_eligible", "network_mode", "runner_image", "compiler", "evidence_scope",
+    "control_stdout_sha256", "control_stderr_sha256", "mutant_stdout_sha256",
+    "mutant_stderr_sha256", "observed_at"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "source_backed_mutation_evidence"},
+    "scope": {"const": "source_backed_development_mutation_probe_only"},
+    "operator_id": {"type": "string", "minLength": 1},
+    "property_family": {"enum": ["replay", "input_validation", "logic", "message_handling", "quorum", "finality"]},
+    "lineage_id": {"type": "string", "minLength": 1},
+    "source_repository": {"type": "string", "format": "uri"},
+    "source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "source_manifest_sha256": {"$ref": "#/$defs/sha256"},
+    "source_path": {"type": "string", "minLength": 1},
+    "base_source_sha256": {"$ref": "#/$defs/sha256"},
+    "mutant_source_sha256": {"$ref": "#/$defs/sha256"},
+    "patch_sha256": {"$ref": "#/$defs/sha256"},
+    "test_source_sha256": {"$ref": "#/$defs/sha256"},
+    "source_mutation_spec_sha256": {"$ref": "#/$defs/sha256"},
+    "control_stdout_sha256": {"$ref": "#/$defs/sha256"},
+    "control_stderr_sha256": {"$ref": "#/$defs/sha256"},
+    "mutant_stdout_sha256": {"$ref": "#/$defs/sha256"},
+    "mutant_stderr_sha256": {"$ref": "#/$defs/sha256"},
+    "control_test": {"type": "string", "minLength": 1},
+    "mutant_test": {"type": "string", "minLength": 1},
+    "control_status": {"const": "PASS"},
+    "mutant_status": {"const": "PASS"},
+    "patch_changed_source": {"const": true},
+    "control_pair_verified": {"const": true},
+    "source_backed": {"const": true},
+    "independent_property_validation": {"const": false},
+    "independent_trigger_validation": {"const": false},
+    "admission_eligible": {"const": false},
+    "network_mode": {"const": "none"},
+    "runner_image": {"type": "string", "pattern": "@sha256:[0-9a-fA-F]{64}$"},
+    "compiler": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "image", "path", "binary_sha256"],
+      "properties": {
+        "version": {"const": "0.8.9"},
+        "image": {"type": "string", "pattern": "@sha256:[0-9a-fA-F]{64}$"},
+        "path": {"const": "/compiler/solc"},
+        "binary_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "evidence_scope": {"const": "source_backed_development_mutation_probe_only"},
+    "observed_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}
