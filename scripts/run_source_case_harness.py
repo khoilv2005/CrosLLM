@@ -71,6 +71,7 @@ def _docker_command(
     match_test: str | None = None,
     operation: str = "test",
     container_name: str = "crossllm-source-case",
+    compiler_volume: str | None = None,
 ) -> list[str]:
     if "@sha256:" not in image:
         raise ValueError("Foundry image must be digest-pinned")
@@ -95,6 +96,14 @@ def _docker_command(
         image, operation, "--root", "/work", "--out", "/tmp/crossllm-out",
         "--cache-path", "/tmp/crossllm-cache",
     ]
+    if compiler_volume is not None:
+        if re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,62}", compiler_volume) is None:
+            raise ValueError("compiler_volume must be a valid Docker volume name")
+        mount_index = command.index("--mount")
+        command[mount_index:mount_index] = [
+            "--mount", f"type=volume,source={compiler_volume},target=/compiler,readonly",
+        ]
+        command.extend(("--use", "/compiler/solc"))
     if operation == "test":
         command.extend(("--match-path", test_path, "--json"))
     if operation == "test" and match_test is not None:
@@ -109,6 +118,7 @@ def run_harness(
     test_path: str,
     match_test: str | None,
     timeout_seconds: float,
+    compiler_volume: str | None = None,
 ) -> tuple[str, int | None, bytes, bytes, str | None]:
     stdout_parts: list[bytes] = []
     stderr_parts: list[bytes] = []
@@ -126,6 +136,7 @@ def run_harness(
             match_test=match_test,
             operation=operation,
             container_name=container_name,
+            compiler_volume=compiler_volume,
         )
         try:
             completed = subprocess.run(
@@ -177,6 +188,7 @@ def run_case(
     image: str,
     match_test: str | None,
     timeout_seconds: float,
+    compiler_volume: str | None = None,
 ) -> HarnessResult:
     try:
         identity = load_source_case_identity(repo_root, lineage_id, case_id)
@@ -191,6 +203,7 @@ def run_case(
                 test_path=test_path,
                 match_test=match_test,
                 timeout_seconds=timeout_seconds,
+                compiler_volume=compiler_volume,
             )
     except (OSError, ValueError, json.JSONDecodeError) as error:
         return HarnessResult(lineage_id, case_id, "input_error", None, None, None, str(error))
@@ -211,6 +224,7 @@ def _report(
     image: str,
     match_test: str | None,
     timeout_seconds: float,
+    compiler_volume: str | None = None,
 ) -> dict[str, Any]:
     body: dict[str, Any] = {
         "schema_version": 1,
@@ -224,6 +238,7 @@ def _report(
         "foundry_image": image,
         "match_test": match_test,
         "timeout_seconds": timeout_seconds,
+        "compiler_volume": compiler_volume,
         "result": result.as_dict(),
         "status": "pass" if result.status == "pass" else "blocked",
     }
@@ -241,6 +256,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--match-test", default=None)
     parser.add_argument("--image", default=os.environ.get("CROSSLLM_FOUNDRY_IMAGE", DEFAULT_IMAGE))
     parser.add_argument("--timeout-seconds", type=float, default=300.0)
+    parser.add_argument("--compiler-volume", default=os.environ.get("CROSSLLM_COMPILER_VOLUME"))
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     if args.timeout_seconds <= 0:
@@ -251,12 +267,14 @@ def main(argv: list[str] | None = None) -> int:
         args.repo_root.resolve(), args.lineage, args.case,
         image=args.image, match_test=args.match_test,
         timeout_seconds=args.timeout_seconds,
+        compiler_volume=args.compiler_volume,
     )
     report = _report(
         result,
         image=args.image,
         match_test=args.match_test,
         timeout_seconds=args.timeout_seconds,
+        compiler_volume=args.compiler_volume,
     )
     args.out.parent.mkdir(parents=True, exist_ok=True)
     temporary = args.out.with_name(f".{args.out.name}.{os.getpid()}.tmp")

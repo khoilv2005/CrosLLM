@@ -1,0 +1,53 @@
+{
+  "allow_dynamic_harness_bindings": true,
+  "search": {
+    "adapter_id": "crossllm-source-foundry-search",
+    "executable": "python",
+    "arguments": [
+      "scripts/source_executor.py",
+      "search",
+      "--request",
+      "{request}"
+    ],
+    "workdir": "..",
+    "tool_revision": "crossllm-source-executor-v1",
+    "container_ref": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+    "timeout_seconds": 900
+  },
+  "witness": {
+    "adapter_id": "crossllm-source-foundry-witness",
+    "executable": "python",
+    "arguments": [
+      "scripts/source_executor.py",
+      "witness",
+      "--request",
+      "{request}",
+      "--witness",
+      "{witness}"
+    ],
+    "workdir": "..",
+    "tool_revision": "crossllm-source-executor-v1",
+    "container_ref": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+    "timeout_seconds": 900
+  },
+  "replay": {
+    "adapter_id": "crossllm-source-foundry-replay",
+    "executable": "python",
+    "arguments": [
+      "scripts/source_executor.py",
+      "replay",
+      "--witness",
+      "{witness}",
+      "--workspace",
+      "{workspace}"
+    ],
+    "workdir": "..",
+    "tool_revision": "crossllm-source-executor-v1",
+    "container_ref": "ghcr.io/foundry-rs/foundry@sha256:0c00cb0bda1ab1b91c9a6bf60f4c76c09c1a8870824b6d4718afbabacf6f9a17",
+    "artifact_hash": "f0cc680b2659ab4ff4b84ed2cca0a5811eb524d1a176a7f32a58c6e4929773cd",
+    "initialization_hash": "e213daa12f6e5a373be2fecbd461915e1b663478bbc7a0e0ba0a7b814b4566df",
+    "profile_hash": "b5512200a7ee495b6373091cf7f65d8b21fe4039facbebaf80def46713e905fe",
+    "semantic_engine": "source-foundry-bounded-v1",
+    "timeout_seconds": 900
+  }
+}

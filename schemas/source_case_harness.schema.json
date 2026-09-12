@@ -22,6 +22,7 @@
     "foundry_image": {"type": "string", "pattern": "@sha256:[0-9a-fA-F]{64}$"},
     "match_test": {"type": ["string", "null"]},
     "timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "compiler_volume": {"type": ["string", "null"], "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,62}$"},
     "result": {"$ref": "#/$defs/result"},
     "status": {"enum": ["pass", "blocked"]},
     "report_sha256": {"$ref": "#/$defs/sha256"}

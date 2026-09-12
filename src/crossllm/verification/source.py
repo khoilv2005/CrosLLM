@@ -280,7 +280,12 @@ class SourceBackedVerificationExecutors:
                 workspace = workspace_info[0] if workspace_info is not None else self.replay_workdir
                 result = IndependentEVMReplay().run(
                     self.replay_spec,
-                    workspace,
+                    # Keep the executable boundary rooted at the configured
+                    # tool workdir.  The disposable case workspace is passed
+                    # separately through ``workspace_path``; using it as cwd
+                    # would make a repo-relative adapter command (for
+                    # example ``scripts/source_executor.py``) disappear.
+                    self.replay_workdir,
                     witness_path=witness_path,
                     workspace_path=workspace,
                     cancelled=self.cancelled,
