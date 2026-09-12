@@ -6,6 +6,11 @@
   "additionalProperties": false,
   "required": ["search", "witness", "replay"],
   "properties": {
+    "allow_dynamic_harness_bindings": {
+      "type": "boolean",
+      "description": "Allow source-backed executors to resolve deployment/actor addresses inside each clean harness setUp; this never relaxes action or symbol binding.",
+      "default": false
+    },
     "search": {"$ref": "#/$defs/command"},
     "witness": {"$ref": "#/$defs/command"},
     "replay": {

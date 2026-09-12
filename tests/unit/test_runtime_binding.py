@@ -123,6 +123,43 @@ class RuntimeBindingTests(unittest.TestCase):
         self.assertIsNotNone(plan.search_request)
         self.assertFalse(plan.executable)
 
+    def test_source_harness_can_defer_dynamic_addresses_explicitly(self) -> None:
+        root, lineage = self._fixture()
+        case = load_case_runtime(root, lineage, "eval_fixture_mut_01")
+        candidate = CandidateInput(
+            campaign_id="campaign", attempt_id="attempt",
+            pair_key=PairKey(lineage, "eval_fixture_mut_01", 1),
+            arm="crossllm", slot_index=0, slot_id="attempt:slot:0",
+            proposal_status="candidate", canonical_ast_hash=None,
+            raw_response_hash=None,
+            candidate={
+                "kind": "invariant", "invariant_id": "flag-is-true",
+                "body": {
+                    "kind": "binary", "operator": "eq",
+                    "left": {"kind": "symbol", "symbol_id": "storage.Bridge.slot_0.flag", "state": "post"},
+                    "right": {"kind": "literal", "type": "bool", "value": True},
+                },
+            },
+            raw_response={},
+        )
+        plan = RuntimeCandidateAdapter(
+            case,
+            public_xlir_symbols(root, lineage),
+            deferred_runtime_fields=frozenset({"actor_addresses", "contract_addresses"}),
+        ).adapt(candidate)
+        self.assertEqual(plan.status, AdapterStatus.READY)
+        self.assertTrue(plan.executable)
+
+    def test_adapter_rejects_unapproved_deferred_runtime_field(self) -> None:
+        root, lineage = self._fixture()
+        case = load_case_runtime(root, lineage, "eval_fixture_mut_01")
+        with self.assertRaisesRegex(ValueError, "unsupported deferred runtime fields"):
+            RuntimeCandidateAdapter(
+                case,
+                public_xlir_symbols(root, lineage),
+                deferred_runtime_fields=frozenset({"initial_state_descriptor"}),
+            )
+
     def test_unresolved_symbol_is_not_silently_dropped(self) -> None:
         root, lineage = self._fixture()
         case = load_case_runtime(root, lineage, "eval_fixture_mut_01")

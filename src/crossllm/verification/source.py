@@ -10,6 +10,7 @@ performed by :class:`IndependentEVMReplay` with a separate pinned spec.
 
 from __future__ import annotations
 
+from contextlib import contextmanager
 from dataclasses import dataclass
 import hashlib
 import json
@@ -26,6 +27,7 @@ from ..replay.process import run_process
 from .adapter import RuntimeCandidatePlan
 from .pipeline import VerificationExecutors
 from .records import StageResult, StageStatus
+from .source_workspace import SourceCaseIdentity, materialize_source_case_workspace
 
 
 _HEX64 = re.compile(r"^[0-9a-f]{64}$")
@@ -118,6 +120,8 @@ class SourceBackedVerificationExecutors:
         witness: SourceCommandSpec,
         replay: EVMReplaySpec,
         replay_workdir: Path,
+        repo_root: Path | None = None,
+        allow_dynamic_harness_bindings: bool = False,
         cancelled: Callable[[], bool] | None = None,
     ) -> None:
         if "{request}" not in search.arguments:
@@ -132,6 +136,12 @@ class SourceBackedVerificationExecutors:
         self.witness_spec = witness
         self.replay_spec = replay
         self.replay_workdir = replay_workdir.resolve()
+        self.repo_root = Path(repo_root).resolve() if repo_root is not None else None
+        if self.repo_root is not None and not self.repo_root.is_dir():
+            raise ValueError("source executor repo_root must be an existing directory")
+        if allow_dynamic_harness_bindings and self.repo_root is None:
+            raise ValueError("dynamic harness bindings require repo_root")
+        self.allow_dynamic_harness_bindings = allow_dynamic_harness_bindings
         self.cancelled = cancelled
         self._tempdir = tempfile.TemporaryDirectory(prefix="crossllm-source-verification-")
         self._witnesses: dict[str, dict[str, Any]] = {}
@@ -144,6 +154,10 @@ class SourceBackedVerificationExecutors:
             witness_check=self.witness_check,
             independent_replay=self.independent_replay,
             spec_hash=self.spec_hash,
+            deferred_runtime_fields=(
+                frozenset({"actor_addresses", "contract_addresses"})
+                if self.allow_dynamic_harness_bindings else frozenset()
+            ),
         )
 
     @property
@@ -156,6 +170,8 @@ class SourceBackedVerificationExecutors:
             "witness": self.witness_spec.as_dict(),
             "replay": self.replay_spec.spec_hash,
             "replay_workdir": str(self.replay_workdir),
+            "case_workspace": "source-case-workspace-v1" if self.repo_root is not None else "caller-workdir",
+            "allow_dynamic_harness_bindings": self.allow_dynamic_harness_bindings,
         })
 
     def close(self) -> None:
@@ -170,7 +186,12 @@ class SourceBackedVerificationExecutors:
     def symbolic_search(self, plan: RuntimeCandidatePlan) -> StageResult:
         if not plan.executable or plan.search_request is None:
             return StageResult("symbolic_search", StageStatus.UNSUPPORTED, "runtime_plan_not_executable")
-        result = self._invoke(self.search_spec, dict(plan.search_request), f"search-{self._key(plan)}")
+        try:
+            with self._case_workspace(plan) as workspace_info:
+                payload = self._request_with_workspace(plan.search_request, workspace_info)
+                result = self._invoke(self.search_spec, payload, f"search-{self._key(plan)}")
+        except (FileNotFoundError, ValueError) as error:
+            return self._workspace_failure("symbolic_search", error)
         if result.status is not None:
             return StageResult("symbolic_search", result.status, result.reason, evidence=result.evidence)
         payload = result.payload or {}
@@ -206,12 +227,19 @@ class SourceBackedVerificationExecutors:
         witness = self._witnesses.get(key)
         if witness is None:
             return StageResult("witness_check", StageStatus.NOT_APPLICABLE, "no_complete_sat_witness")
-        result = self._invoke(
-            self.witness_spec,
-            {"runtime_request": dict(plan.search_request or {}), "witness": witness},
-            f"witness-{key}",
-            witness=witness,
-        )
+        try:
+            with self._case_workspace(plan) as workspace_info:
+                result = self._invoke(
+                    self.witness_spec,
+                    {
+                        "runtime_request": self._request_with_workspace(plan.search_request or {}, workspace_info),
+                        "witness": witness,
+                    },
+                    f"witness-{key}",
+                    witness=witness,
+                )
+        except (FileNotFoundError, ValueError) as error:
+            return self._workspace_failure("witness_check", error)
         if result.status is not None:
             return StageResult("witness_check", result.status, result.reason, evidence=result.evidence)
         payload = result.payload or {}
@@ -247,12 +275,18 @@ class SourceBackedVerificationExecutors:
         witness = self._witnesses.get(key)
         if witness_path is None or witness is None:
             return StageResult("independent_replay", StageStatus.NOT_APPLICABLE, "witness_check_not_passed")
-        result = IndependentEVMReplay().run(
-            self.replay_spec,
-            self.replay_workdir,
-            witness_path=witness_path,
-            cancelled=self.cancelled,
-        )
+        try:
+            with self._case_workspace(plan) as workspace_info:
+                workspace = workspace_info[0] if workspace_info is not None else self.replay_workdir
+                result = IndependentEVMReplay().run(
+                    self.replay_spec,
+                    workspace,
+                    witness_path=witness_path,
+                    workspace_path=workspace,
+                    cancelled=self.cancelled,
+                )
+        except (FileNotFoundError, ValueError) as error:
+            return self._workspace_failure("independent_replay", error)
         evidence = {"replay": result.as_dict(), "trace_hash": result.trace_hash}
         if result.status is not ReplayStatus.PASS:
             return StageResult("independent_replay", _replay_stage_status(result.status), result.reason, result.elapsed_seconds, evidence)
@@ -331,6 +365,50 @@ class SourceBackedVerificationExecutors:
         path = Path(self._tempdir.name) / f"{key}.witness.checked.json"
         path.write_text(json.dumps(witness, sort_keys=True) + "\n", encoding="utf-8")
         return path
+
+    @contextmanager
+    def _case_workspace(
+        self,
+        plan: RuntimeCandidatePlan,
+    ) -> Any:
+        """Yield a fresh case workspace for each source-backed stage.
+
+        Search, native witness checking and independent replay each receive a
+        separate materialization.  This prevents a symbolic process from
+        leaking state into the witness/replay process.  The legacy caller
+        workdir mode remains available for protocol/unit tests that provide
+        their own external executor.
+        """
+
+        if self.repo_root is None:
+            yield None
+            return
+        request = plan.search_request or {}
+        lineage_id = request.get("lineage_id")
+        case_id = request.get("case_id")
+        if not isinstance(lineage_id, str) or not lineage_id:
+            raise ValueError("source workspace request is missing lineage_id")
+        if not isinstance(case_id, str) or not case_id:
+            raise ValueError("source workspace request is missing case_id")
+        with materialize_source_case_workspace(self.repo_root, lineage_id, case_id) as materialized:
+            yield materialized
+
+    @staticmethod
+    def _request_with_workspace(
+        request: Mapping[str, object],
+        workspace_info: tuple[Path, SourceCaseIdentity] | None,
+    ) -> dict[str, object]:
+        payload = dict(request)
+        if workspace_info is not None:
+            workspace, identity = workspace_info
+            payload["source_workspace"] = str(workspace)
+            payload["source_case_identity"] = identity.as_dict()
+        return payload
+
+    @staticmethod
+    def _workspace_failure(stage: str, error: Exception) -> StageResult:
+        status = StageStatus.UNSUPPORTED if isinstance(error, FileNotFoundError) else StageStatus.UNKNOWN
+        return StageResult(stage, status, f"source_case_workspace_unavailable:{error}")
 
     @staticmethod
     def _key(plan: RuntimeCandidatePlan) -> str:

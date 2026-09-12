@@ -31,6 +31,9 @@ from .cache import VerificationCacheKey
 from .runtime import BindingStatus, CaseRuntimeBindings, SymbolRuntimeBinding
 
 
+_DEFERRED_RUNTIME_FIELDS = frozenset({"actor_addresses", "contract_addresses"})
+
+
 class AdapterStatus(StrEnum):
     ABSTAINED = "abstained"
     INVALID = "invalid"
@@ -87,6 +90,7 @@ class RuntimeCandidateAdapter:
         bounds: Mapping[str, Any] | None = None,
         replay_spec_hash: str | None = None,
         executor_spec_hash: str | None = None,
+        deferred_runtime_fields: frozenset[str] = frozenset(),
     ) -> None:
         self.case = case
         self.symbols = tuple(symbols)
@@ -100,6 +104,10 @@ class RuntimeCandidateAdapter:
         self.bounds = dict(bounds or {})
         self.replay_spec_hash = replay_spec_hash
         self.executor_spec_hash = executor_spec_hash
+        self.deferred_runtime_fields = frozenset(deferred_runtime_fields)
+        unknown_deferred = self.deferred_runtime_fields - _DEFERRED_RUNTIME_FIELDS
+        if unknown_deferred:
+            raise ValueError(f"unsupported deferred runtime fields: {sorted(unknown_deferred)}")
 
     def adapt(self, candidate: CandidateInput) -> RuntimeCandidatePlan:
         if candidate.proposal_status != "candidate" or candidate.candidate is None:
@@ -149,12 +157,16 @@ class RuntimeCandidateAdapter:
         request = {
             "schema_version": 1,
             "record_type": "candidate_runtime_search_request",
+            "lineage_id": self.case.runtime.lineage_id,
+            "case_id": self.case.runtime.case_id,
+            "instance_id": self.case.runtime.instance_id,
             "runtime_hash": self.case.runtime.runtime_hash,
             "canonical_ast_hash": invariant.canonical_hash,
             "predicate": invariant.body.as_dict(),
             "actions": [action.as_dict() for action in bound_actions],
             "adapter_revision": self.adapter_revision,
             "bounds": dict(self.bounds),
+            "deferred_runtime_fields": sorted(self.deferred_runtime_fields),
             "replay_spec_hash": self.replay_spec_hash,
             "executor_spec_hash": self.executor_spec_hash,
             "artifact_hash": self.case.runtime.source_artifact_hash,
@@ -165,7 +177,9 @@ class RuntimeCandidateAdapter:
             "actors": dict(self.case.runtime.actors),
             "initial_state": dict(self.case.runtime.initial_state),
         }
-        status = AdapterStatus.READY if not self.case.missing_fields and all(action.executable for action in bound_actions) else AdapterStatus.GROUNDED
+        missing_fields = set(self.case.missing_fields)
+        runtime_ready = not missing_fields or missing_fields.issubset(self.deferred_runtime_fields)
+        status = AdapterStatus.READY if runtime_ready and all(action.executable for action in bound_actions) else AdapterStatus.GROUNDED
         cache_key = VerificationCacheKey(
             case_runtime_hash=self.case.runtime.runtime_hash,
             canonical_ast_hash=invariant.canonical_hash,

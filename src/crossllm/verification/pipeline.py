@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
 from .adapter import AdapterStatus, RuntimeCandidateAdapter, RuntimeCandidatePlan
@@ -24,6 +24,7 @@ class VerificationExecutors:
     witness_check: StageExecutor | None = None
     independent_replay: StageExecutor | None = None
     spec_hash: str | None = None
+    deferred_runtime_fields: frozenset[str] = field(default_factory=frozenset)
 
 
 class SharedVerificationPipeline:
@@ -43,12 +44,13 @@ class SharedVerificationPipeline:
         replay_spec_hash: str | None = None,
         executor_spec_hash: str | None = None,
     ) -> None:
+        self.executors = executors or VerificationExecutors()
         self.case = case
         self.adapter = RuntimeCandidateAdapter(
             case, symbols, adapter_revision=adapter_revision, bounds=bounds,
             replay_spec_hash=replay_spec_hash,
+            deferred_runtime_fields=self.executors.deferred_runtime_fields,
         )
-        self.executors = executors or VerificationExecutors()
         effective_executor_spec_hash = executor_spec_hash
         if effective_executor_spec_hash is None and self.executors.spec_hash is not None:
             effective_executor_spec_hash = self.executors.spec_hash

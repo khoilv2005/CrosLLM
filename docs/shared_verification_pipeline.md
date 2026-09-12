@@ -59,6 +59,11 @@ slot là `{}` và token/provider fields chỉ có thể là unavailable/not appl
 - Grounded XLIR không đồng nghĩa với verified finding.
 - Runtime binding thiếu hoặc chưa executable dừng trước symbolic/witness/replay
   và được ghi `unsupported`.
+- Source-backed executors may explicitly set
+  `allow_dynamic_harness_bindings` to defer only `actor_addresses` and
+  `contract_addresses` when those values are created by an isolated harness
+  `setUp`. The adapter still requires every referenced symbol and action to be
+  bound/executable; no other missing runtime field can be deferred.
 - `unknown`, timeout, crash và provider failure không biến thành no-alert hoặc
   zero.
 - Development `FixtureVerificationExecutors` chứng minh contract search,
@@ -66,7 +71,9 @@ slot là `{}` và token/provider fields chỉ có thể là unavailable/not appl
   phải source-backed EVM executor và không được dùng làm evaluation evidence.
 - Source-backed final run vẫn cần runtime action/state bindings, candidate
   specific EVM search, clean-state witness checking, independent replay receipt
-  và security adjudication.
+  và security adjudication. The current source executor materializes a fresh
+  source/test workspace for each downstream stage and passes its case identity
+  to the external tool, but it does not itself provide the symbolic engine.
 
 ## Kiểm chứng hiện có
 

@@ -10,6 +10,12 @@ adapter must emit JSON with an explicit replay `status` and may emit a
 subprocess boundary and terminates the child process; cancellation and timeout
 remain explicit non-success statuses.
 
+The replay command may use the exact argument placeholder `{workspace}`. For a
+source-backed candidate run this is a fresh case workspace containing the
+locked source and paired test; it is different for search, witness checking
+and replay. This keeps replay from reusing symbolic process state while
+allowing a real adapter to locate the case-local harness.
+
 The boundary has deterministic subprocess tests. It is not yet independent
 EVM evidence: that still requires a real source-pinned adapter run over the
 admitted contract initialization/bytecode, deliberate wrong-property and

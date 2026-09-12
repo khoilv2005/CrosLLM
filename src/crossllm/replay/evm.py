@@ -119,6 +119,7 @@ class IndependentEVMReplay:
         workdir: Path,
         *,
         witness_path: Path | None = None,
+        workspace_path: Path | None = None,
         cancelled: Callable[[], bool] | None = None,
     ) -> EVMReplayResult:
         started = time.monotonic()
@@ -133,8 +134,11 @@ class IndependentEVMReplay:
                     return self._result(spec, ReplayStatus.UNKNOWN, None, None, None, None, started, "witness_path_missing")
                 if not witness_path.is_file():
                     return self._result(spec, ReplayStatus.UNKNOWN, None, None, None, None, started, "witness_file_missing")
+            workspace = Path(workspace_path).resolve() if workspace_path is not None else workdir.resolve()
             arguments = tuple(
-                str(witness_path) if argument == "{witness}" and witness_path is not None else argument
+                str(witness_path) if argument == "{witness}" and witness_path is not None
+                else str(workspace) if argument == "{workspace}"
+                else argument
                 for argument in spec.arguments
             )
             outcome = run_process(

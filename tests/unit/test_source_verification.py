@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -116,6 +117,87 @@ class SourceVerificationExecutorTests(unittest.TestCase):
         self.assertEqual(witness_evidence["witness_id"], "w1")
         self.assertEqual(len(witness_evidence["witness_hash"]), 64)
         self.assertEqual(witness_evidence["witness"]["trace_hash"], "f" * 64)
+        self.assertTrue(outcome.verified_finding)
+
+    def test_source_tools_receive_fresh_case_workspace_and_dynamic_addresses(self) -> None:
+        root, lineage, case, candidate = self._setup()
+        case = replace(case, missing_fields=("actor_addresses", "contract_addresses"))
+        case_root = root / "dataset" / "artifacts" / lineage / "cases" / case.runtime.case_id
+        harness_root = root / "dataset" / "harness" / lineage
+        (harness_root / "contracts").mkdir(parents=True, exist_ok=True)
+        (harness_root / "test").mkdir(parents=True, exist_ok=True)
+        (harness_root / "contracts" / "Bridge.sol").write_text("contract BaseBridge {}\n", encoding="utf-8")
+        (harness_root / "test" / "Base.t.sol").write_text("contract BaseTest {}\n", encoding="utf-8")
+        source = case_root / "runtime" / "source" / "Bridge.sol"
+        source.parent.mkdir(parents=True, exist_ok=True)
+        source.write_text("contract MutatedBridge {}\n", encoding="utf-8")
+        paired_test = case_root / "runtime" / "test" / "Replay.t.sol"
+        source_hash = hashlib.sha256(source.read_bytes()).hexdigest()
+        test_hash = hashlib.sha256(paired_test.read_bytes()).hexdigest()
+        metadata = json.loads((case_root / "metadata.json").read_text(encoding="utf-8"))
+        metadata.update({"split": "evaluation", "built_source_sha256": source_hash})
+        (case_root / "metadata.json").write_text(json.dumps(metadata), encoding="utf-8")
+        build = json.loads((case_root / "build_manifest.json").read_text(encoding="utf-8"))
+        build["source"] = {"path": "runtime/source/Bridge.sol", "sha256": source_hash}
+        (case_root / "build_manifest.json").write_text(json.dumps(build), encoding="utf-8")
+        paired = json.loads((case_root / "paired_harness.json").read_text(encoding="utf-8"))
+        paired["test"] = {"path": "runtime/test/Replay.t.sol", "sha256": test_hash}
+        (case_root / "paired_harness.json").write_text(json.dumps(paired), encoding="utf-8")
+        (case_root / "source_identity.json").write_text(json.dumps({
+            "lineage_id": lineage,
+            "upstream_source_path": "contracts/Bridge.sol",
+        }), encoding="utf-8")
+
+        search_code = (
+            "import json,sys; from pathlib import Path; r=json.load(open(sys.argv[1])); "
+            "w=Path(r['source_workspace']); assert (w/'contracts/Bridge.sol').read_text()=='contract MutatedBridge {}\\n'; "
+            "assert (w/'test/Replay.t.sol').is_file(); a=r['actions'][0]; "
+            "witness={'witness_id':'w1','query_id':'q1','runtime_hash':r['runtime_hash'],"
+            "'artifact_hash':r['artifact_hash'],'deployment_hash':r['deployment_hash'],"
+            "'canonical_ast_hash':r['canonical_ast_hash'],'initial_state_hash':r['initial_state_hash'],"
+            "'trace_hash':'f'*64,'actions':[{'action_id':a['action_id'],'caller':'user','caller_role':a['caller_role'],"
+            "'calldata':'0x','domain':a['domain'],'contract':a['contract'],'selector':a['selector']}],"
+            "'domains':['DomainA'],'observations':[]}; print(json.dumps({'status':'sat','complete':True,"
+            "'candidate_violation':True,'witness':witness}))"
+        )
+        witness_code = (
+            "import json,sys; r=json.load(open(sys.argv[1])); "
+            "assert r['runtime_request']['source_case_identity']['case_id']=='eval_fixture_mut_01'; "
+            "w=r['witness']; print(json.dumps({'status':'pass','trace_hash':w['trace_hash'],"
+            "'candidate_violation':True,'property_holds':False}))"
+        )
+        replay_code = (
+            "import json,sys; from pathlib import Path; w=json.load(open(sys.argv[1])); "
+            "assert (Path(sys.argv[2])/'contracts/Bridge.sol').is_file(); "
+            "print(json.dumps({'status':'pass','trace_hash':w['trace_hash'],"
+            "'property_holds':False,'security_relevance':True}))"
+        )
+        replay = EVMReplaySpec(
+            adapter_id="independent-test-evm",
+            executable=sys.executable,
+            arguments=("-c", replay_code, "{witness}", "{workspace}"),
+            tool_revision="evm-test-v2",
+            container_ref="registry.example/evm-test@sha256:" + "b" * 64,
+            artifact_hash="c" * 64,
+            initialization_hash="d" * 64,
+            profile_hash="e" * 64,
+            semantic_engine="independent-test-engine",
+            timeout_seconds=2.0,
+        )
+        with SourceBackedVerificationExecutors(
+            search=self._command(root, "source-search", search_code),
+            witness=self._command(root, "source-witness", witness_code, include_witness=True),
+            replay=replay,
+            replay_workdir=root,
+            repo_root=root,
+            allow_dynamic_harness_bindings=True,
+        ) as external:
+            outcome = SharedVerificationPipeline(
+                case, public_xlir_symbols(root, lineage), executors=external.executors(),
+            ).verify(candidate)
+        self.assertEqual(outcome.stage_status("symbolic_search"), StageStatus.PASSED)
+        self.assertEqual(outcome.stage_status("witness_check"), StageStatus.PASSED)
+        self.assertEqual(outcome.stage_status("independent_replay"), StageStatus.PASSED)
         self.assertTrue(outcome.verified_finding)
 
     def test_source_replay_trace_mismatch_is_not_verified(self) -> None:

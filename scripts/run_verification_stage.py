@@ -256,7 +256,11 @@ def write_jsonl(path: Path, rows: list[dict[str, object]]) -> None:
     temporary.replace(path)
 
 
-def load_source_executors(path: Path) -> SourceBackedVerificationExecutors:
+def load_source_executors(
+    path: Path,
+    *,
+    repo_root: Path | None = None,
+) -> SourceBackedVerificationExecutors:
     """Load a pinned source-executor configuration without shell expansion."""
 
     config_path = Path(path).resolve()
@@ -288,6 +292,10 @@ def load_source_executors(path: Path) -> SourceBackedVerificationExecutors:
         witness=witness,
         replay=replay,
         replay_workdir=replay_workdir,
+        repo_root=repo_root,
+        allow_dynamic_harness_bindings=(
+            payload.get("allow_dynamic_harness_bindings") is True
+        ),
     )
 
 
@@ -350,7 +358,10 @@ def main(argv: list[str] | None = None) -> int:
     roots = parse_archive_roots(args.archive_root)
     manifest = load_public_manifest(args.manifest)
     cache = FileVerificationCache(args.cache) if args.cache is not None else None
-    source_executors = load_source_executors(args.source_executors) if args.source_executors is not None else None
+    source_executors = (
+        load_source_executors(args.source_executors, repo_root=args.repo_root)
+        if args.source_executors is not None else None
+    )
     try:
         rows, summary = run_archives(
             args.repo_root,
