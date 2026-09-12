@@ -1,0 +1,353 @@
+{
+  "admission_eligible": true,
+  "artifact_manifest_sha256": "033472f18ce78f6feaea10e938734cf55164e6d593a2fa4c73a309b0e3b69636",
+  "case_count": 3,
+  "cases": [
+    {
+      "case_id": "normal_confirm",
+      "comparison": {
+        "call_sequence_match": true,
+        "event_counts_match": true,
+        "expected_calls": [
+          {
+            "method": "transferOut",
+            "status": "stop"
+          },
+          {
+            "method": "transferIn",
+            "status": "stop"
+          },
+          {
+            "method": "confirm",
+            "status": "stop"
+          },
+          {
+            "method": "confirm",
+            "status": "stop"
+          }
+        ],
+        "expected_events": {
+          "LogNewTransferIn": 1,
+          "LogNewTransferOut": 1,
+          "LogTransferConfirmed": 2,
+          "LogTransferRefunded": 0
+        },
+        "observed_calls": [
+          {
+            "method": "transferOut",
+            "status": "stop"
+          },
+          {
+            "method": "transferIn",
+            "status": "stop"
+          },
+          {
+            "method": "confirm",
+            "status": "stop"
+          },
+          {
+            "method": "confirm",
+            "status": "stop"
+          }
+        ],
+        "observed_events": {
+          "LogNewTransferIn": 1,
+          "LogNewTransferOut": 1,
+          "LogTransferConfirmed": 2,
+          "LogTransferRefunded": 0
+        },
+        "pass": true,
+        "property_boundary_recorded": true,
+        "test_passed": true
+      },
+      "model": {
+        "expected_events": {
+          "LogNewTransferIn": 1,
+          "LogNewTransferOut": 1,
+          "LogTransferConfirmed": 2,
+          "LogTransferRefunded": 0
+        },
+        "model_hash": "7dbeca258b0738e4f05b55fe02893e61abbfc9a3e35040e7ad1d36a059e32a08",
+        "steps": [
+          {
+            "method": "transferOut",
+            "status": "stop"
+          },
+          {
+            "method": "transferIn",
+            "status": "stop"
+          },
+          {
+            "method": "confirm",
+            "status": "stop"
+          },
+          {
+            "method": "confirm",
+            "status": "stop"
+          }
+        ]
+      },
+      "source_trace": {
+        "observed": {
+          "calls": [
+            {
+              "method": "transferOut",
+              "status": "stop",
+              "success": true
+            },
+            {
+              "method": "transferIn",
+              "status": "stop",
+              "success": true
+            },
+            {
+              "method": "confirm",
+              "status": "stop",
+              "success": true
+            },
+            {
+              "method": "confirm",
+              "status": "stop",
+              "success": true
+            }
+          ],
+          "events": {
+            "LogNewTransferIn": 1,
+            "LogNewTransferOut": 1,
+            "LogTransferConfirmed": 2,
+            "LogTransferRefunded": 0
+          },
+          "test_status": "success",
+          "trace_observation_hash": "ef3258bd7bbde97f17befaad84a047fb90b563fb225e207a31c87d7dcdad2fe5"
+        },
+        "path": "dataset/reports/celer_evm_differential/normal_confirm.forge.json",
+        "returncode": 0,
+        "sha256": "db393ee5ba900571c31f2127054abd95c95ea104029fb42de548bb4a05a4a463",
+        "stderr_path": "dataset/reports/celer_evm_differential/normal_confirm.forge.stderr.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "terminal_property": "both source and destination transfers are confirmed with token conservation",
+      "test_name": "test_normal_cross_chain_transfer_and_confirm"
+    },
+    {
+      "case_id": "timeout_refund",
+      "comparison": {
+        "call_sequence_match": true,
+        "event_counts_match": true,
+        "expected_calls": [
+          {
+            "method": "transferOut",
+            "status": "stop"
+          },
+          {
+            "method": "refund",
+            "status": "revert"
+          },
+          {
+            "method": "refund",
+            "status": "stop"
+          }
+        ],
+        "expected_events": {
+          "LogNewTransferIn": 0,
+          "LogNewTransferOut": 1,
+          "LogTransferConfirmed": 0,
+          "LogTransferRefunded": 1
+        },
+        "observed_calls": [
+          {
+            "method": "transferOut",
+            "status": "stop"
+          },
+          {
+            "method": "refund",
+            "status": "revert"
+          },
+          {
+            "method": "refund",
+            "status": "stop"
+          }
+        ],
+        "observed_events": {
+          "LogNewTransferIn": 0,
+          "LogNewTransferOut": 1,
+          "LogTransferConfirmed": 0,
+          "LogTransferRefunded": 1
+        },
+        "pass": true,
+        "property_boundary_recorded": true,
+        "test_passed": true
+      },
+      "model": {
+        "expected_events": {
+          "LogNewTransferIn": 0,
+          "LogNewTransferOut": 1,
+          "LogTransferConfirmed": 0,
+          "LogTransferRefunded": 1
+        },
+        "model_hash": "5c285340d1f57e19c05b05042b916bdcae27625165b15e1eba86d42b140387b2",
+        "steps": [
+          {
+            "method": "transferOut",
+            "status": "stop"
+          },
+          {
+            "method": "refund",
+            "status": "revert"
+          },
+          {
+            "method": "refund",
+            "status": "stop"
+          }
+        ]
+      },
+      "source_trace": {
+        "observed": {
+          "calls": [
+            {
+              "method": "transferOut",
+              "status": "stop",
+              "success": true
+            },
+            {
+              "method": "refund",
+              "status": "revert",
+              "success": false
+            },
+            {
+              "method": "refund",
+              "status": "stop",
+              "success": true
+            }
+          ],
+          "events": {
+            "LogNewTransferIn": 0,
+            "LogNewTransferOut": 1,
+            "LogTransferConfirmed": 0,
+            "LogTransferRefunded": 1
+          },
+          "test_status": "success",
+          "trace_observation_hash": "1c1e99ed9a9225f3ea3e37f99573b7813726eb166fc160a809ae9e2b004c0809"
+        },
+        "path": "dataset/reports/celer_evm_differential/timeout_refund.forge.json",
+        "returncode": 0,
+        "sha256": "028c3edb616afa76e812059306b97e0e6f54aa073925f766352d8aa4fce392cd",
+        "stderr_path": "dataset/reports/celer_evm_differential/timeout_refund.forge.stderr.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "terminal_property": "the transfer is refunded only after the timelock and the balance is restored",
+      "test_name": "test_transfer_timeout_and_refund"
+    },
+    {
+      "case_id": "invalid_preimage_revert",
+      "comparison": {
+        "call_sequence_match": true,
+        "event_counts_match": true,
+        "expected_calls": [
+          {
+            "method": "transferOut",
+            "status": "stop"
+          },
+          {
+            "method": "confirm",
+            "status": "revert"
+          }
+        ],
+        "expected_events": {
+          "LogNewTransferIn": 0,
+          "LogNewTransferOut": 1,
+          "LogTransferConfirmed": 0,
+          "LogTransferRefunded": 0
+        },
+        "observed_calls": [
+          {
+            "method": "transferOut",
+            "status": "stop"
+          },
+          {
+            "method": "confirm",
+            "status": "revert"
+          }
+        ],
+        "observed_events": {
+          "LogNewTransferIn": 0,
+          "LogNewTransferOut": 1,
+          "LogTransferConfirmed": 0,
+          "LogTransferRefunded": 0
+        },
+        "pass": true,
+        "property_boundary_recorded": true,
+        "test_passed": true
+      },
+      "model": {
+        "expected_events": {
+          "LogNewTransferIn": 0,
+          "LogNewTransferOut": 1,
+          "LogTransferConfirmed": 0,
+          "LogTransferRefunded": 0
+        },
+        "model_hash": "c4ca4199755ff84a80d0f9e7241d0ac0782fd89ab5d575e260aef09d8392ff56",
+        "steps": [
+          {
+            "method": "transferOut",
+            "status": "stop"
+          },
+          {
+            "method": "confirm",
+            "status": "revert"
+          }
+        ]
+      },
+      "source_trace": {
+        "observed": {
+          "calls": [
+            {
+              "method": "transferOut",
+              "status": "stop",
+              "success": true
+            },
+            {
+              "method": "confirm",
+              "status": "revert",
+              "success": false
+            }
+          ],
+          "events": {
+            "LogNewTransferIn": 0,
+            "LogNewTransferOut": 1,
+            "LogTransferConfirmed": 0,
+            "LogTransferRefunded": 0
+          },
+          "test_status": "success",
+          "trace_observation_hash": "88646e22162bcee9e98592dd6007dd35b70e446806a6df0b9071f06ed76c83f1"
+        },
+        "path": "dataset/reports/celer_evm_differential/invalid_preimage_revert.forge.json",
+        "returncode": 0,
+        "sha256": "7d18d42f261a27d30287002585dcc93a57a5b254e8a936d2fe0cee255cab4fa1",
+        "stderr_path": "dataset/reports/celer_evm_differential/invalid_preimage_revert.forge.stderr.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "terminal_property": "an incorrect preimage reverts and cannot confirm the pending transfer",
+      "test_name": "test_revert_confirm_incorrect_preimage"
+    }
+  ],
+  "differential_status": "pass",
+  "direct_trace_comparable": true,
+  "evidence_scope": "independent_evm_support_evidence_non_admission_until_matrix_acceptance",
+  "independent_evaluator": true,
+  "independent_property_validation": true,
+  "independent_trigger_validation": true,
+  "lineage_id": "celer_cbridge",
+  "observed_at": "2026-09-12T12:15:11.030745Z",
+  "passed_case_count": 3,
+  "profile_sha256": "a16287f69389e08c55ea16517d022574c8107e94192bdaeb5b5ff7c85bc57f51",
+  "record_type": "celer_independent_evm_differential",
+  "report_hash": "e3a6eb66be265f893f4020f674018a3d317441e2a8c5e5aea3993d656e4f8ec2",
+  "reviewed_support_matrix": false,
+  "schema_version": 1,
+  "scope": "source_backed_evaluation_support_differential",
+  "source_engine": "foundry-native-celer-locked-harness",
+  "source_manifest_sha256": "21f2ee68cce6371105b655d915e5521a68145784e4605c4d9896e53634cf946d",
+  "support_matrix_hash": "b84e84fc6e150da6c5f9513a53435187eb83e3a60d8b6af0ef03de67fb5ee53d",
+  "symbolic_engine": "celer-workflow-model-v1"
+}

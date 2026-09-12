@@ -1,0 +1,126 @@
+{
+  "admission_eligible": true,
+  "artifact_manifest_sha256": "033472f18ce78f6feaea10e938734cf55164e6d593a2fa4c73a309b0e3b69636",
+  "evidence_scope": "independent_evm_support_evidence_non_admission_until_matrix_acceptance",
+  "independent_checker": true,
+  "lineage_id": "celer_cbridge",
+  "observed_at": "2026-09-12T12:15:11.030745Z",
+  "profile_sha256": "a16287f69389e08c55ea16517d022574c8107e94192bdaeb5b5ff7c85bc57f51",
+  "record_type": "celer_independent_evm_witness_checker",
+  "report_hash": "9460a4bf78baf661ed18aee0ab6ac101a4ba48b23a9c9528a8108da1d7485aca",
+  "schema_version": 1,
+  "scope": "source_backed_evm_trace_witness_check",
+  "source_manifest_sha256": "21f2ee68cce6371105b655d915e5521a68145784e4605c4d9896e53634cf946d",
+  "status": "pass",
+  "support_matrix_hash": "b84e84fc6e150da6c5f9513a53435187eb83e3a60d8b6af0ef03de67fb5ee53d",
+  "tamper_check_count": 6,
+  "tamper_checks": [
+    {
+      "case_id": "normal_confirm",
+      "rejected": true,
+      "tamper": "swapped_first_two_steps"
+    },
+    {
+      "case_id": "normal_confirm",
+      "rejected": true,
+      "tamper": "altered_terminal_status"
+    },
+    {
+      "case_id": "timeout_refund",
+      "rejected": true,
+      "tamper": "swapped_first_two_steps"
+    },
+    {
+      "case_id": "timeout_refund",
+      "rejected": true,
+      "tamper": "altered_terminal_status"
+    },
+    {
+      "case_id": "invalid_preimage_revert",
+      "rejected": true,
+      "tamper": "swapped_first_two_steps"
+    },
+    {
+      "case_id": "invalid_preimage_revert",
+      "rejected": true,
+      "tamper": "altered_terminal_status"
+    }
+  ],
+  "tamper_rejected_count": 6,
+  "verified_witness_count": 3,
+  "witness_count": 3,
+  "witnesses": [
+    {
+      "case_id": "normal_confirm",
+      "property_boundary": "both source and destination transfers are confirmed with token conservation",
+      "status": "verified",
+      "steps": [
+        {
+          "method": "transferOut",
+          "status": "stop",
+          "success": true
+        },
+        {
+          "method": "transferIn",
+          "status": "stop",
+          "success": true
+        },
+        {
+          "method": "confirm",
+          "status": "stop",
+          "success": true
+        },
+        {
+          "method": "confirm",
+          "status": "stop",
+          "success": true
+        }
+      ],
+      "trace_observation_hash": "ef3258bd7bbde97f17befaad84a047fb90b563fb225e207a31c87d7dcdad2fe5",
+      "witness_id": "celer-normal_confirm"
+    },
+    {
+      "case_id": "timeout_refund",
+      "property_boundary": "the transfer is refunded only after the timelock and the balance is restored",
+      "status": "verified",
+      "steps": [
+        {
+          "method": "transferOut",
+          "status": "stop",
+          "success": true
+        },
+        {
+          "method": "refund",
+          "status": "revert",
+          "success": false
+        },
+        {
+          "method": "refund",
+          "status": "stop",
+          "success": true
+        }
+      ],
+      "trace_observation_hash": "1c1e99ed9a9225f3ea3e37f99573b7813726eb166fc160a809ae9e2b004c0809",
+      "witness_id": "celer-timeout_refund"
+    },
+    {
+      "case_id": "invalid_preimage_revert",
+      "property_boundary": "an incorrect preimage reverts and cannot confirm the pending transfer",
+      "status": "verified",
+      "steps": [
+        {
+          "method": "transferOut",
+          "status": "stop",
+          "success": true
+        },
+        {
+          "method": "confirm",
+          "status": "revert",
+          "success": false
+        }
+      ],
+      "trace_observation_hash": "88646e22162bcee9e98592dd6007dd35b70e446806a6df0b9071f06ed76c83f1",
+      "witness_id": "celer-invalid_preimage_revert"
+    }
+  ]
+}
