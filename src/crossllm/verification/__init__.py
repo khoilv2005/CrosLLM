@@ -24,6 +24,13 @@ from .runtime import (
 from .adapter import AdapterStatus, RuntimeCandidateAdapter, RuntimeCandidatePlan, public_xlir_symbols
 from .pipeline import SharedVerificationPipeline, VerificationExecutors
 from .cache import CacheLookup, FileVerificationCache, VerificationCacheKey
+from .metrics import (
+    CampaignAvailability,
+    VerificationCampaign,
+    VerificationMetric,
+    VerificationMetrics,
+    compute_verification_metrics,
+)
 
 __all__ = [
     "ArchiveRoot",
@@ -53,6 +60,11 @@ __all__ = [
     "CacheLookup",
     "FileVerificationCache",
     "VerificationCacheKey",
+    "CampaignAvailability",
+    "VerificationCampaign",
+    "VerificationMetric",
+    "VerificationMetrics",
+    "compute_verification_metrics",
     "load_archives",
     "match_campaigns",
 ]
