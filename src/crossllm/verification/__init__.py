@@ -31,6 +31,7 @@ from .metrics import (
     VerificationMetrics,
     compute_verification_metrics,
 )
+from .fixture import FixtureVerificationConfig, FixtureVerificationExecutors
 
 __all__ = [
     "ArchiveRoot",
@@ -65,6 +66,8 @@ __all__ = [
     "VerificationMetric",
     "VerificationMetrics",
     "compute_verification_metrics",
+    "FixtureVerificationConfig",
+    "FixtureVerificationExecutors",
     "load_archives",
     "match_campaigns",
 ]
