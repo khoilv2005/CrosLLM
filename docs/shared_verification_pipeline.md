@@ -37,6 +37,18 @@ bộ slot qua cùng adapter, bounds, replay-spec hash và cache policy.
 thành `VerificationCampaign`, là input duy nhất của
 `compute_verification_metrics()`.
 
+Để tạo archive T0 chuẩn cho loader chung:
+
+```text
+python scripts/run_t0_campaign.py \
+  --pack <public-pack.json> --campaign-id <id> --lineage-id <lineage> \
+  --instance-id <instance> --replicate 1 --attempt-id <attempt> \
+  --out <archive-root>
+```
+
+Archive được ghi dưới `<archive-root>/<campaign-id>/campaigns.jsonl`, có 8
+slot, `provider_call_count=0`, và không có provider/budget receipt giả.
+
 T0 không gọi provider. Vì vậy `candidates_from_method_run()` giữ
 `provider_responses` rỗng của T0 như một absence có chủ đích; nó không tạo
 HTTP 200, token count hay provider success giả. Khi chạy T0, `raw_response` của
