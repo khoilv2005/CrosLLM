@@ -575,3 +575,14 @@ Bảng này tách ba trạng thái: `Có trong plan` nghĩa là đã có work it
 | RMTTW / Kaplan–Meier | M09.07 | Estimator/KM plumbing có; chưa có valid witness timing | Có event/censor time từ source-backed verification thật |
 
 Vì vậy, kế hoạch đã bao phủ hầu hết các track nêu trên, nhưng hiện tại chưa track nào được gọi là `final result` chỉ dựa vào proposal archive. Các mục còn thiếu tập trung ở source-backed execution/evidence và các run ablation/baseline; không phải thiếu thêm model archive.
+
+### 11.12. Evidence vertical slice đã chạy
+
+Ngày 2026-09-12, Docker/Foundry source-backed development slice đã chạy thành công:
+
+- `source_backed_replay.json`: Celer `3/3` test pass.
+- `source_backed_replays.json`: Celer, ChainBridge và LayerZero v2 đều pass (`3/3`, `5/5`, `5/5`).
+- `celer_evm_differential.json` và `celer_witness_checker.json`: witness checker xác nhận `3/3` witness, từ chối `6/6` tampered witness.
+- Các validator tương ứng đều pass; tất cả report vẫn giữ scope development/support và không tự nâng thành Verified Recall.
+
+Evidence này đóng phần kiểm tra toolchain/harness/replay độc lập ở mức vertical slice. V11.16–V11.20 trên evaluation corpus vẫn chỉ được đóng sau khi một executor nhận candidate runtime request, tự sinh candidate-specific witness, chạy clean-state check và trả replay/property evidence cho cùng slot.
