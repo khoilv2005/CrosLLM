@@ -1,5 +1,7 @@
 import unittest
 
+from crossllm.runtime import AppendOnlyEventStore, append_method_run_events
+
 from crossllm.methods.t0 import (
     T0DeterministicProposer,
     T0InputError,
@@ -56,6 +58,25 @@ class T0ProposerTests(unittest.TestCase):
         pack["public_files"]["property_oracle"] = "must not enter T0"
         with self.assertRaises(T0InputError):
             proposer.propose(pack, attempt_id="attempt")
+
+    def test_providerless_t0_events_do_not_fabricate_provider_receipts(self) -> None:
+        run = self._proposer().propose(self._pack(), attempt_id="event-attempt").method_run
+        store = AppendOnlyEventStore()
+        count = append_method_run_events(
+            store,
+            run,
+            campaign_id="t0-campaign",
+            timestamp="2026-09-12T00:00:00Z",
+        )
+        self.assertEqual(count, 10)
+        self.assertEqual(
+            [event.event_type for event in store.events].count("provider_response"),
+            0,
+        )
+        slot_events = [event for event in store.events if event.event_type == "proposal_slot_recorded"]
+        self.assertEqual(len(slot_events), 8)
+        self.assertTrue(all(event.payload["provider_call"] is False for event in slot_events))
+        self.assertEqual(store.events[-1].payload["provider_call_count"], 0)
 
 
 if __name__ == "__main__":

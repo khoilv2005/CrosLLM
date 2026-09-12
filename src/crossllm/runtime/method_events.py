@@ -13,7 +13,7 @@ from typing import Any
 
 from ..contracts import EventLog
 from ..contracts.ids import new_id
-from ..methods import MethodRun
+from ..methods import MethodRun, MethodTrack
 from .events import AppendOnlyEventStore
 
 
@@ -56,7 +56,8 @@ def append_method_run_events(
         raise ValueError("campaign_id and timestamp are required")
     if not callable(event_id_factory):
         raise ValueError("event_id_factory must be callable")
-    if len(method_run.provider_responses) != len(method_run.slots):
+    providerless_t0 = method_run.track is MethodTrack.T0 and not method_run.provider_responses
+    if not providerless_t0 and len(method_run.provider_responses) != len(method_run.slots):
         raise ValueError("method run must have one provider response per proposal slot")
 
     metadata = {
@@ -85,18 +86,22 @@ def append_method_run_events(
         count += 1
 
     append("method_started", metadata)
-    for index, (slot, response) in enumerate(zip(method_run.slots, method_run.provider_responses)):
+    for index, slot in enumerate(method_run.slots):
         slot_payload = slot.as_dict() if hasattr(slot, "as_dict") else slot
-        response_payload = response.as_dict() if hasattr(response, "as_dict") else response
-        append("provider_response", {
-            "track": method_run.track.value,
-            "slot_index": index,
-            "response": response_payload,
-        })
+        if not providerless_t0:
+            response = method_run.provider_responses[index]
+            response_payload = response.as_dict() if hasattr(response, "as_dict") else response
+            append("provider_response", {
+                "track": method_run.track.value,
+                "slot_index": index,
+                "response": response_payload,
+            })
         append("proposal_slot_recorded", {
             "track": method_run.track.value,
             "slot_index": index,
             "slot": slot_payload,
+            "provider_response": None if providerless_t0 else "recorded_in_provider_response_event",
+            "provider_call": not providerless_t0,
         })
     append("method_completed", {
         **metadata,
