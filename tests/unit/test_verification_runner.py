@@ -9,6 +9,8 @@ from crossllm.verification import (
     PairKey,
     StageResult,
     StageStatus,
+    compute_verification_metrics,
+    verify_method_campaign,
     verify_method_run,
 )
 from crossllm.verification.adapter import public_xlir_symbols
@@ -52,23 +54,28 @@ class VerificationRunnerTests(unittest.TestCase):
             evidence={"security_relevance": True, "trace_hash": witness.trace_hash},
         ))
 
-        outcomes = verify_method_run(
+        campaign = verify_method_campaign(
             method_run,
             campaign_id="t0-campaign",
             pair_key=PairKey(lineage, "eval_fixture_mut_01", 1),
             arm="t0",
+            ground_truth="positive",
+            property_family="logic",
+            model_tag="deterministic",
             case=case,
             symbols=symbols,
             executors=backend.executors(),
         )
 
-        self.assertEqual(len(outcomes), 8)
-        self.assertTrue(outcomes[0].verified_finding)
-        self.assertEqual(outcomes[0].stage_status("symbolic_search"), StageStatus.PASSED)
-        self.assertEqual(outcomes[0].stage_status("witness_check"), StageStatus.PASSED)
-        self.assertEqual(outcomes[0].stage_status("independent_replay"), StageStatus.PASSED)
-        self.assertIsNone(outcomes[1].verified_finding)
-        self.assertEqual(outcomes[1].stage_status("grounding"), StageStatus.NOT_APPLICABLE)
+        self.assertEqual(len(campaign.outcomes), 8)
+        self.assertTrue(campaign.outcomes[0].verified_finding)
+        self.assertEqual(campaign.outcomes[0].stage_status("symbolic_search"), StageStatus.PASSED)
+        self.assertEqual(campaign.outcomes[0].stage_status("witness_check"), StageStatus.PASSED)
+        self.assertEqual(campaign.outcomes[0].stage_status("independent_replay"), StageStatus.PASSED)
+        self.assertIsNone(campaign.outcomes[1].verified_finding)
+        self.assertEqual(campaign.outcomes[1].stage_status("grounding"), StageStatus.NOT_APPLICABLE)
+        metrics = compute_verification_metrics((campaign,))
+        self.assertEqual(metrics.verified_recall["t0|deterministic|logic"][1].value, 1.0)
 
 
 if __name__ == "__main__":

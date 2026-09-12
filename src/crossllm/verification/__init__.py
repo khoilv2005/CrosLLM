@@ -33,7 +33,7 @@ from .metrics import (
 )
 from .fixture import FixtureVerificationConfig, FixtureVerificationExecutors
 from .inputs import candidates_from_method_run
-from .runner import verify_candidates, verify_method_run
+from .runner import verify_candidates, verify_method_campaign, verify_method_run
 
 __all__ = [
     "ArchiveRoot",
@@ -72,6 +72,7 @@ __all__ = [
     "FixtureVerificationExecutors",
     "candidates_from_method_run",
     "verify_candidates",
+    "verify_method_campaign",
     "verify_method_run",
     "load_archives",
     "match_campaigns",
