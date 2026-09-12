@@ -101,6 +101,13 @@ class PairedVerificationAnalysisTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "input hash mismatch"):
             build_report(self.campaigns(), expected_input_hash="0" * 64)
 
+        second_model = replace(self.campaigns()[0], model_tag="other-model")
+        with self.assertRaisesRegex(ValueError, "multiple model_tag"):
+            build_report(self.campaigns() + (second_model,))
+        scoped = build_report(self.campaigns() + (second_model,), model_tag="test-model")
+        self.assertEqual(scoped["model_tag"], "test-model")
+        self.assertEqual(scoped["campaign_count"], len(self.campaigns()))
+
     def test_cli_writes_hash_bound_report(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

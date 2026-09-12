@@ -73,6 +73,8 @@ python scripts/build_paired_verification_analysis.py \
 per-prefix bundle contains the analysis JSON, eleven CSV tables and a manifest
 hash. This command is an analysis boundary only: it cannot promote proposal
 archives or unavailable verification stages into verified findings.
+If one input contains multiple model tags, pass `--model-tag`; otherwise the
+command aborts instead of mixing model-specific paired units.
 
 When the verification runner has archived timing data, the report also
 contains `resource_metrics`: provider input/output tokens, transport time,

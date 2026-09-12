@@ -46,10 +46,22 @@ def build_report(
     horizon_seconds: float = 3600.0,
     expected_input_hash: str | None = None,
     bundle_out: Path | None = None,
+    model_tag: str | None = None,
 ) -> dict[str, object]:
     """Build metrics, analysis rows and paired effects without side effects."""
 
     rows = tuple(campaigns)
+    model_tags = tuple(sorted({campaign.model_tag for campaign in rows}))
+    if model_tag is not None:
+        if not model_tag.strip():
+            raise ValueError("model_tag must be non-empty")
+        rows = tuple(campaign for campaign in rows if campaign.model_tag == model_tag)
+        if not rows:
+            raise ValueError(f"model_tag {model_tag!r} is absent from verification campaigns")
+    elif len(model_tags) > 1:
+        raise ValueError(
+            "verification input contains multiple model_tag values; pass --model-tag to keep paired effects model-scoped"
+        )
     normalized_prefixes = _normalize_prefixes(prefixes)
     _validate_comparisons(comparisons)
     metrics = compute_verification_metrics(rows, prefixes=normalized_prefixes)
@@ -103,6 +115,7 @@ def build_report(
         "record_type": "paired_verification_analysis",
         "scope": "shared_verification_outcomes_only",
         "campaign_count": len(rows),
+        "model_tag": rows[0].model_tag if rows and len({row.model_tag for row in rows}) == 1 else None,
         "methods": list(methods),
         "prefixes": list(normalized_prefixes),
         "comparisons": [list(pair) for pair in comparisons],
@@ -277,6 +290,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--horizon-seconds", type=float, default=3600.0)
     parser.add_argument("--expected-input-hash", default=None, help="abort unless the frozen verification input has this SHA-256")
     parser.add_argument("--bundle-out", type=Path, default=None, help="optional directory for per-prefix analysis bundles")
+    parser.add_argument("--model-tag", default=None, help="select one model tag when the input contains multiple models")
     args = parser.parse_args(argv)
     campaigns = load_verification_campaigns(args.input)
     report = build_report(
@@ -288,6 +302,7 @@ def main(argv: list[str] | None = None) -> int:
         horizon_seconds=args.horizon_seconds,
         expected_input_hash=args.expected_input_hash,
         bundle_out=args.bundle_out,
+        model_tag=args.model_tag,
     )
     write_report(report, args.out)
     print(json.dumps({
