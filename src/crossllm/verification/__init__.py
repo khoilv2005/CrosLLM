@@ -34,6 +34,7 @@ from .metrics import (
 from .fixture import FixtureVerificationConfig, FixtureVerificationExecutors
 from .inputs import candidates_from_method_run
 from .runner import verify_candidates, verify_method_campaign, verify_method_run
+from .timing import MethodTiming, TimingObservation, summarize_method_timing
 
 __all__ = [
     "ArchiveRoot",
@@ -74,6 +75,9 @@ __all__ = [
     "verify_candidates",
     "verify_method_campaign",
     "verify_method_run",
+    "MethodTiming",
+    "TimingObservation",
+    "summarize_method_timing",
     "load_archives",
     "match_campaigns",
 ]

@@ -479,7 +479,7 @@ Phụ thuộc: Phase C, M09. Đầu ra: `scripts/run_verification_stage.py`, `sc
 - [ ] **V11.26** Chạy matched negatives/patched controls qua cùng backend, bounds, timeout và adapter revision.
 - [x] **V11.27** Tính false-alert rate và FDP với denominator công khai; provider failure/unsupported/unknown không được đổi thành no-alert. Metrics contract có explicit campaign availability và test false-alert/FDP cùng test unknown-control missingness; kết quả trên raw verification vẫn pending.
 - [x] **V11.28** Xuất stage denominators cho từng method, model, arm, lineage, property family, prefix và case cohort. `VerificationMetrics.scoped_stage_denominators` bổ sung các scope key có prefix; campaign availability và stage status được đếm riêng, missingness không bị chuyển thành zero.
-- [ ] **V11.29** Tách proposal token/latency, symbolic time, witness time, replay time và total wall time; không cộng dồn hoặc so sánh khác định nghĩa.
+- [x] **V11.29** Tách proposal token/latency, symbolic time, witness time, replay time và total wall time; không cộng dồn hoặc so sánh khác định nghĩa. `summarize_method_timing()` xuất provider token/request/Ollama duration riêng với từng `StageResult.elapsed_seconds`, tổng stage và caller-supplied wall time; thiếu số liệu giữ `null`/missing, T0 là not-applicable.
 - [ ] **V11.30** Chạy gpt-oss vertical slice trước, sau đó toàn bộ 720 matched pairs nếu runtime coverage đủ; Qwen/DeepSeek chỉ đổi input archive.
 
 Nghiệm thu: report có số `known`, `missing`, `unsupported`, `timeout`, `verified_hits`, `false_alerts`; có thể truy ngược từng hit về archive slot, witness và replay receipt.
