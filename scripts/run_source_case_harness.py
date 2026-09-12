@@ -69,6 +69,7 @@ def _docker_command(
     *,
     test_path: str,
     match_test: str | None = None,
+    operation: str = "test",
     container_name: str = "crossllm-source-case",
 ) -> list[str]:
     if "@sha256:" not in image:
@@ -77,6 +78,8 @@ def _docker_command(
         raise ValueError("test_path must be a safe workspace-relative path")
     if match_test is not None and re.fullmatch(r"[A-Za-z0-9_.*?\-]+", match_test) is None:
         raise ValueError("match_test contains unsupported characters")
+    if operation not in {"build", "test"}:
+        raise ValueError("operation must be build or test")
     command = [
         "docker", "run", "--rm", "--name", container_name,
         "--read-only", "--cap-drop=ALL", "--security-opt=no-new-privileges",
@@ -88,11 +91,12 @@ def _docker_command(
         "--mount", f"type=bind,source={workspace.resolve()},target=/work,readonly",
         "--workdir", "/work",
         "--entrypoint", "/usr/local/bin/forge",
-        image, "test", "--root", "/work", "--out", "/tmp/crossllm-out",
-        "--cache-path", "/tmp/crossllm-cache", "--match-path", test_path,
-        "--json",
+        image, operation, "--root", "/work", "--out", "/tmp/crossllm-out",
+        "--cache-path", "/tmp/crossllm-cache",
     ]
-    if match_test is not None:
+    if operation == "test":
+        command.extend(("--match-path", test_path, "--json"))
+    if operation == "test" and match_test is not None:
         command.extend(("--match-test", match_test))
     return command
 
@@ -105,36 +109,63 @@ def run_harness(
     match_test: str | None,
     timeout_seconds: float,
 ) -> tuple[str, int | None, bytes, bytes, str | None]:
-    container_name = f"crossllm-source-case-{os.getpid()}"
-    command = _docker_command(
-        workspace, image, test_path=test_path, match_test=match_test,
-        container_name=container_name,
-    )
-    try:
-        completed = subprocess.run(
-            command,
-            cwd=workspace,
-            capture_output=True,
-            timeout=timeout_seconds,
-            check=False,
+    stdout_parts: list[bytes] = []
+    stderr_parts: list[bytes] = []
+    # Run an explicit compile probe before the test probe.  Each container
+    # keeps source read-only and uses disposable in-container tmpfs output;
+    # this avoids Windows bind-mount filesystem behavior affecting the
+    # source execution result.  The compile receipt remains separate from
+    # the test receipt because a successful build is not a passed test.
+    for operation in ("build", "test"):
+        container_name = f"crossllm-source-case-{os.getpid()}-{operation}"
+        command = _docker_command(
+            workspace,
+            image,
+            test_path=test_path,
+            match_test=match_test,
+            operation=operation,
+            container_name=container_name,
         )
-    except subprocess.TimeoutExpired as error:
-        stdout = error.stdout if isinstance(error.stdout, bytes) else str(error.stdout or "").encode()
-        stderr = error.stderr if isinstance(error.stderr, bytes) else str(error.stderr or "").encode()
-        # ``subprocess.run(timeout=...)`` does not terminate a child Docker
-        # container.  Remove only the exact container created by this probe so
-        # a dropped worker cannot accumulate orphaned Foundry processes.
-        subprocess.run(
-            ["docker", "rm", "-f", container_name],
-            capture_output=True,
-            timeout=10,
-            check=False,
-        )
-        return "timeout", None, stdout, stderr, "foundry_test_timeout"
-    except OSError as error:
-        return "tool_error", None, b"", str(error).encode(), f"docker_start_failure:{error}"
-    status = "pass" if completed.returncode == 0 else "fail"
-    return status, completed.returncode, completed.stdout, completed.stderr, None
+        try:
+            completed = subprocess.run(
+                command,
+                cwd=workspace,
+                capture_output=True,
+                timeout=timeout_seconds,
+                check=False,
+            )
+        except subprocess.TimeoutExpired as error:
+            stdout = error.stdout if isinstance(error.stdout, bytes) else str(error.stdout or "").encode()
+            stderr = error.stderr if isinstance(error.stderr, bytes) else str(error.stderr or "").encode()
+            stdout_parts.append(stdout)
+            stderr_parts.append(stderr)
+            # ``subprocess.run(timeout=...)`` does not terminate a child
+            # Docker container.  Remove only the exact container created
+            # by this probe so a dropped worker cannot accumulate one.
+            try:
+                subprocess.run(
+                    ["docker", "rm", "-f", container_name],
+                    capture_output=True,
+                    timeout=10,
+                    check=False,
+                )
+            except (OSError, subprocess.TimeoutExpired):
+                pass
+            return "timeout", None, b"".join(stdout_parts), b"".join(stderr_parts), f"foundry_{operation}_timeout"
+        except OSError as error:
+            stderr_parts.append(str(error).encode())
+            return "tool_error", None, b"".join(stdout_parts), b"".join(stderr_parts), f"docker_start_failure:{error}"
+        stdout_parts.append(completed.stdout)
+        stderr_parts.append(completed.stderr)
+        if completed.returncode != 0:
+            return (
+                "fail",
+                completed.returncode,
+                b"".join(stdout_parts),
+                b"".join(stderr_parts),
+                f"foundry_{operation}_failed",
+            )
+    return "pass", 0, b"".join(stdout_parts), b"".join(stderr_parts), None
 
 
 def run_case(

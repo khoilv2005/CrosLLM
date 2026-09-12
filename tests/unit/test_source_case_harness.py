@@ -1,5 +1,7 @@
 import json
+import os
 from pathlib import Path
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -29,20 +31,52 @@ class SourceCaseHarnessTests(unittest.TestCase):
         self.assertIn("test_normal_workflow", command)
         self.assertEqual(command.count("--network"), 0)
 
-    def test_nonzero_foundry_test_is_not_a_pass(self) -> None:
+    def test_nonzero_foundry_build_is_not_a_pass(self) -> None:
         class Completed:
-            returncode = 1
-            stdout = b"stdout"
-            stderr = b"stderr"
+            def __init__(self, returncode: int, stdout: bytes = b"", stderr: bytes = b""):
+                self.returncode = returncode
+                self.stdout = stdout
+                self.stderr = stderr
 
         with tempfile.TemporaryDirectory() as directory:
-            with patch("scripts.run_source_case_harness.subprocess.run", return_value=Completed()):
+            with patch(
+                "scripts.run_source_case_harness.subprocess.run",
+                side_effect=[Completed(1, b"stdout", b"stderr")],
+            ) as run:
                 result = run_harness(
                     Path(directory), image="forge@sha256:" + "b" * 64,
                     test_path="test/Replay.t.sol", match_test=None, timeout_seconds=1,
                 )
         self.assertEqual(result[0], "fail")
         self.assertEqual(result[1], 1)
+        self.assertEqual(run.call_count, 1)
+
+    def test_timeout_removes_only_the_named_probe_container(self) -> None:
+        class Completed:
+            def __init__(self, returncode: int, stdout: bytes = b"", stderr: bytes = b""):
+                self.returncode = returncode
+                self.stdout = stdout
+                self.stderr = stderr
+
+        with tempfile.TemporaryDirectory() as directory:
+            with patch(
+                "scripts.run_source_case_harness.subprocess.run",
+                side_effect=[
+                    Completed(0),
+                    subprocess.TimeoutExpired(["docker", "run"], 1),
+                    Completed(0),
+                ],
+            ) as run:
+                result = run_harness(
+                    Path(directory), image="forge@sha256:" + "b" * 64,
+                    test_path="test/Replay.t.sol", match_test="test_case", timeout_seconds=1,
+                )
+        self.assertEqual(result[0], "timeout")
+        self.assertEqual(result[4], "foundry_test_timeout")
+        self.assertEqual(
+            run.call_args_list[-1].args[0],
+            ["docker", "rm", "-f", f"crossllm-source-case-{os.getpid()}-test"],
+        )
 
     def test_probe_report_is_not_candidate_verification(self) -> None:
         report = _report(

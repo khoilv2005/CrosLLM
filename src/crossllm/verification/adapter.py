@@ -15,7 +15,7 @@ from typing import Any, Mapping
 
 from ..artifacts import ArtifactSymbol, extract_storage_symbols
 from ..contracts.canonical import sha256_hex
-from ..xlir import XLIRCompiler
+from ..xlir import XLIRCompiler, XLIRLowerer
 from ..xlir.model import (
     Binary,
     BoundRef,
@@ -148,6 +148,23 @@ class RuntimeCandidateAdapter:
                 candidate, AdapterStatus.UNSUPPORTED, invariant.canonical_hash, invariant,
                 tuple(resolved), tuple(failures), None,
             )
+        lowered = XLIRLowerer().lower(
+            invariant,
+            trace_length=_trace_length(self.bounds),
+        )
+        if not lowered.ok or lowered.ir is None:
+            lowering_diagnostics = tuple(
+                f"{item.code}:{item.path}:{item.message}" for item in lowered.diagnostics
+            )
+            return RuntimeCandidatePlan(
+                candidate,
+                AdapterStatus.UNSUPPORTED,
+                invariant.canonical_hash,
+                invariant,
+                tuple(resolved),
+                ("xlir_lowering_failed", *lowering_diagnostics),
+                None,
+            )
         bound_actions = tuple(action for action in self.case.actions if action.status is BindingStatus.BOUND)
         executable_actions = tuple(action for action in bound_actions if action.executable)
         if not bound_actions:
@@ -169,6 +186,8 @@ class RuntimeCandidateAdapter:
             "runtime_hash": self.case.runtime.runtime_hash,
             "canonical_ast_hash": invariant.canonical_hash,
             "predicate": invariant.body.as_dict(),
+            "predicate_lowering": lowered.ir.as_dict(),
+            "symbol_bindings": [binding.as_dict() for binding in resolved],
             "actions": [action.as_dict() for action in bound_actions],
             "executable_action_ids": [action.action_id for action in executable_actions],
             "unsupported_action_ids": [action.action_id for action in bound_actions if not action.executable],
@@ -182,6 +201,7 @@ class RuntimeCandidateAdapter:
             "initial_state_hash": sha256_hex(self.case.runtime.initial_state),
             "source_domain": self.case.runtime.source_domain,
             "destination_domain": self.case.runtime.destination_domain,
+            "observation_points": list(self.case.runtime.observation_points),
             "actors": dict(self.case.runtime.actors),
             "initial_state": dict(self.case.runtime.initial_state),
         }
@@ -242,6 +262,20 @@ def _symbol_references(expression: Expression) -> tuple[SymbolRef, ...]:
 
     visit(expression)
     return tuple(found[key] for key in sorted(found))
+
+
+def _trace_length(bounds: Mapping[str, Any]) -> int | None:
+    """Read the optional finite trace bound without inventing a default.
+
+    Non-temporal predicates do not need a trace length.  Temporal predicates
+    must receive an explicit positive bound so the source executor and any
+    independent backend lower the same finite query.
+    """
+
+    value = bounds.get("trace_length")
+    if value is None:
+        return None
+    return value  # XLIRLowerer performs the strict type/range validation.
 
 
 __all__ = [

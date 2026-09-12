@@ -121,6 +121,11 @@ class RuntimeBindingTests(unittest.TestCase):
         self.assertEqual(plan.status, AdapterStatus.GROUNDED)
         self.assertIsNotNone(plan.canonical_ast_hash)
         self.assertIsNotNone(plan.search_request)
+        self.assertIn("predicate_lowering", plan.search_request)
+        self.assertEqual(len(plan.search_request["predicate_lowering"]["invariant_hash"]), 64)
+        self.assertIsNone(plan.search_request["predicate_lowering"]["trace_length"])
+        self.assertEqual(len(plan.search_request["symbol_bindings"]), 1)
+        self.assertEqual(plan.search_request["observation_points"], ["balance"])
         self.assertFalse(plan.executable)
 
     def test_source_harness_can_defer_dynamic_addresses_explicitly(self) -> None:
