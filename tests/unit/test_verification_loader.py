@@ -114,6 +114,14 @@ class VerificationLoaderTests(unittest.TestCase):
                     ArchiveRoot("cross-b", second),
                 ))
 
+    def test_duplicate_pair_arm_is_rejected_even_when_campaign_ids_differ(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "cross"
+            _write(root, "first", _archive("first", method="crossllm_e2e"))
+            _write(root, "second", _archive("second", method="crossllm_e2e"))
+            with self.assertRaisesRegex(ArchiveValidationError, "duplicate pair/arm"):
+                load_archives({"crossllm": root})
+
     def test_planned_ids_reject_unknown_campaign(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory) / "cross"

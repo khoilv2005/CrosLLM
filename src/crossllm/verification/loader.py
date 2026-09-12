@@ -70,6 +70,7 @@ def load_archives(
     archive_roots = _normalize_roots(roots)
     campaigns: list[CampaignArchive] = []
     seen_ids: dict[str, Path] = {}
+    seen_pair_arms: dict[tuple[PairKey, str], Path] = {}
     for root in archive_roots:
         if not root.path.is_dir():
             continue
@@ -82,7 +83,16 @@ def load_archives(
                 raise ArchiveValidationError(
                     f"duplicate campaign_id {archive.campaign_id!r}: {previous} and {path}"
                 )
+            pair_arm = (archive.pair_key, archive.arm)
+            previous_pair = seen_pair_arms.get(pair_arm)
+            if previous_pair is not None:
+                raise ArchiveValidationError(
+                    "duplicate pair/arm "
+                    f"{archive.pair_key.as_dict()} arm={archive.arm!r}: "
+                    f"{previous_pair} and {path}"
+                )
             seen_ids[archive.campaign_id] = path
+            seen_pair_arms[pair_arm] = path
             campaigns.append(archive)
     campaigns.sort(key=lambda row: (row.pair_key, row.arm, row.campaign_id))
     return VerificationDataset(tuple(campaigns), archive_roots)
