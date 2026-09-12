@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/source_case_compilation.schema.json",
+  "title": "CrossLLM source-case compilation preflight",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "scope", "gold_fields_read",
+    "candidate_search_run", "witness_check_run", "independent_replay_run",
+    "manifest_path", "manifest_sha256", "foundry_image", "timeout_seconds",
+    "case_count", "counts", "per_lineage", "status", "cases", "report_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "source_case_compilation"},
+    "scope": {"const": "source_case_compile_preflight_only"},
+    "gold_fields_read": {"const": false},
+    "candidate_search_run": {"const": false},
+    "witness_check_run": {"const": false},
+    "independent_replay_run": {"const": false},
+    "manifest_path": {"type": "string", "minLength": 1},
+    "manifest_sha256": {"$ref": "#/$defs/sha256"},
+    "foundry_image": {"type": "string", "pattern": "@sha256:[0-9a-fA-F]{64}$"},
+    "timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "case_count": {"type": "integer", "minimum": 0},
+    "counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "per_lineage": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {"type": "integer", "minimum": 0}
+      }
+    },
+    "status": {"enum": ["pass", "blocked"]},
+    "cases": {"type": "array", "items": {"$ref": "#/$defs/case"}},
+    "report_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lineage_id", "case_id", "status", "exit_code", "stdout_sha256", "stderr_sha256", "reason"],
+      "properties": {
+        "lineage_id": {"type": "string", "minLength": 1},
+        "case_id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["compile_pass", "compile_fail", "timeout", "tool_error", "input_error"]},
+        "exit_code": {"type": ["integer", "null"]},
+        "stdout_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "stderr_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "reason": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
