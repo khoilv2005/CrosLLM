@@ -548,3 +548,30 @@ Checklist trước khi chạy toàn bộ verification:
 | Paired metrics chưa có đầu vào hợp lệ | Chưa có verification outcomes | Hoàn tất V11.38–V11.44 |
 
 Không được đóng blocker bằng cách đổi `score_eligible`, gọi grounded proposal là verified, dùng trace gold có sẵn làm output của model hoặc gán unsupported thành no-alert. Mỗi mục chỉ đánh dấu hoàn thành khi có code, test và report tương ứng.
+
+### 11.11. Đối chiếu các thực nghiệm được yêu cầu
+
+Bảng này tách ba trạng thái: `Có trong plan` nghĩa là đã có work item; `code/rehearsal` nghĩa là mới có contract, fixture hoặc dry-run; `final result` chỉ được ghi khi chạy trên corpus/harness mục tiêu và có raw evidence đủ cho metric.
+
+| Thực nghiệm | Work item trong plan | Hiện trạng chính xác | Còn cần để gọi là kết quả |
+|---|---|---|---|
+| T0 fixed-template proposer | V11.31–V11.37 | Có code và shared-pipeline fixture pass; chưa chạy corpus chính thức | Chạy T0 trên cùng cohort/prefix với X/P và xuất ablation |
+| Historical rediscovery | M02.08 | Có review ancestry/candidate; chưa có run rediscovery riêng | Khóa historical input, chạy archive và report rediscovery |
+| Sealed-positive verified discovery | V11.13–V11.30 | Có adapter/pipeline/metrics contract; chưa có source-backed final outcomes | EVM search + witness + independent replay trên positives |
+| Matched negative controls | V11.26–V11.27 | Có denominator/FDP code và fixture test; chưa có corpus false-alert result | Chạy mutant/control pairs cùng backend |
+| Symbolic witness search | V11.16–V11.18 | Paired-fixture development path đã pass; source-backed search còn pending | Nối predicate với runtime/harness thật và lưu SAT/UNSAT/UNKNOWN |
+| Independent witness checker | V11.19–V11.20, M05.03 | Có callback contract và EVM replay boundary; chưa có candidate-specific final receipt | Independent clean-state checker + trace/deployment identity |
+| Concrete replay | M05.03, V11.20 | Có Foundry replay rehearsal cho host; chưa được nối thành final candidate outcome | Replay từng witness và bind result về campaign/slot |
+| Security adjudication | M09.01–M09.03, M09.09 | Có schema/rehearsal; dùng Owner + Codex self-check theo quyết định hiện tại, không có reviewer thứ ba | Owner acceptance và reconciliation trên findings thật |
+| Native static/dynamic analyzers | M07.01 | Chưa có adapter/result run đủ scope | Slither/ItyFuzz (hoặc analyzer đã chốt) + normalized evidence |
+| Gold-property diagnostic ceiling | M07.05 | Có vị trí trong plan, chưa chạy | Chỉ chạy sau primary outputs freeze |
+| hevm / Halmos / Echidna track | M07.03 | Có work item, chưa có conditioned run | Common harness, independent property và effort accounting |
+| Learned proposer vs T0 | M07.05, V11.37 | Shared T0 path đã sẵn sàng; ablation chưa chạy | Paired run và effect/CI |
+| Typed macros vs generic typed core | M07.05 | Chưa có ablation result | Giữ cùng expressiveness/budget rồi chạy paired comparison |
+| Early vs deferred grounding | M07.05 | Chưa có ablation result | Dùng cùng stored proposal pool và chỉ đổi thời điểm grounding |
+| Replay filtering ablation | M07.05 | Chưa có ablation result | Dùng cùng symbolic candidate pool, bật/tắt filter |
+| Sensitivity / search-bound study | M07.06–M07.07 | Matrix/rehearsal đã freeze; chưa có eligibility/result cells | Chạy subset 24 và các bounds/timeout/profile đã khóa |
+| Lineage-bootstrap / Holm tests | M09.04–M09.05 | Estimator và synthetic rehearsal có; chưa có final evaluation input | Nạp verified campaign outcomes rồi freeze inference bundle |
+| RMTTW / Kaplan–Meier | M09.07 | Estimator/KM plumbing có; chưa có valid witness timing | Có event/censor time từ source-backed verification thật |
+
+Vì vậy, kế hoạch đã bao phủ hầu hết các track nêu trên, nhưng hiện tại chưa track nào được gọi là `final result` chỉ dựa vào proposal archive. Các mục còn thiếu tập trung ở source-backed execution/evidence và các run ablation/baseline; không phải thiếu thêm model archive.
