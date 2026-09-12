@@ -1,4 +1,5 @@
 import json
+from dataclasses import replace
 from pathlib import Path
 import tempfile
 import unittest
@@ -151,6 +152,7 @@ class RuntimeBindingTests(unittest.TestCase):
     def test_shared_pipeline_can_verify_only_after_all_common_stages_pass(self) -> None:
         root, lineage = self._fixture()
         case = load_case_runtime(root, lineage, "eval_fixture_mut_01")
+        case = replace(case, missing_fields=())
 
         def passed(name: str, evidence: dict[str, object] | None = None):
             return lambda _plan: StageResult(name, StageStatus.PASSED, evidence=evidence)
@@ -162,6 +164,34 @@ class RuntimeBindingTests(unittest.TestCase):
         )
         outcome = SharedVerificationPipeline(case, public_xlir_symbols(root, lineage), executors=executors).verify(self._candidate(lineage))
         self.assertTrue(outcome.verified_finding)
+
+    def test_grounded_but_non_executable_runtime_never_reaches_stage_callbacks(self) -> None:
+        root, lineage = self._fixture()
+        case = load_case_runtime(root, lineage, "eval_fixture_mut_01")
+        called: list[str] = []
+
+        def forbidden(name: str):
+            def callback(_plan):
+                called.append(name)
+                return StageResult(name, StageStatus.PASSED, evidence={
+                    "candidate_violation": True,
+                    "property_holds": True,
+                    "security_relevance": True,
+                })
+            return callback
+
+        outcome = SharedVerificationPipeline(
+            case,
+            public_xlir_symbols(root, lineage),
+            executors=VerificationExecutors(
+                symbolic_search=forbidden("symbolic_search"),
+                witness_check=forbidden("witness_check"),
+                independent_replay=forbidden("independent_replay"),
+            ),
+        ).verify(self._candidate(lineage))
+        self.assertEqual(called, [])
+        self.assertEqual(outcome.stage_status("symbolic_search"), StageStatus.UNSUPPORTED)
+        self.assertFalse(outcome.verified_finding is True)
 
     def test_shared_pipeline_resume_uses_cache_without_rerunning_stages(self) -> None:
         root, lineage = self._fixture()

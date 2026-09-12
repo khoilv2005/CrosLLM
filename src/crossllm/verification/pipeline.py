@@ -67,6 +67,17 @@ class SharedVerificationPipeline:
         }
         if stages[0].status is not StageStatus.PASSED:
             stages.extend(StageResult(name, StageStatus.NOT_APPLICABLE, "grounding_not_passed") for name in self._DOWNSTREAM)
+        elif not plan.executable:
+            # A typed predicate may be grounded while the case is still missing
+            # addresses, actors, initialization, selectors, or other runtime
+            # bindings.  Such a plan is useful audit output, but it must never
+            # reach a backend callback that could accidentally turn metadata
+            # coverage into an executable finding.
+            stages.append(StageResult("symbolic_search", StageStatus.UNSUPPORTED, "runtime_binding_not_execution_ready"))
+            stages.extend(
+                StageResult(name, StageStatus.NOT_APPLICABLE, "symbolic_search_not_passed")
+                for name in self._DOWNSTREAM[1:]
+            )
         else:
             for name in self._DOWNSTREAM:
                 stage = self._run_stage(name, plan)
