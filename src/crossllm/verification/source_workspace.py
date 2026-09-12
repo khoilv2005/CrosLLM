@@ -15,7 +15,7 @@ deliberately outside this boundary.
 from __future__ import annotations
 
 from contextlib import contextmanager
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import hashlib
 import json
 from pathlib import Path
@@ -39,6 +39,7 @@ class SourceCaseIdentity:
     test_path: str
     test_sha256: str
     upstream_source_path: str
+    harness_source_path: str = ""
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -52,6 +53,7 @@ class SourceCaseIdentity:
             "test_path": self.test_path,
             "test_sha256": self.test_sha256,
             "upstream_source_path": self.upstream_source_path,
+            "harness_source_path": self.harness_source_path,
         }
 
 
@@ -71,6 +73,41 @@ def materialize_source_case_workspace(
     escape the repository/case roots through an absolute or ``..`` path.
     """
 
+    harness_root, resolved_case_root, identity, source, test = _load_case_inputs(
+        repo_root, lineage_id, case_id, case_root=case_root,
+    )
+
+    with tempfile.TemporaryDirectory(prefix=f"crossllm-source-{lineage_id}-") as temporary:
+        workspace = Path(temporary) / "harness"
+        shutil.copytree(harness_root, workspace, ignore=_ignore_build_products)
+        copied_source = _under_root(workspace / _safe_relative(identity.harness_source_path), workspace)
+        copied_test = _test_target(workspace, identity.test_path)
+        copied_source.parent.mkdir(parents=True, exist_ok=True)
+        copied_test.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, copied_source)
+        shutil.copyfile(test, copied_test)
+        yield workspace, identity
+
+
+def load_source_case_identity(
+    repo_root: Path,
+    lineage_id: str,
+    case_id: str,
+    *,
+    case_root: Path | None = None,
+) -> SourceCaseIdentity:
+    """Validate one public source-case bundle without materializing it."""
+
+    return _load_case_inputs(repo_root, lineage_id, case_id, case_root=case_root)[2]
+
+
+def _load_case_inputs(
+    repo_root: Path,
+    lineage_id: str,
+    case_id: str,
+    *,
+    case_root: Path | None,
+) -> tuple[Path, Path, SourceCaseIdentity, Path, Path]:
     root = Path(repo_root).resolve()
     harness_root = _under_root(root / "dataset" / "harness" / lineage_id, root)
     resolved_case_root = _under_root(
@@ -82,8 +119,9 @@ def materialize_source_case_workspace(
     test = _case_file(resolved_case_root, identity.test_path, "test")
     _check_sha256(source, identity.source_sha256, "case source")
     _check_sha256(test, identity.test_sha256, "paired harness test")
-
-    target_source = _under_root(harness_root / _safe_relative(identity.upstream_source_path), harness_root)
+    harness_source_path = _resolve_harness_source_path(harness_root, identity.upstream_source_path)
+    identity = replace(identity, harness_source_path=harness_source_path)
+    target_source = _under_root(harness_root / _safe_relative(harness_source_path), harness_root)
     target_test = _test_target(harness_root, identity.test_path)
     if not harness_root.is_dir():
         raise FileNotFoundError(f"source harness directory is missing: {harness_root}")
@@ -91,17 +129,31 @@ def materialize_source_case_workspace(
         raise FileNotFoundError(f"locked source target directory is missing: {target_source.parent}")
     if not target_test.parent.is_dir():
         raise FileNotFoundError(f"harness test target directory is missing: {target_test.parent}")
+    return harness_root, resolved_case_root, identity, source, test
 
-    with tempfile.TemporaryDirectory(prefix=f"crossllm-source-{lineage_id}-") as temporary:
-        workspace = Path(temporary) / "harness"
-        shutil.copytree(harness_root, workspace, ignore=_ignore_build_products)
-        copied_source = _under_root(workspace / _safe_relative(identity.upstream_source_path), workspace)
-        copied_test = _test_target(workspace, identity.test_path)
-        copied_source.parent.mkdir(parents=True, exist_ok=True)
-        copied_test.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, copied_source)
-        shutil.copyfile(test, copied_test)
-        yield workspace, identity
+
+def _resolve_harness_source_path(harness_root: Path, upstream_source_path: str) -> str:
+    """Map repository source paths to the harness layout without guessing."""
+
+    manifest_path = harness_root / "source_manifest.json"
+    if manifest_path.is_file():
+        manifest = _read_object(manifest_path)
+        entries = manifest.get("upstream_harness_files")
+        if isinstance(entries, list):
+            matches = [
+                item.get("harness_path")
+                for item in entries
+                if isinstance(item, Mapping) and item.get("source_path") == upstream_source_path
+            ]
+            if len(matches) > 1:
+                raise ValueError(f"source manifest maps {upstream_source_path!r} more than once")
+            if matches:
+                mapped = matches[0]
+                if not isinstance(mapped, str) or not mapped:
+                    raise ValueError("source manifest has an invalid harness_path")
+                _safe_relative(mapped)
+                return mapped.replace("\\", "/")
+    return upstream_source_path
 
 
 def _read_identity(case_root: Path, lineage_id: str, case_id: str) -> SourceCaseIdentity:
@@ -217,4 +269,4 @@ def _ignore_build_products(_directory: str, names: list[str]) -> set[str]:
     return {name for name in names if name in _BUILD_PRODUCT_NAMES}
 
 
-__all__ = ["SourceCaseIdentity", "materialize_source_case_workspace"]
+__all__ = ["SourceCaseIdentity", "load_source_case_identity", "materialize_source_case_workspace"]

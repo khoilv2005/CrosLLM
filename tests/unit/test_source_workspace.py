@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from crossllm.verification.source_workspace import materialize_source_case_workspace
+from crossllm.verification.source_workspace import load_source_case_identity, materialize_source_case_workspace
 
 
 class SourceWorkspaceTests(unittest.TestCase):
@@ -38,6 +38,8 @@ class SourceWorkspaceTests(unittest.TestCase):
 
     def test_materializes_clean_workspace_and_overlays_case_files(self) -> None:
         root, case = self._fixture()
+        identity = load_source_case_identity(root, "demo", "case_01")
+        self.assertEqual(identity.source_path, "runtime/source/Bridge.sol")
         with materialize_source_case_workspace(root, "demo", "case_01") as (workspace, identity):
             self.assertEqual(identity.case_id, "case_01")
             self.assertEqual((workspace / "contracts" / "Bridge.sol").read_text(encoding="utf-8"), "contract MutatedBridge {}\n")
@@ -54,6 +56,21 @@ class SourceWorkspaceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             with materialize_source_case_workspace(root, "demo", "case_01"):
                 pass
+
+    def test_uses_source_manifest_mapping_for_prefixed_repositories(self) -> None:
+        root, case = self._fixture()
+        (root / "dataset" / "harness" / "demo" / "source_manifest.json").write_text(json.dumps({
+            "upstream_harness_files": [{
+                "source_path": "upstream/contracts/Bridge.sol",
+                "harness_path": "contracts/Bridge.sol",
+            }],
+        }), encoding="utf-8")
+        identity = json.loads((case / "source_identity.json").read_text(encoding="utf-8"))
+        identity["upstream_source_path"] = "upstream/contracts/Bridge.sol"
+        (case / "source_identity.json").write_text(json.dumps(identity), encoding="utf-8")
+        with materialize_source_case_workspace(root, "demo", "case_01") as (workspace, resolved):
+            self.assertEqual(resolved.harness_source_path, "contracts/Bridge.sol")
+            self.assertEqual((workspace / "contracts" / "Bridge.sol").read_text(encoding="utf-8"), "contract MutatedBridge {}\n")
 
     def test_rejects_source_hash_mismatch(self) -> None:
         root, case = self._fixture()

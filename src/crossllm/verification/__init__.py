@@ -36,6 +36,7 @@ from .inputs import candidates_from_method_run
 from .runner import verify_candidates, verify_method_campaign, verify_method_run
 from .timing import MethodTiming, TimingObservation, summarize_campaign_archive_timing, summarize_method_timing
 from .source import SourceBackedVerificationExecutors, SourceCommandSpec
+from .source_workspace import SourceCaseIdentity, load_source_case_identity, materialize_source_case_workspace
 
 __all__ = [
     "ArchiveRoot",
@@ -82,6 +83,9 @@ __all__ = [
     "summarize_method_timing",
     "SourceBackedVerificationExecutors",
     "SourceCommandSpec",
+    "SourceCaseIdentity",
+    "load_source_case_identity",
+    "materialize_source_case_workspace",
     "load_archives",
     "match_campaigns",
 ]
