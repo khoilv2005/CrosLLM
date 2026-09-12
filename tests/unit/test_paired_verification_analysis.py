@@ -97,6 +97,9 @@ class PairedVerificationAnalysisTests(unittest.TestCase):
         self.assertIsNone(t0.detected)
         self.assertEqual(t0.availability.value, "unknown")
 
+        with self.assertRaisesRegex(ValueError, "input hash mismatch"):
+            build_report(self.campaigns(), expected_input_hash="0" * 64)
+
     def test_cli_writes_hash_bound_report(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -136,13 +139,17 @@ class PairedVerificationAnalysisTests(unittest.TestCase):
                 })
             source.write_text("\n".join(json.dumps(row) for row in rows) + "\n", encoding="utf-8")
             output = root / "analysis.json"
+            bundle = root / "bundle"
             self.assertEqual(main([
-                "--input", str(source), "--out", str(output), "--compare", "crossllm", "direct", "--draws", "5",
+                "--input", str(source), "--out", str(output), "--bundle-out", str(bundle),
+                "--compare", "crossllm", "direct", "--draws", "5",
             ]), 0)
             payload = json.loads(output.read_text(encoding="utf-8"))
             self.assertEqual(payload["record_type"], "paired_verification_analysis")
             self.assertEqual(len(payload["report_hash"]), 64)
             self.assertEqual(payload["campaign_count"], len(rows))
+            self.assertEqual(len(payload["bundle"]["manifests"]), 4)
+            self.assertTrue((bundle / "prefix-8" / "manifest.json").is_file())
 
 
 if __name__ == "__main__":

@@ -16,6 +16,7 @@ is required.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -42,6 +43,8 @@ def build_report(
     draws: int = 10_000,
     seed: int = 0,
     horizon_seconds: float = 3600.0,
+    expected_input_hash: str | None = None,
+    bundle_out: Path | None = None,
 ) -> dict[str, object]:
     """Build metrics, analysis rows and paired effects without side effects."""
 
@@ -49,8 +52,13 @@ def build_report(
     normalized_prefixes = _normalize_prefixes(prefixes)
     _validate_comparisons(comparisons)
     metrics = compute_verification_metrics(rows, prefixes=normalized_prefixes)
+    if expected_input_hash is not None and metrics.input_hash != expected_input_hash:
+        raise ValueError(
+            f"verification input hash mismatch: expected {expected_input_hash}, got {metrics.input_hash}"
+        )
     methods = tuple(sorted({campaign.arm for campaign in rows}))
     by_prefix: dict[str, object] = {}
+    bundle_manifests: list[dict[str, object]] = []
     for prefix in normalized_prefixes:
         outcomes = campaigns_to_analysis_outcomes(
             rows,
@@ -58,6 +66,15 @@ def build_report(
             horizon_seconds=horizon_seconds,
         )
         artifact = AnalysisArtifactBuilder().build(outcomes, draws=draws, seed=seed)
+        if bundle_out is not None:
+            manifest = artifact.write_bundle(Path(bundle_out) / f"prefix-{prefix}")
+            bundle_manifests.append({
+                "prefix": prefix,
+                "path": manifest.name,
+                "directory": f"prefix-{prefix}",
+                "sha256": hashlib.sha256(manifest.read_bytes()).hexdigest(),
+                "artifact_hash": artifact.artifact_hash,
+            })
         paired: dict[str, object] = {}
         for left, right in comparisons:
             report = AnalysisArtifactBuilder().build(
@@ -98,6 +115,10 @@ def build_report(
             "verified_finding_policy": "all required shared stages plus property/security checks",
         },
     }
+    if bundle_out is not None:
+        body["bundle"] = {
+            "manifests": bundle_manifests,
+        }
     body["input_hash"] = metrics.input_hash
     body["report_hash"] = sha256_hex(body)
     return body
@@ -129,6 +150,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--draws", type=int, default=10_000)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--horizon-seconds", type=float, default=3600.0)
+    parser.add_argument("--expected-input-hash", default=None, help="abort unless the frozen verification input has this SHA-256")
+    parser.add_argument("--bundle-out", type=Path, default=None, help="optional directory for per-prefix analysis bundles")
     args = parser.parse_args(argv)
     campaigns = load_verification_campaigns(args.input)
     report = build_report(
@@ -138,6 +161,8 @@ def main(argv: list[str] | None = None) -> int:
         draws=args.draws,
         seed=args.seed,
         horizon_seconds=args.horizon_seconds,
+        expected_input_hash=args.expected_input_hash,
+        bundle_out=args.bundle_out,
     )
     write_report(report, args.out)
     print(json.dumps({

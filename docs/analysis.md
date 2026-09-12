@@ -53,6 +53,27 @@ contrasts and six secondary contrasts, applies Holm correction within each
 family only, and rejects non-finite lineage effects. Omitting these files
 remains valid for development artifacts but produces no inferential contrasts.
 
+The verification-stage bridge is `scripts/build_paired_verification_analysis.py`.
+It loads one shared `verification_campaign` JSONL, projects the same campaigns
+at `Recall@1/@2/@4/@8`, and emits verification metrics plus method analysis rows
+without changing stage missingness. Repeat `--compare LEFT RIGHT` for paired
+method contrasts, for example:
+
+```text
+python scripts/build_paired_verification_analysis.py \
+  --input results/verification_campaigns.jsonl \
+  --out results/paired-analysis.json \
+  --bundle-out results/paired-analysis-bundle \
+  --compare crossllm direct \
+  --compare crossllm t0 \
+  --expected-input-hash FROZEN_SHA256
+```
+
+`--expected-input-hash` aborts on a changed campaign input. The optional
+per-prefix bundle contains the analysis JSON, eleven CSV tables and a manifest
+hash. This command is an analysis boundary only: it cannot promote proposal
+archives or unavailable verification stages into verified findings.
+
 `analysis/figures.py` provides the complementary figure boundary. It emits
 paired-lineage, recall@N, time-curve, scaling and failure-flow SVGs only from
 explicit supplied series. Every figure records a canonical `source_hash` and
