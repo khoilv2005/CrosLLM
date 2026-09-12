@@ -34,7 +34,11 @@ from crossllm.verification import (
     public_xlir_symbols,
     load_case_runtime,
     summarize_campaign_archive_timing,
+    SourceBackedVerificationExecutors,
+    SourceCommandSpec,
+    VerificationExecutors,
 )
+from crossllm.replay import EVMReplaySpec
 
 
 def load_public_manifest(path: Path) -> dict[str, dict[str, object]]:
@@ -71,6 +75,7 @@ def run_archives(
     *,
     expected_slots: int = 8,
     cache: FileVerificationCache | None = None,
+    executors: VerificationExecutors | None = None,
 ) -> tuple[list[dict[str, object]], dict[str, object]]:
     dataset = load_archives(roots, expected_slots=expected_slots)
     output: list[dict[str, object]] = []
@@ -104,7 +109,7 @@ def run_archives(
             )
         else:
             case, symbols = cached_case
-            outcomes = verify_candidates(candidates, case, symbols, cache=cache)
+            outcomes = verify_candidates(candidates, case, symbols, cache=cache, executors=executors)
         outcome_count += len(outcomes)
         verified_count += sum(outcome.verified_finding is True for outcome in outcomes)
         availability, reason = classify_campaign_availability(archive, outcomes, cached_case)
@@ -120,6 +125,7 @@ def run_archives(
         "provider_calls": 0,
         "gold_fields_read": False,
         "mode": "shared_pipeline_without_provider_calls",
+        "executor_mode": "shared_pipeline_without_provider_calls" if executors is None else "source_backed_json_protocol",
     }
     return output, summary
 
@@ -250,6 +256,87 @@ def write_jsonl(path: Path, rows: list[dict[str, object]]) -> None:
     temporary.replace(path)
 
 
+def load_source_executors(path: Path) -> SourceBackedVerificationExecutors:
+    """Load a pinned source-executor configuration without shell expansion."""
+
+    config_path = Path(path).resolve()
+    payload = json.loads(config_path.read_text(encoding="utf-8-sig"))
+    if not isinstance(payload, Mapping):
+        raise ValueError("source executor config must be an object")
+    base = config_path.parent
+    search = _source_command(payload.get("search"), base, "search")
+    witness = _source_command(payload.get("witness"), base, "witness")
+    raw_replay = payload.get("replay")
+    if not isinstance(raw_replay, Mapping):
+        raise ValueError("source executor config replay must be an object")
+    replay_workdir = _config_path(raw_replay.get("workdir"), base, "replay.workdir")
+    replay = EVMReplaySpec(
+        adapter_id=_required_string(raw_replay, "adapter_id", "replay"),
+        executable=_required_string(raw_replay, "executable", "replay"),
+        arguments=_arguments(raw_replay, "replay"),
+        tool_revision=_required_string(raw_replay, "tool_revision", "replay"),
+        container_ref=_required_string(raw_replay, "container_ref", "replay"),
+        artifact_hash=_required_string(raw_replay, "artifact_hash", "replay"),
+        initialization_hash=_required_string(raw_replay, "initialization_hash", "replay"),
+        profile_hash=_required_string(raw_replay, "profile_hash", "replay"),
+        semantic_engine=_required_string(raw_replay, "semantic_engine", "replay"),
+        timeout_seconds=_number(raw_replay.get("timeout_seconds", 180.0), "replay.timeout_seconds"),
+        support_matrix_hash=raw_replay.get("support_matrix_hash") if isinstance(raw_replay.get("support_matrix_hash"), str) else None,
+    )
+    return SourceBackedVerificationExecutors(
+        search=search,
+        witness=witness,
+        replay=replay,
+        replay_workdir=replay_workdir,
+    )
+
+
+def _source_command(value: object, base: Path, label: str) -> SourceCommandSpec:
+    if not isinstance(value, Mapping):
+        raise ValueError(f"source executor config {label} must be an object")
+    return SourceCommandSpec(
+        adapter_id=_required_string(value, "adapter_id", label),
+        executable=_required_string(value, "executable", label),
+        arguments=_arguments(value, label),
+        workdir=_config_path(value.get("workdir"), base, f"{label}.workdir"),
+        tool_revision=_required_string(value, "tool_revision", label),
+        container_ref=_required_string(value, "container_ref", label),
+        timeout_seconds=_number(value.get("timeout_seconds", 180.0), f"{label}.timeout_seconds"),
+    )
+
+
+def _arguments(value: Mapping[str, object], label: str) -> tuple[str, ...]:
+    arguments = value.get("arguments")
+    if not isinstance(arguments, list) or any(not isinstance(argument, str) for argument in arguments):
+        raise ValueError(f"{label}.arguments must be a list of strings")
+    return tuple(arguments)
+
+
+def _config_path(value: object, base: Path, label: str) -> Path:
+    if not isinstance(value, str) or not value:
+        raise ValueError(f"{label} must be a non-empty path")
+    candidate = Path(value)
+    if not candidate.is_absolute():
+        candidate = base / candidate
+    candidate = candidate.resolve()
+    if not candidate.is_dir():
+        raise ValueError(f"{label} must be an existing directory")
+    return candidate
+
+
+def _required_string(value: Mapping[str, object], field: str, label: str) -> str:
+    item = value.get(field)
+    if not isinstance(item, str) or not item:
+        raise ValueError(f"{label}.{field} must be a non-empty string")
+    return item
+
+
+def _number(value: object, label: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0:
+        raise ValueError(f"{label} must be positive")
+    return float(value)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, default=ROOT)
@@ -258,11 +345,24 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--cache", type=Path, default=None)
     parser.add_argument("--expected-slots", type=int, default=8)
+    parser.add_argument("--source-executors", type=Path, default=None, help="optional pinned source symbolic/witness/replay executor config")
     args = parser.parse_args(argv)
     roots = parse_archive_roots(args.archive_root)
     manifest = load_public_manifest(args.manifest)
     cache = FileVerificationCache(args.cache) if args.cache is not None else None
-    rows, summary = run_archives(args.repo_root, roots, manifest, expected_slots=args.expected_slots, cache=cache)
+    source_executors = load_source_executors(args.source_executors) if args.source_executors is not None else None
+    try:
+        rows, summary = run_archives(
+            args.repo_root,
+            roots,
+            manifest,
+            expected_slots=args.expected_slots,
+            cache=cache,
+            executors=source_executors.executors() if source_executors is not None else None,
+        )
+    finally:
+        if source_executors is not None:
+            source_executors.close()
     write_jsonl(args.out, rows)
     summary_path = args.out.with_suffix(".summary.json")
     summary_path.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")

@@ -83,6 +83,14 @@ wall time. These are separate from Recall/FDP and have their own known,
 missing and not-applicable denominators; no dollar cost or reasoning-token
 breakdown is inferred from Ollama responses.
 
+For source-backed verification, pass `--source-executors CONFIG.json` to
+`scripts/run_verification_stage.py`. The configuration must provide separate
+search and witness JSON commands plus an `EVMReplaySpec` identity. Commands are
+run without a shell; `{request}` and `{witness}` are the only substituted
+arguments. Search results must report complete `sat`/`bounded_unsat` status,
+and a SAT witness must bind runtime, artifact, deployment, property, initial
+state and trace hashes. A process exit of zero alone is never accepted.
+
 `analysis/figures.py` provides the complementary figure boundary. It emits
 paired-lineage, recall@N, time-curve, scaling and failure-flow SVGs only from
 explicit supplied series. Every figure records a canonical `source_hash` and

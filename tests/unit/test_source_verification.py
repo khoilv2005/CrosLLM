@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 
 from crossllm.replay import EVMReplaySpec
@@ -18,6 +20,7 @@ from crossllm.verification.adapter import public_xlir_symbols
 from crossllm.verification.runtime import load_case_runtime
 
 from tests.unit.test_runtime_binding import RuntimeBindingTests
+from scripts.run_verification_stage import load_source_executors
 
 
 class SourceVerificationExecutorTests(unittest.TestCase):
@@ -202,6 +205,48 @@ class SourceVerificationExecutorTests(unittest.TestCase):
             ).verify(candidate)
         self.assertEqual(outcome.stage_status("symbolic_search"), StageStatus.UNSUPPORTED)
         self.assertEqual(outcome.first_failure, "symbolic_search")
+
+    def test_runner_loads_explicit_pinned_executor_config(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            config = {
+                "search": {
+                    "adapter_id": "search",
+                    "executable": sys.executable,
+                    "arguments": ["-c", "print('{}')", "{request}"],
+                    "workdir": ".",
+                    "tool_revision": "search-v1",
+                    "container_ref": "registry.example/search@sha256:" + "a" * 64,
+                },
+                "witness": {
+                    "adapter_id": "witness",
+                    "executable": sys.executable,
+                    "arguments": ["-c", "print('{}')", "{request}", "{witness}"],
+                    "workdir": ".",
+                    "tool_revision": "witness-v1",
+                    "container_ref": "registry.example/witness@sha256:" + "b" * 64,
+                },
+                "replay": {
+                    "adapter_id": "replay",
+                    "executable": sys.executable,
+                    "arguments": ["-c", "print('{}')", "{witness}"],
+                    "workdir": ".",
+                    "tool_revision": "replay-v1",
+                    "container_ref": "registry.example/replay@sha256:" + "c" * 64,
+                    "artifact_hash": "d" * 64,
+                    "initialization_hash": "e" * 64,
+                    "profile_hash": "f" * 64,
+                    "semantic_engine": "test-evm",
+                },
+            }
+            path = root / "executors.json"
+            path.write_text(json.dumps(config), encoding="utf-8")
+            executors = load_source_executors(path)
+            try:
+                self.assertEqual(executors.search_spec.adapter_id, "search")
+                self.assertEqual(executors.replay_spec.semantic_engine, "test-evm")
+            finally:
+                executors.close()
 
 
 if __name__ == "__main__":

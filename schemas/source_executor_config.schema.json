@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/source_executor_config.schema.json",
+  "title": "CrossLLM source-backed verification executor configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["search", "witness", "replay"],
+  "properties": {
+    "search": {"$ref": "#/$defs/command"},
+    "witness": {"$ref": "#/$defs/command"},
+    "replay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "adapter_id", "executable", "arguments", "workdir", "tool_revision",
+        "container_ref", "artifact_hash", "initialization_hash", "profile_hash",
+        "semantic_engine"
+      ],
+      "properties": {
+        "adapter_id": {"$ref": "#/$defs/id"},
+        "executable": {"$ref": "#/$defs/id"},
+        "arguments": {"$ref": "#/$defs/arguments"},
+        "workdir": {"$ref": "#/$defs/path"},
+        "tool_revision": {"$ref": "#/$defs/id"},
+        "container_ref": {"$ref": "#/$defs/digest_ref"},
+        "artifact_hash": {"$ref": "#/$defs/sha256"},
+        "initialization_hash": {"$ref": "#/$defs/sha256"},
+        "profile_hash": {"$ref": "#/$defs/sha256"},
+        "semantic_engine": {"$ref": "#/$defs/id"},
+        "timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "support_matrix_hash": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "minLength": 1},
+    "path": {"type": "string", "minLength": 1},
+    "arguments": {"type": "array", "items": {"type": "string"}},
+    "digest_ref": {"type": "string", "pattern": "@sha256:[0-9a-fA-F]{64}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "command": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adapter_id", "executable", "arguments", "workdir", "tool_revision", "container_ref"],
+      "properties": {
+        "adapter_id": {"$ref": "#/$defs/id"},
+        "executable": {"$ref": "#/$defs/id"},
+        "arguments": {"$ref": "#/$defs/arguments"},
+        "workdir": {"$ref": "#/$defs/path"},
+        "tool_revision": {"$ref": "#/$defs/id"},
+        "container_ref": {"$ref": "#/$defs/digest_ref"},
+        "timeout_seconds": {"type": "number", "exclusiveMinimum": 0}
+      }
+    }
+  }
+}
