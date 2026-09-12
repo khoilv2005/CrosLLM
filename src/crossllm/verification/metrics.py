@@ -32,6 +32,7 @@ class VerificationCampaign:
     missing_reason: str | None = None
     model_tag: str = "unknown"
     property_family: str = "unknown"
+    timing: Mapping[str, Any] | None = None
 
     def __post_init__(self) -> None:
         if not self.campaign_id or not self.arm or self.slot_count <= 0:
@@ -42,6 +43,8 @@ class VerificationCampaign:
             raise ValueError("ground_truth must be positive, negative or unresolved")
         if not isinstance(self.outcomes, tuple):
             raise ValueError("campaign outcomes must be a tuple")
+        if self.timing is not None and not isinstance(self.timing, Mapping):
+            raise ValueError("campaign timing must be a mapping or null")
         slot_ids = {(outcome.candidate.campaign_id, outcome.candidate.slot_index) for outcome in self.outcomes}
         if len(slot_ids) != len(self.outcomes):
             raise ValueError("duplicate candidate outcome would double count a slot")
@@ -306,6 +309,7 @@ def _campaign_input_hash(rows: tuple[VerificationCampaign, ...], prefixes: tuple
                 "missing_reason": row.missing_reason,
                 "model_tag": row.model_tag,
                 "property_family": row.property_family,
+                "timing": dict(row.timing) if row.timing is not None else None,
                 "outcomes": [outcome.as_dict() for outcome in row.outcomes],
             }
             for row in rows

@@ -74,6 +74,13 @@ per-prefix bundle contains the analysis JSON, eleven CSV tables and a manifest
 hash. This command is an analysis boundary only: it cannot promote proposal
 archives or unavailable verification stages into verified findings.
 
+When the verification runner has archived timing data, the report also
+contains `resource_metrics`: provider input/output tokens, transport time,
+Ollama-reported duration, shared verification-stage time and caller-supplied
+wall time. These are separate from Recall/FDP and have their own known,
+missing and not-applicable denominators; no dollar cost or reasoning-token
+breakdown is inferred from Ollama responses.
+
 `analysis/figures.py` provides the complementary figure boundary. It emits
 paired-lineage, recall@N, time-curve, scaling and failure-flow SVGs only from
 explicit supplied series. Every figure records a canonical `source_hash` and

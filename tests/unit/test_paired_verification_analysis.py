@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from dataclasses import replace
 
 from crossllm.analysis import campaigns_to_analysis_outcomes
 from crossllm.verification import (
@@ -15,7 +16,7 @@ from crossllm.verification import (
     VerificationCampaign,
     VerificationOutcome,
 )
-from scripts.build_paired_verification_analysis import build_report, main
+from scripts.build_paired_verification_analysis import build_report, build_resource_report, main
 
 
 def _outcome(campaign_id: str, arm: str, pair: PairKey, *, detected: bool | None) -> VerificationOutcome:
@@ -150,6 +151,37 @@ class PairedVerificationAnalysisTests(unittest.TestCase):
             self.assertEqual(payload["campaign_count"], len(rows))
             self.assertEqual(len(payload["bundle"]["manifests"]), 4)
             self.assertTrue((bundle / "prefix-8" / "manifest.json").is_file())
+
+    def test_resource_report_separates_provider_usage_and_t0_not_applicable(self) -> None:
+        complete_timing = {
+            "proposal": {
+                "input_tokens": {"value": 10, "known": 1, "total": 1, "missing": 0},
+                "output_tokens": {"value": 4, "known": 1, "total": 1, "missing": 0},
+                "request_seconds": {"value": 2.0, "known": 1, "total": 1, "missing": 0},
+                "provider_total_duration_seconds": {"value": 1.5, "known": 1, "total": 1, "missing": 0},
+            },
+            "verification": {"total_stage_seconds": {"value": 3.0, "known": 1, "total": 1, "missing": 0}},
+            "wall_seconds": {"value": 5.0, "known": 1, "total": 1, "missing": 0},
+        }
+        left = replace(self.campaigns()[0], timing=complete_timing)
+        t0_timing = {
+            "proposal": {
+                "input_tokens": {"value": None, "known": 0, "total": 0, "missing": 0},
+                "output_tokens": {"value": None, "known": 0, "total": 0, "missing": 0},
+                "request_seconds": {"value": None, "known": 0, "total": 0, "missing": 0},
+                "provider_total_duration_seconds": {"value": None, "known": 0, "total": 0, "missing": 0},
+            },
+            "verification": {"total_stage_seconds": {"value": None, "known": 0, "total": 0, "missing": 0}},
+            "wall_seconds": {"value": None, "known": 0, "total": 1, "missing": 1},
+        }
+        t0 = replace(self.campaigns()[2], timing=t0_timing)
+        report = build_resource_report((left, t0), comparisons=(("crossllm", "t0"),))
+        self.assertEqual(report["by_method"]["t0"]["proposal_input_tokens"]["note"], "not_applicable")
+        self.assertEqual(report["by_method"]["crossllm"]["proposal_input_tokens"]["value"], 10.0)
+        self.assertEqual(
+            report["paired_effects"]["crossllm-minus-t0"]["proposal_input_tokens"]["known_lineages"],
+            0,
+        )
 
 
 if __name__ == "__main__":

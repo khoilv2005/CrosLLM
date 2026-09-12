@@ -19,6 +19,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from statistics import mean
 import sys
 from typing import Any, Iterable, Mapping
 
@@ -106,6 +107,7 @@ def build_report(
         "prefixes": list(normalized_prefixes),
         "comparisons": [list(pair) for pair in comparisons],
         "verification_metrics": metrics.as_dict(),
+        "resource_metrics": build_resource_report(rows, comparisons=comparisons),
         "by_prefix": by_prefix,
         "provenance": {
             "horizon_seconds": float(horizon_seconds),
@@ -122,6 +124,129 @@ def build_report(
     body["input_hash"] = metrics.input_hash
     body["report_hash"] = sha256_hex(body)
     return body
+
+
+_RESOURCE_FIELDS: tuple[tuple[str, tuple[str, ...], str], ...] = (
+    ("proposal_input_tokens", ("proposal", "input_tokens"), "tokens"),
+    ("proposal_output_tokens", ("proposal", "output_tokens"), "tokens"),
+    ("proposal_request_seconds", ("proposal", "request_seconds"), "seconds"),
+    ("provider_total_duration_seconds", ("proposal", "provider_total_duration_seconds"), "seconds"),
+    ("total_stage_seconds", ("verification", "total_stage_seconds"), "seconds"),
+    ("wall_seconds", ("wall_seconds",), "seconds"),
+)
+
+
+def build_resource_report(
+    campaigns: Iterable[VerificationCampaign],
+    *,
+    comparisons: tuple[tuple[str, str], ...] = (),
+) -> dict[str, object]:
+    """Summarize tokens/timing separately from verification endpoints.
+
+    Values are campaign-level aggregates from the archived timing contract.
+    A numeric paired effect is emitted only when both matched campaigns have a
+    complete observation for that resource; unavailable and T0 not-applicable
+    observations are retained in method denominators and never imputed.
+    """
+
+    rows = tuple(campaigns)
+    by_method: dict[str, dict[str, dict[str, object]]] = {}
+    matched: dict[tuple[str, str, int], dict[str, dict[str, float]]] = {}
+    for campaign in rows:
+        method = campaign.arm
+        method_summary = by_method.setdefault(method, {})
+        for field, path, unit in _RESOURCE_FIELDS:
+            observation = _timing_observation(campaign.timing, path)
+            bucket = method_summary.setdefault(field, {
+                "value": 0.0,
+                "known": 0,
+                "total": 0,
+                "missing": 0,
+                "unit": unit,
+            })
+            if observation is None:
+                bucket["total"] += 1
+                bucket["missing"] += 1
+                bucket["value"] = None
+                continue
+            total = _nonnegative_int(observation.get("total"), 0)
+            known = _nonnegative_int(observation.get("known"), 0)
+            missing = _nonnegative_int(observation.get("missing"), max(0, total - known))
+            if total == 0:
+                continue
+            bucket["total"] += total
+            bucket["known"] += known
+            bucket["missing"] += missing
+            value = observation.get("value")
+            if isinstance(value, (int, float)) and not isinstance(value, bool) and missing == 0:
+                if bucket["value"] is not None:
+                    bucket["value"] += float(value)
+            else:
+                bucket["value"] = None
+            if isinstance(value, (int, float)) and not isinstance(value, bool) and missing == 0:
+                matched.setdefault(campaign.pair_key, {}).setdefault(method, {})[field] = float(value)
+
+    for method_summary in by_method.values():
+        for bucket in method_summary.values():
+            bucket["note"] = "not_applicable" if bucket["total"] == 0 else ("missing_observation" if bucket["missing"] else None)
+            if bucket["total"] == 0:
+                bucket["value"] = None
+    paired: dict[str, object] = {}
+    for left, right in comparisons:
+        contrast = f"{left}-minus-{right}"
+        field_effects: dict[str, object] = {}
+        for field, _path, unit in _RESOURCE_FIELDS:
+            by_instance: dict[tuple[str, str], list[float]] = {}
+            for pair_key, arms in matched.items():
+                left_values = arms.get(left, {})
+                right_values = arms.get(right, {})
+                if field not in left_values or field not in right_values:
+                    continue
+                key = (pair_key.lineage_id, pair_key.instance_id)
+                by_instance.setdefault(key, []).append(left_values[field] - right_values[field])
+            by_lineage: dict[str, list[float]] = {}
+            for (lineage, _instance), values in sorted(by_instance.items()):
+                by_lineage.setdefault(lineage, []).append(mean(values))
+            field_effects[field] = {
+                "unit": unit,
+                "lineage_effects": {
+                    lineage: mean(values)
+                    for lineage, values in sorted(by_lineage.items())
+                },
+                "known_lineages": len(by_lineage),
+            }
+        paired[contrast] = field_effects
+    return {
+        "by_method": {
+            method: {field: dict(value) for field, value in sorted(summary.items())}
+            for method, summary in sorted(by_method.items())
+        },
+        "paired_effects": paired,
+        "definitions": {
+            "tokens": "provider-reported prompt_tokens/eval_count projections only",
+            "proposal_request_seconds": "archived transport elapsed_seconds, including retries",
+            "provider_total_duration_seconds": "Ollama total_duration nanoseconds converted to seconds",
+            "total_stage_seconds": "sum of shared StageResult elapsed_seconds, not wall-clock time",
+            "wall_seconds": "caller-supplied campaign wall-clock time; never inferred",
+        },
+    }
+
+
+def _timing_observation(timing: Mapping[str, Any] | None, path: tuple[str, ...]) -> Mapping[str, Any] | None:
+    if not isinstance(timing, Mapping) or timing.get("status") == "unavailable":
+        return None
+    value: object = timing
+    for key in path:
+        if not isinstance(value, Mapping):
+            return None
+        value = value.get(key)
+    return value if isinstance(value, Mapping) else None
+
+
+def _nonnegative_int(value: object, default: int) -> int:
+    if isinstance(value, int) and not isinstance(value, bool) and value >= 0:
+        return value
+    return default
 
 
 def write_report(report: Mapping[str, object], path: Path) -> None:

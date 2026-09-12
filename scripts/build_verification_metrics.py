@@ -61,6 +61,9 @@ def _campaign_from_dict(payload: object, path: Path, line_number: int) -> Verifi
     missing_reason = payload.get("missing_reason")
     if missing_reason is not None and not isinstance(missing_reason, str):
         raise ValueError("missing_reason must be a string or null")
+    timing = payload.get("timing")
+    if timing is not None and not isinstance(timing, Mapping):
+        raise ValueError("timing must be an object or null")
     outcomes_payload = payload.get("outcomes", [])
     if not isinstance(outcomes_payload, list):
         raise ValueError("outcomes must be an array")
@@ -80,6 +83,7 @@ def _campaign_from_dict(payload: object, path: Path, line_number: int) -> Verifi
         missing_reason=missing_reason,
         model_tag=str(payload.get("model_tag", "unknown")),
         property_family=str(payload.get("property_family", "unknown")),
+        timing=dict(timing) if timing is not None else None,
     )
 
 

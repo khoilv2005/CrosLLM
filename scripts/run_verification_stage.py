@@ -33,6 +33,7 @@ from crossllm.verification import (
     load_archives,
     public_xlir_symbols,
     load_case_runtime,
+    summarize_campaign_archive_timing,
 )
 
 
@@ -131,7 +132,7 @@ def campaign_envelope(
     missing_reason: str | None,
     outcomes: list[VerificationOutcome],
 ) -> dict[str, object]:
-    return {
+    row: dict[str, object] = {
         "schema_version": 1,
         "record_type": "verification_campaign",
         "campaign_id": archive.campaign_id,
@@ -151,6 +152,20 @@ def campaign_envelope(
         "archive_path": archive.archive_path,
         "outcomes": [_outcome_envelope(outcome) for outcome in outcomes],
     }
+    raw_row = getattr(archive, "raw_row", None)
+    if isinstance(raw_row, Mapping):
+        try:
+            row["timing"] = summarize_campaign_archive_timing(archive, outcomes).as_dict()
+        except (TypeError, ValueError, KeyError) as error:
+            # Preserve an explicit unavailable observation rather than making
+            # an absent/malformed provider receipt look like zero cost/time.
+            row["timing"] = {
+                "schema_version": 1,
+                "record_type": "method_timing_unavailable",
+                "status": "unavailable",
+                "reason": f"timing_projection_failure:{type(error).__name__}:{error}",
+            }
+    return row
 
 
 def _outcome_envelope(outcome: VerificationOutcome) -> dict[str, object]:
