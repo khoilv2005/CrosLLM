@@ -478,7 +478,7 @@ Phụ thuộc: Phase C, M09. Đầu ra: `scripts/run_verification_stage.py`, `sc
 - [x] **V11.25** Định nghĩa verified hit cần đủ grounded candidate, supported runtime, completed search, valid witness, independent replay và property outcome đúng. `VerificationOutcome` fail-closed khi thiếu required stage; metrics chỉ đếm `verified_finding=True`, có test không biến unknown thành hit.
 - [ ] **V11.26** Chạy matched negatives/patched controls qua cùng backend, bounds, timeout và adapter revision.
 - [x] **V11.27** Tính false-alert rate và FDP với denominator công khai; provider failure/unsupported/unknown không được đổi thành no-alert. Metrics contract có explicit campaign availability và test false-alert/FDP cùng test unknown-control missingness; kết quả trên raw verification vẫn pending.
-- [ ] **V11.28** Xuất stage denominators cho từng method, model, arm, lineage, property family, prefix và case cohort.
+- [x] **V11.28** Xuất stage denominators cho từng method, model, arm, lineage, property family, prefix và case cohort. `VerificationMetrics.scoped_stage_denominators` bổ sung các scope key có prefix; campaign availability và stage status được đếm riêng, missingness không bị chuyển thành zero.
 - [ ] **V11.29** Tách proposal token/latency, symbolic time, witness time, replay time và total wall time; không cộng dồn hoặc so sánh khác định nghĩa.
 - [ ] **V11.30** Chạy gpt-oss vertical slice trước, sau đó toàn bộ 720 matched pairs nếu runtime coverage đủ; Qwen/DeepSeek chỉ đổi input archive.
 

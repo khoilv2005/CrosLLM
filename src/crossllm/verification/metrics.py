@@ -93,6 +93,7 @@ class VerificationMetrics:
     campaign_count: int
     input_hash: str
     paired_effects: Mapping[str, Mapping[str, tuple[float, ...]]] = field(default_factory=dict)
+    scoped_stage_denominators: Mapping[str, Mapping[str, Mapping[str, int]]] = field(default_factory=dict)
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -109,6 +110,10 @@ class VerificationMetrics:
             "stage_denominators": {
                 group: {stage: dict(statuses) for stage, statuses in stages.items()}
                 for group, stages in self.stage_denominators.items()
+            },
+            "scoped_stage_denominators": {
+                scope: {stage: dict(statuses) for stage, statuses in stages.items()}
+                for scope, stages in self.scoped_stage_denominators.items()
             },
             "campaign_count": self.campaign_count,
             "input_hash": self.input_hash,
@@ -150,7 +155,11 @@ def compute_verification_metrics(
         denominators[group] = _stage_denominators(selected)
     input_hash = _campaign_input_hash(rows, normalized_prefixes)
     paired = _paired_effects(rows, paired_contrasts, normalized_prefixes)
-    return VerificationMetrics(normalized_prefixes, groups, recall, false_alert, fdp, denominators, len(rows), input_hash, paired)
+    scoped = _scoped_stage_denominators(rows, normalized_prefixes)
+    return VerificationMetrics(
+        normalized_prefixes, groups, recall, false_alert, fdp, denominators,
+        len(rows), input_hash, paired, scoped,
+    )
 
 
 def _recall_metric(rows: list[VerificationCampaign], prefix: int) -> VerificationMetric:
@@ -188,6 +197,49 @@ def _stage_denominators(rows: list[VerificationCampaign]) -> dict[str, dict[str,
             for stage in outcome.stages:
                 counts[stage.stage][stage.status.value] += 1
     return {stage: dict(sorted(statuses.items())) for stage, statuses in sorted(counts.items())}
+
+
+def _scoped_stage_denominators(
+    rows: tuple[VerificationCampaign, ...],
+    prefixes: tuple[int, ...],
+) -> dict[str, dict[str, dict[str, int]]]:
+    """Count stage outcomes at every declared reporting dimension and prefix.
+
+    Prefix scopes include only slots in that prefix.  Missing campaign
+    availability is counted independently from candidate-stage statuses, so a
+    provider failure or unsupported runtime remains visible in its denominator.
+    """
+
+    counts: dict[str, dict[str, dict[str, int]]] = defaultdict(
+        lambda: defaultdict(lambda: defaultdict(int))
+    )
+    for row in rows:
+        dimensions = (
+            ("method", row.arm),
+            ("model", row.model_tag),
+            ("arm", row.arm),
+            ("lineage", row.pair_key.lineage_id),
+            ("property_family", row.property_family),
+            ("case_cohort", row.ground_truth),
+        )
+        for prefix in prefixes:
+            selected_outcomes = tuple(
+                outcome for outcome in row.outcomes
+                if outcome.candidate.slot_index < prefix
+            )
+            for dimension, value in dimensions:
+                scope = f"{dimension}={value}|prefix={prefix}"
+                counts[scope]["campaign"][row.availability.value] += 1
+                for outcome in selected_outcomes:
+                    for stage in outcome.stages:
+                        counts[scope][stage.stage][stage.status.value] += 1
+    return {
+        scope: {
+            stage: dict(sorted(statuses.items()))
+            for stage, statuses in sorted(stage_counts.items())
+        }
+        for scope, stage_counts in sorted(counts.items())
+    }
 
 
 def _verified_hit(row: VerificationCampaign, prefix: int) -> bool:

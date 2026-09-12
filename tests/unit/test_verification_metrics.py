@@ -70,6 +70,14 @@ class VerificationMetricsTests(unittest.TestCase):
         self.assertEqual(metrics.verified_recall[group][1].hits, 0)
         self.assertEqual(metrics.false_alert_rate[group].value, 1.0)
         self.assertEqual(metrics.false_discovery_proportion[group].value, 0.5)
+        self.assertEqual(
+            metrics.scoped_stage_denominators["model=gpt-oss|prefix=8"]["grounding"]["passed"],
+            2,
+        )
+        self.assertEqual(
+            metrics.scoped_stage_denominators["method=crossllm|prefix=1"]["grounding"]["passed"],
+            1,
+        )
 
     def test_unknown_campaign_is_not_counted_as_no_alert(self) -> None:
         pair = PairKey("l1", "i1", 1)
