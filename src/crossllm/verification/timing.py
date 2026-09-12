@@ -7,7 +7,9 @@ from dataclasses import dataclass
 from math import isfinite
 
 from ..methods.runner import MethodRun
+from ..methods.runner import MethodTrack
 from .records import VerificationOutcome
+from .records import CampaignArchive
 
 
 @dataclass(frozen=True, slots=True)
@@ -150,6 +152,49 @@ def summarize_method_timing(
     )
 
 
+def summarize_campaign_archive_timing(
+    archive: CampaignArchive,
+    outcomes: Iterable[VerificationOutcome] = (),
+    *,
+    wall_seconds: float | None = None,
+) -> MethodTiming:
+    """Read timing/token fields from an immutable campaign archive.
+
+    The archive bridge does not reconstruct missing provider receipts.  A
+    providerless T0 archive remains providerless, while malformed method-run
+    identity is rejected instead of being assigned a guessed track.
+    """
+
+    raw_method_run = archive.raw_row.get("method_run")
+    if not isinstance(raw_method_run, Mapping):
+        raise ValueError("campaign archive has no method_run object")
+    raw_track = raw_method_run.get("track")
+    if not isinstance(raw_track, str):
+        raw_track = {"crossllm_e2e": "X", "direct_llm": "P", "t0": "T0"}.get(archive.method)
+    if not isinstance(raw_track, str):
+        raise ValueError("campaign archive method_run has no track")
+    try:
+        track = MethodTrack(raw_track)
+    except ValueError as error:
+        raise ValueError(f"unsupported method track {raw_track!r}") from error
+    slots = raw_method_run.get("slots")
+    responses = raw_method_run.get("provider_responses")
+    settings = raw_method_run.get("settings", {})
+    if not isinstance(slots, list) or not isinstance(responses, list) or not isinstance(settings, Mapping):
+        raise ValueError("campaign archive method_run has invalid slot/response/settings fields")
+    method_run = MethodRun(
+        track=track,
+        backbone=archive.backbone,
+        attempt_id=archive.attempt_id,
+        template_hash=str(raw_method_run.get("template_hash", archive.config_hash)),
+        artifact_pack_hash=archive.artifact_pack_hash,
+        settings=dict(settings),
+        slots=tuple(slots),
+        provider_responses=tuple(responses),
+    )
+    return summarize_method_timing(method_run, outcomes, wall_seconds=wall_seconds)
+
+
 def _stage_values(rows: tuple[VerificationOutcome, ...], name: str) -> TimingObservation:
     values: list[float | None] = []
     for outcome in rows:
@@ -220,4 +265,9 @@ def _as_mapping(value: object) -> Mapping[str, object]:
     return value
 
 
-__all__ = ["MethodTiming", "TimingObservation", "summarize_method_timing"]
+__all__ = [
+    "MethodTiming",
+    "TimingObservation",
+    "summarize_campaign_archive_timing",
+    "summarize_method_timing",
+]

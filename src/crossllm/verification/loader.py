@@ -157,7 +157,12 @@ def _load_one(path: Path, arm: str, expected_slots: int) -> CampaignArchive:
         slots = _dict_list(method_run, "slots")
         responses = _dict_list(method_run, "provider_responses")
         budgets = _dict_list(method_run, "budget_checks")
-        if len(slots) != expected_slots or len(responses) != expected_slots or len(budgets) != expected_slots:
+        method = _string(campaign, "method")
+        track = method_run.get("track")
+        providerless_t0 = method == "t0" and track == "T0" and not responses and not budgets
+        if len(slots) != expected_slots or (
+            not providerless_t0 and (len(responses) != expected_slots or len(budgets) != expected_slots)
+        ):
             raise ArchiveValidationError(
                 f"{path}: expected {expected_slots} slots/responses/budgets, "
                 f"got {len(slots)}/{len(responses)}/{len(budgets)}"
@@ -166,9 +171,13 @@ def _load_one(path: Path, arm: str, expected_slots: int) -> CampaignArchive:
             raise ArchiveValidationError(f"{path}: public_artifact_pack is missing")
         if not isinstance(method_run_settings, dict):
             raise ArchiveValidationError(f"{path}: method_run.settings must be an object")
-        for index, (slot, response, budget) in enumerate(zip(slots, responses, budgets)):
+        for index, (slot, response, budget) in enumerate(
+            zip(slots, responses, budgets) if not providerless_t0 else ((slot, {}, {}) for slot in slots)
+        ):
             if slot.get("index") != index:
                 raise ArchiveValidationError(f"{path}: slot {index} has non-canonical index")
+            if providerless_t0:
+                continue
             http_status = response.get("http_status")
             if http_status is not None and (not isinstance(http_status, int) or isinstance(http_status, bool)):
                 raise ArchiveValidationError(f"{path}: slot {index} has invalid http_status")
@@ -184,7 +193,7 @@ def _load_one(path: Path, arm: str, expected_slots: int) -> CampaignArchive:
             attempt_id=attempt_id,
             pair_key=pair_key,
             arm=arm,
-            method=_string(campaign, "method"),
+            method=method,
             backbone=_string(campaign, "backbone"),
             model_tag=_string(campaign, "model_tag"),
             config_hash=_string(campaign, "config_hash"),

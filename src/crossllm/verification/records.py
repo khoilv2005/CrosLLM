@@ -173,7 +173,11 @@ class CampaignArchive:
         )
         if any(not isinstance(value, str) or not value for value in required):
             raise ValueError("campaign archive identity is incomplete")
-        if len(self.slots) != len(self.provider_responses) or len(self.slots) != len(self.budget_checks):
+        providerless_t0 = self.method == "t0" and not self.provider_responses and not self.budget_checks
+        if not providerless_t0 and (
+            len(self.slots) != len(self.provider_responses)
+            or len(self.slots) != len(self.budget_checks)
+        ):
             raise ValueError("archive slot collections must have equal length")
         if not self.slots:
             raise ValueError("archive must contain at least one slot")
@@ -202,6 +206,8 @@ class CampaignArchive:
         return len(identities)
 
     def candidate_inputs(self) -> tuple["CandidateInput", ...]:
+        providerless_t0 = self.method == "t0" and not self.provider_responses and not self.budget_checks
+        responses = self.provider_responses if not providerless_t0 else ({},) * len(self.slots)
         return tuple(
             CandidateInput(
                 campaign_id=self.campaign_id,
@@ -216,7 +222,7 @@ class CampaignArchive:
                 candidate=slot.get("candidate"),
                 raw_response=response,
             )
-            for index, (slot, response) in enumerate(zip(self.slots, self.provider_responses))
+            for index, (slot, response) in enumerate(zip(self.slots, responses))
         )
 
 

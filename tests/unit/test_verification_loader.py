@@ -129,6 +129,23 @@ class VerificationLoaderTests(unittest.TestCase):
             with self.assertRaisesRegex(ArchiveValidationError, "absent from the supplied plan"):
                 load_archives({"crossllm": root}, planned_campaign_ids={"known"})
 
+    def test_providerless_t0_archive_keeps_slots_without_fabricating_receipts(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "t0"
+            row = _archive("t0", method="t0")
+            method_run = row["method_run"]
+            assert isinstance(method_run, dict)
+            method_run["track"] = "T0"
+            method_run["provider_responses"] = []
+            method_run["budget_checks"] = []
+            _write(root, "t0", row)
+            dataset = load_archives({"t0": root})
+        archive = dataset.campaigns[0]
+        self.assertEqual(archive.slot_count, 8)
+        self.assertEqual(len(archive.candidate_inputs()), 8)
+        self.assertEqual(archive.provider_failure_count, 0)
+        self.assertTrue(all(candidate.raw_response == {} for candidate in archive.candidate_inputs()))
+
 
 if __name__ == "__main__":
     unittest.main()

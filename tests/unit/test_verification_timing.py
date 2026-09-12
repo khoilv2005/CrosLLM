@@ -3,12 +3,14 @@ import unittest
 from crossllm.methods import MethodRun, MethodTrack, ProposalSlot, ProposalSlotStatus
 from crossllm.providers import ProviderResponse
 from crossllm.verification import (
+    CampaignArchive,
     CandidateInput,
     PairKey,
     StageResult,
     StageStatus,
     VerificationOutcome,
     summarize_method_timing,
+    summarize_campaign_archive_timing,
 )
 
 
@@ -77,6 +79,35 @@ class VerificationTimingTests(unittest.TestCase):
         self.assertEqual(timing.proposal_input_tokens.note, "no_provider_calls_t0")
         self.assertIsNone(timing.wall_seconds.value)
         self.assertEqual(timing.wall_seconds.missing, 1)
+
+    def test_archive_bridge_preserves_providerless_t0(self) -> None:
+        archive = CampaignArchive(
+            campaign_id="t0-campaign",
+            attempt_id="t0-attempt",
+            pair_key=PairKey("lineage", "instance", 1),
+            arm="t0",
+            method="t0",
+            backbone="deterministic",
+            model_tag="deterministic",
+            config_hash="c" * 64,
+            request_settings_hash="d" * 64,
+            artifact_pack_hash="e" * 64,
+            slots=tuple({"index": index, "status": "abstain"} for index in range(2)),
+            provider_responses=(),
+            budget_checks=(),
+            raw_row={
+                "method_run": {
+                    "track": "T0",
+                    "settings": {},
+                    "slots": [{"index": 0}, {"index": 1}],
+                    "provider_responses": [],
+                },
+            },
+            archive_path="t0.jsonl",
+        )
+        timing = summarize_campaign_archive_timing(archive)
+        self.assertEqual(timing.track, "T0")
+        self.assertEqual(timing.proposal_input_tokens.note, "no_provider_calls_t0")
 
 
 if __name__ == "__main__":
