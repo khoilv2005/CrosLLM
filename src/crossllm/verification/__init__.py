@@ -22,6 +22,7 @@ from .runtime import (
     load_case_runtime,
 )
 from .adapter import AdapterStatus, RuntimeCandidateAdapter, RuntimeCandidatePlan, public_xlir_symbols
+from .pipeline import SharedVerificationPipeline, VerificationExecutors
 
 __all__ = [
     "ArchiveRoot",
@@ -46,6 +47,8 @@ __all__ = [
     "RuntimeCandidateAdapter",
     "RuntimeCandidatePlan",
     "public_xlir_symbols",
+    "SharedVerificationPipeline",
+    "VerificationExecutors",
     "load_archives",
     "match_campaigns",
 ]

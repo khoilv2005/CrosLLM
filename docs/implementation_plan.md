@@ -465,7 +465,7 @@ Phụ thuộc: Phase A–B, M04–M05. Đầu ra: `src/crossllm/verification/ada
 - [ ] **V11.18** Với `SAT` complete, project witness gồm initial-state hash, actions, callers, calldata, domains, observations và trace hash.
 - [ ] **V11.19** Chạy native/concrete witness check từ clean initial state; không dùng state còn lại từ symbolic search.
 - [ ] **V11.20** Gọi independent EVM replay adapter với runtime spec pinned; xác minh trace hash, deployment identity và property observation.
-- [ ] **V11.21** Tách `candidate_violation`, `property_holds`, `security_relevance`, `native_replay`, `independent_replay` và `verified_finding` thành các field độc lập.
+- [x] **V11.21** Tách `candidate_violation`, `property_holds`, `security_relevance`, `native_replay`, `independent_replay` và `verified_finding` thành các field độc lập. `VerificationOutcome` giữ các field; `SharedVerificationPipeline` chỉ kết luận verified khi toàn bộ stage chung pass.
 - [ ] **V11.22** Cache theo `(case runtime hash, XLIR canonical hash, adapter revision, bounds, replay spec hash)`; cache hit không làm tăng execution denominator.
 - [ ] **V11.23** Test wrong property, missing binding, altered witness, wrong initial state, wrong caller, invalid calldata, control case, timeout, unsupported opcode và replay trace mismatch.
 
