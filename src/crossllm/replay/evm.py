@@ -91,6 +91,8 @@ class EVMReplayResult:
     trace_hash: str | None
     elapsed_seconds: float
     reason: str | None = None
+    security_relevance: bool | None = None
+    property_holds: bool | None = None
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -103,6 +105,8 @@ class EVMReplayResult:
             "trace_hash": self.trace_hash,
             "elapsed_seconds": self.elapsed_seconds,
             "reason": self.reason,
+            "security_relevance": self.security_relevance,
+            "property_holds": self.property_holds,
         }
 
 
@@ -165,7 +169,12 @@ class IndependentEVMReplay:
         if status is ReplayStatus.PASS and trace_hash is None:
             return self._result(spec, ReplayStatus.UNKNOWN, outcome.returncode, stdout_hash, stderr_hash, None, started, "replay_output_missing_trace_hash")
         reason = payload.get("reason") if isinstance(payload.get("reason"), str) else None
-        return self._result(spec, status, outcome.returncode, stdout_hash, stderr_hash, trace_hash, started, reason)
+        security_relevance = payload.get("security_relevance") if isinstance(payload.get("security_relevance"), bool) else None
+        property_holds = payload.get("property_holds") if isinstance(payload.get("property_holds"), bool) else None
+        return self._result(
+            spec, status, outcome.returncode, stdout_hash, stderr_hash, trace_hash,
+            started, reason, security_relevance, property_holds,
+        )
 
     @staticmethod
     def _result(
@@ -177,8 +186,14 @@ class IndependentEVMReplay:
         trace_hash: str | None,
         started: float,
         reason: str | None,
+        security_relevance: bool | None = None,
+        property_holds: bool | None = None,
     ) -> EVMReplayResult:
-        return EVMReplayResult(spec.spec_hash, status, exit_code, stdout_hash, stderr_hash, trace_hash, max(0.0, time.monotonic() - started), reason)
+        return EVMReplayResult(
+            spec.spec_hash, status, exit_code, stdout_hash, stderr_hash, trace_hash,
+            max(0.0, time.monotonic() - started), reason, security_relevance,
+            property_holds,
+        )
 
 
 def _hash(data: bytes) -> str:
