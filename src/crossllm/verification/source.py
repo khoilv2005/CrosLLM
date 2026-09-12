@@ -67,6 +67,7 @@ class SourceCommandSpec:
             "adapter_id": self.adapter_id,
             "executable": self.executable,
             "arguments": list(self.arguments),
+            "workdir": str(self.workdir.resolve()),
             "tool_revision": self.tool_revision,
             "container_ref": self.container_ref,
             "timeout_seconds": self.timeout_seconds,
@@ -78,6 +79,7 @@ class SourceCommandSpec:
             "adapter_id": self.adapter_id,
             "executable": self.executable,
             "arguments": list(self.arguments),
+            "workdir": str(self.workdir.resolve()),
             "tool_revision": self.tool_revision,
             "container_ref": self.container_ref,
             "timeout_seconds": self.timeout_seconds,
@@ -141,7 +143,20 @@ class SourceBackedVerificationExecutors:
             symbolic_search=self.symbolic_search,
             witness_check=self.witness_check,
             independent_replay=self.independent_replay,
+            spec_hash=self.spec_hash,
         )
+
+    @property
+    def spec_hash(self) -> str:
+        """Fingerprint every executable boundary used by this pipeline."""
+
+        return sha256_hex({
+            "schema_version": 1,
+            "search": self.search_spec.as_dict(),
+            "witness": self.witness_spec.as_dict(),
+            "replay": self.replay_spec.spec_hash,
+            "replay_workdir": str(self.replay_workdir),
+        })
 
     def close(self) -> None:
         self._tempdir.cleanup()

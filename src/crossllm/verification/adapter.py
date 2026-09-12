@@ -86,6 +86,7 @@ class RuntimeCandidateAdapter:
         adapter_revision: str = "runtime-adapter-v1",
         bounds: Mapping[str, Any] | None = None,
         replay_spec_hash: str | None = None,
+        executor_spec_hash: str | None = None,
     ) -> None:
         self.case = case
         self.symbols = tuple(symbols)
@@ -98,6 +99,7 @@ class RuntimeCandidateAdapter:
         self.adapter_revision = adapter_revision
         self.bounds = dict(bounds or {})
         self.replay_spec_hash = replay_spec_hash
+        self.executor_spec_hash = executor_spec_hash
 
     def adapt(self, candidate: CandidateInput) -> RuntimeCandidatePlan:
         if candidate.proposal_status != "candidate" or candidate.candidate is None:
@@ -154,6 +156,7 @@ class RuntimeCandidateAdapter:
             "adapter_revision": self.adapter_revision,
             "bounds": dict(self.bounds),
             "replay_spec_hash": self.replay_spec_hash,
+            "executor_spec_hash": self.executor_spec_hash,
             "artifact_hash": self.case.runtime.source_artifact_hash,
             "deployment_hash": self.case.runtime.deployment_hash,
             "initial_state_hash": sha256_hex(self.case.runtime.initial_state),
@@ -169,6 +172,7 @@ class RuntimeCandidateAdapter:
             adapter_revision=self.adapter_revision,
             bounds_hash=sha256_hex(self.bounds),
             replay_spec_hash=self.replay_spec_hash,
+            executor_spec_hash=self.executor_spec_hash,
         ).key_hash
         return RuntimeCandidatePlan(candidate, status, invariant.canonical_hash, invariant, tuple(resolved), (), request, cache_key)
 

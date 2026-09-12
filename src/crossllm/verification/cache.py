@@ -24,6 +24,7 @@ class VerificationCacheKey:
     adapter_revision: str
     bounds_hash: str
     replay_spec_hash: str | None = None
+    executor_spec_hash: str | None = None
 
     def __post_init__(self) -> None:
         for name in ("case_runtime_hash", "canonical_ast_hash", "bounds_hash"):
@@ -34,6 +35,8 @@ class VerificationCacheKey:
             raise ValueError("adapter_revision is required")
         if self.replay_spec_hash is not None and _HEX64.fullmatch(self.replay_spec_hash) is None:
             raise ValueError("replay_spec_hash must be a lowercase SHA-256 digest")
+        if self.executor_spec_hash is not None and _HEX64.fullmatch(self.executor_spec_hash) is None:
+            raise ValueError("executor_spec_hash must be a lowercase SHA-256 digest")
 
     @property
     def key_hash(self) -> str:
@@ -46,6 +49,7 @@ class VerificationCacheKey:
             "adapter_revision": self.adapter_revision,
             "bounds_hash": self.bounds_hash,
             "replay_spec_hash": self.replay_spec_hash,
+            "executor_spec_hash": self.executor_spec_hash,
         }
 
 

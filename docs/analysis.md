@@ -76,6 +76,12 @@ archives or unavailable verification stages into verified findings.
 If one input contains multiple model tags, pass `--model-tag`; otherwise the
 command aborts instead of mixing model-specific paired units.
 
+The verification cache also carries the executor-bundle fingerprint. Changing
+the symbolic search command, witness checker, replay identity, pinned tool
+revision or configured workdir therefore creates a new cache namespace; a
+previous `unsupported` or partial result cannot be reused as if it came from
+the new backend.
+
 When the verification runner has archived timing data, the report also
 contains `resource_metrics`: provider input/output tokens, transport time,
 Ollama-reported duration, shared verification-stage time and caller-supplied

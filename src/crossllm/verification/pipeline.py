@@ -23,6 +23,7 @@ class VerificationExecutors:
     symbolic_search: StageExecutor | None = None
     witness_check: StageExecutor | None = None
     independent_replay: StageExecutor | None = None
+    spec_hash: str | None = None
 
 
 class SharedVerificationPipeline:
@@ -40,6 +41,7 @@ class SharedVerificationPipeline:
         adapter_revision: str = "runtime-adapter-v1",
         bounds: dict[str, Any] | None = None,
         replay_spec_hash: str | None = None,
+        executor_spec_hash: str | None = None,
     ) -> None:
         self.case = case
         self.adapter = RuntimeCandidateAdapter(
@@ -47,6 +49,10 @@ class SharedVerificationPipeline:
             replay_spec_hash=replay_spec_hash,
         )
         self.executors = executors or VerificationExecutors()
+        effective_executor_spec_hash = executor_spec_hash
+        if effective_executor_spec_hash is None and self.executors.spec_hash is not None:
+            effective_executor_spec_hash = self.executors.spec_hash
+        self.executor_spec_hash = effective_executor_spec_hash
         self.cache = cache
 
     def verify(self, candidate: CandidateInput) -> VerificationOutcome:
@@ -128,6 +134,7 @@ class SharedVerificationPipeline:
             adapter_revision=self.adapter.adapter_revision,
             bounds_hash=sha256_hex(self.adapter.bounds),
             replay_spec_hash=self.adapter.replay_spec_hash,
+            executor_spec_hash=self.executor_spec_hash,
         )
 
     @staticmethod

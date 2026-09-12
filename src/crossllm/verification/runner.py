@@ -24,6 +24,7 @@ def verify_candidates(
     adapter_revision: str = "runtime-adapter-v1",
     bounds: dict[str, Any] | None = None,
     replay_spec_hash: str | None = None,
+    executor_spec_hash: str | None = None,
 ) -> tuple[VerificationOutcome, ...]:
     """Verify ordered candidates with one shared adapter/pipeline instance.
 
@@ -41,6 +42,7 @@ def verify_candidates(
         adapter_revision=adapter_revision,
         bounds=bounds,
         replay_spec_hash=replay_spec_hash,
+        executor_spec_hash=executor_spec_hash,
     )
     return tuple(pipeline.verify(candidate) for candidate in candidates)
 
@@ -58,6 +60,7 @@ def verify_method_run(
     adapter_revision: str = "runtime-adapter-v1",
     bounds: dict[str, Any] | None = None,
     replay_spec_hash: str | None = None,
+    executor_spec_hash: str | None = None,
 ) -> tuple[VerificationOutcome, ...]:
     """Convert X/P/T0 output and send it through the common verifier."""
 
@@ -76,6 +79,7 @@ def verify_method_run(
         adapter_revision=adapter_revision,
         bounds=bounds,
         replay_spec_hash=replay_spec_hash,
+        executor_spec_hash=executor_spec_hash,
     )
 
 
@@ -95,6 +99,7 @@ def verify_method_campaign(
     adapter_revision: str = "runtime-adapter-v1",
     bounds: dict[str, Any] | None = None,
     replay_spec_hash: str | None = None,
+    executor_spec_hash: str | None = None,
 ) -> VerificationCampaign:
     """Run one method archive and materialize the shared metrics input."""
 
@@ -110,6 +115,7 @@ def verify_method_campaign(
         adapter_revision=adapter_revision,
         bounds=bounds,
         replay_spec_hash=replay_spec_hash,
+        executor_spec_hash=executor_spec_hash,
     )
     availability, reason = _availability(method_run, outcomes)
     return VerificationCampaign(

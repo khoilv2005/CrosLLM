@@ -245,6 +245,8 @@ class SourceVerificationExecutorTests(unittest.TestCase):
             try:
                 self.assertEqual(executors.search_spec.adapter_id, "search")
                 self.assertEqual(executors.replay_spec.semantic_engine, "test-evm")
+                self.assertEqual(len(executors.spec_hash), 64)
+                self.assertEqual(executors.executors().spec_hash, executors.spec_hash)
             finally:
                 executors.close()
 

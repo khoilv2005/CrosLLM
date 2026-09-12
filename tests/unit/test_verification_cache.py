@@ -35,6 +35,17 @@ class VerificationCacheTests(unittest.TestCase):
         second = VerificationCacheKey("a" * 64, "b" * 64, "adapter-v1", "d" * 64)
         self.assertNotEqual(first.key_hash, second.key_hash)
 
+    def test_executor_identity_change_produces_a_different_key(self) -> None:
+        first = VerificationCacheKey(
+            "a" * 64, "b" * 64, "adapter-v1", "c" * 64,
+            executor_spec_hash="d" * 64,
+        )
+        second = VerificationCacheKey(
+            "a" * 64, "b" * 64, "adapter-v1", "c" * 64,
+            executor_spec_hash="e" * 64,
+        )
+        self.assertNotEqual(first.key_hash, second.key_hash)
+
 
 if __name__ == "__main__":
     unittest.main()
