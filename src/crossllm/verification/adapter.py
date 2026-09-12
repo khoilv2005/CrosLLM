@@ -180,9 +180,16 @@ class RuntimeCandidateAdapter:
         request = {
             "schema_version": 1,
             "record_type": "candidate_runtime_search_request",
+            "execution_contract": {
+                "candidate_specific": True,
+                "source_backed": True,
+                "fresh_state_per_stage": True,
+                "predicate_semantics": "xlir-lowered-v1",
+            },
             "lineage_id": self.case.runtime.lineage_id,
             "case_id": self.case.runtime.case_id,
             "instance_id": self.case.runtime.instance_id,
+            "runtime": self.case.runtime.as_dict(),
             "runtime_hash": self.case.runtime.runtime_hash,
             "canonical_ast_hash": invariant.canonical_hash,
             "predicate": invariant.body.as_dict(),
