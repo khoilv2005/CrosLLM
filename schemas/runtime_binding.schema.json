@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/runtime_binding.schema.json",
+  "title": "CrossLLM runtime binding matrix",
+  "type": "object",
+  "required": ["schema_version", "record_type", "scope", "gold_fields_read", "case_count", "counts", "cases"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "runtime_binding_matrix"},
+    "scope": {"const": "public_case_artifacts_only"},
+    "gold_fields_read": {"const": false},
+    "repository_root": {"type": "string"},
+    "case_count": {"type": "integer", "minimum": 0},
+    "counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["schema_version", "record_type", "case_id", "lineage_id", "instance_id", "runtime", "status", "missing_fields", "diagnostics", "symbols", "actions", "coverage"],
+        "properties": {
+          "schema_version": {"const": 1},
+          "record_type": {"const": "case_runtime_bindings"},
+          "case_id": {"type": "string", "minLength": 1},
+          "lineage_id": {"type": "string", "minLength": 1},
+          "instance_id": {"type": "string", "minLength": 1},
+          "status": {"enum": ["metadata_bound", "partial", "unsupported", "invalid"]},
+          "missing_fields": {"type": "array", "items": {"type": "string"}},
+          "diagnostics": {"type": "array", "items": {"type": "string"}},
+          "runtime": {
+            "type": "object",
+            "required": ["schema_version", "record_type", "case_id", "lineage_id", "instance_id", "source_artifact_hash", "build_manifest_hash", "deployment_hash", "profile_hash", "compiler_hash", "source_domain", "destination_domain", "supported_actions", "observation_points", "contract_addresses", "actors", "initial_state", "runtime_mode", "runtime_hash"],
+            "properties": {
+              "schema_version": {"const": 1},
+              "record_type": {"const": "case_runtime_spec"},
+              "case_id": {"type": "string", "minLength": 1},
+              "lineage_id": {"type": "string", "minLength": 1},
+              "instance_id": {"type": "string", "minLength": 1},
+              "source_artifact_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "build_manifest_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "deployment_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "profile_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "compiler_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "source_domain": {"type": "string", "minLength": 1},
+              "destination_domain": {"type": "string", "minLength": 1},
+              "supported_actions": {"type": "array", "items": {"type": "string"}},
+              "observation_points": {"type": "array", "items": {"type": "string"}},
+              "contract_addresses": {"type": "object"},
+              "actors": {"type": "object"},
+              "initial_state": {"type": "object"},
+              "runtime_mode": {"type": "string", "minLength": 1},
+              "runtime_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+            },
+            "additionalProperties": true
+          },
+          "symbols": {"type": "array"},
+          "actions": {"type": "array"},
+          "coverage": {"type": "object"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

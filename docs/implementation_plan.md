@@ -441,12 +441,15 @@ Nghiệm thu: cùng loader đọc được gpt-oss/Qwen/DeepSeek mà không có 
 
 Phụ thuộc: M02, M03, M04. Đầu ra: `src/crossllm/verification/runtime.py`, `dataset/reports/runtime_binding_matrix.json`.
 
-- [ ] **V11.07** Định nghĩa `CaseRuntimeSpec` gồm source/build/deployment/profile/compiler hashes, contract addresses, domains, actors, initial state, observation points và supported actions.
-- [ ] **V11.08** Tạo binding table cho symbol XLIR: symbol ID, type, domain, pre/post location, contract, storage slot/offset hoặc getter, decode rule.
-- [ ] **V11.09** Tạo action table: function selector, caller role, calldata encoder, value, chain/domain, state transition và bounds.
+- [x] **V11.07** Định nghĩa `CaseRuntimeSpec` gồm source/build/deployment/profile/compiler hashes, contract addresses, domains, actors, initial state, observation points và supported actions. Đã mở rộng record và dựng spec từ public case metadata trong `src/crossllm/verification/runtime.py`.
+- [x] **V11.08** Tạo binding table cho symbol XLIR: symbol ID, type, domain, pre/post location, contract, storage slot/offset hoặc getter, decode rule. Scalar storage được đối chiếu với `storage_layout`; mapping/array/unsupported Solidity type bị giữ `unsupported`.
+- [x] **V11.09** Tạo action table: function selector, caller role, calldata encoder, value, chain/domain, state transition và bounds. Selector được lấy từ `methodIdentifiers` của runtime artifact khi có; action thiếu selector/overload được ghi rõ missing/ambiguous, không tự sinh giá trị.
 - [ ] **V11.10** Kiểm tra storage packing, mapping key, proxy/implementation, initialization, callback và cross-domain channel state.
-- [ ] **V11.11** Không suy đoán binding khi source/runtime chưa hỗ trợ; trả `UNSUPPORTED` kèm field và case cụ thể.
-- [ ] **V11.12** Xuất coverage theo case, lineage, property family, XLIR type, action và observation; tách fixture coverage khỏi source-backed EVM coverage.
+- [ ] **V11.10** Kiểm tra storage packing, mapping key, proxy/implementation, initialization, callback và cross-domain channel state. Hiện mới có kiểm tra packing/offset và lưu initialization/workflow descriptor; proxy, mapping-key và callback semantics vẫn là phần cần bổ sung.
+- [x] **V11.11** Không suy đoán binding khi source/runtime chưa hỗ trợ; trả `UNSUPPORTED` kèm field và case cụ thể. `runtime.py` giữ status/reason/diagnostics riêng cho từng binding.
+- [x] **V11.12** Xuất coverage theo case và lineage, kèm symbol type/action/execution status; tách public metadata-bound coverage khỏi executable action coverage trong `dataset/reports/runtime_binding_matrix.json`.
+
+Evidence Phase B hiện tại: `scripts/build_runtime_binding_matrix.py` chạy trên 240 case, cho `220 partial`, `20 unsupported`, `0 invalid`. Đây là coverage report kỹ thuật, chưa phải evidence cho Verified Recall.
 
 Nghiệm thu: một cặp mutant/control có thể dựng cùng runtime spec, đọc đúng pre/post bindings và thực hiện được normal workflow cùng violation workflow.
 
@@ -454,9 +457,9 @@ Nghiệm thu: một cặp mutant/control có thể dựng cùng runtime spec, đ
 
 Phụ thuộc: Phase A–B, M04–M05. Đầu ra: `src/crossllm/verification/adapter.py`, `search.py`, `witness.py`, verification records.
 
-- [ ] **V11.13** Compile từng candidate với public symbol table và giữ canonical XLIR hash.
-- [ ] **V11.14** Resolve toàn bộ `SymbolRef` sang runtime bindings; kiểm tra type, state, domain và observation availability.
-- [ ] **V11.15** Sinh predicate hoặc monitor từ typed XLIR; không chuyển raw model text trực tiếp thành Solidity/test code.
+- [x] **V11.13** Compile từng candidate với public symbol table và giữ canonical XLIR hash. `RuntimeCandidateAdapter` dùng chính `XLIRCompiler` và không tin canonical hash do provider gửi.
+- [x] **V11.14** Resolve toàn bộ `SymbolRef` sang runtime bindings; kiểm tra type, state, domain và observation availability. Mỗi mismatch trở thành diagnostic riêng.
+- [x] **V11.15** Sinh predicate hoặc monitor từ typed XLIR; không chuyển raw model text trực tiếp thành Solidity/test code. Adapter xuất `candidate_runtime_search_request` từ typed predicate.
 - [ ] **V11.16** Nối predicate với bounded search backend phù hợp. Ghi rõ backend là paired fixture, source-backed symbolic hay concrete bounded exploration.
 - [ ] **V11.17** Propagate bounds, deadline, cancellation và status `SAT/BOUNDED_UNSAT/UNKNOWN/TIMEOUT/UNSUPPORTED/CRASH`.
 - [ ] **V11.18** Với `SAT` complete, project witness gồm initial-state hash, actions, callers, calldata, domains, observations và trace hash.
@@ -486,12 +489,12 @@ Nghiệm thu: report có số `known`, `missing`, `unsupported`, `timeout`, `ver
 
 Phụ thuộc: M03, Phase A–B. Đầu ra: `src/crossllm/methods/t0.py`, `configs/t0_templates.json`.
 
-- [ ] **V11.31** Chốt deterministic template grammar chỉ đọc public artifact pack và capabilities công khai.
-- [ ] **V11.32** Implement template generator có thứ tự ổn định, giới hạn 8 slots, canonical XLIR compile và abstain khi không ground được.
-- [ ] **V11.33** Không đọc gold property, mutation diff, trigger, private trace hoặc model archive khi sinh T0 proposal.
-- [ ] **V11.34** Ghi template library hash, generator revision, selected template IDs và candidate hashes.
-- [ ] **V11.35** Cho T0 dùng đúng runtime adapter, search bounds, witness checker, replay adapter và analysis exporter của X/P.
-- [ ] **V11.36** Test cùng public pack sinh cùng 8-slot output trên nhiều process/máy; test không gọi Ollama, không đọc secret và không phụ thuộc thời gian.
+- [x] **V11.31** Chốt deterministic template grammar chỉ đọc public artifact pack và capabilities công khai trong `configs/t0_templates.json`.
+- [x] **V11.32** Implement template generator có thứ tự ổn định, giới hạn 8 slots, canonical XLIR compile và abstain khi không ground được trong `src/crossllm/methods/t0.py`.
+- [x] **V11.33** Không đọc gold property, mutation diff, trigger, private trace hoặc model archive khi sinh T0 proposal; input guard từ chối cả `property_oracle`.
+- [x] **V11.34** Ghi template library hash, generator revision, selected template IDs và candidate hashes trong `T0ProposalRun`/`MethodRun`.
+- [ ] **V11.35** Cho T0 dùng đúng runtime adapter, search bounds, witness checker, replay adapter và analysis exporter của X/P. T0 đã xuất cùng `MethodRun`/XLIR input và đã được adapter smoke-test; search/witness/replay chung vẫn chưa nối.
+- [x] **V11.36** Test cùng public pack sinh cùng 8-slot output trên nhiều process/máy; test không gọi Ollama, không đọc secret và không phụ thuộc thời gian. Evidence: `tests/unit/test_t0_proposer.py`.
 - [ ] **V11.37** Chạy ablation learned proposer vs T0 trên cùng cases, prefixes và denominators; ghi rõ T0 có thể abstain.
 
 Nghiệm thu: T0 chạy offline, output cùng schema XLIR, đi qua cùng verification pipeline và xuất được Recall/false-alert/token-time record có thể so sánh.

@@ -12,6 +12,16 @@ from .records import (
     VerificationOutcome,
 )
 from .loader import ArchiveRoot, VerificationDataset, load_archives, match_campaigns
+from .runtime import (
+    ActionRuntimeBinding,
+    BindingStatus,
+    CaseRuntimeBindings,
+    RuntimeBindingMatrix,
+    SymbolRuntimeBinding,
+    build_runtime_binding_matrix,
+    load_case_runtime,
+)
+from .adapter import AdapterStatus, RuntimeCandidateAdapter, RuntimeCandidatePlan, public_xlir_symbols
 
 __all__ = [
     "ArchiveRoot",
@@ -25,6 +35,17 @@ __all__ = [
     "StageStatus",
     "VerificationDataset",
     "VerificationOutcome",
+    "ActionRuntimeBinding",
+    "BindingStatus",
+    "CaseRuntimeBindings",
+    "RuntimeBindingMatrix",
+    "SymbolRuntimeBinding",
+    "build_runtime_binding_matrix",
+    "load_case_runtime",
+    "AdapterStatus",
+    "RuntimeCandidateAdapter",
+    "RuntimeCandidatePlan",
+    "public_xlir_symbols",
     "load_archives",
     "match_campaigns",
 ]

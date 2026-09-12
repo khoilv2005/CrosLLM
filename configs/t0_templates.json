@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "generator_revision": "t0-deterministic-v1",
+  "max_slots": 8,
+  "templates": [
+    {
+      "template_id": "state-stability",
+      "kind": "invariant",
+      "operator": "eq",
+      "left_state": "pre",
+      "right_state": "post",
+      "selection": "sorted_public_scalar_storage_symbols"
+    }
+  ]
+}

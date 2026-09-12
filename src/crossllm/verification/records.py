@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import StrEnum
 import re
 from typing import Any, Mapping
@@ -63,6 +63,10 @@ class CaseRuntimeSpec:
     destination_domain: str
     supported_actions: tuple[str, ...] = ()
     observation_points: tuple[str, ...] = ()
+    contract_addresses: Mapping[str, str] = field(default_factory=dict)
+    actors: Mapping[str, str] = field(default_factory=dict)
+    initial_state: Mapping[str, Any] = field(default_factory=dict)
+    runtime_mode: str = "unknown"
     metadata: Mapping[str, Any] | None = None
 
     def __post_init__(self) -> None:
@@ -82,6 +86,14 @@ class CaseRuntimeSpec:
                 raise ValueError(f"{name} must contain non-empty strings")
             if len(set(values)) != len(values):
                 raise ValueError(f"{name} must not contain duplicates")
+        for name, values in (("contract_addresses", self.contract_addresses), ("actors", self.actors), ("initial_state", self.initial_state)):
+            if not isinstance(values, Mapping):
+                raise ValueError(f"{name} must be a mapping")
+        for name, values in (("contract_addresses", self.contract_addresses), ("actors", self.actors)):
+            if any(not isinstance(key, str) or not key or not isinstance(value, str) or not value for key, value in values.items()):
+                raise ValueError(f"{name} keys and values must be non-empty strings")
+        if not isinstance(self.runtime_mode, str) or not self.runtime_mode:
+            raise ValueError("runtime_mode must be a non-empty string")
         if self.metadata is not None and not isinstance(self.metadata, Mapping):
             raise ValueError("runtime spec metadata must be a mapping")
 
@@ -100,6 +112,10 @@ class CaseRuntimeSpec:
             "destination_domain": self.destination_domain,
             "supported_actions": list(self.supported_actions),
             "observation_points": list(self.observation_points),
+            "contract_addresses": dict(self.contract_addresses),
+            "actors": dict(self.actors),
+            "initial_state": dict(self.initial_state),
+            "runtime_mode": self.runtime_mode,
             "metadata": dict(self.metadata) if self.metadata is not None else None,
         })[0]
 
@@ -119,6 +135,10 @@ class CaseRuntimeSpec:
             "destination_domain": self.destination_domain,
             "supported_actions": list(self.supported_actions),
             "observation_points": list(self.observation_points),
+            "contract_addresses": dict(self.contract_addresses),
+            "actors": dict(self.actors),
+            "initial_state": dict(self.initial_state),
+            "runtime_mode": self.runtime_mode,
             "metadata": dict(self.metadata) if self.metadata is not None else None,
             "runtime_hash": self.runtime_hash,
         }
