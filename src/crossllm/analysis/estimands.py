@@ -282,19 +282,22 @@ def _kaplan_meier(rows: list[CampaignOutcome], field: str) -> tuple[dict[str, fl
 
 
 def _paired_lineage_effects(rows: list[CampaignOutcome], left: str, right: str) -> list[float]:
-    per_instance: dict[tuple[str, str, str], dict[str, list[float]]] = {}
+    # Pair at the prespecified replicate unit first.  Averaging all replicates
+    # inside each method before matching would let an unmatched successful arm
+    # influence the effect and would violate the paired design.
+    per_replicate: dict[tuple[str, str, int], dict[str, float]] = {}
     for row in rows:
         if row.ground_truth != "positive" or row.method not in {left, right} or row.detected is None:
             continue
-        key = (row.lineage_id, row.instance_id, row.method)
-        per_instance.setdefault(key, {}).setdefault(row.method, []).append(float(row.detected))
-    matched: dict[tuple[str, str], dict[str, float]] = {}
-    for (lineage, instance, method), values in per_instance.items():
-        matched.setdefault((lineage, instance), {})[method] = mean(values[method])
-    by_lineage: dict[str, list[float]] = {}
-    for (lineage, _instance), values in sorted(matched.items()):
+        key = (row.lineage_id, row.instance_id, row.replicate)
+        per_replicate.setdefault(key, {})[row.method] = float(row.detected)
+    per_instance: dict[tuple[str, str], list[float]] = {}
+    for (lineage, instance, _replicate), values in sorted(per_replicate.items()):
         if left in values and right in values:
-            by_lineage.setdefault(lineage, []).append(values[left] - values[right])
+            per_instance.setdefault((lineage, instance), []).append(values[left] - values[right])
+    by_lineage: dict[str, list[float]] = {}
+    for (lineage, _instance), values in sorted(per_instance.items()):
+        by_lineage.setdefault(lineage, []).append(mean(values))
     return [mean(values) for _lineage, values in sorted(by_lineage.items())]
 
 

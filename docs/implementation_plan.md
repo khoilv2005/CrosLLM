@@ -503,10 +503,10 @@ Nghiệm thu: T0 chạy offline, output cùng schema XLIR, đi qua cùng verific
 Phụ thuộc: Phase D–E, M09. Đầu ra: `scripts/build_paired_verification_analysis.py`, analysis bundle.
 
 - [x] **V11.38** Chuyển verification outcomes thành một row/campaign với availability và first-failure taxonomy đầy đủ. `campaigns_to_analysis_outcomes()` giữ riêng `None` cho unavailable detection, map provider/timeout/unsupported/unknown, và lấy first failure theo slot.
-- [ ] **V11.39** Ghép CrossLLM/Direct/T0 theo instance và replicate; tính effect trước khi aggregate instance → lineage.
+- [x] **V11.39** Ghép CrossLLM/Direct/T0 theo instance và replicate; tính effect trước khi aggregate instance → lineage. `scripts/build_paired_verification_analysis.py` hỗ trợ nhiều contrast trên cùng verification JSONL; analysis ghép cùng replicate trước khi aggregate, còn corpus final vẫn pending.
 - [ ] **V11.40** Tính Recall@N curves, useful proposal recall, native witness yield, independent replay rate, false-alert/FDP và token/latency effects riêng.
 - [ ] **V11.41** Chạy lineage bootstrap 10.000 draws, exact sign test và Holm theo prespecified contrast families.
-- [ ] **V11.42** Kiểm thử bằng fixture có kết quả tính tay, missing/unknown, all-zero, ties, unequal lineage size và unmatched pairs.
+- [x] **V11.42** Kiểm thử bằng fixture có kết quả tính tay, missing/unknown, all-zero, ties, unequal lineage size và unmatched pairs. Evidence nằm trong `tests/unit/test_analysis_estimands.py`, `tests/unit/test_analysis_inference.py` và `tests/unit/test_paired_verification_analysis.py`.
 - [ ] **V11.43** Dry-run trên gpt-oss archives chỉ để kiểm tra schema/pairing/missingness; không xuất Verified Recall số học khi chưa có verification outcomes.
 - [ ] **V11.44** Freeze analysis input hash và report provenance trước khi nạp Qwen/DeepSeek.
 

@@ -22,7 +22,9 @@ class AnalysisEstimandTests(unittest.TestCase):
         report = analyze_outcomes(self.rows(), compare_methods=("X", "P"))
         self.assertAlmostEqual(report.recall["X"].value, 0.75)
         self.assertEqual(report.recall["X"].known, 4)
-        self.assertEqual(report.paired_effects["X-minus-P"], (0.5, 1.0))
+        # X replicate 2 has no matched P replicate and must not dilute or
+        # otherwise alter the paired effect.
+        self.assertEqual(report.paired_effects["X-minus-P"], (1.0, 1.0))
 
     def test_false_alert_and_precision_keep_no_claims_as_na(self) -> None:
         report = analyze_outcomes(self.rows())
