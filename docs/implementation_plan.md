@@ -240,7 +240,7 @@ Owner: R. Phụ thuộc: M01, M05–M07. EG §9, §16–17, §20–21.
 - [ ] **M08.02** Worker 4 cores/16 GiB, CPU/memory enforcement, một solver process theo profile; concurrency giữa campaigns, quota-aware queue và resource metrics. `ResourceEnvelope`/`WorkerResourceScheduler` và digest-pinned `DockerWorkerCommandBuilder` đã có limits, FIFO/quota/solver serialization và Docker `--cpus`/`--memory`; `EvaluationRunner` chặn execution trước G3. OS/cgroup enforcement evidence ngoài Python vẫn cần.
 - [ ] **M08.03** State machine planned/running/terminal; immutable attempt events và idempotent export; interrupted/in-flight requests được ghi uncertain để tránh âm thầm resample. Không hứa exactly-once với remote provider.
 - [ ] **M08.04** Persist/restart/resume; không rerun completed campaign như replicate mới; fixed policy cho lost response/outage/version drift trước test.
-- [ ] **M08.05** Log CPU core-seconds, solver time, RSS, wall time, queue/throttling, actual tokens/cost khi có; preprocessing/adjudication effort tách khỏi method horizon. `TelemetryRecord`/`TelemetryLedger` và `WorkerRunner` đã tách effort phase, queue/throttling, token/cost unknowns và measured usage; runtime report/admission evidence thực tế vẫn pending.
+- [ ] **M08.05** Log CPU core-seconds, solver time, RSS, wall time, queue/throttling, và provider-reported token usage; preprocessing/adjudication effort tách khỏi method horizon. Cost chỉ được ghi khi có nguồn billing độc lập, không suy ra từ Ollama API. `TelemetryRecord`/`TelemetryLedger` và `WorkerRunner` đã tách effort phase, queue/throttling, token/cost unknowns và measured usage; runtime report/admission evidence thực tế vẫn pending.
 - [ ] **M08.06** Cách ly execution EVM không broadcast, private gold không mount; provider worker chỉ được egress tới `ollama.com` cho Ollama Cloud API và không được mount/download model weights; test quyền truy cập bằng sentinel fixtures. Docker command policy now rejects writable bind/model-cache mounts, runs a digest-pinned public-sentinel canary, blocks gold/weights/non-allowlisted endpoint/broadcast, and records `dataset/reports/isolation_canary.json`; external firewall enforcement remains required for provider workers.
 - [ ] **M08.07** Canary panel/version-block handling; metadata thay đổi phải tạo block/deviation, không âm thầm trộn checkpoint. Synthetic rehearsal covers matching pass, failed panel, identity drift and explicit deviation at `dataset/reports/m08_canary_version_rehearsal.json`; provider calls remain zero and admission remains false.
 - [ ] **M08.08** Offline e2e và development dry-run: proposal → search → replay → events → resume → export → analysis. Inject worker crash, timeout, corrupted blob, disk-full và provider failure. Hash-bound rehearsal `dataset/reports/m08_development_runtime_rehearsal.json` now validates 58 events, 54 method events, same-attempt resume, 12 fault events and 24 synthetic provider calls; the Cloud-only development runner additionally completed a 1-campaign/8-call ChainBridge smoke with 2 compiled candidates, recorded in `docs/decisions/m08-development-cloud-proposal-2026-09-09.md`; all remain non-admission.
@@ -390,3 +390,159 @@ Gate report đề xuất dùng `PASS`, `FAIL`, `PENDING`, kèm evidence path/has
 Batch đầu nên hoàn tất **M00 + M01**, đồng thời thử **M02.01–M02.03 trên một development host**. Deliverables cụ thể: backend feasibility ADR, schema/state/ID contracts, package/CI skeleton, strict admission-vs-starter validation, reproducible source build và một synthetic paired-chain fixture. Sau evidence đó mới mở batch XLIR/transition engine; đây là điểm giảm rủi ro lớn nhất trước khi đầu tư xây corpus đầy đủ.
 
 Không đánh dấu milestones trong tài liệu này là hoàn thành từ việc lập kế hoạch. Cập nhật từng checkbox bằng evidence triển khai thực tế.
+
+## 11. Kế hoạch bổ sung — verification adapter dùng chung và T0 deterministic
+
+Cập nhật: 2026-09-12. Phạm vi: xây một verification pipeline dùng chung cho CrossLLM, Direct, T0, Qwen và DeepSeek. `paper/` không thuộc phạm vi chỉnh sửa của batch này.
+
+### 11.1. Mục tiêu và ranh giới kết luận
+
+Mỗi model chỉ cung cấp proposal archive. Tất cả proposal sau đó phải đi qua cùng các bước:
+
+```text
+archive → parse/ground XLIR → runtime binding → bounded search
+        → witness projection → native/concrete check → independent EVM replay
+        → property outcome → paired analysis
+```
+
+`grounded XLIR`, `SAT`, `witness replay` và `verified finding` là bốn trạng thái khác nhau. Chỉ trạng thái cuối cùng sau khi property outcome hợp lệ mới được tính vào Verified Recall hoặc false-alert metrics. `UNKNOWN`, `UNSUPPORTED`, `TIMEOUT`, provider failure và thiếu binding phải giữ nguyên missingness.
+
+Mốc đầu tiên là một vertical slice hoàn chỉnh trên một cặp mutant/control có source closure và harness hỗ trợ. Sau khi slice này pass, adapter mới được mở rộng theo property family và lineage.
+
+### 11.2. Hiện trạng đã kiểm kê
+
+| Thành phần | Đã có | Cần nối thêm |
+|---|---|---|
+| Proposal archive | Archive gpt-oss, Qwen và schema raw receipt/8 slots | Loader dùng chung, ghép arm bằng instance/lineage/replicate |
+| XLIR | Parser, typed compiler, canonical hash, concrete evaluator | Đóng gói candidate thành input cho runtime adapter |
+| Symbolic | `SymbolicPairedExplorer` trên paired fixture | Adapter state/action cho harness EVM từng case |
+| Witness | Projection, decoding, native fixture replay | Sinh witness từ candidate-specific runtime search |
+| EVM replay | `EVMReplaySpec`, Foundry subprocess boundary | Input contract cho candidate predicate và trace observation |
+| Dataset runtime | Build/deployment/harness/property/trace artifacts | Runtime binding map: symbol → contract/storage/observation |
+| T0 | `MethodTrack.T0`, prompt fixture và MethodRunner contract | Deterministic template generator không provider |
+| Analysis | Estimands, paired effects, bootstrap, Holm, tables/figures | Outcome exporter từ verification records và Recall@N/FDP đúng denominator |
+
+Hiện chưa được gọi Verified Recall: proposal archive mới chứng minh collection và XLIR grounding. Không dùng `score_eligible=false` archive làm input cho paper metrics.
+
+### 11.3. Phase A — schema và loader chung
+
+Phụ thuộc: M01, M03. Đầu ra: `src/crossllm/verification/records.py`, `loader.py`, `schemas/verification_outcome.schema.json`.
+
+- [x] **V11.01** Định nghĩa `CampaignInput`, `CandidateInput`, `CaseRuntimeSpec`, `VerificationOutcome`, `StageResult` và enum status có version. Đã triển khai tại `src/crossllm/verification/records.py`, gồm runtime hash và trạng thái stage không gộp `unknown/unsupported/timeout/crash`.
+- [x] **V11.02** Loader đọc CrossLLM/Direct/T0 từ archive nhưng không thay đổi raw response, request hash, slot order hoặc retry receipts. `load_archives()` nhận arm label độc lập với model/backbone và giữ nguyên `raw_row` cùng tuple slot/receipt.
+- [x] **V11.03** Ghép matched arms bằng `(lineage_id, instance_id, replicate)` và kiểm tra model/method/config compatibility; không dùng `campaign_id` giữa hai arm làm khóa ghép. `match_campaigns()` đã kiểm tra one-to-one pairing; campaign IDs khác nhau giữa arms vẫn ghép được.
+- [x] **V11.04** Phân biệt campaign count, slot count, unique candidate count và verified candidate count; duplicate slot được giữ trong prefix denominator. `CampaignArchive`/`VerificationDataset` đã xuất campaign/slot/candidate/unique-candidate counts; slot order vẫn đủ 8.
+- [x] **V11.05** Reject archive malformed, thiếu 8 slots, thiếu provider receipt, sai token budget, sai public pack hoặc campaign trùng trong cùng arm. Loader kiểm tra one-row JSONL, campaign identity/plan, 8 slot collections, canonical indices, HTTP/transport receipt, budget status, public pack và duplicate campaign ID.
+- [x] **V11.06** Test reorder invariance của loader, duplicate archive, partial provider failure, retry receipt và unknown campaign. `tests/unit/test_verification_loader.py` có 5 test cho pairing, failure retention, duplicate rejection, plan rejection và runtime identity; test hiện hành pass.
+
+Nghiệm thu: cùng loader đọc được gpt-oss/Qwen/DeepSeek mà không có nhánh xử lý riêng theo model; output có identity và missingness đầy đủ.
+
+### 11.4. Phase B — Case runtime binding
+
+Phụ thuộc: M02, M03, M04. Đầu ra: `src/crossllm/verification/runtime.py`, `dataset/reports/runtime_binding_matrix.json`.
+
+- [ ] **V11.07** Định nghĩa `CaseRuntimeSpec` gồm source/build/deployment/profile/compiler hashes, contract addresses, domains, actors, initial state, observation points và supported actions.
+- [ ] **V11.08** Tạo binding table cho symbol XLIR: symbol ID, type, domain, pre/post location, contract, storage slot/offset hoặc getter, decode rule.
+- [ ] **V11.09** Tạo action table: function selector, caller role, calldata encoder, value, chain/domain, state transition và bounds.
+- [ ] **V11.10** Kiểm tra storage packing, mapping key, proxy/implementation, initialization, callback và cross-domain channel state.
+- [ ] **V11.11** Không suy đoán binding khi source/runtime chưa hỗ trợ; trả `UNSUPPORTED` kèm field và case cụ thể.
+- [ ] **V11.12** Xuất coverage theo case, lineage, property family, XLIR type, action và observation; tách fixture coverage khỏi source-backed EVM coverage.
+
+Nghiệm thu: một cặp mutant/control có thể dựng cùng runtime spec, đọc đúng pre/post bindings và thực hiện được normal workflow cùng violation workflow.
+
+### 11.5. Phase C — Candidate → runtime adapter
+
+Phụ thuộc: Phase A–B, M04–M05. Đầu ra: `src/crossllm/verification/adapter.py`, `search.py`, `witness.py`, verification records.
+
+- [ ] **V11.13** Compile từng candidate với public symbol table và giữ canonical XLIR hash.
+- [ ] **V11.14** Resolve toàn bộ `SymbolRef` sang runtime bindings; kiểm tra type, state, domain và observation availability.
+- [ ] **V11.15** Sinh predicate hoặc monitor từ typed XLIR; không chuyển raw model text trực tiếp thành Solidity/test code.
+- [ ] **V11.16** Nối predicate với bounded search backend phù hợp. Ghi rõ backend là paired fixture, source-backed symbolic hay concrete bounded exploration.
+- [ ] **V11.17** Propagate bounds, deadline, cancellation và status `SAT/BOUNDED_UNSAT/UNKNOWN/TIMEOUT/UNSUPPORTED/CRASH`.
+- [ ] **V11.18** Với `SAT` complete, project witness gồm initial-state hash, actions, callers, calldata, domains, observations và trace hash.
+- [ ] **V11.19** Chạy native/concrete witness check từ clean initial state; không dùng state còn lại từ symbolic search.
+- [ ] **V11.20** Gọi independent EVM replay adapter với runtime spec pinned; xác minh trace hash, deployment identity và property observation.
+- [ ] **V11.21** Tách `candidate_violation`, `property_holds`, `security_relevance`, `native_replay`, `independent_replay` và `verified_finding` thành các field độc lập.
+- [ ] **V11.22** Cache theo `(case runtime hash, XLIR canonical hash, adapter revision, bounds, replay spec hash)`; cache hit không làm tăng execution denominator.
+- [ ] **V11.23** Test wrong property, missing binding, altered witness, wrong initial state, wrong caller, invalid calldata, control case, timeout, unsupported opcode và replay trace mismatch.
+
+Nghiệm thu: một candidate được ground, search, project witness, replay và đánh giá property trên mutant/control; candidate tautology hoặc property không liên quan không được tự động thành finding.
+
+### 11.6. Phase D — Verified Recall, negatives và output schema
+
+Phụ thuộc: Phase C, M09. Đầu ra: `scripts/run_verification_stage.py`, `scripts/build_verification_metrics.py`.
+
+- [ ] **V11.24** Giữ thứ tự slot 1–8 và tính Verified Recall@1/@2/@4/@8 theo prefix cùng archive.
+- [ ] **V11.25** Định nghĩa verified hit cần đủ grounded candidate, supported runtime, completed search, valid witness, independent replay và property outcome đúng.
+- [ ] **V11.26** Chạy matched negatives/patched controls qua cùng backend, bounds, timeout và adapter revision.
+- [ ] **V11.27** Tính false-alert rate và FDP với denominator công khai; provider failure/unsupported/unknown không được đổi thành no-alert.
+- [ ] **V11.28** Xuất stage denominators cho từng method, model, arm, lineage, property family, prefix và case cohort.
+- [ ] **V11.29** Tách proposal token/latency, symbolic time, witness time, replay time và total wall time; không cộng dồn hoặc so sánh khác định nghĩa.
+- [ ] **V11.30** Chạy gpt-oss vertical slice trước, sau đó toàn bộ 720 matched pairs nếu runtime coverage đủ; Qwen/DeepSeek chỉ đổi input archive.
+
+Nghiệm thu: report có số `known`, `missing`, `unsupported`, `timeout`, `verified_hits`, `false_alerts`; có thể truy ngược từng hit về archive slot, witness và replay receipt.
+
+### 11.7. Phase E — T0 deterministic proposer
+
+Phụ thuộc: M03, Phase A–B. Đầu ra: `src/crossllm/methods/t0.py`, `configs/t0_templates.json`.
+
+- [ ] **V11.31** Chốt deterministic template grammar chỉ đọc public artifact pack và capabilities công khai.
+- [ ] **V11.32** Implement template generator có thứ tự ổn định, giới hạn 8 slots, canonical XLIR compile và abstain khi không ground được.
+- [ ] **V11.33** Không đọc gold property, mutation diff, trigger, private trace hoặc model archive khi sinh T0 proposal.
+- [ ] **V11.34** Ghi template library hash, generator revision, selected template IDs và candidate hashes.
+- [ ] **V11.35** Cho T0 dùng đúng runtime adapter, search bounds, witness checker, replay adapter và analysis exporter của X/P.
+- [ ] **V11.36** Test cùng public pack sinh cùng 8-slot output trên nhiều process/máy; test không gọi Ollama, không đọc secret và không phụ thuộc thời gian.
+- [ ] **V11.37** Chạy ablation learned proposer vs T0 trên cùng cases, prefixes và denominators; ghi rõ T0 có thể abstain.
+
+Nghiệm thu: T0 chạy offline, output cùng schema XLIR, đi qua cùng verification pipeline và xuất được Recall/false-alert/token-time record có thể so sánh.
+
+### 11.8. Phase F — Paired statistics và dry-run
+
+Phụ thuộc: Phase D–E, M09. Đầu ra: `scripts/build_paired_verification_analysis.py`, analysis bundle.
+
+- [ ] **V11.38** Chuyển verification outcomes thành một row/campaign với availability và first-failure taxonomy đầy đủ.
+- [ ] **V11.39** Ghép CrossLLM/Direct/T0 theo instance và replicate; tính effect trước khi aggregate instance → lineage.
+- [ ] **V11.40** Tính Recall@N curves, useful proposal recall, native witness yield, independent replay rate, false-alert/FDP và token/latency effects riêng.
+- [ ] **V11.41** Chạy lineage bootstrap 10.000 draws, exact sign test và Holm theo prespecified contrast families.
+- [ ] **V11.42** Kiểm thử bằng fixture có kết quả tính tay, missing/unknown, all-zero, ties, unequal lineage size và unmatched pairs.
+- [ ] **V11.43** Dry-run trên gpt-oss archives chỉ để kiểm tra schema/pairing/missingness; không xuất Verified Recall số học khi chưa có verification outcomes.
+- [ ] **V11.44** Freeze analysis input hash và report provenance trước khi nạp Qwen/DeepSeek.
+
+Nghiệm thu: cùng analysis command xử lý T0, gpt-oss, Qwen và DeepSeek; thay đổi thứ tự raw rows không đổi kết quả; missingness không bị biến thành success hoặc zero.
+
+### 11.9. Dependency graph, thứ tự chạy và checklist launch
+
+```text
+V11.01–V11.06
+       ↓
+V11.07–V11.12 → V11.31–V11.36
+       ↓               ↓
+V11.13–V11.23 → V11.24–V11.30
+                         ↓
+                  V11.38–V11.44
+```
+
+Checklist trước khi chạy toàn bộ verification:
+
+- [ ] Có một vertical slice source-backed pass cho CrossLLM, Direct và T0.
+- [ ] Runtime binding matrix không còn `pending` cho nhóm case sẽ tính metric.
+- [ ] Candidate-specific witness và independent replay receipt được tạo từ clean initial state.
+- [ ] Matched control/negative chạy cùng adapter revision và backend settings.
+- [ ] Resume theo candidate/campaign có lock, checkpoint và không chạy lại stage terminal.
+- [ ] Report phân biệt proposal-stage, verified-stage và missing-stage.
+- [ ] Analysis dry-run pass với dữ liệu fixture và gpt-oss archive.
+- [ ] Qwen/DeepSeek được nạp qua cùng loader và runner; không có model-specific verification logic.
+- [ ] Không cập nhật `paper/` trước khi owner cho phép tích hợp số liệu.
+
+### 11.10. Blocker kỹ thuật hiện tại và tiêu chí đóng
+
+| Blocker | Nguyên nhân | Cách đóng |
+|---|---|---|
+| Candidate chưa chạy được trên từng harness | Thiếu symbol/storage/action runtime binding | Hoàn tất V11.07–V11.12 và vertical slice |
+| Symbolic result chưa đại diện EVM execution | Backend paired fixture chưa đọc state Solidity thật | Chọn source-backed adapter hoặc ghi `unsupported`, không gọi fixture result là EVM result |
+| Witness chưa candidate-specific | Chưa có search predicate/action mapping | Hoàn tất V11.13–V11.20 |
+| Verified Recall chưa có | Archive chỉ là proposal-stage | Hoàn tất V11.21–V11.30 |
+| T0 chưa có baseline thực thi | `MethodTrack.T0` chưa có deterministic generator | Hoàn tất V11.31–V11.37 |
+| Paired metrics chưa có đầu vào hợp lệ | Chưa có verification outcomes | Hoàn tất V11.38–V11.44 |
+
+Không được đóng blocker bằng cách đổi `score_eligible`, gọi grounded proposal là verified, dùng trace gold có sẵn làm output của model hoặc gán unsupported thành no-alert. Mỗi mục chỉ đánh dấu hoàn thành khi có code, test và report tương ứng.

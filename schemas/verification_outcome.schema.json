@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://crossllm.local/schemas/verification_outcome.schema.json",
+  "title": "CrossLLM candidate verification outcome",
+  "type": "object",
+  "required": [
+    "schema_version", "record_type", "campaign_id", "attempt_id", "arm",
+    "instance_id", "lineage_id", "replicate", "slot_index", "slot_id",
+    "stages", "availability", "verified_finding"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_type": {"const": "verification_outcome"},
+    "campaign_id": {"type": "string", "minLength": 1},
+    "attempt_id": {"type": "string", "minLength": 1},
+    "arm": {"type": "string", "minLength": 1},
+    "instance_id": {"type": "string", "minLength": 1},
+    "lineage_id": {"type": "string", "minLength": 1},
+    "replicate": {"type": "integer", "minimum": 1},
+    "slot_index": {"type": "integer", "minimum": 0},
+    "slot_id": {"type": "string", "minLength": 1},
+    "canonical_ast_hash": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["stage", "status"],
+        "properties": {
+          "stage": {"type": "string", "minLength": 1},
+          "status": {"enum": ["pending", "passed", "failed", "unknown", "unsupported", "timeout", "crash", "not_applicable"]},
+          "reason": {"type": ["string", "null"]},
+          "elapsed_seconds": {"type": ["number", "null"], "minimum": 0},
+          "evidence": {"type": ["object", "null"]}
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "candidate_violation": {"type": ["boolean", "null"]},
+    "property_holds": {"type": ["boolean", "null"]},
+    "security_relevance": {"type": ["boolean", "null"]},
+    "verified_finding": {"type": ["boolean", "null"]},
+    "availability": {"enum": ["available", "timeout", "unsupported", "unknown"]},
+    "first_failure": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}
