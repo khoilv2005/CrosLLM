@@ -96,6 +96,9 @@ run without a shell; `{request}` and `{witness}` are the only substituted
 arguments. Search results must report complete `sat`/`bounded_unsat` status,
 and a SAT witness must bind runtime, artifact, deployment, property, initial
 state and trace hashes. A process exit of zero alone is never accepted.
+Accepted source witnesses are copied into the verification outcome evidence
+with a canonical `witness_hash`; the temporary subprocess path is not treated
+as durable evidence.
 
 `analysis/figures.py` provides the complementary figure boundary. It emits
 paired-lineage, recall@N, time-curve, scaling and failure-flow SVGs only from

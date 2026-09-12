@@ -191,6 +191,8 @@ class SourceBackedVerificationExecutors:
             self._witnesses[self._key(plan)] = dict(witness)
             evidence["candidate_violation"] = True
             evidence["witness_id"] = witness["witness_id"]
+            evidence["witness_hash"] = sha256_hex(dict(witness))
+            evidence["witness"] = dict(witness)
             return StageResult("symbolic_search", StageStatus.PASSED, evidence=evidence)
         if status is SearchStatus.BOUNDED_UNSAT:
             if not complete:
@@ -234,6 +236,9 @@ class SourceBackedVerificationExecutors:
             return StageResult("witness_check", StageStatus.FAILED, "witness_does_not_demonstrate_violation", evidence=evidence)
         self._witness_paths[key] = result.witness_path or self._write_witness(key, witness)
         self._witness_properties[key] = property_holds
+        evidence["witness_id"] = witness["witness_id"]
+        evidence["witness_hash"] = sha256_hex(dict(witness))
+        evidence["witness"] = dict(witness)
         return StageResult("witness_check", StageStatus.PASSED, evidence=evidence)
 
     def independent_replay(self, plan: RuntimeCandidatePlan) -> StageResult:
@@ -262,6 +267,8 @@ class SourceBackedVerificationExecutors:
             return StageResult("independent_replay", StageStatus.UNKNOWN, "replay_output_missing_security_relevance", result.elapsed_seconds, evidence)
         evidence["property_holds"] = result.property_holds
         evidence["security_relevance"] = result.security_relevance
+        evidence["witness_id"] = witness["witness_id"]
+        evidence["witness_hash"] = sha256_hex(dict(witness))
         return StageResult("independent_replay", StageStatus.PASSED, elapsed_seconds=result.elapsed_seconds, evidence=evidence)
 
     def _invoke(

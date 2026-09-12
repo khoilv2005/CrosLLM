@@ -111,6 +111,11 @@ class SourceVerificationExecutorTests(unittest.TestCase):
         self.assertEqual(outcome.stage_status("symbolic_search"), StageStatus.PASSED)
         self.assertEqual(outcome.stage_status("witness_check"), StageStatus.PASSED)
         self.assertEqual(outcome.stage_status("independent_replay"), StageStatus.PASSED)
+        witness_evidence = next(stage for stage in outcome.stages if stage.stage == "witness_check").evidence
+        self.assertIsInstance(witness_evidence, dict)
+        self.assertEqual(witness_evidence["witness_id"], "w1")
+        self.assertEqual(len(witness_evidence["witness_hash"]), 64)
+        self.assertEqual(witness_evidence["witness"]["trace_hash"], "f" * 64)
         self.assertTrue(outcome.verified_finding)
 
     def test_source_replay_trace_mismatch_is_not_verified(self) -> None:
