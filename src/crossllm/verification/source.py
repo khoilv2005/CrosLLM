@@ -437,7 +437,7 @@ def _validate_source_witness(value: object, plan: RuntimeCandidatePlan) -> str |
     allowed_bindings = {
         tuple(str(action.get(field)) for field in ("action_id", "caller_role", "domain", "contract", "selector"))
         for action in raw_bindings
-        if isinstance(action, Mapping)
+        if isinstance(action, Mapping) and action.get("executable") is True
     }
     for action in value["actions"]:
         if any(not isinstance(action.get(field), str) or not action[field] for field in action_fields):

@@ -160,6 +160,21 @@ class RuntimeBindingTests(unittest.TestCase):
                 deferred_runtime_fields=frozenset({"initial_state_descriptor"}),
             )
 
+    def test_adapter_keeps_non_executable_actions_out_of_witness_allowlist(self) -> None:
+        root, lineage = self._fixture()
+        case = load_case_runtime(root, lineage, "eval_fixture_mut_01")
+        blocked = replace(case.actions[0], action_id="action:002", selector=None)
+        case = replace(case, actions=(case.actions[0], blocked))
+        candidate = self._candidate(lineage)
+        plan = RuntimeCandidateAdapter(
+            case,
+            public_xlir_symbols(root, lineage),
+            deferred_runtime_fields=frozenset({"actor_addresses", "contract_addresses"}),
+        ).adapt(candidate)
+        self.assertEqual(plan.status, AdapterStatus.READY)
+        self.assertEqual(plan.search_request["executable_action_ids"], ["action:001"])
+        self.assertEqual(plan.search_request["unsupported_action_ids"], ["action:002"])
+
     def test_unresolved_symbol_is_not_silently_dropped(self) -> None:
         root, lineage = self._fixture()
         case = load_case_runtime(root, lineage, "eval_fixture_mut_01")

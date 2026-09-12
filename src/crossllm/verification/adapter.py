@@ -149,10 +149,16 @@ class RuntimeCandidateAdapter:
                 tuple(resolved), tuple(failures), None,
             )
         bound_actions = tuple(action for action in self.case.actions if action.status is BindingStatus.BOUND)
+        executable_actions = tuple(action for action in bound_actions if action.executable)
         if not bound_actions:
             return RuntimeCandidatePlan(
                 candidate, AdapterStatus.UNSUPPORTED, invariant.canonical_hash, invariant,
                 tuple(resolved), ("no_bound_runtime_actions",), None,
+            )
+        if not executable_actions:
+            return RuntimeCandidatePlan(
+                candidate, AdapterStatus.GROUNDED, invariant.canonical_hash, invariant,
+                tuple(resolved), ("no_executable_runtime_actions",), None,
             )
         request = {
             "schema_version": 1,
@@ -164,6 +170,8 @@ class RuntimeCandidateAdapter:
             "canonical_ast_hash": invariant.canonical_hash,
             "predicate": invariant.body.as_dict(),
             "actions": [action.as_dict() for action in bound_actions],
+            "executable_action_ids": [action.action_id for action in executable_actions],
+            "unsupported_action_ids": [action.action_id for action in bound_actions if not action.executable],
             "adapter_revision": self.adapter_revision,
             "bounds": dict(self.bounds),
             "deferred_runtime_fields": sorted(self.deferred_runtime_fields),
@@ -179,7 +187,7 @@ class RuntimeCandidateAdapter:
         }
         missing_fields = set(self.case.missing_fields)
         runtime_ready = not missing_fields or missing_fields.issubset(self.deferred_runtime_fields)
-        status = AdapterStatus.READY if runtime_ready and all(action.executable for action in bound_actions) else AdapterStatus.GROUNDED
+        status = AdapterStatus.READY if runtime_ready else AdapterStatus.GROUNDED
         cache_key = VerificationCacheKey(
             case_runtime_hash=self.case.runtime.runtime_hash,
             canonical_ast_hash=invariant.canonical_hash,
