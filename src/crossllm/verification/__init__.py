@@ -23,6 +23,7 @@ from .runtime import (
 )
 from .adapter import AdapterStatus, RuntimeCandidateAdapter, RuntimeCandidatePlan, public_xlir_symbols
 from .pipeline import SharedVerificationPipeline, VerificationExecutors
+from .cache import CacheLookup, FileVerificationCache, VerificationCacheKey
 
 __all__ = [
     "ArchiveRoot",
@@ -49,6 +50,9 @@ __all__ = [
     "public_xlir_symbols",
     "SharedVerificationPipeline",
     "VerificationExecutors",
+    "CacheLookup",
+    "FileVerificationCache",
+    "VerificationCacheKey",
     "load_archives",
     "match_campaigns",
 ]

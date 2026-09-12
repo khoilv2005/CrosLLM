@@ -444,8 +444,7 @@ Phụ thuộc: M02, M03, M04. Đầu ra: `src/crossllm/verification/runtime.py`,
 - [x] **V11.07** Định nghĩa `CaseRuntimeSpec` gồm source/build/deployment/profile/compiler hashes, contract addresses, domains, actors, initial state, observation points và supported actions. Đã mở rộng record và dựng spec từ public case metadata trong `src/crossllm/verification/runtime.py`.
 - [x] **V11.08** Tạo binding table cho symbol XLIR: symbol ID, type, domain, pre/post location, contract, storage slot/offset hoặc getter, decode rule. Scalar storage được đối chiếu với `storage_layout`; mapping/array/unsupported Solidity type bị giữ `unsupported`.
 - [x] **V11.09** Tạo action table: function selector, caller role, calldata encoder, value, chain/domain, state transition và bounds. Selector được lấy từ `methodIdentifiers` của runtime artifact khi có; action thiếu selector/overload được ghi rõ missing/ambiguous, không tự sinh giá trị.
-- [ ] **V11.10** Kiểm tra storage packing, mapping key, proxy/implementation, initialization, callback và cross-domain channel state.
-- [ ] **V11.10** Kiểm tra storage packing, mapping key, proxy/implementation, initialization, callback và cross-domain channel state. Hiện mới có kiểm tra packing/offset và lưu initialization/workflow descriptor; proxy, mapping-key và callback semantics vẫn là phần cần bổ sung.
+- [x] **V11.10** Kiểm tra storage packing, mapping key, proxy/implementation, initialization, callback và cross-domain channel state. `runtime_checks` xuất trạng thái riêng `pass/not_applicable/unsupported`; mapping key và proxy thiếu binding vẫn fail-closed, không bị coi là đã hỗ trợ.
 - [x] **V11.11** Không suy đoán binding khi source/runtime chưa hỗ trợ; trả `UNSUPPORTED` kèm field và case cụ thể. `runtime.py` giữ status/reason/diagnostics riêng cho từng binding.
 - [x] **V11.12** Xuất coverage theo case và lineage, kèm symbol type/action/execution status; tách public metadata-bound coverage khỏi executable action coverage trong `dataset/reports/runtime_binding_matrix.json`.
 
@@ -461,12 +460,12 @@ Phụ thuộc: Phase A–B, M04–M05. Đầu ra: `src/crossllm/verification/ada
 - [x] **V11.14** Resolve toàn bộ `SymbolRef` sang runtime bindings; kiểm tra type, state, domain và observation availability. Mỗi mismatch trở thành diagnostic riêng.
 - [x] **V11.15** Sinh predicate hoặc monitor từ typed XLIR; không chuyển raw model text trực tiếp thành Solidity/test code. Adapter xuất `candidate_runtime_search_request` từ typed predicate.
 - [ ] **V11.16** Nối predicate với bounded search backend phù hợp. Ghi rõ backend là paired fixture, source-backed symbolic hay concrete bounded exploration.
-- [ ] **V11.17** Propagate bounds, deadline, cancellation và status `SAT/BOUNDED_UNSAT/UNKNOWN/TIMEOUT/UNSUPPORTED/CRASH`.
+- [ ] **V11.17** Propagate bounds, deadline, cancellation và status `SAT/BOUNDED_UNSAT/UNKNOWN/TIMEOUT/UNSUPPORTED/CRASH`. Shared pipeline đã giữ nguyên `StageStatus` và truyền bounds vào search request; deadline/cancellation/backend status mapping vẫn chờ backend adapter.
 - [ ] **V11.18** Với `SAT` complete, project witness gồm initial-state hash, actions, callers, calldata, domains, observations và trace hash.
 - [ ] **V11.19** Chạy native/concrete witness check từ clean initial state; không dùng state còn lại từ symbolic search.
 - [ ] **V11.20** Gọi independent EVM replay adapter với runtime spec pinned; xác minh trace hash, deployment identity và property observation.
 - [x] **V11.21** Tách `candidate_violation`, `property_holds`, `security_relevance`, `native_replay`, `independent_replay` và `verified_finding` thành các field độc lập. `VerificationOutcome` giữ các field; `SharedVerificationPipeline` chỉ kết luận verified khi toàn bộ stage chung pass.
-- [ ] **V11.22** Cache theo `(case runtime hash, XLIR canonical hash, adapter revision, bounds, replay spec hash)`; cache hit không làm tăng execution denominator.
+- [x] **V11.22** Cache theo `(case runtime hash, XLIR canonical hash, adapter revision, bounds, replay spec hash)`; `FileVerificationCache` ghi atomically, không cho overwrite cùng key bằng outcome khác, và pipeline đánh dấu `cache_hit` để không chạy lại stage terminal.
 - [ ] **V11.23** Test wrong property, missing binding, altered witness, wrong initial state, wrong caller, invalid calldata, control case, timeout, unsupported opcode và replay trace mismatch.
 
 Nghiệm thu: một candidate được ground, search, project witness, replay và đánh giá property trên mutant/control; candidate tautology hoặc property không liên quan không được tự động thành finding.

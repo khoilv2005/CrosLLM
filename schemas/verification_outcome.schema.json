@@ -6,7 +6,7 @@
   "required": [
     "schema_version", "record_type", "campaign_id", "attempt_id", "arm",
     "instance_id", "lineage_id", "replicate", "slot_index", "slot_id",
-    "stages", "availability", "verified_finding"
+    "stages", "availability", "verified_finding", "cache_hit"
   ],
   "properties": {
     "schema_version": {"const": 1},
@@ -41,7 +41,8 @@
     "security_relevance": {"type": ["boolean", "null"]},
     "verified_finding": {"type": ["boolean", "null"]},
     "availability": {"enum": ["available", "timeout", "unsupported", "unknown"]},
-    "first_failure": {"type": ["string", "null"]}
+    "first_failure": {"type": ["string", "null"]},
+    "cache_hit": {"type": "boolean"}
   },
   "additionalProperties": false
 }

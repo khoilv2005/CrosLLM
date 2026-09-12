@@ -290,6 +290,7 @@ class VerificationOutcome:
     security_relevance: bool | None = None
     verified_finding: bool | None = None
     first_failure: str | None = None
+    cache_hit: bool = False
 
     def __post_init__(self) -> None:
         names = [stage.stage for stage in self.stages]
@@ -300,6 +301,8 @@ class VerificationOutcome:
             for name in ("grounding", "symbolic_search", "witness_check", "independent_replay")
         ):
             raise ValueError("verified finding requires all required stages to pass")
+        if not isinstance(self.cache_hit, bool):
+            raise ValueError("cache_hit must be boolean")
 
     def stage_status(self, name: str) -> StageStatus:
         for stage in self.stages:
@@ -339,7 +342,36 @@ class VerificationOutcome:
             "verified_finding": self.verified_finding,
             "availability": self.availability,
             "first_failure": self.first_failure,
+            "cache_hit": self.cache_hit,
         }
+
+    @classmethod
+    def from_dict(cls, candidate: CandidateInput, payload: Mapping[str, Any], *, cache_hit: bool = False) -> "VerificationOutcome":
+        """Restore an outcome for the same candidate from a validated cache row."""
+        raw_stages = payload.get("stages")
+        if not isinstance(raw_stages, list):
+            raise ValueError("cached verification outcome has no stages")
+        stages: list[StageResult] = []
+        for row in raw_stages:
+            if not isinstance(row, Mapping):
+                raise ValueError("cached verification stage must be an object")
+            stages.append(StageResult(
+                stage=str(row["stage"]),
+                status=StageStatus(row["status"]),
+                reason=row.get("reason") if isinstance(row.get("reason"), str) else None,
+                elapsed_seconds=row.get("elapsed_seconds") if isinstance(row.get("elapsed_seconds"), (int, float)) else None,
+                evidence=row.get("evidence") if isinstance(row.get("evidence"), Mapping) else None,
+            ))
+        return cls(
+            candidate=candidate,
+            stages=tuple(stages),
+            candidate_violation=payload.get("candidate_violation") if isinstance(payload.get("candidate_violation"), bool) else None,
+            property_holds=payload.get("property_holds") if isinstance(payload.get("property_holds"), bool) else None,
+            security_relevance=payload.get("security_relevance") if isinstance(payload.get("security_relevance"), bool) else None,
+            verified_finding=payload.get("verified_finding") if isinstance(payload.get("verified_finding"), bool) else None,
+            first_failure=payload.get("first_failure") if isinstance(payload.get("first_failure"), str) else None,
+            cache_hit=cache_hit,
+        )
 
 
 __all__ = [

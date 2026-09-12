@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
+from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
 from .adapter import AdapterStatus, RuntimeCandidateAdapter, RuntimeCandidatePlan
+from .cache import FileVerificationCache, VerificationCacheKey
+from ..contracts.canonical import sha256_hex
 from .records import CandidateInput, StageResult, StageStatus, VerificationOutcome
 from .runtime import CaseRuntimeBindings
 
@@ -28,13 +30,35 @@ class SharedVerificationPipeline:
 
     _DOWNSTREAM = ("symbolic_search", "witness_check", "independent_replay")
 
-    def __init__(self, case: CaseRuntimeBindings, symbols: list[Any], *, executors: VerificationExecutors | None = None) -> None:
+    def __init__(
+        self,
+        case: CaseRuntimeBindings,
+        symbols: list[Any],
+        *,
+        executors: VerificationExecutors | None = None,
+        cache: FileVerificationCache | None = None,
+        adapter_revision: str = "runtime-adapter-v1",
+        bounds: dict[str, Any] | None = None,
+        replay_spec_hash: str | None = None,
+    ) -> None:
         self.case = case
-        self.adapter = RuntimeCandidateAdapter(case, symbols)
+        self.adapter = RuntimeCandidateAdapter(
+            case, symbols, adapter_revision=adapter_revision, bounds=bounds,
+            replay_spec_hash=replay_spec_hash,
+        )
         self.executors = executors or VerificationExecutors()
+        self.cache = cache
 
     def verify(self, candidate: CandidateInput) -> VerificationOutcome:
         plan = self.adapter.adapt(candidate)
+        cache_key = self._cache_key(plan)
+        if cache_key is not None and self.cache is not None:
+            lookup = self.cache.lookup(cache_key)
+            if lookup.hit and lookup.record is not None:
+                raw_outcome = lookup.record.get("outcome")
+                if not isinstance(raw_outcome, dict):
+                    raise ValueError("verification cache entry has no outcome object")
+                return VerificationOutcome.from_dict(candidate, raw_outcome, cache_hit=True)
         stages: list[StageResult] = [self._grounding_result(plan)]
         values: dict[str, bool | None] = {
             "candidate_violation": None,
@@ -63,7 +87,7 @@ class SharedVerificationPipeline:
         verified: bool | None = None
         if all_required_passed:
             verified = all(values[field] is True for field in values)
-        return VerificationOutcome(
+        outcome = VerificationOutcome(
             candidate=candidate,
             stages=tuple(stages),
             candidate_violation=values["candidate_violation"],
@@ -71,6 +95,20 @@ class SharedVerificationPipeline:
             security_relevance=values["security_relevance"],
             verified_finding=verified,
             first_failure=first_failure,
+        )
+        if cache_key is not None and self.cache is not None:
+            self.cache.put(cache_key, outcome.as_dict())
+        return outcome
+
+    def _cache_key(self, plan: RuntimeCandidatePlan) -> VerificationCacheKey | None:
+        if plan.canonical_ast_hash is None:
+            return None
+        return VerificationCacheKey(
+            case_runtime_hash=self.case.runtime.runtime_hash,
+            canonical_ast_hash=plan.canonical_ast_hash,
+            adapter_revision=self.adapter.adapter_revision,
+            bounds_hash=sha256_hex(self.adapter.bounds),
+            replay_spec_hash=self.adapter.replay_spec_hash,
         )
 
     @staticmethod

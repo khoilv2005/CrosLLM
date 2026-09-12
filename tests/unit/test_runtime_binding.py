@@ -4,6 +4,7 @@ import tempfile
 import unittest
 
 from crossllm.verification import CandidateInput, PairKey, SharedVerificationPipeline, StageResult, StageStatus, VerificationExecutors
+from crossllm.verification.cache import FileVerificationCache
 from crossllm.verification.adapter import AdapterStatus, RuntimeCandidateAdapter, public_xlir_symbols
 from crossllm.verification.runtime import BindingStatus, build_runtime_binding_matrix, load_case_runtime
 
@@ -161,6 +162,19 @@ class RuntimeBindingTests(unittest.TestCase):
         )
         outcome = SharedVerificationPipeline(case, public_xlir_symbols(root, lineage), executors=executors).verify(self._candidate(lineage))
         self.assertTrue(outcome.verified_finding)
+
+    def test_shared_pipeline_resume_uses_cache_without_rerunning_stages(self) -> None:
+        root, lineage = self._fixture()
+        case = load_case_runtime(root, lineage, "eval_fixture_mut_01")
+        with tempfile.TemporaryDirectory() as directory:
+            cache = FileVerificationCache(Path(directory) / "cache.json")
+            pipeline = SharedVerificationPipeline(case, public_xlir_symbols(root, lineage), cache=cache)
+            first = pipeline.verify(self._candidate(lineage))
+            second = pipeline.verify(self._candidate(lineage))
+        self.assertFalse(first.cache_hit)
+        self.assertTrue(second.cache_hit)
+        self.assertEqual(first.stage_status("symbolic_search"), second.stage_status("symbolic_search"))
+        self.assertEqual(len(cache), 1)
 
     def _candidate(self, lineage: str) -> CandidateInput:
         return CandidateInput(

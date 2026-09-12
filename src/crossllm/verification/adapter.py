@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from ..artifacts import ArtifactSymbol, extract_storage_symbols
+from ..contracts.canonical import sha256_hex
 from ..xlir import XLIRCompiler
 from ..xlir.model import (
     Binary,
@@ -26,6 +27,7 @@ from ..xlir.model import (
     Unary,
 )
 from .records import CandidateInput
+from .cache import VerificationCacheKey
 from .runtime import BindingStatus, CaseRuntimeBindings, SymbolRuntimeBinding
 
 
@@ -48,6 +50,7 @@ class RuntimeCandidatePlan:
     symbol_bindings: tuple[SymbolRuntimeBinding, ...]
     diagnostics: tuple[str, ...]
     search_request: Mapping[str, Any] | None = None
+    cache_key: str | None = None
 
     @property
     def executable(self) -> bool:
@@ -67,17 +70,34 @@ class RuntimeCandidatePlan:
             "symbol_bindings": [item.as_dict() for item in self.symbol_bindings],
             "diagnostics": list(self.diagnostics),
             "search_request": dict(self.search_request) if self.search_request is not None else None,
+            "cache_key": self.cache_key,
         }
 
 
 class RuntimeCandidateAdapter:
     """Compile and bind one proposal without executing it."""
 
-    def __init__(self, case: CaseRuntimeBindings, symbols: list[ArtifactSymbol], *, maximum_ast_nodes: int = 256) -> None:
+    def __init__(
+        self,
+        case: CaseRuntimeBindings,
+        symbols: list[ArtifactSymbol],
+        *,
+        maximum_ast_nodes: int = 256,
+        adapter_revision: str = "runtime-adapter-v1",
+        bounds: Mapping[str, Any] | None = None,
+        replay_spec_hash: str | None = None,
+    ) -> None:
         self.case = case
         self.symbols = tuple(symbols)
         self.compiler = XLIRCompiler.from_symbols(list(self.symbols), maximum_ast_nodes)
         self._bindings = {item.symbol_id: item for item in case.symbols}
+        if not adapter_revision:
+            raise ValueError("adapter_revision is required")
+        if bounds is not None and not isinstance(bounds, Mapping):
+            raise ValueError("adapter bounds must be a mapping")
+        self.adapter_revision = adapter_revision
+        self.bounds = dict(bounds or {})
+        self.replay_spec_hash = replay_spec_hash
 
     def adapt(self, candidate: CandidateInput) -> RuntimeCandidatePlan:
         if candidate.proposal_status != "candidate" or candidate.candidate is None:
@@ -131,11 +151,20 @@ class RuntimeCandidateAdapter:
             "canonical_ast_hash": invariant.canonical_hash,
             "predicate": invariant.body.as_dict(),
             "actions": [action.as_dict() for action in bound_actions],
-            "bounds": {},
+            "adapter_revision": self.adapter_revision,
+            "bounds": dict(self.bounds),
+            "replay_spec_hash": self.replay_spec_hash,
             "initial_state": dict(self.case.runtime.initial_state),
         }
         status = AdapterStatus.READY if not self.case.missing_fields and all(action.executable for action in bound_actions) else AdapterStatus.GROUNDED
-        return RuntimeCandidatePlan(candidate, status, invariant.canonical_hash, invariant, tuple(resolved), (), request)
+        cache_key = VerificationCacheKey(
+            case_runtime_hash=self.case.runtime.runtime_hash,
+            canonical_ast_hash=invariant.canonical_hash,
+            adapter_revision=self.adapter_revision,
+            bounds_hash=sha256_hex(self.bounds),
+            replay_spec_hash=self.replay_spec_hash,
+        ).key_hash
+        return RuntimeCandidatePlan(candidate, status, invariant.canonical_hash, invariant, tuple(resolved), (), request, cache_key)
 
 
 def public_xlir_symbols(repo_root: Path, lineage_id: str) -> list[ArtifactSymbol]:
