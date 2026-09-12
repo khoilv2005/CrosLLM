@@ -82,6 +82,7 @@ def _docker_command(
         raise ValueError("operation must be build or test")
     command = [
         "docker", "run", "--rm", "--name", container_name,
+        "--network=none",
         "--read-only", "--cap-drop=ALL", "--security-opt=no-new-privileges",
         "--pids-limit", "128", "--memory", "2g",
         "--tmpfs", "/tmp:rw,exec,nosuid,size=512m",

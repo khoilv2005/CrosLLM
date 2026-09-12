@@ -24,12 +24,13 @@ class SourceCaseHarnessTests(unittest.TestCase):
         )
         self.assertIn("--read-only", command)
         self.assertIn("--cap-drop=ALL", command)
+        self.assertIn("--network=none", command)
         self.assertIn("test", command)
         self.assertIn("--match-path", command)
         self.assertIn("test/ReplayEvidence.t.sol", command)
         self.assertIn("--match-test", command)
         self.assertIn("test_normal_workflow", command)
-        self.assertEqual(command.count("--network"), 0)
+        self.assertEqual(command.count("--network=none"), 1)
 
     def test_nonzero_foundry_build_is_not_a_pass(self) -> None:
         class Completed:
