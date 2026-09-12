@@ -502,7 +502,7 @@ Nghiệm thu: T0 chạy offline, output cùng schema XLIR, đi qua cùng verific
 
 Phụ thuộc: Phase D–E, M09. Đầu ra: `scripts/build_paired_verification_analysis.py`, analysis bundle.
 
-- [ ] **V11.38** Chuyển verification outcomes thành một row/campaign với availability và first-failure taxonomy đầy đủ.
+- [x] **V11.38** Chuyển verification outcomes thành một row/campaign với availability và first-failure taxonomy đầy đủ. `campaigns_to_analysis_outcomes()` giữ riêng `None` cho unavailable detection, map provider/timeout/unsupported/unknown, và lấy first failure theo slot.
 - [ ] **V11.39** Ghép CrossLLM/Direct/T0 theo instance và replicate; tính effect trước khi aggregate instance → lineage.
 - [ ] **V11.40** Tính Recall@N curves, useful proposal recall, native witness yield, independent replay rate, false-alert/FDP và token/latency effects riêng.
 - [ ] **V11.41** Chạy lineage bootstrap 10.000 draws, exact sign test và Holm theo prespecified contrast families.

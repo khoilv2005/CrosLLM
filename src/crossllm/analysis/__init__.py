@@ -17,6 +17,7 @@ from .artifacts import (
 )
 from .tables import AnalysisTable, build_analysis_tables
 from .figures import AnalysisFigure, AnalysisFigureBuilder, write_figure_bundle
+from .verification import campaigns_to_analysis_outcomes
 from .proposal_recall import (
     BatchAvailability,
     EndToEndObservation,
@@ -40,6 +41,7 @@ __all__ = [
     "write_analysis_bundle",
     "AnalysisTable", "build_analysis_tables",
     "AnalysisFigure", "AnalysisFigureBuilder", "write_figure_bundle",
+    "campaigns_to_analysis_outcomes",
     "BatchAvailability", "EndToEndObservation", "EndToEndRecallResult",
     "PrefixRecallResult", "ProposalBatch", "RecallMetric",
     "end_to_end_budget_recall", "proposal_prefix_recall",
