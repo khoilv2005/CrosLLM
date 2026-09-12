@@ -324,6 +324,12 @@ class SourceBackedVerificationExecutors:
             "command_spec_hash": spec.spec_hash,
             "request_hash": hashlib.sha256(request_path.read_bytes()).hexdigest(),
         }
+        source_identity = payload.get("source_case_identity")
+        if not isinstance(source_identity, Mapping):
+            runtime_request = payload.get("runtime_request")
+            source_identity = runtime_request.get("source_case_identity") if isinstance(runtime_request, Mapping) else None
+        if isinstance(source_identity, Mapping):
+            base_evidence["source_case_identity"] = dict(source_identity)
         if witness_path is not None:
             base_evidence["witness_input_hash"] = hashlib.sha256(witness_path.read_bytes()).hexdigest()
         if executable is None:

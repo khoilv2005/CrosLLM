@@ -198,6 +198,8 @@ class SourceVerificationExecutorTests(unittest.TestCase):
         self.assertEqual(outcome.stage_status("symbolic_search"), StageStatus.PASSED)
         self.assertEqual(outcome.stage_status("witness_check"), StageStatus.PASSED)
         self.assertEqual(outcome.stage_status("independent_replay"), StageStatus.PASSED)
+        search_evidence = next(stage for stage in outcome.stages if stage.stage == "symbolic_search").evidence
+        self.assertEqual(search_evidence["source_case_identity"]["case_id"], "eval_fixture_mut_01")
         self.assertTrue(outcome.verified_finding)
 
     def test_source_replay_trace_mismatch_is_not_verified(self) -> None:
