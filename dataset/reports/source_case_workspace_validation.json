@@ -1,0 +1,4336 @@
+{
+  "case_count": 240,
+  "cases": [
+    {
+      "case_id": "eval_hyperlane_mut_01",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_01",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "2bce5b0133f003bd6f7e121423e46e445e513e8d9db23d882e183a2718c3032c",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "597999a27c8a164d5b8521580e7e4598b3a3d7f3b7697391554555f80734f3ca",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_01",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_01",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "597999a27c8a164d5b8521580e7e4598b3a3d7f3b7697391554555f80734f3ca",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_mut_02",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_02",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "af1f7042575b038407ce051c97473236b868ca431e399782db66d7aa1c3a6ed7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "00b8e5ac8d812d8141e61d7cb7e34b07d8c980123d9b9c534e4049cf6568bcdc",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_02",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_02",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "00b8e5ac8d812d8141e61d7cb7e34b07d8c980123d9b9c534e4049cf6568bcdc",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_mut_03",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_03",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "14bd1810a334053a14d4491dc37cb9eba93de3a8a79dac93ce0fe8a548caba3f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "bbed7e8c1d529aaab62b7b40f2825f1ad84753ccbae18adc18f053fdf1b03e96",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_03",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_03",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "bbed7e8c1d529aaab62b7b40f2825f1ad84753ccbae18adc18f053fdf1b03e96",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_mut_04",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_04",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "495fe11974439ac0b738522d2664ce526c32dc26503f74bf5ba3feeed3584e06",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "9f7be7d6a7d6a6e4ae399cd297c0cd7f02442e40fa70035f1b461e5454151e80",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_04",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_04",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "9f7be7d6a7d6a6e4ae399cd297c0cd7f02442e40fa70035f1b461e5454151e80",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_mut_05",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_05",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "79edf701db9c1fbe49d3aa45d08306c35727b0c3f5b84979fc9557271f452052",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "303441fbc973c0ba274540c0aa6b2431d82dbe86f14f4e27767fc20efc0c2fb8",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_05",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_05",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "303441fbc973c0ba274540c0aa6b2431d82dbe86f14f4e27767fc20efc0c2fb8",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_mut_06",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_06",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "3e3e28e686b46bc6cf1485a809e8d6b679d4236c12f7e086f171c0341f5ea997",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "dba7be0eddaebd169110f761905344ccc81446786a05ec5fcdf4f4d1c5222131",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_06",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_06",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "dba7be0eddaebd169110f761905344ccc81446786a05ec5fcdf4f4d1c5222131",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_mut_07",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_07",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "012ac0674789e16e57176c4427fa52ebdaf9fa719c72d28f387a7e1dbf04a436",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "313e3e9771da7a0674aad538aeff9da8c9e4fcfd99428869493815c3ec419c8b",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_07",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_07",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "313e3e9771da7a0674aad538aeff9da8c9e4fcfd99428869493815c3ec419c8b",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_mut_08",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_08",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "12a2b1d43c16d47b240c573bd3fa53adb3fb4bb6094234bc2cde8726e792c896",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "65eb9f927b420f3663c36b250b08a3b592f08b63704adecaa723f55ba5d50dab",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_08",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_08",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "65eb9f927b420f3663c36b250b08a3b592f08b63704adecaa723f55ba5d50dab",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_mut_09",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_09",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "8ee64740dccf80b97454ccb6ad5df8a30a49a7f6d430a7810296933563985e6c",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "983130477acd8e8b6a14f958c8bbcdd2f71ad358998fd6b0c7b2bea4c4eb1b27",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_09",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_09",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "983130477acd8e8b6a14f958c8bbcdd2f71ad358998fd6b0c7b2bea4c4eb1b27",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_mut_10",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_mut_10",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "8d5a50efea1d111b7574ded3095185763bb6ab9708765ee903eec27a9e7d973f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "06918503abe849a3971e78557d02e1681fa74c33ecb0e2843702838da5673fa3",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_hyperlane_ctrl_10",
+      "lineage_id": "hyperlane",
+      "source_case_identity": {
+        "case_id": "eval_hyperlane_ctrl_10",
+        "harness_source_path": "contracts/Mailbox.sol",
+        "lineage_id": "hyperlane",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Mailbox.sol",
+        "source_sha256": "a098be93666c254b69d661eeb09bfdbeab7d6d822676fa55f8430e6fe32eca4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "06918503abe849a3971e78557d02e1681fa74c33ecb0e2843702838da5673fa3",
+        "upstream_source_path": "solidity/contracts/Mailbox.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_01",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_01",
+        "harness_source_path": "contracts/governance/BaseWeightedMultisig.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseWeightedMultisig.sol",
+        "source_sha256": "55bf04ee9830f193ec6e13db89ab4663d1d0c6b14b1b304a511f758065c9b48f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "0669d7963f41828bbd32b26e2c1b1fc4d9cb00c87d3c468939d1c1245691987c",
+        "upstream_source_path": "contracts/governance/BaseWeightedMultisig.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_01",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_01",
+        "harness_source_path": "contracts/governance/BaseWeightedMultisig.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseWeightedMultisig.sol",
+        "source_sha256": "d06a5bd7ad195506ac30f48e50312a5e346999f34c5345a5cf54cc4ac3c27d09",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "0669d7963f41828bbd32b26e2c1b1fc4d9cb00c87d3c468939d1c1245691987c",
+        "upstream_source_path": "contracts/governance/BaseWeightedMultisig.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_02",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_02",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "ef6a56662609e1d3a9722fe7083c48b6c0cccfa2ffe385e24239dfad7287c0e1",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "94096a35630aa7573a71bf68656823a15dc547907a592613239bc3a755f60edd",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_02",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_02",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "94096a35630aa7573a71bf68656823a15dc547907a592613239bc3a755f60edd",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_03",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_03",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "e41e3e38b59559ee6c72feb3e86e5ef51ddf2feb2c37c625c895c65fde316bf7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "5ec8efdc1c91e97dfee40993a5d74a6d89f09f7b10a9f7720107c0e53612ce31",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_03",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_03",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "5ec8efdc1c91e97dfee40993a5d74a6d89f09f7b10a9f7720107c0e53612ce31",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_04",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_04",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "a0003cfe2e65095692696c1ce5eea5dca366e82dcf49240b438dc8058b08be17",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "bd010c2b66cba3920ab0017e5a173585052cd5436bde3c8298e8678e1b7d3336",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_04",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_04",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "bd010c2b66cba3920ab0017e5a173585052cd5436bde3c8298e8678e1b7d3336",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_05",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_05",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "49e7b3e316a0aa9f612a3956b6e51a812c8886690653bfc5bb8452adb669202f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "38a9d19131924dca4b70ff16072b1a4e50966adab2d9bd420e478168f13cd68c",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_05",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_05",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "38a9d19131924dca4b70ff16072b1a4e50966adab2d9bd420e478168f13cd68c",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_06",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_06",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "5cf2c2b6c20da6f5ac3b9174b7b21262c07ec2ba0a2e91e5e3f2ba947a542d96",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "cb54b0ab6573920e18da03589a9d800e8a0ae0cf46886dfb2cac93d613cc74f7",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_06",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_06",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "cb54b0ab6573920e18da03589a9d800e8a0ae0cf46886dfb2cac93d613cc74f7",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_07",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_07",
+        "harness_source_path": "contracts/governance/BaseWeightedMultisig.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseWeightedMultisig.sol",
+        "source_sha256": "e4a4d06d3f17f8b34efcf161cfd7eeac7eb4dfab93eda9e4b37c59c9a2f2e3f4",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "33975e870aab56c4fd88601a1a70dc344accd672849f87b7f62b84fdcead4224",
+        "upstream_source_path": "contracts/governance/BaseWeightedMultisig.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_07",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_07",
+        "harness_source_path": "contracts/governance/BaseWeightedMultisig.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseWeightedMultisig.sol",
+        "source_sha256": "d06a5bd7ad195506ac30f48e50312a5e346999f34c5345a5cf54cc4ac3c27d09",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "33975e870aab56c4fd88601a1a70dc344accd672849f87b7f62b84fdcead4224",
+        "upstream_source_path": "contracts/governance/BaseWeightedMultisig.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_08",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_08",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "64e336aee7d024ad08f9f10bbdd2b031170564dec3d8d261a5a7b1bbc9a42269",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "94096a35630aa7573a71bf68656823a15dc547907a592613239bc3a755f60edd",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_08",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_08",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "94096a35630aa7573a71bf68656823a15dc547907a592613239bc3a755f60edd",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_09",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_09",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "ca734b24e4db3e94583961fd92427fef60bdc0fed3fb4d5150691eb170d20c8c",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "002980595fc4dc77de0540e04b97816c817007c228ba9b310255dd6a82746478",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_09",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_09",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "002980595fc4dc77de0540e04b97816c817007c228ba9b310255dd6a82746478",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_mut_10",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_mut_10",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "5e6fafdeb194a597f6dbb9de8ccde51daad85fdb4a1c57dc4baaa01f6d3038b4",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "94096a35630aa7573a71bf68656823a15dc547907a592613239bc3a755f60edd",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_axelar_gmp_ctrl_10",
+      "lineage_id": "axelar_gmp",
+      "source_case_identity": {
+        "case_id": "eval_axelar_gmp_ctrl_10",
+        "harness_source_path": "contracts/gateway/BaseAmplifierGateway.sol",
+        "lineage_id": "axelar_gmp",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/BaseAmplifierGateway.sol",
+        "source_sha256": "3dae530e51a651481f2699a0a7582ddd3377b33c645180019a15d2f7ea1770b7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "94096a35630aa7573a71bf68656823a15dc547907a592613239bc3a755f60edd",
+        "upstream_source_path": "contracts/gateway/BaseAmplifierGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_01",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_01",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "53b054d37e0c0d59f05db81ce456e07467432c532703becca55e036a1bdb5ad2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "58011e96a852428cb6b06b0728140fc1e5ae15efeeaffabc16820939ee2c1030",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_01",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_01",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "58011e96a852428cb6b06b0728140fc1e5ae15efeeaffabc16820939ee2c1030",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_02",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_02",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "398a30868056cfbb5174b5479eb7e6c524f47cca7c18d160be07e546d1f01f9b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "80e565d820330bc26992f16237d30f1563df041f79c56de5495ccc20d37fae6a",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_02",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_02",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "80e565d820330bc26992f16237d30f1563df041f79c56de5495ccc20d37fae6a",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_03",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_03",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "6fee327907b81bcfe3255a43d488906afd311ee03441071365609f3ab5886167",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "cfc09d65bb57d2f10492d6f61aed55828dee0993c87a82e84f5aa2d40975c25c",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_03",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_03",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "cfc09d65bb57d2f10492d6f61aed55828dee0993c87a82e84f5aa2d40975c25c",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_04",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_04",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "54588100db9a49b497cbdd7137b6f66a3eb82b3dd3ca92daf1fd4888d8111471",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "e559703195dacd17e4a84213850630ec68cf1b8168a94afcdffc3975e3e77b68",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_04",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_04",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "e559703195dacd17e4a84213850630ec68cf1b8168a94afcdffc3975e3e77b68",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_05",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_05",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "7b6424254e5c5beef7f8e04dbe0a1b1b9dfdeb510d4533df189e24fd85fd30a7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "e79dca84bc3cb530c9a58dae054e6ac9cd7344ebad8f6f7d541aae7204a592d4",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_05",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_05",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "e79dca84bc3cb530c9a58dae054e6ac9cd7344ebad8f6f7d541aae7204a592d4",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_06",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_06",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "c5b2af4038cf114fb7412577081d8de69fe9c19f849c4945f3732dad1431e204",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c3f2a0c6a2fde5dac9c059e4bf20629d0c20dbd1f1f535a71607b81f9d2ce285",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_06",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_06",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c3f2a0c6a2fde5dac9c059e4bf20629d0c20dbd1f1f535a71607b81f9d2ce285",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_07",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_07",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "b7b393ef73f0de4f4a734a3f374bc2e5cf01780ada33c94142ea8efb1c016e22",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "50e0b45051505bf461c8ce462ff5c9c944a9940f9da523766265cc47b76f2cc5",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_07",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_07",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "50e0b45051505bf461c8ce462ff5c9c944a9940f9da523766265cc47b76f2cc5",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_08",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_08",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "c037387d62f5730af60e55521cd571d5a4a46f90133d88dfcdcc590411dd757a",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "dcbde04c1e3302f648455b51ef736fede82478c058c29e725ebc08da97c0e633",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_08",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_08",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "dcbde04c1e3302f648455b51ef736fede82478c058c29e725ebc08da97c0e633",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_09",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_09",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "004cd11c776febe80381ed594e69afa7a7d429474dafd29dea834bfe33619079",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "a9b18804de0cb279b4cb34c350425a26263f5ee2ac1a94fbf5d39b74a12e25bb",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_09",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_09",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "a9b18804de0cb279b4cb34c350425a26263f5ee2ac1a94fbf5d39b74a12e25bb",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_mut_10",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_mut_10",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "422047718624e788336d0a311dc1492e2d4ea3ae3b3d31b9ef6879cc3d788904",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "9e28f5b4a88293689bde0654681a1fa2cdbb61fcdc0b75c669d82faff5641559",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_synapse_ctrl_10",
+      "lineage_id": "synapse",
+      "source_case_identity": {
+        "case_id": "eval_synapse_ctrl_10",
+        "harness_source_path": "contracts/bridge/SynapseBridge.sol",
+        "lineage_id": "synapse",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SynapseBridge.sol",
+        "source_sha256": "d4a7572d283bc3a7bd12e9eb6aa25532fae27ad256211c16d5b1f6d8547c284b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "9e28f5b4a88293689bde0654681a1fa2cdbb61fcdc0b75c669d82faff5641559",
+        "upstream_source_path": "contracts/bridge/SynapseBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_01",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_01",
+        "harness_source_path": "contracts/proxy/Eip1967Implementation.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Eip1967Implementation.sol",
+        "source_sha256": "ec3db5c28d9b40b84bd2b73346008bb2285271ebb04a75769eb63e8a3c07cf95",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Eip1967Implementation.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_01",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_01",
+        "harness_source_path": "contracts/proxy/Eip1967Implementation.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Eip1967Implementation.sol",
+        "source_sha256": "67ed6b81cd514ee9988bfbec04b1779aa52030d4ed3b67c18e8f633e27453cc7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Eip1967Implementation.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_02",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_02",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "042166d42cc1485447491d76997ceaf30259d36c349e48ba375fcbd2688f82f9",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_02",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_02",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_03",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_03",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "b5c6049f3ee3b13bcbe1e17609b190a192d7a20162963079363be5c23676eb96",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_03",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_03",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_04",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_04",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "68646f340ad72a8cae51e38918b1e812456a8db2771b98afdb09efbdb3e0ced3",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_04",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_04",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_05",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_05",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "c351a182dbe88e506786aff23b084ca67a1ac5f7b2c2eaaf9196a80dc39b08b8",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_05",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_05",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_06",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_06",
+        "harness_source_path": "contracts/proxy/Eip1967Implementation.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Eip1967Implementation.sol",
+        "source_sha256": "0e9578021e0c0fe8eb772361cb4064c6ac47754e918f9c349b1deaee92ad0f83",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Eip1967Implementation.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_06",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_06",
+        "harness_source_path": "contracts/proxy/Eip1967Implementation.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Eip1967Implementation.sol",
+        "source_sha256": "67ed6b81cd514ee9988bfbec04b1779aa52030d4ed3b67c18e8f633e27453cc7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Eip1967Implementation.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_07",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_07",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "52187b56e44bbbc71c4fa0bb397af70bafaaf8381a250a3d76da0876924ac77f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_07",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_07",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_08",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_08",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "5a30ba98bc79075be7939ccc400cae58b5c4014206fe375e91c361d19e96ce92",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_08",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_08",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_09",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_09",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "6775f72c2301d3bcc0c44bd847433b6f9bd7aa02d1b376669bcddd8836e0a91c",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_09",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_09",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_mut_10",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_mut_10",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "7d69a0410e7505b121ddb6b05c5a5c44206dc8ca737d919876519fff91305857",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_wormhole_evm_sdk_ctrl_10",
+      "lineage_id": "wormhole_evm_sdk",
+      "source_case_identity": {
+        "case_id": "eval_wormhole_evm_sdk_ctrl_10",
+        "harness_source_path": "contracts/proxy/Proxy.sol",
+        "lineage_id": "wormhole_evm_sdk",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Proxy.sol",
+        "source_sha256": "9fff524598cfd84d0a69468d3d45e363a8a38774ac5dfec016f8ec5e251bccb7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "56f11a77d7c9a5e79e162bfb1cd9319f547ee9e7da02a171dcf4cc3a6d570172",
+        "upstream_source_path": "src/proxy/Proxy.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_01",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_01",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "c5fd47fa2139624e794db6d668529b622f1913872b44b24b0dbb08c81903ae26",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_01",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_01",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_02",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_02",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "aebe4eab1389f3716ac6596a4981b93475a4794ced4b7b77a4a3c087c8200b6f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_02",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_02",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_03",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_03",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "a1e8dac0b1e8ff36a175e536bd7ba845317b36d96c52f0285fcee126227a073f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "5f70392b86e54303c859152c7e597dd79fd2ccf3a4decf54a6191141c5f29c4f",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_03",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_03",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "5f70392b86e54303c859152c7e597dd79fd2ccf3a4decf54a6191141c5f29c4f",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_04",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_04",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "6b48a97ec9f4de685280c7e17e7c5a06bf331e3b510ee20407c49f76b816c23b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "3423d91c018604369e2979d36138fb137f67b9641be6b5ee11f30bf8a9a9418d",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_04",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_04",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "3423d91c018604369e2979d36138fb137f67b9641be6b5ee11f30bf8a9a9418d",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_05",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_05",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "ae04aebd1ad0ab5e940b854349574b631c76a075a74a96bb68559878727232a1",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_05",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_05",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_06",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_06",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "1f75fd450a082c92ce81558a5a4a045c4352ff1e2412f10ed9040ca63526d026",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "cc19b1435e9fa6b196f76ce1a61953d86b4f2f08ae473f25f2422cac90d5565c",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_06",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_06",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "cc19b1435e9fa6b196f76ce1a61953d86b4f2f08ae473f25f2422cac90d5565c",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_07",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_07",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "e0a5b52034d64be049305b3f31e07ce5299de480441e4eb0137f15f82ffd8632",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_07",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_07",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_08",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_08",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "939e2af9d62150c7f4e77d2419744ff452defbc8ad74a9cadac2403455503298",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_08",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_08",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_09",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_09",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "a1e8dac0b1e8ff36a175e536bd7ba845317b36d96c52f0285fcee126227a073f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_09",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_09",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "87b775385323cf87c56db62fd7a801600aeac495b09cd155a3fc2244994235d2",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_mut_10",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_mut_10",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "f4e158c9eff020174219a2375170581287cea6e92b952b46e36a260d00b6fa52",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "4c148d9304a390971f8f8c24b5c1cc3330c5aaee8be4a41ac3529648df351511",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_across_ctrl_10",
+      "lineage_id": "across",
+      "source_case_identity": {
+        "case_id": "eval_across_ctrl_10",
+        "harness_source_path": "contracts/spoke-pools/SpokePool.sol",
+        "lineage_id": "across",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/SpokePool.sol",
+        "source_sha256": "5f2e0897e617ae5334e8740ff277829b6ec3eef49d4598b5fd76dde0fd0a49e2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "4c148d9304a390971f8f8c24b5c1cc3330c5aaee8be4a41ac3529648df351511",
+        "upstream_source_path": "contracts/spoke-pools/SpokePool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_01",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_01",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "5e05bc6567846efa1db38a9a837b7a4d9f09379c3d29bea898a654e4c00ceb0f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_01",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_01",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_02",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_02",
+        "harness_source_path": "contracts/Bridge.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Bridge.sol",
+        "source_sha256": "b635492ed7c55e23f2174a1bd5372e540e7a6517d64b6c934ca37c39fa1f9339",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "256f5e934ad7e10207b33ea2688e0e3f574c433bbeb6e5a1de1a2ba65289f48b",
+        "upstream_source_path": "contracts/Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_02",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_02",
+        "harness_source_path": "contracts/Bridge.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Bridge.sol",
+        "source_sha256": "bb2ebfa5ac616b7dc203ce5c84d738467d8790927c1a41454f40a62996287490",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "256f5e934ad7e10207b33ea2688e0e3f574c433bbeb6e5a1de1a2ba65289f48b",
+        "upstream_source_path": "contracts/Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_03",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_03",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "ffd0f13dcd8a091c89b7576f6c36ff17eb5f4f8f6f73e3c588c2b5670af4e55c",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_03",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_03",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_04",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_04",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "dd893b468858951287c7aa6c4e15b26a6a451fe46a51c0c45975be87f0d689af",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_04",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_04",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_05",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_05",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "3d1debae557619f2a9d9512cc91a69ae9bccd8f18b8b9841d736a8c5082aa11c",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_05",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_05",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_06",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_06",
+        "harness_source_path": "contracts/Bridge.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Bridge.sol",
+        "source_sha256": "75a5260fa5f2e72f02048efcefa7ce1f1c2cb2423ffe27911c208a0fc8954897",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "6b790cc8e0dceedd530367cacb2d67fb740399eea07e60257d0952a0b17e508c",
+        "upstream_source_path": "contracts/Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_06",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_06",
+        "harness_source_path": "contracts/Bridge.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Bridge.sol",
+        "source_sha256": "bb2ebfa5ac616b7dc203ce5c84d738467d8790927c1a41454f40a62996287490",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "6b790cc8e0dceedd530367cacb2d67fb740399eea07e60257d0952a0b17e508c",
+        "upstream_source_path": "contracts/Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_07",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_07",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "e6e76568104d56f9308d33a96abe480e27b3784b132a52aba7251bd73cc3b823",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_07",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_07",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_08",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_08",
+        "harness_source_path": "contracts/Bridge.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Bridge.sol",
+        "source_sha256": "942bce9d2f16093f92b3e71f64b509e15acbcf3445dc28a99f4e3e28e39f3806",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "e926c88b5c25d91c74d668f33f2ff794ff620378679dbecd13c8de0a217c5f87",
+        "upstream_source_path": "contracts/Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_08",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_08",
+        "harness_source_path": "contracts/Bridge.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Bridge.sol",
+        "source_sha256": "bb2ebfa5ac616b7dc203ce5c84d738467d8790927c1a41454f40a62996287490",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "e926c88b5c25d91c74d668f33f2ff794ff620378679dbecd13c8de0a217c5f87",
+        "upstream_source_path": "contracts/Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_09",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_09",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "0ffa8dfa2e8fc492b2d552e702c97d9741811399d3a5c72dc988698766cf356f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_09",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_09",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_mut_10",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_mut_10",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "6da16ef84cdf74ffc3020e546d5bff98f9fa9301e9cbe321b6572924d17f4765",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_stargate_ctrl_10",
+      "lineage_id": "stargate",
+      "source_case_identity": {
+        "case_id": "eval_stargate_ctrl_10",
+        "harness_source_path": "contracts/Pool.sol",
+        "lineage_id": "stargate",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/Pool.sol",
+        "source_sha256": "637e96ef21bc609e04a17a79e97912d8802b98f7cc3360914a86bd1dee70124b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "7ae9ecdc32445f0d7583b792985762e3835ea654b6ba84a4537545208c1718ba",
+        "upstream_source_path": "contracts/Pool.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_01",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_01",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/TokenGateway.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/TokenGateway.sol",
+        "source_sha256": "aa8ab35a8f6569eed6425ed8b139f656af86c64446ab7047a348fe2238c5d78d",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "735cbafc71422a769925719931aca1bd099834447b6366ab1709e31e5f34a825",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/TokenGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_01",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_01",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/TokenGateway.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/TokenGateway.sol",
+        "source_sha256": "aa7d0d684c384ab9f1b14535f2d91a3256e299412467b60604b8c9bc18c0be6f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "735cbafc71422a769925719931aca1bd099834447b6366ab1709e31e5f34a825",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/TokenGateway.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_02",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_02",
+        "harness_source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2GatewayRouter.sol",
+        "source_sha256": "7d189620045e2d32f2d31cf19762f4c358bd4d1610f42f51a8227d3d2cb9dd24",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "2e0a0e7401d0197d4b0273c263e5ae74b0a1cc1c79f2731fbaadd10de4e90011",
+        "upstream_source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_02",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_02",
+        "harness_source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2GatewayRouter.sol",
+        "source_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "2e0a0e7401d0197d4b0273c263e5ae74b0a1cc1c79f2731fbaadd10de4e90011",
+        "upstream_source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_03",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_03",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayRouter.sol",
+        "source_sha256": "80240ff13875982918c5ce74cda8ed234f8f534227db3cd96ad27dc04d8315b8",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "ff2ca9c59a963622c044a2927bf316b5d4c16d75097622a2b3beaaf1d41b89eb",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_03",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_03",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayRouter.sol",
+        "source_sha256": "ac5de4605b5ae7c2a65e8510187a955c1abbffc1555bc3b196cb77dc3e1b3222",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "ff2ca9c59a963622c044a2927bf316b5d4c16d75097622a2b3beaaf1d41b89eb",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_04",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_04",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayMessageHandler.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayMessageHandler.sol",
+        "source_sha256": "9990b6ab3b617ab2bb9b7966d4c50affc617d5e71065be812f8ecbb277c9cd7d",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "eb2776f7feb61cb8ba0782c15c1a4aec212991a6ff19eecff6016f23fb88b4c2",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayMessageHandler.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_04",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_04",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayMessageHandler.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayMessageHandler.sol",
+        "source_sha256": "035a528930e6f1fae1906a4646c4ce5ca18bf37e94217e1b281fddcf6f1d6944",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "eb2776f7feb61cb8ba0782c15c1a4aec212991a6ff19eecff6016f23fb88b4c2",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayMessageHandler.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_05",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_05",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayRouter.sol",
+        "source_sha256": "f2b3d33120d760d4b732901e547a3a6cc44fe0562ff9abb12a4583b34023765a",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "735cbafc71422a769925719931aca1bd099834447b6366ab1709e31e5f34a825",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_05",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_05",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayRouter.sol",
+        "source_sha256": "ac5de4605b5ae7c2a65e8510187a955c1abbffc1555bc3b196cb77dc3e1b3222",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "735cbafc71422a769925719931aca1bd099834447b6366ab1709e31e5f34a825",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_06",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_06",
+        "harness_source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1GatewayRouter.sol",
+        "source_sha256": "6777dc43d77e916d42a42dd33541d684571923e740ab0b63bd89b287528eb40a",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "735cbafc71422a769925719931aca1bd099834447b6366ab1709e31e5f34a825",
+        "upstream_source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_06",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_06",
+        "harness_source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1GatewayRouter.sol",
+        "source_sha256": "f08e7b351b00c380bd79ba7cd2928190d1e8abc3842808ec128f66540e003710",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "735cbafc71422a769925719931aca1bd099834447b6366ab1709e31e5f34a825",
+        "upstream_source_path": "contracts/tokenbridge/ethereum/gateway/L1GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_07",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_07",
+        "harness_source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2GatewayRouter.sol",
+        "source_sha256": "7054578576c5088f91dc212a214ad8b6b4a569d480b33717ae4bac493fd37f67",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "735cbafc71422a769925719931aca1bd099834447b6366ab1709e31e5f34a825",
+        "upstream_source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_07",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_07",
+        "harness_source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2GatewayRouter.sol",
+        "source_sha256": "4149b130abe7a885846999526fd598881f576453d0c3e34063dba8c508ac37f3",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "735cbafc71422a769925719931aca1bd099834447b6366ab1709e31e5f34a825",
+        "upstream_source_path": "contracts/tokenbridge/arbitrum/gateway/L2GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_08",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_08",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayRouter.sol",
+        "source_sha256": "a460fb040fba821adce36464f10c4125005907abca77522d93f3c7e6f2f5db57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "6efe6b307fc028badb735d4aefc835e6a6daced84c5104a5e9ed667d777a709f",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_08",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_08",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayRouter.sol",
+        "source_sha256": "ac5de4605b5ae7c2a65e8510187a955c1abbffc1555bc3b196cb77dc3e1b3222",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "6efe6b307fc028badb735d4aefc835e6a6daced84c5104a5e9ed667d777a709f",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_09",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_09",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayRouter.sol",
+        "source_sha256": "02ae3e815d99c3e1122f8c89092e0241ddbfa9c77194b32545af15969575e821",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "3bac2a721c5f3d0d313c0a78d5b3b4eb1c13f3b36706fcf8be91468e7148e384",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_09",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_09",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayRouter.sol",
+        "source_sha256": "ac5de4605b5ae7c2a65e8510187a955c1abbffc1555bc3b196cb77dc3e1b3222",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "3bac2a721c5f3d0d313c0a78d5b3b4eb1c13f3b36706fcf8be91468e7148e384",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayRouter.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_mut_10",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_mut_10",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayMessageHandler.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayMessageHandler.sol",
+        "source_sha256": "e20fccca9e7ff5bd972de36d84898920545f26f6eecf255aeee4bff4a75119e0",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "0503e2e90cc46cdabdc086fd74ef2a9212b1d07299762dd3b3791381b3ac4a53",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayMessageHandler.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_arbitrum_token_bridge_ctrl_10",
+      "lineage_id": "arbitrum_token_bridge",
+      "source_case_identity": {
+        "case_id": "eval_arbitrum_token_bridge_ctrl_10",
+        "harness_source_path": "contracts/tokenbridge/libraries/gateway/GatewayMessageHandler.sol",
+        "lineage_id": "arbitrum_token_bridge",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/GatewayMessageHandler.sol",
+        "source_sha256": "035a528930e6f1fae1906a4646c4ce5ca18bf37e94217e1b281fddcf6f1d6944",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "0503e2e90cc46cdabdc086fd74ef2a9212b1d07299762dd3b3791381b3ac4a53",
+        "upstream_source_path": "contracts/tokenbridge/libraries/gateway/GatewayMessageHandler.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_01",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_01",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "b24bd8b33cb851432959b53e2c3a505d044cb4d3a30fdde868484b80f8288b2e",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "f8cd795aa088a947d17e7810cbf1226f3105b1b1cd4041c3b2a42a4ca71c920c",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_01",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_01",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "e397aa94b8674dc3093c81303f968ecdaf98c0a3c78b4ae03648e741f21fb073",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "f8cd795aa088a947d17e7810cbf1226f3105b1b1cd4041c3b2a42a4ca71c920c",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_02",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_02",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "9c5a4444cb98d36bc93bc0f9cd5530bd29c744d9e61d7d3ec5e64bf2e96e5224",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "f8cd795aa088a947d17e7810cbf1226f3105b1b1cd4041c3b2a42a4ca71c920c",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_02",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_02",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "e397aa94b8674dc3093c81303f968ecdaf98c0a3c78b4ae03648e741f21fb073",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "f8cd795aa088a947d17e7810cbf1226f3105b1b1cd4041c3b2a42a4ca71c920c",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_03",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_03",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "f35fdfb680bc5cd29fd51f67f193ed1bd8783b33968de0ea489777a09c83b38a",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "05025bf0d81640cf9380770e508813d248adf93a012cf635a68de8f9f47f58ef",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_03",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_03",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "e397aa94b8674dc3093c81303f968ecdaf98c0a3c78b4ae03648e741f21fb073",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "05025bf0d81640cf9380770e508813d248adf93a012cf635a68de8f9f47f58ef",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_04",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_04",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1CrossDomainMessenger.sol",
+        "source_sha256": "a8993401a66493320a371e18323f66f3870f7dddd0c9cabfdeb783d4d5ba00a0",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "84c2d073b4de6fe24e189522b553c8d9e32b1a87d14b3bf165e4f8b7e93d3615",
+        "upstream_source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_04",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_04",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1CrossDomainMessenger.sol",
+        "source_sha256": "19c9e56a51dfbedfb6aac31689ae4f67a116fd13ca39e8842d64bf6300c97361",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "84c2d073b4de6fe24e189522b553c8d9e32b1a87d14b3bf165e4f8b7e93d3615",
+        "upstream_source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_05",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_05",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "f28e96232c628538bbf429b2c800583319091861b1f5dbfb6e85a36338e5ea62",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "3ee7872ef2282a5c240d6e054cf209c06d43b0f3a0c17870d7a692cd63f7696e",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_05",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_05",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "e397aa94b8674dc3093c81303f968ecdaf98c0a3c78b4ae03648e741f21fb073",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "3ee7872ef2282a5c240d6e054cf209c06d43b0f3a0c17870d7a692cd63f7696e",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_06",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_06",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1CrossDomainMessenger.sol",
+        "source_sha256": "a4fcfcb8563b6e3250fd23f3552addd073085c0d57d324bf693ea742bad27456",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "1b8f4e264cac37a5a0fe6bafd7cbdc1d54480368501328aea1bc45759efe7c7c",
+        "upstream_source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_06",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_06",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1CrossDomainMessenger.sol",
+        "source_sha256": "19c9e56a51dfbedfb6aac31689ae4f67a116fd13ca39e8842d64bf6300c97361",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "1b8f4e264cac37a5a0fe6bafd7cbdc1d54480368501328aea1bc45759efe7c7c",
+        "upstream_source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_07",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_07",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1CrossDomainMessenger.sol",
+        "source_sha256": "f704e8b5b84d7c45b7f92a550e6d16ea3a89a9a94468694e29a4e5f76c3dc54e",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "f8cd795aa088a947d17e7810cbf1226f3105b1b1cd4041c3b2a42a4ca71c920c",
+        "upstream_source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_07",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_07",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1CrossDomainMessenger.sol",
+        "source_sha256": "19c9e56a51dfbedfb6aac31689ae4f67a116fd13ca39e8842d64bf6300c97361",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "f8cd795aa088a947d17e7810cbf1226f3105b1b1cd4041c3b2a42a4ca71c920c",
+        "upstream_source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_08",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_08",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "448c9da82cc8766afa4073eaa31ddbb67347f7641bd40e540d12f184f3bd7072",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "9229cb03fa67724e9e9c2578ac43ca9683a998247be40ff2c466b7960a3a9c6a",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_08",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_08",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "e397aa94b8674dc3093c81303f968ecdaf98c0a3c78b4ae03648e741f21fb073",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "9229cb03fa67724e9e9c2578ac43ca9683a998247be40ff2c466b7960a3a9c6a",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_09",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_09",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "1d4003e83431e422faf5c8ca838baa299655def083c99d2787da0bedba37090f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "300cb302b2ce1e13f574317546ad10cd57fa9f28917d4692cbcce9d9153c662f",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_09",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_09",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/CrossDomainMessenger.sol",
+        "source_sha256": "e397aa94b8674dc3093c81303f968ecdaf98c0a3c78b4ae03648e741f21fb073",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "300cb302b2ce1e13f574317546ad10cd57fa9f28917d4692cbcce9d9153c662f",
+        "upstream_source_path": "packages/contracts-bedrock/src/universal/CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_mut_10",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_mut_10",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1CrossDomainMessenger.sol",
+        "source_sha256": "9716b30de4e6ca08e7e1011bb58e7eb850748b68939c62a80d4b5d08e0de51a8",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "31e9c71b2b05b2bf5ae5469a8fab5bee50fe95c4164e250b93a15ebc49dc2150",
+        "upstream_source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_optimism_ctrl_10",
+      "lineage_id": "optimism",
+      "source_case_identity": {
+        "case_id": "eval_optimism_ctrl_10",
+        "harness_source_path": "contracts/packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol",
+        "lineage_id": "optimism",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1CrossDomainMessenger.sol",
+        "source_sha256": "19c9e56a51dfbedfb6aac31689ae4f67a116fd13ca39e8842d64bf6300c97361",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "31e9c71b2b05b2bf5ae5469a8fab5bee50fe95c4164e250b93a15ebc49dc2150",
+        "upstream_source_path": "packages/contracts-bedrock/src/L1/L1CrossDomainMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_01",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_01",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "1c43315396918c1fd3712c086593c2a4f2bd2e5c0b91f64270a07256e7e2fd3f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "172cf92e7e3a6b043176198e4b699b1ca02aba0f8af42c7dda4fcfd80406eb1c",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_01",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_01",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "172cf92e7e3a6b043176198e4b699b1ca02aba0f8af42c7dda4fcfd80406eb1c",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_02",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_02",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "e5d10602ec865156e67ebf26948f963ee673fea140ecae9784c9872649af64cb",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "0670a8487d6cfddbdd646831f14defe5079b843d1d9421dd40e88c76169f3824",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_02",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_02",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "0670a8487d6cfddbdd646831f14defe5079b843d1d9421dd40e88c76169f3824",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_03",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_03",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "2d2b3c31759190f859d6925ee13c19dcce7e373107750b33deceef51b368df3a",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_03",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_03",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_04",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_04",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "416da25cabbae933bb773a04cb1d7184060df6e2561894002d93e38f057f1d6b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_04",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_04",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_05",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_05",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "e9f492b1327d87f783d053ba0eab43831e8750b32325b24f25e2d7589b3c4430",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_05",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_05",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_06",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_06",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "0c4dc34824d29392a92deb77e5383603a0be8332a8c818d17042d3abc4ea090d",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "b20873fec0f69220d5b362763ca519144a4fdb2fa4198bf9f5c90bfa76eca81a",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_06",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_06",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "b20873fec0f69220d5b362763ca519144a4fdb2fa4198bf9f5c90bfa76eca81a",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_07",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_07",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "070bd354543335ae4788d308f838dc1f7c09280f773c9c5c3df30b0ae87781dd",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_07",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_07",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_08",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_08",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "cf7ea53a6af3d5dd2299d308628cdffe0bfe4117478de68bd2987c6ef133085e",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_08",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_08",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_09",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_09",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "00c160cd40fa3d760c184c757cfcad8a4876a8c115a88993ea85cb378fcf0c4b",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_09",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_09",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_mut_10",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_mut_10",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "e9f492b1327d87f783d053ba0eab43831e8750b32325b24f25e2d7589b3c4430",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_zksync_era_ctrl_10",
+      "lineage_id": "zksync_era",
+      "source_case_identity": {
+        "case_id": "eval_zksync_era_ctrl_10",
+        "harness_source_path": "contracts/bridge/L1ERC20Bridge.sol",
+        "lineage_id": "zksync_era",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ERC20Bridge.sol",
+        "source_sha256": "5e481943edbe2eb66734dfbfaa7a6cd2e84a050aa6445dc51b38301ed72b8af7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "982e2ccbadb48a4ac454cf05fdb9303477af220378da8727fd7bb4c2bb35f58f",
+        "upstream_source_path": "l1-contracts/contracts/bridge/L1ERC20Bridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_01",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_01",
+        "harness_source_path": "contracts/lib/DepositContractBase.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/DepositContractBase.sol",
+        "source_sha256": "b71888a5d87a6a3bcbfc68886a4d32bdbbbd37bc8d917c5edb0ad42291613853",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/lib/DepositContractBase.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_01",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_01",
+        "harness_source_path": "contracts/lib/DepositContractBase.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/DepositContractBase.sol",
+        "source_sha256": "bc13be04084f23748247cca0feaa39a36656e6433bcfd22e486759d2678602a2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/lib/DepositContractBase.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_02",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_02",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "8074d8bec3113777b4b0dd36cad498b7bce73b525720d989047b15bbb2ba57d1",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_02",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_02",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_03",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_03",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "e3ad45e19d62106db67c39beb0e9451474d47a7df8310bb4b7e73c1176f72643",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_03",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_03",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_04",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_04",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "6857c509751c40fc0b0db05218f5d4147e9a5322b30c888dd8a52d1406af4d46",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_04",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_04",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_05",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_05",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "b17c5f966fc420ffff4891c3470168bf248c256c59d35ada4e26f2d4d6839210",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_05",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_05",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_06",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_06",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "32c7ed72d8bbdcdb8074373709c5f027d5cf08cfb8162a27390235c2b397e8d7",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_06",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_06",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_07",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_07",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "4c8b47d1e62768e3537ef53c78e8b8c578b93bc2b6585ee780df584ba7df22a5",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_07",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_07",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_08",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_08",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "b5569c065904bbdcfaf282f9511beebaf7aa621827707b80d60b7530d5fac4e5",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_08",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_08",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_09",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_09",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "ac7c72c0a81b55bc4b5ebac084b9ecdf83ce5bfb1216f539607bac9331a77eab",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_09",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_09",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_mut_10",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_mut_10",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "0fffaf586d19f9a72e3ad6c86add2b01bc3741e9f45df04559f49a56a0a415a2",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_polygon_zkevm_ctrl_10",
+      "lineage_id": "polygon_zkevm",
+      "source_case_identity": {
+        "case_id": "eval_polygon_zkevm_ctrl_10",
+        "harness_source_path": "contracts/AgglayerBridge.sol",
+        "lineage_id": "polygon_zkevm",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/AgglayerBridge.sol",
+        "source_sha256": "5f298e129febd17a15b6d9569d7c26995b1a9f87329040b72f23bbad98bb5d57",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c54457c76a159d6f9d2fdcf1f6379f51e0cdf41ca665051c3a41699c4cc73a2a",
+        "upstream_source_path": "contracts/AgglayerBridge.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_01",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_01",
+        "harness_source_path": "contracts/L1/L1ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ScrollMessenger.sol",
+        "source_sha256": "278b2778644ebaebf8e0e288f07b31230bdaaf553d8cbf3ef269f9a1eff936a8",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "35bff72e0979532e4ddd53e7f990a91e5ce69e69a96663a33ccbca82aa9529cc",
+        "upstream_source_path": "src/L1/L1ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_01",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_01",
+        "harness_source_path": "contracts/L1/L1ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ScrollMessenger.sol",
+        "source_sha256": "5679ae856fbb77ba1ddd89f6485a0bb2c9e2bb8d9fcb3327b0f992cc9f3bee2e",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "35bff72e0979532e4ddd53e7f990a91e5ce69e69a96663a33ccbca82aa9529cc",
+        "upstream_source_path": "src/L1/L1ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_02",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_02",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "bdc352cee3057a3e9b067a2f62ade356d7f3455abbbab2732bbe4eeb56a7ac79",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "718f451e6f3e16f4c25321330ee89507d9f5fd0991429dd39a6a00e042ee9802",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_02",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_02",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "718f451e6f3e16f4c25321330ee89507d9f5fd0991429dd39a6a00e042ee9802",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_03",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_03",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "964fd31ed411d087013c2345c0b939df8fe42cd92b344af0840da175274cf92e",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "699b6b960f7ac8c5d4b9e774eb512895c99c1c0ad860dc7115cef3e657f73ced",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_03",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_03",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "699b6b960f7ac8c5d4b9e774eb512895c99c1c0ad860dc7115cef3e657f73ced",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_04",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_04",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "3c15d561265d6ce120664f298bdfd70e8adadcc8bfd7616a4ca5d6ef5e444506",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "32ea10193de7ddbc6d141e137e94dbcb71d360069b08810505b802d9fd610da0",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_04",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_04",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "32ea10193de7ddbc6d141e137e94dbcb71d360069b08810505b802d9fd610da0",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_05",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_05",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "221c7002c95096dbab17d7e9642aa80e6c2dd2f6758f0cdcacc7cf1e810e5da8",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "51770857ad972821b49f39eb21e5a62f19558d4d0ef25034d99a5e314dc06f9d",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_05",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_05",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "51770857ad972821b49f39eb21e5a62f19558d4d0ef25034d99a5e314dc06f9d",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_06",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_06",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "d0f4b7419640cb0f09a727de186d95e55bb353b16552918e9d407f39d2f0a3e8",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "a99614fc99ec58e31a570522193a150d4996abf01028f2dad9e48cd37c4c1187",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_06",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_06",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "a99614fc99ec58e31a570522193a150d4996abf01028f2dad9e48cd37c4c1187",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_07",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_07",
+        "harness_source_path": "contracts/L1/L1ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ScrollMessenger.sol",
+        "source_sha256": "1b1842d943c0e8919b863c04c90ca1ad5f54c9fe3517572cd0cc292ff0f2dd8e",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "35bff72e0979532e4ddd53e7f990a91e5ce69e69a96663a33ccbca82aa9529cc",
+        "upstream_source_path": "src/L1/L1ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_07",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_07",
+        "harness_source_path": "contracts/L1/L1ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ScrollMessenger.sol",
+        "source_sha256": "5679ae856fbb77ba1ddd89f6485a0bb2c9e2bb8d9fcb3327b0f992cc9f3bee2e",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "35bff72e0979532e4ddd53e7f990a91e5ce69e69a96663a33ccbca82aa9529cc",
+        "upstream_source_path": "src/L1/L1ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_08",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_08",
+        "harness_source_path": "contracts/L1/L1ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ScrollMessenger.sol",
+        "source_sha256": "5def3399dfa4635d517090ed6a2c4cdd6d05c3208d55803e882457f58d5f4892",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "35bff72e0979532e4ddd53e7f990a91e5ce69e69a96663a33ccbca82aa9529cc",
+        "upstream_source_path": "src/L1/L1ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_08",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_08",
+        "harness_source_path": "contracts/L1/L1ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1ScrollMessenger.sol",
+        "source_sha256": "5679ae856fbb77ba1ddd89f6485a0bb2c9e2bb8d9fcb3327b0f992cc9f3bee2e",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "35bff72e0979532e4ddd53e7f990a91e5ce69e69a96663a33ccbca82aa9529cc",
+        "upstream_source_path": "src/L1/L1ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_09",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_09",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "44869463ceb462bd91c35ba94dda7655afe3fb8ff9eaba8656daae2703bad8cc",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "3d232de46eec48186058d393b8ae3ad76267a30d4c970769ac7fe69051ce9969",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_09",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_09",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "3d232de46eec48186058d393b8ae3ad76267a30d4c970769ac7fe69051ce9969",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_mut_10",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_mut_10",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "96acee9d607d4aabecda63b361b551f4a2ea2c90fef7dd770ff85b68671e3937",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "0718c3d860dbfb0bff6782044f97078e32f0016978b1d5ce817327171cb3ec4a",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_scroll_ctrl_10",
+      "lineage_id": "scroll",
+      "source_case_identity": {
+        "case_id": "eval_scroll_ctrl_10",
+        "harness_source_path": "contracts/L2/L2ScrollMessenger.sol",
+        "lineage_id": "scroll",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L2ScrollMessenger.sol",
+        "source_sha256": "7b4ff349de0822248b5ea2ffdcf0ada14bfaccd7cf572cd5986bc7a7da488f30",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "0718c3d860dbfb0bff6782044f97078e32f0016978b1d5ce817327171cb3ec4a",
+        "upstream_source_path": "src/L2/L2ScrollMessenger.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_01",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_01",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "135d7cdc063c507b39fb8f36e9986a07d2557aeafab54dad520623ab5937ef36",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "75b32b8da57a28f1aeb85fcebcde963a982f9aada63e9c4264b0e6a22c973136",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_01",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_01",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "8f1d702d66d33c7307f6159dc542f58cb609384325155f1e29b939e20a351d24",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "75b32b8da57a28f1aeb85fcebcde963a982f9aada63e9c4264b0e6a22c973136",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_02",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_02",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "a90c6536dbd4a48ea5c85c5471217d703b3b2eecf83de950bc1d6db0c92e3646",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_02",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_02",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "8f1d702d66d33c7307f6159dc542f58cb609384325155f1e29b939e20a351d24",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_03",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_03",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "b40e72542dd879bfc9ab9a5c637afc3e7dcc3465ecde0310746df341363cf16d",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_03",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_03",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "8f1d702d66d33c7307f6159dc542f58cb609384325155f1e29b939e20a351d24",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_04",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_04",
+        "harness_source_path": "contracts/LineaRollup.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/LineaRollup.sol",
+        "source_sha256": "2af7bfb79fcd7d6f0bd89b118776a57abf57c361b10b19cbcd50cac2f3ace7be",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "4c5dc53a2bfe527ea1330339b2e43267b96c440ce9b42c64f27e611136a791e9",
+        "upstream_source_path": "contracts/LineaRollup.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_04",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_04",
+        "harness_source_path": "contracts/LineaRollup.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/LineaRollup.sol",
+        "source_sha256": "bed29bc4e9873129c7a68b4a515e83906125440d349128084ab2902fc9c34a3f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "4c5dc53a2bfe527ea1330339b2e43267b96c440ce9b42c64f27e611136a791e9",
+        "upstream_source_path": "contracts/LineaRollup.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_05",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_05",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "135d7cdc063c507b39fb8f36e9986a07d2557aeafab54dad520623ab5937ef36",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_05",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_05",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "8f1d702d66d33c7307f6159dc542f58cb609384325155f1e29b939e20a351d24",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_06",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_06",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "3a83b0ec9c221ba2ebf84802ac66f430e994794a3d6c4fcc371a44971f7db598",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c71d6fb62957a5d5819234ed6829b2a85793f8f029d63d5bb0d71ad9ef59a876",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_06",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_06",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "8f1d702d66d33c7307f6159dc542f58cb609384325155f1e29b939e20a351d24",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "c71d6fb62957a5d5819234ed6829b2a85793f8f029d63d5bb0d71ad9ef59a876",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_07",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_07",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "122df74cacf4cedc3bbabc617d7b7fab979df04278c681cd4afc2174a3828b00",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "62bc74ce5d40425fef41068094383e183051d1532bc390a9f14f908864238d5a",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_07",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_07",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "8f1d702d66d33c7307f6159dc542f58cb609384325155f1e29b939e20a351d24",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "62bc74ce5d40425fef41068094383e183051d1532bc390a9f14f908864238d5a",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_08",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_08",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "cf68d7b71822a7ebd9fbc5dec04f109e830bec373df0dff6a9c27d5d940675e6",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_08",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_08",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "8f1d702d66d33c7307f6159dc542f58cb609384325155f1e29b939e20a351d24",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_09",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_09",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "350576f43e83e1c3952c383647f67858300f04527bf351f7f23e0a4a2d077fdd",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_09",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_09",
+        "harness_source_path": "contracts/messageService/l1/L1MessageService.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/L1MessageService.sol",
+        "source_sha256": "8f1d702d66d33c7307f6159dc542f58cb609384325155f1e29b939e20a351d24",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "96efcfdbfd0af75f3920151c4bdde9636389966b2bcbabe89fef5e891a8740ec",
+        "upstream_source_path": "contracts/messageService/l1/L1MessageService.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_mut_10",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_mut_10",
+        "harness_source_path": "contracts/LineaRollup.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/LineaRollup.sol",
+        "source_sha256": "d2318593a47a2905694b606d0c4156236eaba355480c76266ec439614fc8bde3",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "643aa74577231291fadf3d5f24d9c7e9474508e31e121991bf82b72f07b8efe9",
+        "upstream_source_path": "contracts/LineaRollup.sol"
+      },
+      "status": "pass"
+    },
+    {
+      "case_id": "eval_linea_ctrl_10",
+      "lineage_id": "linea",
+      "source_case_identity": {
+        "case_id": "eval_linea_ctrl_10",
+        "harness_source_path": "contracts/LineaRollup.sol",
+        "lineage_id": "linea",
+        "record_type": "source_case_identity",
+        "schema_version": 1,
+        "source_path": "runtime/source/LineaRollup.sol",
+        "source_sha256": "bed29bc4e9873129c7a68b4a515e83906125440d349128084ab2902fc9c34a3f",
+        "split": "evaluation",
+        "test_path": "runtime/test/ReplayEvidence.t.sol",
+        "test_sha256": "643aa74577231291fadf3d5f24d9c7e9474508e31e121991bf82b72f07b8efe9",
+        "upstream_source_path": "contracts/LineaRollup.sol"
+      },
+      "status": "pass"
+    }
+  ],
+  "failed_cases": 0,
+  "gold_fields_read": false,
+  "manifest_path": "benchmark.public.jsonl",
+  "manifest_sha256": "af39197f4552f351da767395a5372cb4a47602e6a0a44987404c322c87c743ee",
+  "observed_at": "2026-09-12T13:12:59.061219Z",
+  "passed_cases": 240,
+  "record_type": "source_case_workspace_validation",
+  "report_sha256": "4ec4255e8735c3b74adeb71c7737c529f97d5499daef0009c20694f7bd4112cb",
+  "schema_version": 1,
+  "scope": "public_source_test_receipts_only",
+  "status": "pass"
+}
