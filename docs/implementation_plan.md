@@ -492,7 +492,7 @@ Phụ thuộc: M03, Phase A–B. Đầu ra: `src/crossllm/methods/t0.py`, `confi
 - [x] **V11.32** Implement template generator có thứ tự ổn định, giới hạn 8 slots, canonical XLIR compile và abstain khi không ground được trong `src/crossllm/methods/t0.py`.
 - [x] **V11.33** Không đọc gold property, mutation diff, trigger, private trace hoặc model archive khi sinh T0 proposal; input guard từ chối cả `property_oracle`.
 - [x] **V11.34** Ghi template library hash, generator revision, selected template IDs và candidate hashes trong `T0ProposalRun`/`MethodRun`.
-- [ ] **V11.35** Cho T0 dùng đúng runtime adapter, search bounds, witness checker, replay adapter và analysis exporter của X/P. T0 đã xuất cùng `MethodRun`/XLIR input và đã được adapter smoke-test; search/witness/replay chung vẫn chưa nối.
+- [x] **V11.35** Cho T0 dùng đúng runtime adapter, search bounds, witness checker, replay adapter và analysis exporter của X/P. `verify_method_run()`/`verify_method_campaign()` chuyển T0 `MethodRun` vào cùng pipeline, giữ cùng bounds/cache/metrics contract; test fixture đã chạy đủ grounding → symbolic search → witness check → independent replay và tạo Recall@1. Source-backed EVM executor vẫn là phạm vi V11.16–V11.20, không được suy diễn từ fixture test.
 - [x] **V11.36** Test cùng public pack sinh cùng 8-slot output trên nhiều process/máy; test không gọi Ollama, không đọc secret và không phụ thuộc thời gian. Evidence: `tests/unit/test_t0_proposer.py`.
 - [ ] **V11.37** Chạy ablation learned proposer vs T0 trên cùng cases, prefixes và denominators; ghi rõ T0 có thể abstain.
 
