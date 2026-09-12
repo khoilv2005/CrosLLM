@@ -30,6 +30,8 @@ from .records import StageResult, StageStatus
 
 _HEX64 = re.compile(r"^[0-9a-f]{64}$")
 _DIGEST_REF = re.compile(r"@sha256:[0-9a-fA-F]{64}$")
+_SELECTOR = re.compile(r"^0x[0-9a-fA-F]{8}$")
+_CALLDATA = re.compile(r"^0x(?:[0-9a-fA-F]{2})*$")
 
 
 @dataclass(frozen=True, slots=True)
@@ -330,10 +332,23 @@ def _validate_source_witness(value: object, plan: RuntimeCandidatePlan) -> str |
         return "source_witness_invalid_identity"
     if not isinstance(value["actions"], list) or any(not isinstance(action, Mapping) for action in value["actions"]):
         return "source_witness_invalid_actions"
-    action_fields = ("action_id", "caller", "calldata", "domain", "contract", "selector")
+    action_fields = ("action_id", "caller", "caller_role", "calldata", "domain", "contract", "selector")
+    raw_bindings = request.get("actions", [])
+    allowed_bindings = {
+        tuple(str(action.get(field)) for field in ("action_id", "caller_role", "domain", "contract", "selector"))
+        for action in raw_bindings
+        if isinstance(action, Mapping)
+    }
     for action in value["actions"]:
         if any(not isinstance(action.get(field), str) or not action[field] for field in action_fields):
             return "source_witness_action_missing_runtime_fields"
+        if not _CALLDATA.fullmatch(action["calldata"]):
+            return "source_witness_invalid_calldata"
+        if not _SELECTOR.fullmatch(action["selector"]):
+            return "source_witness_invalid_selector"
+        binding = tuple(action[field] for field in ("action_id", "caller_role", "domain", "contract", "selector"))
+        if binding not in allowed_bindings:
+            return "source_witness_action_binding_mismatch"
     if not isinstance(value["observations"], (list, Mapping)):
         return "source_witness_invalid_observations"
     if not isinstance(value["domains"], list) or any(not isinstance(domain, str) or not domain for domain in value["domains"]):

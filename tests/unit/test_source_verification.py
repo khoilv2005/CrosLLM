@@ -78,11 +78,11 @@ class SourceVerificationExecutorTests(unittest.TestCase):
         root, lineage, case, candidate = self._setup()
         search_code = (
             "import json,sys; r=json.load(open(sys.argv[1])); "
-            "w={'witness_id':'w1','query_id':'q1','runtime_hash':r['runtime_hash'],"
+            "a=r['actions'][0]; w={'witness_id':'w1','query_id':'q1','runtime_hash':r['runtime_hash'],"
             "'artifact_hash':r['artifact_hash'],'deployment_hash':r['deployment_hash'],"
             "'canonical_ast_hash':r['canonical_ast_hash'],'initial_state_hash':r['initial_state_hash'],"
-            "'trace_hash':'f'*64,'actions':[{'action_id':'a1','caller':'user','calldata':'0x',"
-            "'domain':'DomainA','contract':'Bridge','selector':'0xd0e30db0'}],"
+            "'trace_hash':'f'*64,'actions':[{'action_id':a['action_id'],'caller':'user','caller_role':a['caller_role'],"
+            "'calldata':'0x','domain':a['domain'],'contract':a['contract'],'selector':a['selector']}],"
             "'domains':['DomainA','DomainB'],'observations':[]}; "
             "print(json.dumps({'status':'sat','complete':True,'candidate_violation':True,'witness':w}))"
         )
@@ -114,11 +114,11 @@ class SourceVerificationExecutorTests(unittest.TestCase):
         root, lineage, case, candidate = self._setup()
         search_code = (
             "import json,sys; r=json.load(open(sys.argv[1])); "
-            "w={'witness_id':'w1','query_id':'q1','runtime_hash':r['runtime_hash'],"
+            "a=r['actions'][0]; w={'witness_id':'w1','query_id':'q1','runtime_hash':r['runtime_hash'],"
             "'artifact_hash':r['artifact_hash'],'deployment_hash':r['deployment_hash'],"
             "'canonical_ast_hash':r['canonical_ast_hash'],'initial_state_hash':r['initial_state_hash'],"
-            "'trace_hash':'f'*64,'actions':[{'action_id':'a1','caller':'user','calldata':'0x',"
-            "'domain':'DomainA','contract':'Bridge','selector':'0xd0e30db0'}],"
+            "'trace_hash':'f'*64,'actions':[{'action_id':a['action_id'],'caller':'user','caller_role':a['caller_role'],"
+            "'calldata':'0x','domain':a['domain'],'contract':a['contract'],'selector':a['selector']}],"
             "'domains':['DomainA'],'observations':[]}; "
             "print(json.dumps({'status':'sat','complete':True,'candidate_violation':True,'witness':w}))"
         )
@@ -157,6 +157,51 @@ class SourceVerificationExecutorTests(unittest.TestCase):
         self.assertEqual(outcome.stage_status("symbolic_search"), StageStatus.TIMEOUT)
         self.assertEqual(outcome.stage_status("witness_check"), StageStatus.NOT_APPLICABLE)
         self.assertIsNone(outcome.verified_finding)
+
+    def test_source_witness_rejects_wrong_caller_and_invalid_calldata(self) -> None:
+        root, lineage, case, candidate = self._setup()
+
+        def run_bad_search(caller_role: str, calldata: str):
+            search_code = (
+                "import json,sys; r=json.load(open(sys.argv[1])); a=r['actions'][0]; "
+                "w={'witness_id':'w1','query_id':'q1','runtime_hash':r['runtime_hash'],"
+                "'artifact_hash':r['artifact_hash'],'deployment_hash':r['deployment_hash'],"
+                "'canonical_ast_hash':r['canonical_ast_hash'],'initial_state_hash':r['initial_state_hash'],"
+                "'trace_hash':'f'*64,'actions':[{'action_id':a['action_id'],'caller':'user',"
+                + f"'caller_role':{caller_role!r},'calldata':{calldata!r},"
+                + "'domain':a['domain'],'contract':a['contract'],'selector':a['selector']}],"
+                "'domains':['DomainA'],'observations':[]}; "
+                "print(json.dumps({'status':'sat','complete':True,'candidate_violation':True,'witness':w}))"
+            )
+            with SourceBackedVerificationExecutors(
+                search=self._command(root, "source-search", search_code),
+                witness=self._command(root, "source-witness", "import json; print(json.dumps({'status':'unsupported'}))", include_witness=True),
+                replay=self._replay("import json; print(json.dumps({'status':'unsupported'}))", root),
+                replay_workdir=root,
+            ) as external:
+                return SharedVerificationPipeline(
+                    case, public_xlir_symbols(root, lineage), executors=external.executors(),
+                ).verify(candidate)
+
+        invalid_calldata = run_bad_search("user", "0x0")
+        self.assertEqual(invalid_calldata.stage_status("symbolic_search"), StageStatus.UNKNOWN)
+        self.assertEqual(invalid_calldata.first_failure, "symbolic_search")
+        wrong_caller = run_bad_search("attacker", "0x00")
+        self.assertEqual(wrong_caller.stage_status("symbolic_search"), StageStatus.UNKNOWN)
+
+    def test_source_unsupported_backend_status_is_preserved(self) -> None:
+        root, lineage, case, candidate = self._setup()
+        with SourceBackedVerificationExecutors(
+            search=self._command(root, "source-search", "import json; print(json.dumps({'status':'unsupported','complete':False}))"),
+            witness=self._command(root, "source-witness", "import json; print(json.dumps({'status':'unsupported'}))", include_witness=True),
+            replay=self._replay("import json; print(json.dumps({'status':'unsupported'}))", root),
+            replay_workdir=root,
+        ) as external:
+            outcome = SharedVerificationPipeline(
+                case, public_xlir_symbols(root, lineage), executors=external.executors(),
+            ).verify(candidate)
+        self.assertEqual(outcome.stage_status("symbolic_search"), StageStatus.UNSUPPORTED)
+        self.assertEqual(outcome.first_failure, "symbolic_search")
 
 
 if __name__ == "__main__":

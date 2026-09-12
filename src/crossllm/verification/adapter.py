@@ -157,6 +157,9 @@ class RuntimeCandidateAdapter:
             "artifact_hash": self.case.runtime.source_artifact_hash,
             "deployment_hash": self.case.runtime.deployment_hash,
             "initial_state_hash": sha256_hex(self.case.runtime.initial_state),
+            "source_domain": self.case.runtime.source_domain,
+            "destination_domain": self.case.runtime.destination_domain,
+            "actors": dict(self.case.runtime.actors),
             "initial_state": dict(self.case.runtime.initial_state),
         }
         status = AdapterStatus.READY if not self.case.missing_fields and all(action.executable for action in bound_actions) else AdapterStatus.GROUNDED
