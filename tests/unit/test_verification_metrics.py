@@ -43,7 +43,7 @@ def _outcome(candidate: CandidateInput, verified: bool | None, *, timeout: bool 
         candidate=candidate,
         stages=statuses,
         candidate_violation=True if verified else None,
-        property_holds=True if verified else None,
+        property_holds=False if verified else None,
         security_relevance=True if verified else None,
         verified_finding=verified,
         first_failure="symbolic_search" if timeout else None,

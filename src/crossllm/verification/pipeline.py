@@ -97,7 +97,15 @@ class SharedVerificationPipeline:
         all_required_passed = all(next(stage for stage in stages if stage.stage == name).status is StageStatus.PASSED for name in ("grounding", *self._DOWNSTREAM))
         verified: bool | None = None
         if all_required_passed:
-            verified = all(values[field] is True for field in values)
+            # ``property_holds`` is the concrete evaluator's truth value.  A
+            # finding requires a witnessed violation, so the expected tuple is
+            # candidate_violation=true, property_holds=false and
+            # security_relevance=true.
+            verified = (
+                values["candidate_violation"] is True
+                and values["property_holds"] is False
+                and values["security_relevance"] is True
+            )
         outcome = VerificationOutcome(
             candidate=candidate,
             stages=tuple(stages),

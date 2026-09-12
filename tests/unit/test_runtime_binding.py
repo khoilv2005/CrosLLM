@@ -159,7 +159,7 @@ class RuntimeBindingTests(unittest.TestCase):
 
         executors = VerificationExecutors(
             symbolic_search=passed("symbolic_search"),
-            witness_check=passed("witness_check", {"candidate_violation": True, "property_holds": True}),
+            witness_check=passed("witness_check", {"candidate_violation": True, "property_holds": False}),
             independent_replay=passed("independent_replay", {"security_relevance": True}),
         )
         outcome = SharedVerificationPipeline(case, public_xlir_symbols(root, lineage), executors=executors).verify(self._candidate(lineage))

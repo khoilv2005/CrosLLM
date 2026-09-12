@@ -296,11 +296,18 @@ class VerificationOutcome:
         names = [stage.stage for stage in self.stages]
         if len(names) != len(set(names)):
             raise ValueError("verification stages must be unique per candidate")
-        if self.verified_finding is True and not all(
-            self.stage_status(name) is StageStatus.PASSED
-            for name in ("grounding", "symbolic_search", "witness_check", "independent_replay")
-        ):
-            raise ValueError("verified finding requires all required stages to pass")
+        if self.verified_finding is True:
+            if not all(
+                self.stage_status(name) is StageStatus.PASSED
+                for name in ("grounding", "symbolic_search", "witness_check", "independent_replay")
+            ):
+                raise ValueError("verified finding requires all required stages to pass")
+            if self.candidate_violation is not True:
+                raise ValueError("verified finding requires candidate_violation=true")
+            if self.property_holds is not False:
+                raise ValueError("verified finding requires property_holds=false")
+            if self.security_relevance is not True:
+                raise ValueError("verified finding requires security_relevance=true")
         if not isinstance(self.cache_hit, bool):
             raise ValueError("cache_hit must be boolean")
 
