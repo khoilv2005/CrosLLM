@@ -26,10 +26,10 @@ from crossllm.verification import (
     CampaignAvailability,
     CandidateInput,
     FileVerificationCache,
-    SharedVerificationPipeline,
     StageResult,
     StageStatus,
     VerificationOutcome,
+    verify_candidates,
     load_archives,
     public_xlir_symbols,
     load_case_runtime,
@@ -95,17 +95,17 @@ def run_archives(
                 cached_case = error
             case_cache[case_key] = cached_case
         candidates = archive.candidate_inputs()
-        outcomes: list[VerificationOutcome] = []
-        for candidate in candidates:
-            if isinstance(cached_case, Exception):
-                outcome = unavailable_outcome(candidate, "runtime_case_load_failure", cached_case)
-            else:
-                case, symbols = cached_case
-                pipeline = SharedVerificationPipeline(case, symbols, cache=cache)
-                outcome = pipeline.verify(candidate)
-            outcomes.append(outcome)
-            outcome_count += 1
-            verified_count += int(outcome.verified_finding is True)
+        outcomes: tuple[VerificationOutcome, ...]
+        if isinstance(cached_case, Exception):
+            outcomes = tuple(
+                unavailable_outcome(item, "runtime_case_load_failure", cached_case)
+                for item in candidates
+            )
+        else:
+            case, symbols = cached_case
+            outcomes = verify_candidates(candidates, case, symbols, cache=cache)
+        outcome_count += len(outcomes)
+        verified_count += sum(outcome.verified_finding is True for outcome in outcomes)
         availability, reason = classify_campaign_availability(archive, outcomes, cached_case)
         availability_counts[availability.value] = availability_counts.get(availability.value, 0) + 1
         output.append(campaign_envelope(archive, truth, property_family, availability, reason, outcomes))
