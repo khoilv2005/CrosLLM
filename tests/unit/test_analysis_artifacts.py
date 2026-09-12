@@ -46,6 +46,10 @@ class AnalysisArtifactTests(unittest.TestCase):
             self.assertEqual(payload["primary_inference"][0]["contrast"], "X-minus-P")
             self.assertEqual(len(payload["tables"]), 11)
 
+    def test_builder_preserves_paired_method_effects(self) -> None:
+        artifact = AnalysisArtifactBuilder().build(rows(), compare_methods=("X", "P"))
+        self.assertIn("X-minus-P", artifact.report.paired_effects)
+
     def test_bundle_writes_all_tables_and_hash_manifest(self) -> None:
         artifact = AnalysisArtifactBuilder().build(rows())
         with tempfile.TemporaryDirectory() as directory:

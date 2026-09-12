@@ -98,6 +98,7 @@ class AnalysisArtifactBuilder:
         *,
         primary_contrasts: Mapping[str, Mapping[str, float]] | None = None,
         secondary_contrasts: Mapping[str, Mapping[str, float]] | None = None,
+        compare_methods: tuple[str, str] | None = None,
         draws: int = 10_000,
         seed: int = 0,
         require_prespecified_families: bool = False,
@@ -105,7 +106,7 @@ class AnalysisArtifactBuilder:
         outcomes = tuple(row if isinstance(row, CampaignOutcome) else campaign_outcome_from_dict(row) for row in rows)
         canonical_rows = [_outcome_dict(row) for row in sorted(outcomes, key=_outcome_sort_key)]
         input_hash = sha256_hex(canonical_rows)
-        report = analyze_outcomes(outcomes)
+        report = analyze_outcomes(outcomes, compare_methods=compare_methods)
         primary_values = dict(primary_contrasts or {})
         secondary_values = dict(secondary_contrasts or {})
         if require_prespecified_families:
