@@ -1,0 +1,7 @@
+accelerate>=1.2
+bitsandbytes>=0.45
+huggingface_hub>=0.27
+safetensors>=0.5
+transformers>=4.57
+sentencepiece>=0.2
+tqdm>=4.67
